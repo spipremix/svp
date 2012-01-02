@@ -10,7 +10,7 @@ if (!defined('_SVP_VERSION_SPIP_MIN')) {
 }
 
 // -- Pour l'instant on ne connait pas la borne sup exacte
-if (!defined('_SVP_VERSION_SPIP_MIN')) {
+if (!defined('_SVP_VERSION_SPIP_MAX')) {
 	define('_SVP_VERSION_SPIP_MAX', '3.0.99');
 }
 
@@ -160,6 +160,16 @@ function compiler_branches_spip($intervalle) {
 
 	// On force l'initialisation des bornes et on les nettoie des suffixes d'etat
 	$bornes = extraire_bornes($intervalle, true);
+	// Si les bornes sont en dehors de l'intervalle [_SVP_VERSION_SPIP_MIN;_SVP_VERSION_SPIP_MAX] on le reduit
+	if (spip_version_compare($bornes['min']['valeur'], _SVP_VERSION_SPIP_MIN, '<')) {
+		$bornes['min']['valeur'] = _SVP_VERSION_SPIP_MIN;
+		$bornes['min']['incluse'] = true;
+	}
+	if (spip_version_compare($bornes['max']['valeur'], _SVP_VERSION_SPIP_MAX, '>')) {
+		$bornes['max']['valeur'] = _SVP_VERSION_SPIP_MAX;
+		$bornes['max']['incluse'] = true;
+	}
+	// On les nettoie des suffixes d'etat
 	$borne_inf = strtolower(preg_replace(',([0-9])[\s-.]?(dev|alpha|a|beta|b|rc|pl|p),i','\\1',$bornes['min']['valeur']));
 	$borne_sup = strtolower(preg_replace(',([0-9])[\s-.]?(dev|alpha|a|beta|b|rc|pl|p),i','\\1',$bornes['max']['valeur']));
 
@@ -182,8 +192,6 @@ function compiler_branches_spip($intervalle) {
 	}
 	
 	// -- on initialise la branche sup de l'intervalle que l'on va preciser ensuite
-	// HACK !!!!! on traite le cas particulier 3.1.0 tant que 3.0.* n'est pas utilisable
-	$borne_sup = $borne_sup=='3.1.0' ? _SVP_VERSION_SPIP_MAX : $borne_sup;
 	$t = explode('.', $borne_sup);
 	$branche_sup = $t[0] . '.' . $t[1];
 	// -- pour eviter toutes erreur fatale on verifie que la branche est bien dans la liste des possibles
