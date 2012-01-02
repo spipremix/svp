@@ -51,8 +51,8 @@ function svp_afficher_dependances($balise_serialisee, $dependance='necessite', $
 					// Cas ou le plugin n'est pas encore dans la base SVP.
 					// On affiche son préfixe, cependant ce n'est pas un affichage devant perdurer
 					$logiciel = $_plugin['nom'];
-				$intervalle = svp_afficher_intervalle($_plugin['version'], $logiciel);
-				$texte .= ($intervalle) ? svp_afficher_intervalle($_plugin['version'], $logiciel) : $logiciel;
+				$intervalle = svp_afficher_intervalle($_plugin['compatibilite'], $logiciel);
+				$texte .= ($intervalle) ? svp_afficher_intervalle($_plugin['compatibilite'], $logiciel) : $logiciel;
 			}
 			else
 				// On demande l'affichage des librairies
