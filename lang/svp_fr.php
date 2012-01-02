@@ -59,8 +59,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 		Le mode runtime (oui) ne charge que les plugins compatibles avec la version courante de votre SPIP,
 		ce qui est fortement conseillé pour la plupart des usages.
 		
-		En mode non runtime (non), tous les plugins d\'un dépot sont chargés,
-		quelque soit la version du SPIP en cours. Cela est uniquement utile pour
+		En mode non runtime (non), tous les plugins d\'un dépôt sont chargés,
+		quelle que soit la version du SPIP en cours. Cela est uniquement utile pour
 		utiliser SVP afin de présenter tous les plugins existants comme le fait
 		le site Plugins SPIP (plugins.spip.net)',
 	'config_activer_pas_a_pas' => 'Activer le mode pas à pas&nbsp;?',
@@ -72,10 +72,10 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'config_autoriser_activer_paquets_obsoletes' => 'Autoriser l\'activation des paquets obsolètes&nbsp;?',
 	'config_autoriser_activer_paquets_obsoletes_explication' => 'Les paquets obsolètes sont des paquets
 		locaux présents qui sont plus anciens que d\'autres paquets locaux. L\'obsolescence
-		est comparée sur la base de l\'état (stable, test, dev) du paquet ainsi que sur la
+		est établie sur la base de l\'état (stable, test, dev) du paquet ainsi que sur la
 		base de sa version.
 
-		Activez cette option si vous souhaitez pouvoir malgré tout activer ces plugins obsolètes.
+		Activez cette option si vous souhaitez malgré tout pouvoir activer ces plugins obsolètes.
 		',
 // E
 	'erreur_actions_non_traitees' => 'Certaines actions n\'ont pas été réalisées.
@@ -86,7 +86,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'erreur_teleporter_destination_erreur' => 'Répertoire @dir@ non accessible pour téléporter',
 	'erreur_teleporter_echec_deballage_archive' => 'Impossible de déballer @fichier@',
 	'erreur_teleporter_format_archive_non_supporte' => 'Le format @extension@ n\'est pas supporté par le téléporteur',
-	'erreur_teleporter_methode_inconue' => 'Methode @methode@ inconnue pour téléporter',
+	'erreur_teleporter_methode_inconue' => 'Méthode @methode@ inconnue pour téléporter',
 	'erreur_teleporter_type_fichier_inconnu' => 'Type de fichier inconnu pour la source @source@',
 	'erreur_dir_dib_ecriture' => 'Le répertoire des bibliothèques @dir@ n\'est pas accessible en écriture. Impossible d\'y charger une bibliothèque !',
 	'erreur_dir_dib_indefini' => 'Le répertoire _DIR_LIB n\'est pas défini. Impossible d\'y charger une bibliothèque !',
@@ -110,7 +110,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_admin_plugin_verrou_tous' => 'Cette page liste tous les plugins du site.',
 	'info_adresse_spipzone' => 'SPIP-Zone - Plugins',
 	'info_ajouter_depot' => 'En ajoutant des dépôts à votre base, vous aurez la possiblité d\'obtenir des informations et d\'effectuer des recherches sur tous les paquets hébergés par les dépôts ajoutés.<br />Un dépôt est décrit par un fichier XML contenant les informations sur le dépôt et sur tous ses paquets.',
-	'info_aucun_depot_ajoute' => 'Aucun dépôt disponible !<br /> Utilisez le formulaire ci-dessous pour ajouter le dépôt «SPIP-Zone - Plugins» dont l\'url est déjà pré-remplie ou un autre dépot de votre choix.',
+	'info_aucun_depot_ajoute' => 'Aucun dépôt disponible !<br /> Utilisez le formulaire ci-dessous pour ajouter le dépôt «SPIP-Zone - Plugins» dont l\'url est déjà pré-remplie ou un autre dépôt de votre choix.',
 	'info_aucun_depot' => 'aucun dépôt',
 	'info_aucun_paquet' => 'aucun paquet',
 	'info_aucun_plugin' => 'aucun plugin',
