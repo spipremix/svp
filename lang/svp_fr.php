@@ -201,6 +201,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_action_finale_stop_ok' => 'La désinstallation du plugin « @plugin@ » (version : @version@) s\'est correctement déroulée',
 	'message_action_finale_up_fail' => 'La mise à jour du plugin « @plugin@ » (de la version : @version@ à @version_maj@) ne s\'est pas correctement déroulée',
 	'message_action_finale_up_ok' => 'La mise à jour du plugin « @plugin@ » (de la version : @version@ à @version_maj@) s\'est correctement déroulée',
+	'message_action_finale_upon_fail' => 'La mise à jour et l\'activation du plugin « @plugin@ » (de la version : @version@ à @version_maj@) ne se sont pas correctement déroulés',
+	'message_action_finale_upon_ok' => 'La mise à jour et l\'activation du plugin « @plugin@ » (de la version : @version@ à @version_maj@) se sont correctement déroulés',
 	'message_action_finale_getlib_fail' => 'L\'installation de la bibliothèque « @plugin@ » a échoué',
 	'message_action_finale_getlib_ok' => 'La bibliothèque « @plugin@ » a été installée',
 
