@@ -386,7 +386,8 @@ function svp_base_actualiser_paquets_actifs() {
 function svp_compiler_multis($prefixe, $dir_source) {
 
 	$multis =array();
-
+	// ici on cherche le fichier et les cles avec un prefixe en minuscule systematiquement...
+	$prefixe = strtolower($prefixe);
 	$module = "paquet-$prefixe";
 	$item_nom = $prefixe . "_nom";
 	$item_slogan = $prefixe . "_slogan";
