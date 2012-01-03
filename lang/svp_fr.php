@@ -1,13 +1,11 @@
 <?php
-
-// Ceci est un fichier langue de SPIP -- This is a SPIP language file
-// Module: svp
-// Langue: fr
-
+// This is a SPIP language file  --  Ceci est un fichier langue de SPIP
+// Fichier source, a modifier dans svn://zone.spip.org/spip-zone/_core_/plugins/svp/lang/
 if (!defined('_ECRIRE_INC_VERSION')) return;
 
 $GLOBALS[$GLOBALS['idx_lang']] = array(
-// A
+
+	// A
 	'action_patienter' => 'Les actions sont en cours de traitement. Veuillez patienter...',
 	'actions_a_faire' => 'Actions à traiter',
 	'actions_demandees' => 'Actions demandées :',
@@ -15,15 +13,15 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'actions_necessaires' => 'Les actions supplémentaires suivantes seront effectuées :',
 	'actions_non_traitees' => 'Actions non réalisées',
 	'actions_realises' => 'Actions réalisées',
-	
-// B
+
+	// B
 	'bouton_activer' => 'Activer',
 	'bouton_actualiser' => 'Actualiser',
 	'bouton_actualiser_tout' => 'Actualiser les dépôts',
 	'bouton_appliquer' => 'Appliquer',
-	'bouton_installer' => 'Télécharger et activer',
 	'bouton_desactiver' => 'Désactiver',
 	'bouton_desinstaller' => 'Désinstaller',
+	'bouton_installer' => 'Télécharger et activer',
 	'bouton_modifier_depot' => 'Modifier le dépôt',
 	'bouton_supprimer' => 'Supprimer',
 	'bouton_up' => 'Mettre à jour',
@@ -39,7 +37,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'bulle_telecharger_fichier_depot' => 'Télécharger le fichier XML du dépôt',
 	'bulle_telecharger_librairie' => 'Télécharger la bibliothèque',
 
-// C
+	// C
 	'categorie_aucune' => 'Sans catégorie',
 	'categorie_auteur' => 'Authentification, auteur, autorisation',
 	'categorie_communication' => 'Communication, interactivité, messagerie',
@@ -54,7 +52,13 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'categorie_squelette' => 'Squelette',
 	'categorie_statistique' => 'Référencement, statistiques',
 	'categorie_theme' => 'Thème',
-	'config_activer_runtime' => 'Activer le mode runtime&nbsp;?',
+	'config_activer_log_verbeux' => 'Activer les logs verbeux ?',
+	'config_activer_log_verbeux_explication' => 'Cette option rend les logs de SVP beaucoup plus locaces…',
+	'config_activer_pas_a_pas' => 'Activer le mode pas à pas ?',
+	'config_activer_pas_a_pas_explication' => 'Activer ce mode permet d\'afficher un bilan
+		après chaque action réalisée, au lieu d\'avoir uniquement un bilan global
+		de toutes les actions effectuées à la fin des traitements.',
+	'config_activer_runtime' => 'Activer le mode runtime ?',
 	'config_activer_runtime_explication' => '
 		Le mode runtime (oui) ne charge que les plugins compatibles avec la version courante de votre SPIP,
 		ce qui est fortement conseillé pour la plupart des usages.
@@ -63,13 +67,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 		quelle que soit la version du SPIP en cours. Cela est uniquement utile pour
 		utiliser SVP afin de présenter tous les plugins existants comme le fait
 		le site Plugins SPIP (plugins.spip.net)',
-	'config_activer_pas_a_pas' => 'Activer le mode pas à pas&nbsp;?',
-	'config_activer_pas_a_pas_explication' => "Activer ce mode permet d'afficher un bilan
-		après chaque action réalisée, au lieu d'avoir uniquement un bilan global
-		de toutes les actions effectuées à la fin des traitements.",
-	'config_activer_log_verbeux' => 'Activer les logs verbeux&nbsp;?',
-	'config_activer_log_verbeux_explication' => 'Cette option rend les logs de SVP beaucoup plus locaces…',
-	'config_autoriser_activer_paquets_obsoletes' => 'Autoriser l\'activation des paquets obsolètes&nbsp;?',
+	'config_autoriser_activer_paquets_obsoletes' => 'Autoriser l\'activation des paquets obsolètes ?',
 	'config_autoriser_activer_paquets_obsoletes_explication' => 'Les paquets obsolètes sont des paquets
 		locaux présents qui sont plus anciens que d\'autres paquets locaux. L\'obsolescence
 		est établie sur la base de l\'état (stable, test, dev) du paquet ainsi que sur la
@@ -77,41 +75,41 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 		Activez cette option si vous souhaitez malgré tout pouvoir activer ces plugins obsolètes.
 		',
-// E
+
+	// E
 	'erreur_actions_non_traitees' => 'Certaines actions n\'ont pas été réalisées.
 			Cela peut provenir d\'une erreur lors des actions à réaliser, ou d\'un affichage de cette page
 			alors que des actions sont encore en cours. Les actions avaient été lancées par @auteur@ le @date@.',
-	
+	'erreur_dir_dib_ecriture' => 'Le répertoire des bibliothèques @dir@ n\'est pas accessible en écriture. Impossible d\'y charger une bibliothèque !',
+	'erreur_dir_dib_indefini' => 'Le répertoire _DIR_LIB n\'est pas défini. Impossible d\'y charger une bibliothèque !',
+	'erreur_dir_plugins_auto_ecriture' => 'Le répertoire de paquets @dir@ n\'est pas accessible en écriture. Impossible d\'y charger un paquet !',
+	'erreur_dir_plugins_auto_indefini' => 'Le répertoire _DIR_PLUGIN_AUTO n\'est pas défini. Impossible d\'y charger un paquet !',
 	'erreur_teleporter_chargement_source_impossible' => 'Chargement impossible de la source @source@',
 	'erreur_teleporter_destination_erreur' => 'Répertoire @dir@ non accessible pour téléporter',
 	'erreur_teleporter_echec_deballage_archive' => 'Impossible de déballer @fichier@',
 	'erreur_teleporter_format_archive_non_supporte' => 'Le format @extension@ n\'est pas supporté par le téléporteur',
 	'erreur_teleporter_methode_inconue' => 'Méthode @methode@ inconnue pour téléporter',
 	'erreur_teleporter_type_fichier_inconnu' => 'Type de fichier inconnu pour la source @source@',
-	'erreur_dir_dib_ecriture' => 'Le répertoire des bibliothèques @dir@ n\'est pas accessible en écriture. Impossible d\'y charger une bibliothèque !',
-	'erreur_dir_dib_indefini' => 'Le répertoire _DIR_LIB n\'est pas défini. Impossible d\'y charger une bibliothèque !',
-	'erreur_dir_plugins_auto_ecriture' => 'Le répertoire de paquets @dir@ n\'est pas accessible en écriture. Impossible d\'y charger un paquet !',
-	'erreur_dir_plugins_auto_indefini' => 'Le répertoire _DIR_PLUGIN_AUTO n\'est pas défini. Impossible d\'y charger un paquet !',
 
-// F
-	'fieldset_fonctionnement' => 'Fonctionnement',
+	// F
 	'fieldset_debug' => 'Débug',
+	'fieldset_fonctionnement' => 'Fonctionnement',
 
-// I
+	// I
 	'info_1_depot' => '1 dépôt',
 	'info_1_paquet' => '1 paquet',
 	'info_1_plugin' => '1 plugin',
-	'info_admin_plugin_verrouille' => 'Cette page liste les plugins verrouillés du site. Ces plugins sont forcément actifs. Aucune action n\'est possible à partir de cette interface.',
 	'info_admin_plugin_actif_non_verrou_non' => 'Cette page liste les plugins non actifs du site. Ces plugins sont forcément non verrouillés.',
 	'info_admin_plugin_actif_non_verrou_tous' => 'Cette page liste les plugins non actifs du site. Ces plugins sont forcément non verrouillés.',
 	'info_admin_plugin_actif_oui_verrou_non' => 'Cette page liste les plugins actifs et non verrouillés du site.',
 	'info_admin_plugin_actif_oui_verrou_tous' => 'Cette page liste tous les plugins actifs du site, verrouillés ou pas.',
 	'info_admin_plugin_verrou_non' => 'Cette page liste tous les plugins non verrouillés du site, actifs ou pas.',
 	'info_admin_plugin_verrou_tous' => 'Cette page liste tous les plugins du site.',
+	'info_admin_plugin_verrouille' => 'Cette page liste les plugins verrouillés du site. Ces plugins sont forcément actifs. Aucune action n\'est possible à partir de cette interface.',
 	'info_adresse_spipzone' => 'SPIP-Zone - Plugins',
 	'info_ajouter_depot' => 'En ajoutant des dépôts à votre base, vous aurez la possiblité d\'obtenir des informations et d\'effectuer des recherches sur tous les paquets hébergés par les dépôts ajoutés.<br />Un dépôt est décrit par un fichier XML contenant les informations sur le dépôt et sur tous ses paquets.',
-	'info_aucun_depot_ajoute' => 'Aucun dépôt disponible !<br /> Utilisez le formulaire ci-dessous pour ajouter le dépôt «SPIP-Zone - Plugins» dont l\'url est déjà pré-remplie ou un autre dépôt de votre choix.',
 	'info_aucun_depot' => 'aucun dépôt',
+	'info_aucun_depot_ajoute' => 'Aucun dépôt disponible !<br /> Utilisez le formulaire ci-dessous pour ajouter le dépôt «SPIP-Zone - Plugins» dont l\'url est déjà pré-remplie ou un autre dépôt de votre choix.',
 	'info_aucun_paquet' => 'aucun paquet',
 	'info_aucun_plugin' => 'aucun plugin',
 	'info_boite_charger_plugin' => '<strong>Cette page est uniquement accessible aux webmestres du site.</strong><p>Elle vous permet de rechercher des plugins mis à disposition par les dépôts enregistrés dans votre configuration et de les installer physiquement sur votre serveur</p>',
@@ -126,9 +124,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_nb_paquets' => '@nb@ paquets',
 	'info_nb_plugins' => '@nb@ plugins',
 	'info_paquets_disponibles' => '@total_paquets@ paquet(s) disponible(s)',
+	'info_plugin_incompatible' => 'version incompatible',
 	'info_plugin_installe' => 'déjà installé',
 	'info_plugin_obsolete' => 'version obsolète',
-	'info_plugin_incompatible' => 'version incompatible',
 	'info_plugins_disponibles' => '@total_plugins@ plugin(s) disponible(s)',
 	'info_plugins_heberges' => '@total_plugins@ plugin(s) hébergé(s)',
 	'info_tri_nom' => 'classé(s) par ordre alphabétique',
@@ -139,7 +137,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_verrouille' => 'Il ne vous est pas possible de désactiver ni de désinstaller ce plugin.',
 	'installation_en_cours' => 'Les actions demandées sont en cours de traitement',
 
-// L
+	// L
 	'label_1_autre_contribution' => 'autre contribution',
 	'label_actualise_le' => 'Actualisé le',
 	'label_branches_spip' => 'Compatible',
@@ -155,10 +153,10 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'label_prefixe' => 'Préfixe',
 	'label_selectionner_plugin' => 'Sélectionner ce plugin',
 	'label_tags' => 'Tags',
+	'label_type_depot' => 'Type de dépôt :',
 	'label_type_depot_git' => 'Dépôt sous GIT',
 	'label_type_depot_manuel' => 'Dépôt manuel',
 	'label_type_depot_svn' => 'Dépôt sous SVN',
-	'label_type_depot' => 'Type de dépôt :',
 	'label_url_archives' => 'URL du conteneur des archives',
 	'label_url_brouteur' => 'URL de la racine des sources',
 	'label_url_serveur' => 'URL du serveur',
@@ -168,25 +166,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'legende_installer_plugins' => 'Installer des plugins',
 	'legende_rechercher_plugins' => 'Rechercher des plugins',
 
-// N
-	'nettoyer_actions' => 'Nettoyer ces actions ! Cela effacera la liste des actions qui restent à traiter.',
-	
-// M
-    'message_action_get' => 'Télécharger le plugin « @plugin@ » (version : @version@)',
-    'message_action_geton' => 'Télécharger et activer le plugin « @plugin@ » (version : @version@)',
-	'message_action_getlib' => 'Télécharger la bibliothèque « <a href="@version@" class="spip_out">@plugin@</a> »',
-    'message_action_on' => 'Activer le plugin « @plugin@ » (version : @version@)',
-	'message_action_up' => 'Mise à jour du plugin « @plugin@ » (de la version @version@ à @version_maj@)',
-	'message_action_upon' => 'Mise à jour et activation du plugin « @plugin@ » (version : @version@)',
-	'message_action_install' => 'Le plugin « @plugin@ » (version : @version@) va être installé',
-	'message_action_kill' => 'Suppression des fichiers du plugin « @plugin@ » (version : @version@)',
-	'message_action_off' => 'Désactiver le plugin « @plugin@ » (version : @version@)',
-	'message_action_stop' => 'Désinstaller le plugin « @plugin@ » (version : @version@)',
-
-
-
+	// M
 	'message_action_finale_get_fail' => 'Le plugin « @plugin@ » (version : @version@) n\'a pu être correctement récupéré',
 	'message_action_finale_get_ok' => 'Le plugin « @plugin@ » (version : @version@) a été correctement récupéré',
+	'message_action_finale_getlib_fail' => 'L\'installation de la bibliothèque « @plugin@ » a échoué',
+	'message_action_finale_getlib_ok' => 'La bibliothèque « @plugin@ » a été installée',
 	'message_action_finale_geton_fail' => 'Le téléchargement ou l\'activation du plugin « @plugin@ » (version : @version@) ne se sont pas correctement déroulés',
 	'message_action_finale_geton_ok' => 'Le téléchargement et l\'activation du plugin « @plugin@ » (version : @version@) se sont correctement déroulés',
 	'message_action_finale_install_fail' => 'L\'installation du plugin « @plugin@ » (version : @version@) a échoué',
@@ -203,21 +187,28 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_action_finale_up_ok' => 'La mise à jour du plugin « @plugin@ » (de la version : @version@ à @version_maj@) s\'est correctement déroulée',
 	'message_action_finale_upon_fail' => 'La mise à jour et l\'activation du plugin « @plugin@ » (de la version : @version@ à @version_maj@) ne se sont pas correctement déroulés',
 	'message_action_finale_upon_ok' => 'La mise à jour et l\'activation du plugin « @plugin@ » (de la version : @version@ à @version_maj@) se sont correctement déroulés',
-	'message_action_finale_getlib_fail' => 'L\'installation de la bibliothèque « @plugin@ » a échoué',
-	'message_action_finale_getlib_ok' => 'La bibliothèque « @plugin@ » a été installée',
-
-    'message_dependance_plugin' => 'Le plugin @plugin@ dépend de @dependance@.',
-    'message_dependance_plugin_version' => 'Le plugin @plugin@ dépend de @dependance@ @version@',
-    'message_erreur_aucun_plugin_selectionne' => 'Aucun plugin sélectionné.',
-    'message_erreur_ecriture_lib' => '@plugin@ a besoin de la bibliothèque <a href="@lib_url@">@lib@</a>
+	'message_action_get' => 'Télécharger le plugin « @plugin@ » (version : @version@)',
+	'message_action_getlib' => 'Télécharger la bibliothèque « <a href="@version@" class="spip_out">@plugin@</a> »',
+	'message_action_geton' => 'Télécharger et activer le plugin « @plugin@ » (version : @version@)',
+	'message_action_install' => 'Le plugin « @plugin@ » (version : @version@) va être installé',
+	'message_action_kill' => 'Suppression des fichiers du plugin « @plugin@ » (version : @version@)',
+	'message_action_off' => 'Désactiver le plugin « @plugin@ » (version : @version@)',
+	'message_action_on' => 'Activer le plugin « @plugin@ » (version : @version@)',
+	'message_action_stop' => 'Désinstaller le plugin « @plugin@ » (version : @version@)',
+	'message_action_up' => 'Mise à jour du plugin « @plugin@ » (de la version @version@ à @version_maj@)',
+	'message_action_upon' => 'Mise à jour et activation du plugin « @plugin@ » (version : @version@)',
+	'message_dependance_plugin' => 'Le plugin @plugin@ dépend de @dependance@.',
+	'message_dependance_plugin_version' => 'Le plugin @plugin@ dépend de @dependance@ @version@',
+	'message_erreur_aucun_plugin_selectionne' => 'Aucun plugin sélectionné.',
+	'message_erreur_ecriture_lib' => '@plugin@ a besoin de la bibliothèque <a href="@lib_url@">@lib@</a>
    								placée dans le répertoire <var>lib/</var> à la racine de votre site.
    								Cependant, ce répertoire n\'est pas accessible en écriture.
    								Vous devez l\'installer manuellement ou donner des permissions d\'écriture
    								à ce répertoire.',
-   	'message_erreur_maj_inconnu' => 'Mise à jour impossible d\'un plugin inconnu (@id@).',
+	'message_erreur_maj_inconnu' => 'Mise à jour impossible d\'un plugin inconnu (@id@).',
 	'message_erreur_plugin_introuvable' => 'Il est impossible de trouver le plugin @plugin@ pour @action@.',
 	'message_erreur_plugin_non_actif' => 'Il est impossible de désactiver un plugin non actif.',
-    'message_incompatibilite_spip' => '@plugin@  n\'est pas compatible avec la version de SPIP que vous utilisez.',
+	'message_incompatibilite_spip' => '@plugin@  n\'est pas compatible avec la version de SPIP que vous utilisez.',
 	'message_nok_aucun_depot_disponible' => 'Aucun plugin n\'est disponible ! Veuillez vous rendre dans la page de gestion des dépôts pour ajouter des listes de plugins.',
 	'message_nok_aucun_paquet_ajoute' => 'Le dépôt « @url@ » ne fournit aucun nouveau paquet par rapport à la base déjà enregistrée. Il n\'a donc pas été ajouté',
 	'message_nok_aucun_plugin_selectionne' => 'Aucun plugin à installer. Veuillez sélectionner les plugins à installer',
@@ -231,8 +222,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_ok_aucun_plugin_trouve' => 'Aucun plugin ne correspond aux critères choisis.',
 	'message_ok_depot_ajoute' => 'Le dépôt « @url@ » a été ajouté.',
 	'message_ok_plugins_trouves' => '@nb_plugins@ plugin(s) correspondent aux critères choisis (@tri@). Sélectionnez ci-dessous les plugins que vous souhaitez télécharger et activer sur votre serveur.',
-	
-// O
+
+	// N
+	'nettoyer_actions' => 'Nettoyer ces actions ! Cela effacera la liste des actions qui restent à traiter.',
+
+	// O
 	'onglet_depots' => 'Gérer les dépôts',
 	'option_categorie_toute' => 'Toutes les catégories',
 	'option_depot_tout' => 'Tous les dépôts',
@@ -240,21 +234,19 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'option_doublon_oui' => 'Toutes les versions compatibles',
 	'option_etat_tout' => 'Tous les états',
 
-// R
+	// P
+	'placeholder_phrase' => 'préfixe, nom, slogan, description ou auteur',
+	'plugin_info_up' => 'Une mise à jour du plugin est disponible (version @version@)',
+	'plugins_inactifs_liste' => 'Inactifs',
+	'plugins_non_verrouilles_liste' => 'Non verrouillés',
+	'plugins_verrouilles_liste' => 'Verrouillés',
+
+	// R
 	'resume_table_depots' => 'Liste des dépôts ajoutés',
 	'resume_table_paquets' => 'Liste des paquets',
 	'resume_table_plugins' => 'Liste des plugins @categorie@',
 
-// P
-	'placeholder_phrase' => 'préfixe, nom, slogan, description ou auteur',
-	'plugins_inactifs_liste' => 'Inactifs',
-	'plugin_info_up' => 'Une mise à jour du plugin est disponible (version @version@)',
-	'plugins_verrouilles_liste' => 'Verrouillés',
-	'plugins_non_verrouilles_liste' => 'Non verrouillés',
-
-// S
-
-// T
+	// T
 	'titre_depot' => 'Dépôt',
 	'titre_depots' => 'Dépôts',
 	'titre_form_ajouter_depot' => 'Ajouter un dépôt',
@@ -274,7 +266,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'titre_plugins' => 'Plugins',
 	'tout_cocher' => 'Tout cocher',
 	'tout_cocher_up' => 'Cocher les mises à jour',
-	'tout_decocher' => 'Tout décocher',
+	'tout_decocher' => 'Tout décocher'
 );
 
 ?>
