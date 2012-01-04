@@ -287,7 +287,7 @@ function svp_phraser_traductions($contenu) {
 					if (is_array($_traducteurs[0])) {
 						foreach ($_traducteurs[0] as $_tag => $_vide) {
 							list($tag, $attributs_traducteur) = spip_xml_decompose_tag($_tag);
-							$traducteurs[] = $attributs_traducteur['nom'];
+							$traducteurs[] = $attributs_traducteur;
 						}
 					}
 					$traductions[$attributs_traduction['module']]['langues'][$attributs_langue['code']] = $traducteurs;

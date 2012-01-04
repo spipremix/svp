@@ -104,7 +104,15 @@ function svp_afficher_langues($langues, $sep=', '){
 		foreach ($langues as $_code => $_traducteurs) {
 			if ($texte) 
 				$texte .= $sep;
-			$texte .= $_code . (count($_traducteurs) > 0 ? ' (' . implode(', ', $_traducteurs) . ')' : '');
+			$traducteurs_langue = array();
+			foreach ($_traducteurs as $_traducteur) {
+				if (is_array($_traducteur))
+					$traducteurs_langue[] =
+						($_traducteur['lien'] ? '<a href="' . $_traducteur['lien'] . '">' : '') .
+						$_traducteur['nom'] .
+						($_traducteur['lien'] ? '</a>' : '');
+			}
+			$texte .= $_code . (count($traducteurs_langue) > 0 ? ' (' . implode(', ', $traducteurs_langue) . ')' : '');
 		}
 	}
 
