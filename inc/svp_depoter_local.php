@@ -226,11 +226,26 @@ function svp_base_inserer_paquets_locaux($paquets_locaux) {
 
 				// creation du plugin...
 				$prefixe = strtoupper( $le_plugin['prefixe'] );
+				// on fait attention lorqu'on cherche ou ajoute un plugin
+				// le nom et slogan est TOUJOURS celui de la plus haute version
+				// et il faut donc possiblement mettre a jour la base...
+				// 
+				// + on est tolorant avec les versions identiques de plugin deja presentes
+				//   on permet le recalculer le titre...
 				if (!isset($cle_plugins[$prefixe])) {
-					if (!$id_plugin = sql_getfetsel('id_plugin', 'spip_plugins', 'prefixe = '.sql_quote($prefixe))) {
-						$insert_plugins[$prefixe] = $le_plugin;
+					if (!$res = sql_fetsel('id_plugin, vmax', 'spip_plugins', 'prefixe = '.sql_quote($prefixe))) {
+						$le_plugin['vmax'] = $le_paquet['version']; // au moins au debut...
+						if (!isset($insert_plugins[$prefixe])) {
+							$insert_plugins[$prefixe] = $le_plugin;
+						} elseif (spip_version_compare($le_paquet['version'], $insert_plugins[$prefixe]['vmax'], '>')) {
+							$insert_plugins[$prefixe] = $le_plugin;
+						}
 					} else {
+						$id_plugin = $res['id_plugin'];
 						$cle_plugins[$prefixe] = $id_plugin;
+						if (spip_version_compare($le_paquet['version'], $res['vmax'], '>=')) {
+							sql_updateq('spip_plugins', $le_plugin, 'id_plugin='.sql_quote($id_plugin));
+						}
 					}
 				}
 
