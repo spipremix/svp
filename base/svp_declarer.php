@@ -6,7 +6,8 @@
 // - paquet : table spip_paquets
 //
 function svp_declarer_tables_objets_sql($tables) {
-
+	include_spip('inc/config');
+	
 	// Table des depots
 	$tables['spip_depots'] = array(
 		// Base de donnees
@@ -39,7 +40,7 @@ function svp_declarer_tables_objets_sql($tables) {
 		'page'					=> 'depot',
 		'url_voir'				=> 'depot',
 		'url_edit'				=> 'depot_edit',
-		'editable'				=> 'oui',
+		'editable'				=> lire_config('svp/depot_editable', 'non'),
 		'champs_editables'		=> array('titre', 'descriptif'),
 		'icone_objet'			=> 'depot',
 		

@@ -75,6 +75,10 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 		Activez cette option si vous souhaitez malgré tout pouvoir activer ces plugins obsolètes.
 		',
+	'config_depot_editable' => 'Permettre l\'édition des dépots ?',
+	'config_depot_editable_explication' => 'Cela rend éditable les informations d\'un dépot,
+		et permet ainsi de leur joindre éventuellement des mots clés ou documents.
+		Cette option ne devrait intéresser personne ! Préférez laisser «non» !',
 
 	// E
 	'erreur_actions_non_traitees' => 'Certaines actions n\'ont pas été réalisées.
@@ -93,6 +97,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// F
 	'fieldset_debug' => 'Débug',
+	'fieldset_edition' => 'Édition',
 	'fieldset_fonctionnement' => 'Fonctionnement',
 
 	// I

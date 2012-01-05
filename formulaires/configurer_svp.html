@@ -74,6 +74,25 @@
 				</li>
 			<ul>			
 		</fieldset>
+		<fieldset>
+			<legend><:svp:fieldset_edition:></legend>
+			<ul>
+				#SET{name,depot_editable}#SET{obli,''}#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
+				<li class="editer editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">
+					<label><:svp:config_depot_editable:></label>
+					<div class='explication'><:svp:config_depot_editable_explication:></div>[
+					<span class='erreur_message'>(#GET{erreurs})</span>
+					]<div class="choix">
+						<input type="radio" name="#GET{name}" id="#GET{name}_oui" value="oui"
+						[(#ENV{#GET{name}}|=={oui}|oui)checked="checked"] /><label for="#GET{name}_oui"><:item_oui:></label>
+					</div>
+					<div class="choix">
+						<input type="radio" name="#GET{name}" id="#GET{name}_non" value="non"
+						[(#ENV{#GET{name}}|=={oui}|non)checked="checked"] /><label for="#GET{name}_non"><:item_non:></label>
+					</div>
+				</li>
+			<ul>			
+		</fieldset>
 		<p class='boutons'><input class='submit' type="submit" name="_cfg_ok" value="<:bouton_enregistrer:>" /></p>
 	</div></form>
 
