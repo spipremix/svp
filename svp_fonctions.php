@@ -408,4 +408,23 @@ function filtre_svp_periode_actualisation_depots() {
 	return _SVP_CRON_ACTUALISATION_DEPOTS ? _SVP_PERIODE_ACTUALISATION_DEPOTS : 0;
 }
 
+
+/**
+ * Retourner la chaine de la version x.y.z sous une forme normalisee
+ * permettant le tri naturel.
+ *
+ * @return string
+**/
+function denormaliser_version($version_normalisee='') {
+
+	$version = '';
+	if ($version_normalisee) {
+		$v = explode('.', $version_normalisee);
+		foreach($v as $_nombre) {
+			$vn[] = ltrim($_nombre, '0');
+		}
+		$version = implode('.', $vn);
+	}
+	return $version;
+}
 ?>

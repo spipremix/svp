@@ -13,7 +13,7 @@ function plugins_preparer_sql_paquet($plugin)
 	// On initialise les champs ne necessitant aucune transformation
 	$champs['categorie'] = $plugin['categorie'] ? $plugin['categorie'] : '';
 	$champs['etat'] = $plugin['etat'] ? $plugin['etat'] : '';
-	$champs['version'] = $plugin['version'] ? $plugin['version'] : '';
+	$champs['version'] = $plugin['version'] ? normaliser_version($plugin['version']) : '';
 	$champs['version_base'] = $plugin['schema'] ? $plugin['schema'] : '';
 	$champs['logo'] = $plugin['logo'] ? $plugin['logo'] : '';
 	$champs['lien_doc'] = $plugin['documentation'] ? $plugin['documentation'] : '';

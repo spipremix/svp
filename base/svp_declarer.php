@@ -212,8 +212,10 @@ function svp_declarer_tables_interfaces($interface) {
 	// Les traitements
 	// - table spip_plugins
 	$interface['table_des_traitements']['SLOGAN']['plugins'] = _TRAITEMENT_RACCOURCIS;	
+	$interface['table_des_traitements']['VMAX']['plugins'] = 'denormaliser_version(%s)';
 	// - table spip_paquets
 	$interface['table_des_traitements']['DESCRIPTION']['paquets'] = _TRAITEMENT_RACCOURCIS;	
+	$interface['table_des_traitements']['VERSION']['paquets'] = 'denormaliser_version(%s)';
 
 	return $interface;
 }

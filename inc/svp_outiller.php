@@ -67,9 +67,6 @@ $GLOBALS['licences_plugin'] = array(
 );
 
 
-
-
-
 function fusionner_intervalles($intervalle_a, $intervalle_b) {
 
 	// On recupere les bornes de chaque intervalle
@@ -110,6 +107,7 @@ function fusionner_intervalles($intervalle_a, $intervalle_b) {
 
 	return contruire_intervalle($bornes_fusionnees);
 }
+
 
 function extraire_bornes($intervalle, $initialiser=false) {
 	static $borne_vide = array('valeur' => '', 'incluse' => false);
@@ -304,6 +302,27 @@ function svp_lister_librairies() {
 		}
 	}
 	return $libs;
+}
+
+
+
+/**
+ * Retourner la chaine de la version x.y.z sous une forme normalisee
+ * permettant le tri naturel.
+ *
+ * @return string
+**/
+function normaliser_version($version='') {
+
+	$version_normalisee = '';
+	if ($version) {
+		$v = explode('.', $version);
+		foreach($v as $_nombre) {
+			$vn[] = str_pad($_nombre, 3, '0', STR_PAD_LEFT);
+		}
+		$version_normalisee = implode('.', $vn);
+	}
+	return $version_normalisee;
 }
 
 ?>
