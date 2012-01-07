@@ -410,8 +410,8 @@ function filtre_svp_periode_actualisation_depots() {
 
 
 /**
- * Retourner la chaine de la version x.y.z sous une forme normalisee
- * permettant le tri naturel.
+ * Retourner la chaine de la version x.y.z sous une forme sa forme initiale
+ * sans remplissage à gauche avec des 0
  *
  * @return string
 **/
@@ -421,7 +421,8 @@ function denormaliser_version($version_normalisee='') {
 	if ($version_normalisee) {
 		$v = explode('.', $version_normalisee);
 		foreach($v as $_nombre) {
-			$vn[] = ltrim($_nombre, '0');
+			$n = ltrim($_nombre, '0');
+			$vn[] = (strlen($n)>0) ? $n : '0';
 		}
 		$version = implode('.', $vn);
 	}
