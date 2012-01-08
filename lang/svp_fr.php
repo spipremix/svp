@@ -139,7 +139,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_type_depot_git' => 'Dépôt géré sous GIT',
 	'info_type_depot_manuel' => 'Dépôt géré manuellement',
 	'info_type_depot_svn' => 'Dépôt géré sous SVN',
-	'info_verrouille' => 'Il ne vous est pas possible de désactiver ni de désinstaller ce plugin.',
+	'info_verrouille' => 'Impossible de désactiver ou de désinstaller ce plugin.',
 	'installation_en_cours' => 'Les actions demandées sont en cours de traitement',
 
 	// L
@@ -241,7 +241,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// P
 	'placeholder_phrase' => 'préfixe, nom, slogan, description ou auteur',
+	'plugin_info_actif' => 'Plugin actif',
 	'plugin_info_up' => 'Une mise à jour du plugin est disponible (version @version@)',
+	'plugin_info_verrouille' => 'Plugin verrouillé',
 	'plugins_inactifs_liste' => 'Inactifs',
 	'plugins_non_verrouilles_liste' => 'Non verrouillés',
 	'plugins_verrouilles_liste' => 'Verrouillés',
