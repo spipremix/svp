@@ -18,10 +18,7 @@
 				[<span class="information"> - (#GET{incompatible}|oui)<:svp:info_plugin_incompatible:></span>]
 				<div class="short">[(#SLOGAN|extraire_multi|typo)]</div>
 				[(#LOGO|oui)<div class="icon">
-					[(#ACTIF|=={oui}|?{
-						#CONSTANTE|constant|concat{#SRC_ARCHIVE/#LOGO}|image_reduire{32},
-						#CONSTANTE|constant|concat{#SRC_ARCHIVE/#LOGO}|image_reduire{32}|image_sepia{#dddddd}
-					})]
+					[(#CONSTANTE|constant|concat{#SRC_ARCHIVE/#LOGO}|image_reduire{32})]
 				</div>]
 			</div>
 			
