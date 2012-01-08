@@ -16,7 +16,7 @@
 				<span class="etat">[ - (#ETAT)]</span>
 				[<span class="information"> - (#OBSOLETE|=={oui}|oui)<:svp:info_plugin_obsolete:></span>]
 				[<span class="information"> - (#GET{incompatible}|oui)<:svp:info_plugin_incompatible:></span>]
-				<div class="short">[(#SLOGAN|extraire_multi|typo)]</div>
+				<div class="short">[(#SLOGAN|extraire_multi|typo|sinon{#DESCRIPTION|extraire_multi|propre}|PtoBR|explode{'<br />'}|reset|couper{80})]</div>
 				[(#LOGO|oui)<div class="icon">
 					[(#CONSTANTE|constant|concat{#SRC_ARCHIVE/#LOGO}|image_reduire{32})]
 				</div>]
