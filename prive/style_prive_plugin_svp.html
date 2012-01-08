@@ -37,12 +37,11 @@
 .liste-plugins .liste.plugins,
 .liste-plugins .liste.plugins .liste-items { margin-bottom: 0; }
 
-.liste-plugins .liste-items .item.actif { background: transparent; }
-.liste-plugins .liste-items .item.inactif { background: #eee; }
-.liste-plugins .liste-items .item.inactif:hover { background: #e8e8e8; }
+.liste-plugins .liste-items .item.actif { background: #e8e8e8; }
+.liste-plugins .liste-items .item.inactif { background: #fff; }
+.liste-plugins .liste-items .item.inactif:hover { background: #eee; }
 
 .liste-plugins .liste-items .item h3 a { color: #ENV{foncee}; }
-.liste-plugins .liste-items .item.actif h3 a { color: #aaa; }
 
 .liste-plugins .liste-items .item .actions { float: #ENV{right}; margin-top: 5px;margin-bottom: -10px; min-height: 25px; filter: alpha(opacity=60); -moz-opacity: 0.6; opacity: 0.6; }
 .liste-plugins .liste-items .item:hover .actions { filter: alpha(opacity=100); -moz-opacity: 1; opacity: 1; }
@@ -64,8 +63,10 @@
 .verrou { background:url(#CHEMIN_IMAGE{fond-verrou.png}) repeat fixed 0 0 #FDFDFD !important;}
 .verrou:hover {	background-color:#F0F0F0 !important; }
 /* -- obsolete, incompatible */
-.disabled { background:url(#CHEMIN_IMAGE{fond-obsolete.png}) repeat fixed 0 0 #FDFDFD !important;}
-.disabled:hover {	background-color:#F0F0F0 !important; }
+.disabled { background:url(#CHEMIN_IMAGE{fond-obsolete.png}) repeat fixed 0 0 #ddd !important;}
+.disabled:hover {	background-color:#ccc !important; }
+.liste-plugins .liste-items .item.disabled h3 a { color: #aaa; }
+.liste-plugins .liste-items .item.disabled .icon {filter: alpha(opacity=60); -moz-opacity: 0.6; opacity: 0.6; }
 /* -- Notice d'information sur le plugin */
 span.information { color: red; }
 
