@@ -407,17 +407,22 @@ function svp_actualiser_paquets($id_depot, $paquets, &$nb_paquets, &$nb_plugins,
 					// On rajoute le plugin dans la table spip_plugins si celui-ci n'y est pas encore ou on recupere
 					// l'id si il existe deja et on le met a jour si la version du paquet est plus elevee
 					if (!$plugin = sql_fetsel('id_plugin, vmax', 'spip_plugins',
-						array('prefixe=' . sql_quote($insert_plugin['prefixe'])))) {
+						array('prefixe=' . sql_quote($insert_plugin['prefixe'])))
+					AND !array_key_exists($insert_plugin['prefixe'], $insert_plugins)) {
 						$insert_plugins[ $insert_plugin['prefixe'] ] = array_merge($insert_plugin, array('vmax' => $insert_paquet['version']));
 					}
 					else {
-						$id_plugin = $plugin['id_plugin'];
-						$prefixes[$insert_plugin['prefixe']] = $id_plugin;
+						if ($plugin) {
+							$id_plugin = $plugin['id_plugin'];
+							$prefixes[$insert_plugin['prefixe']] = $id_plugin;
+							$vmax = $plugin['vmax'];
+						}
+						else {
+							$vmax = $insert_plugins[$insert_plugin['prefixe']]['vmax'];
+						}
 
-						if (spip_version_compare($plugin['vmax'], $insert_paquet['version'], '<='))
-							sql_updateq('spip_plugins',
-										array_merge($insert_plugin, array('vmax' => $insert_paquet['version'])),
-										'id_plugin=' . sql_quote($id_plugin));
+						if (spip_version_compare($vmax, $insert_paquet['version'], '<='))
+							$insert_plugins[ $insert_plugin['prefixe'] ] = array_merge($insert_plugin, array('vmax' => $insert_paquet['version']));
 					}
 	
 					// On traite maintenant le paquet connaissant l'id du plugin
