@@ -4,7 +4,8 @@
 	<ul class="liste-items">
 <BOUCLE_plugins(PAQUETS plugins){tout}{par multi nom, prefixe}{!par constante, actif}{id_depot=0}{actif ?}{constante ?IN #ENV{constante}}>
 		#SET{incompatible, #COMPATIBILITE_SPIP|plugin_version_compatible{#GET{vspip}}|non}
-		<li class="item[ (#ACTIF|=={oui}|?{actif,inactif})][(#OBSOLETE|=={oui}|ou{#GET{incompatible}}|oui) disabled][(#CONSTANTE|=={_DIR_EXTENSIONS}|oui) verrou][(#MAJ_VERSION|oui) up]"[ id="(#PREFIXE|strtolower)-#COMPTEUR_BOUCLE"]>
+		#SET{verrou,#CONSTANTE|=={_DIR_EXTENSIONS}|oui}
+		<li class="item[ (#ACTIF|=={oui}|?{actif,inactif})][(#OBSOLETE|=={oui}|ou{#GET{incompatible}}|oui) disabled][(#GET{verrou}|oui) verrou][(#MAJ_VERSION|oui) up]"[ id="(#PREFIXE|strtolower)-#COMPTEUR_BOUCLE"]>
 			[(#OBSOLETE|=={non}|et{#CONSTANTE|!={_DIR_EXTENSIONS}}|et{#GET{incompatible}|non}|oui)
 			<div class="check">
 				<input type="checkbox" class="checkbox select_plugin" name="ids_paquet[(#VAL{91}|chr)][(#VAL{93}|chr)]" value="#ID_PAQUET" />
@@ -54,7 +55,11 @@
 			]
 			</div>
 			[(#ACTIF|=={oui}|oui) #SET{prefixe,#PREFIXE|strtolower}
+				[(#CHEMIN_IMAGE{ok-16.png}|balise_img{<:svp:plugin_info_actif:>,picto_actif}|inserer_attribut{title,<:svp:plugin_info_actif:>})]
 				[(#INCLURE{fond=prive/squelettes/inclure/cfg,script=configurer_#GET{prefixe},nom=#NOM})]
+			]
+			[(#GET{verrou})
+				[(#CHEMIN_IMAGE{cadenas-16.png}|balise_img{<:svp:plugin_info_verrouille:>,picto_verrou}|inserer_attribut{title,<:svp:plugin_info_verrouille:>})]
 			]
 			[(#MAJ_VERSION|oui)
 			[(#CHEMIN_IMAGE{update-16.png}|balise_img{<:svp:plugin_info_up:>,picto_up}|inserer_attribut{title,<:svp:plugin_info_up{version=#MAJ_VERSION}:>})]

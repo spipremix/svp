@@ -30,14 +30,19 @@
 	opacity: 0.6;
 }
 
-.actions_multiples .boutons { text-align: #ENV{left}; }
+.actions_multiples .boutons { }
 .actions_multiples .action { width: 30%; }
 
 .liste-plugins fieldset,
 .liste-plugins .liste.plugins,
 .liste-plugins .liste.plugins .liste-items { margin-bottom: 0; }
+.liste-plugins .liste-items .item {padding-#ENV{right}:30px;}
+.liste-plugins .liste-items .item .check {float:#ENV{right};margin-#ENV{right}:-25px;}
+
+.liste-plugins .liste-items .item .cfg_link {position: absolute;top:4px;right: 24px;}
 
 .liste-plugins .liste-items .item.actif { background: #e8e8e8; }
+.liste-plugins .liste-items .item.actif.verrou { background: #eeeeee; }
 .liste-plugins .liste-items .item.inactif { background: #fff; }
 .liste-plugins .liste-items .item.inactif:hover { background: #eee; }
 
@@ -46,7 +51,13 @@
 .liste-plugins .liste-items .item .actions { float: #ENV{right}; margin-top: 5px;margin-bottom: -10px; min-height: 25px; filter: alpha(opacity=60); -moz-opacity: 0.6; opacity: 0.6; }
 .liste-plugins .liste-items .item:hover .actions { filter: alpha(opacity=100); -moz-opacity: 1; opacity: 1; }
 
-.liste-plugins .liste-items .item .picto_up { position: absolute; right: 26px; top:4px; }
+.liste-plugins .liste-items .item .picto_actif {position: absolute;top:4px;left: 4px;}
+.liste-plugins .liste-items .item .picto_err {position: absolute;top:4px;left: 4px;}
+.liste-plugins .liste-items .item .picto_verrou {position: absolute;top:24px;left: 4px;filter: alpha(opacity=60); -moz-opacity: 0.6; opacity: 0.6;}
+
+.liste-plugins .liste-items .item .picto_up { position: absolute; right: 46px; top:4px; }
+
+
 
 .liste-plugins .liste-items .item .details { clear: both;}
 .liste-plugins .liste-items .item .details dl { float: none; width: auto; margin-bottom: 0; }
@@ -59,9 +70,10 @@
 /* -- installe (donc actif) */
 .installe { color: #999; background: url(#CHEMIN_IMAGE{fond-installe.png}) repeat fixed 0 0 !important; }
 .installe:hover {	background-color:#F0F0F0 !important; }
-/* -- verrouille (extension) */
+/* -- verrouille (extension)
 .verrou { background:url(#CHEMIN_IMAGE{fond-verrou.png}) repeat fixed 0 0 #FDFDFD !important;}
 .verrou:hover {	background-color:#F0F0F0 !important; }
+*/
 /* -- obsolete, incompatible */
 .disabled { background:url(#CHEMIN_IMAGE{fond-obsolete.png}) repeat fixed 0 0 #ddd !important;}
 .disabled:hover {	background-color:#ccc !important; }
