@@ -629,7 +629,7 @@ class Decideur {
 									$this->log("-- !erreur : $p");
 									// on ne trouve pas la dependance !
 									$this->invalider($info);
-									$this->erreur($id, $v ? _T('svp:message_dependance_plugin_version',array('plugin'=>$info['n'],'dependance'=>$p,'version'=>$v)) : _T('svp:message_dependance_plugin',array('plugin'=>$info['n'],'dependance'=>$p)));
+									$this->erreur($id, $v ? _T('svp:message_dependance_plugin_version',array('plugin'=>$info['n'],'dependance'=>$p,'version'=>denormaliser_version($v))) : _T('svp:message_dependance_plugin',array('plugin'=>$info['n'],'dependance'=>$p)));
 								}
 								unset($new, $vieux);
 								break;
@@ -656,7 +656,7 @@ class Decideur {
 									$this->log("-- !erreur : $p");
 									// on ne trouve pas la dependance !
 									$this->invalider($info);
-									$this->erreur($id, $v ? _T('svp:message_dependance_plugin_version',array('plugin'=>$info['n'],'dependance'=>$p,'version'=>$v)) : _T('svp:message_dependance_plugin',array('plugin'=>$info['n'],'dependance'=>$p)));
+									$this->erreur($id, $v ? _T('svp:message_dependance_plugin_version',array('plugin'=>$info['n'],'dependance'=>$p,'version'=>denormaliser_version($v))) : _T('svp:message_dependance_plugin',array('plugin'=>$info['n'],'dependance'=>$p)));
 								}
 								break;
 						}
@@ -686,7 +686,7 @@ class Decideur {
 	function presenter_actions($quoi) {
 		$res = array();
 		foreach ($this->$quoi as $id=>$info) {
-			$res[] = _T('svp:message_action_'.$info['todo'], array('plugin'=>$info['n'],'version'=>$info['v'],'version_maj'=>$info['maj']));
+			$res[] = _T('svp:message_action_'.$info['todo'], array('plugin'=>$info['n'],'version'=>denormaliser_version($info['v']),'version_maj'=>$info['maj']));
 		}
 		return $res;
 	}

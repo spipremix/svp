@@ -356,7 +356,7 @@ class Actionneur {
 				$oks = &$ok;
 				$ok_texte = $ok ? 'ok' : 'fail';
 				$cle_t = 'svp:message_action_finale_' . $i['todo'] . '_' . $ok_texte;
-				$texte = _T($cle_t, array('plugin' => $i['n'], 'version' => $i['v'], 'version_maj'=>$i['maj']));
+				$texte = _T($cle_t, array('plugin' => $i['n'], 'version' => denormaliser_version($i['v']), 'version_maj'=>$i['maj']));
 				if (is_string($i['done'])) {
 					$texte .= " <span class='$ok_texte'>$i[done]</span>";
 				}
@@ -369,7 +369,7 @@ class Actionneur {
 		if (count($this->end)) {
 			$todo .= "<ul>";
 			foreach ($this->end as $i) {
-				$todo .= "\t<li>"._T('svp:message_action_'.$i['todo'],array('plugin'=>$i['n'],'version'=>$i['v'], 'version_maj'=>$i['maj']))."</li>\n";
+				$todo .= "\t<li>"._T('svp:message_action_'.$i['todo'],array('plugin'=>$i['n'],'version'=>denormaliser_version($i['v']), 'version_maj'=>$i['maj']))."</li>\n";
 			}
 			$todo .= "</ul>\n";
 			$titre = ($fin ? _T('svp:actions_non_traitees') : _T('svp:actions_a_faire'));
@@ -907,7 +907,7 @@ class Actionneur {
 					}
 					// l'installation est en erreur
 					$this->err(_T('svp:message_action_finale_install_fail',
-						array('plugin' => $info['n'], 'version'=>$info['v'])) . "<br />" . $trace);
+						array('plugin' => $info['n'], 'version'=>denormaliser_version($info['v']))) . "<br />" . $trace);
 				}
 			}
 		}
