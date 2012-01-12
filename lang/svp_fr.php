@@ -6,7 +6,7 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
 $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// A
-	'action_patienter' => 'Les actions sont en cours de traitement. Veuillez patienter...',
+	'action_patienter' => 'Les actions sont en cours de traitement. Veuillez patienter…',
 	'actions_a_faire' => 'Actions à traiter',
 	'actions_demandees' => 'Actions demandées :',
 	'actions_en_erreur' => 'Erreurs survenues',
@@ -54,36 +54,17 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'categorie_theme' => 'Thème',
 	'config_activer_log_verbeux' => 'Activer les logs verbeux ?',
 	'config_activer_log_verbeux_explication' => 'Cette option rend les logs de SVP beaucoup plus locaces…',
-	'config_activer_pas_a_pas' => 'Activer le mode pas à pas ?',
-	'config_activer_pas_a_pas_explication' => 'Activer ce mode permet d\'afficher un bilan
-		après chaque action réalisée, au lieu d\'avoir uniquement un bilan global
-		de toutes les actions effectuées à la fin des traitements.',
+	'config_activer_pas_a_pas' => 'Activer le mode pas-à-pas ?',
+	'config_activer_pas_a_pas_explication' => 'Activer ce mode permet d\'afficher un bilan après chaque action réalisée, au lieu d\'avoir uniquement un bilan global de toutes les actions effectuées à la fin des traitements.',
 	'config_activer_runtime' => 'Activer le mode runtime ?',
-	'config_activer_runtime_explication' => '
-		Le mode runtime (oui) ne charge que les plugins compatibles avec la version courante de votre SPIP,
-		ce qui est fortement conseillé pour la plupart des usages.
-		
-		En mode non runtime (non), tous les plugins d\'un dépôt sont chargés,
-		quelle que soit la version du SPIP en cours. Cela est uniquement utile pour
-		utiliser SVP afin de présenter tous les plugins existants comme le fait
-		le site Plugins SPIP (plugins.spip.net)',
+	'config_activer_runtime_explication' => 'Le mode runtime (oui) ne charge que les plugins compatibles avec la version courante de votre SPIP, ce qui est fortement conseillé pour la plupart des usages. En mode non runtime (non), tous les plugins d\'un dépôt sont chargés, quelle que soit la version du SPIP en cours. Cela est uniquement utile pour utiliser SVP afin de présenter tous les plugins existants comme le fait le site Plugins SPIP (plugins.spip.net)',
 	'config_autoriser_activer_paquets_obsoletes' => 'Autoriser l\'activation des paquets obsolètes ?',
-	'config_autoriser_activer_paquets_obsoletes_explication' => 'Les paquets obsolètes sont des paquets
-		locaux présents qui sont plus anciens que d\'autres paquets locaux. L\'obsolescence
-		est établie sur la base de l\'état (stable, test, dev) du paquet ainsi que sur la
-		base de sa version.
-
-		Activez cette option si vous souhaitez malgré tout pouvoir activer ces plugins obsolètes.
-		',
+	'config_autoriser_activer_paquets_obsoletes_explication' => 'Les paquets obsolètes sont des paquets locaux présents qui sont plus anciens que d\'autres paquets locaux. L\'obsolescence est établie sur la base de l\'état (stable, test, dev) du paquet ainsi que sur la base de sa version. Activez cette option si vous souhaitez malgré tout pouvoir activer ces plugins obsolètes.',
 	'config_depot_editable' => 'Permettre l\'édition des dépots ?',
-	'config_depot_editable_explication' => 'Cela rend éditable les informations d\'un dépot,
-		et permet ainsi de leur joindre éventuellement des mots clés ou documents.
-		Cette option ne devrait intéresser personne ! Préférez laisser «non» !',
+	'config_depot_editable_explication' => 'Cela rend éditable les informations d\'un dépot et permet ainsi de leur joindre éventuellement des mots-clés ou documents. Cette option ne devrait intéresser personne ! Préférez laisser «non» !',
 
 	// E
-	'erreur_actions_non_traitees' => 'Certaines actions n\'ont pas été réalisées.
-			Cela peut provenir d\'une erreur lors des actions à réaliser, ou d\'un affichage de cette page
-			alors que des actions sont encore en cours. Les actions avaient été lancées par @auteur@ le @date@.',
+	'erreur_actions_non_traitees' => 'Certaines actions n\'ont pas été réalisées. Cela peut provenir d\'une erreur lors des actions à réaliser, ou d\'un affichage de cette page alors que des actions sont encore en cours. Les actions avaient été lancées par @auteur@ le @date@.',
 	'erreur_dir_dib_ecriture' => 'Le répertoire des bibliothèques @dir@ n\'est pas accessible en écriture. Impossible d\'y charger une bibliothèque !',
 	'erreur_dir_dib_indefini' => 'Le répertoire _DIR_LIB n\'est pas défini. Impossible d\'y charger une bibliothèque !',
 	'erreur_dir_plugins_auto_ecriture' => 'Le répertoire de paquets @dir@ n\'est pas accessible en écriture. Impossible d\'y charger un paquet !',
@@ -205,11 +186,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_dependance_plugin' => 'Le plugin @plugin@ dépend de @dependance@.',
 	'message_dependance_plugin_version' => 'Le plugin @plugin@ dépend de @dependance@ @version@',
 	'message_erreur_aucun_plugin_selectionne' => 'Aucun plugin sélectionné.',
-	'message_erreur_ecriture_lib' => '@plugin@ a besoin de la bibliothèque <a href="@lib_url@">@lib@</a>
-   								placée dans le répertoire <var>lib/</var> à la racine de votre site.
-   								Cependant, ce répertoire n\'est pas accessible en écriture.
-   								Vous devez l\'installer manuellement ou donner des permissions d\'écriture
-   								à ce répertoire.',
+	'message_erreur_ecriture_lib' => '@plugin@ a besoin de la bibliothèque <a href="@lib_url@">@lib@</a> placée dans le répertoire <var>lib/</var> à la racine de votre site. Cependant, ce répertoire n\'est pas accessible en écriture. Vous devez l\'installer manuellement ou donner des permissions d\'écriture à ce répertoire.',
 	'message_erreur_maj_inconnu' => 'Mise à jour impossible d\'un plugin inconnu (@id@).',
 	'message_erreur_plugin_introuvable' => 'Il est impossible de trouver le plugin @plugin@ pour @action@.',
 	'message_erreur_plugin_non_actif' => 'Il est impossible de désactiver un plugin non actif.',
