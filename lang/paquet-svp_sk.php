@@ -8,8 +8,8 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
 $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// S
-	'svp_description' => 'Ce plugin fournit, d\'une part,  une API permettant de collecter, d\'effectuer des recherches multi-critères et de présenter les informations
-	sur les plugins SPIP - modules fonctionnels, thèmes et squelettes, et d\'autre part, une nouvelle interface d\'administration des plugins gérant les dépendances entre plugins.', # NEW
+	'svp_description' => 'Tento zásuvný modul poskytuje, po prvé, aplikáciu umožňujúcu zber, vykonávať vyhľadávania na základe viacerých kritérií a poskytnúť informácie
+	zásuvným modulom SPIPu – funkčné moduly, farebné motívy i šablóny aj iné súčasti a po druhé nové rozhranie nastavení zásuvných modulov riadi závislosti medzi zásuvnými modulmi.', # MODIF
 	'svp_slogan' => 'Server na zisťovanie informácií o zásuvných moduloch a ich sťahovanie'
 );
 
