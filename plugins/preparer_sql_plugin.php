@@ -148,11 +148,14 @@ function normaliser_auteur_licence($texte, $balise) {
 		if (preg_match('@<a[^>]*href=(\W)(.*?)\1[^>]*>(.*?)</a>@', $v, $r)) {
 			$href = $r[2];
 			$v = str_replace($r[0], $r[3], $v);
-		} elseif (preg_match(_RACCOURCI_LIEN,$v, $r)) {
-			if (preg_match('/([^\w\d._-]*)(([\w\d._-]+)@([\w\d.-]+))/', $r[4], $m))
+		}
+		elseif (preg_match(_RACCOURCI_LIEN,$v, $r)) {
+			if (preg_match('/([^\w\d._-]*)(([\w\d._-]+)@([\w\d.-]+))/', $r[4], $m)) {
 				$mail = $r[4];
-			else
+			}
+			else {
 				$href = $r[4];
+			}
 			$v = ($r[1]) ? $r[1] : str_replace($r[0], '', $v);
 		} else 
 			$href = '';
@@ -174,7 +177,7 @@ function normaliser_auteur_licence($texte, $balise) {
 		// -- cela generera une balise licence et non auteur
 		//    cette heuristique n'est pas deterministe car la phrase de licence n'est pas connue
 		$licence = array();
-		if (preg_match('/\b((gnu|free|creative\s+common|cc)*[\/|\s|-]*(apache|lgpl|agpl|gpl|fdl|mit|bsd|art|attribution|by)(\s+licence|\-sharealike|-nc-nd|-nc-sa|-sa|-nc|-nd)*\s*v*(\d*[\.\d+]*))\b/i', $v, $r)) {
+		if (preg_match('/\b((gnu|free|creative\s+common|cc)*[\/|\s|-]*(apache|lgpl|agpl|gpl|fdl|mit|bsd|art\s+|attribution|by)(\s+licence|\-sharealike|-nc-nd|-nc-sa|-sa|-nc|-nd)*\s*v*(\d*[\.\d+]*))\b/i', $v, $r)) {
 			if ($licence = definir_licence($r[2], $r[3], $r[4], $r[5])) {
 				$res['licence'][] = $licence;
 			}

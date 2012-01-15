@@ -14,8 +14,11 @@ function svp_afficher_intervalle($intervalle, $logiciel){
 			$version = $mineure . ($mineure_inc ? ' &le; ' : ' &lt; ') .  $logiciel . ($majeure_inc ? ' &le; ' : ' &lt; ') . $majeure;
 	}
 	else {
-		$version =  $logiciel . ($majeure_inc ? ' &le; ' : ' &lt; ') . $majeure;
-	}	
+		if (!strlen($majeure))
+			$version = $logiciel;
+		else
+			$version =  $logiciel . ($majeure_inc ? ' &le; ' : ' &lt; ') . $majeure;
+	}
 
 	return $version;
 }

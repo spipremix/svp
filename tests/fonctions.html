@@ -9,6 +9,14 @@ echo '<h2>TESTS FONCTION normaliser_auteur_licence()</h2>';
 echo '<h3>Balise auteur</h3>';
 $b = 'auteur';
 
+$t = 'Art libre, free art';
+echo '<strong>' . $t . '</strong><br />';
+var_dump(normaliser_auteur_licence($t, 'auteur'));
+
+$t = '[Art&#233;go->http://www.artego.fr], [C&#233;dric Morin->www.yterium.net]';
+echo '<strong>' . $t . '</strong><br />';
+var_dump(normaliser_auteur_licence($t, 'auteur'));
+
 $t = 'Jim';
 echo '<strong>' . $t . '</strong><br />';
 var_dump(normaliser_auteur_licence($t, 'auteur'));
