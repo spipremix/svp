@@ -50,7 +50,7 @@ function formulaires_charger_plugin_verifier_dist(){
 		}
 
 		if (!$a_installer)
-			$erreurs = _T('svp:message_nok_aucun_plugin_selectionne');
+			$erreurs['message_erreur'] = _T('svp:message_nok_aucun_plugin_selectionne');
 		else {
 			
 			// On fait appel au decideur pour determiner la liste exacte des commandes apres
