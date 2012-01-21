@@ -150,7 +150,7 @@ function svp_nettoyer_apres_suppression($id_depot, $vmax) {
 	if ($resultats = sql_allfetsel('id_plugin, vmax', 'spip_plugins', sql_in('id_plugin', $plugins_depot))) {
 		foreach ($resultats as $plugin) {
 			if (spip_version_compare($plugin['vmax'], $vmax[$plugin['id_plugin']], '='))
-				sql_updateq('spip_plugins',	array('vmax' => '0.0'),	'id_plugin=' . sql_quote($plugin['id_plugin']));
+				sql_updateq('spip_plugins',	array('vmax' => ''),	'id_plugin=' . sql_quote($plugin['id_plugin']));
 		}
 	}
 
@@ -409,23 +409,17 @@ function svp_actualiser_paquets($id_depot, $paquets, &$nb_paquets, &$nb_plugins,
 					// On traite d'abord le plugin du paquet pour recuperer l'id_plugin
 					// On rajoute le plugin dans la table spip_plugins si celui-ci n'y est pas encore ou on recupere
 					// l'id si il existe deja et on le met a jour si la version du paquet est plus elevee
-					if (!$plugin = sql_fetsel('id_plugin, vmax', 'spip_plugins',
-						array('prefixe=' . sql_quote($insert_plugin['prefixe'])))
-					AND !array_key_exists($insert_plugin['prefixe'], $insert_plugins)) {
+
+					$plugin = sql_fetsel('id_plugin, vmax', 'spip_plugins', array('prefixe=' . sql_quote($insert_plugin['prefixe'])));
+					if (!$plugin AND !array_key_exists($insert_plugin['prefixe'], $insert_plugins)) {
 						$insert_plugins[ $insert_plugin['prefixe'] ] = array_merge($insert_plugin, array('vmax' => $insert_paquet['version']));
 					}
 					else {
+
 						if ($plugin) {
 							$id_plugin = $plugin['id_plugin'];
 							$prefixes[$insert_plugin['prefixe']] = $id_plugin;
-							$vmax = $plugin['vmax'];
 						}
-						else {
-							$vmax = $insert_plugins[$insert_plugin['prefixe']]['vmax'];
-						}
-
-						if (spip_version_compare($vmax, $insert_paquet['version'], '<='))
-							$insert_plugins[ $insert_plugin['prefixe'] ] = array_merge($insert_plugin, array('vmax' => $insert_paquet['version']));
 					}
 	
 					// On traite maintenant le paquet connaissant l'id du plugin
@@ -462,7 +456,7 @@ function svp_actualiser_paquets($id_depot, $paquets, &$nb_paquets, &$nb_plugins,
 
 			// On ne devrait plus arriver ICI...
 			// Code obsolete ?
-
+			spip_log('!!!!!! Passage dans code obsolete (svp/svp_depoter_distant)', 'depoter');
 			
 			// on effectue les traitements en attente
 			// pour que les updates soient corrects
@@ -473,17 +467,6 @@ function svp_actualiser_paquets($id_depot, $paquets, &$nb_paquets, &$nb_plugins,
 			sql_updateq('spip_paquets', $insert_paquet,
 						'id_paquet=' . sql_quote($paquet['id_paquet']));
 
-			// Ensuite, si on est en presence d'un plugin, on le met a jour si le paquet est de version
-			// plus elevee ou egale (on gere ainsi les oublis d'incrementation)
-			if ($paquet_plugin) {
-				if ($vmax = sql_getfetsel('vmax', 'spip_plugins', array('id_plugin=' . sql_quote($paquet['id_plugin']))))
-					if (spip_version_compare($vmax, $insert_paquet['version'], '<='))
-						sql_updateq('spip_plugins',
-									array_merge($insert_plugin, array('vmax' => $insert_paquet['version'])),
-									'id_plugin=' . sql_quote($paquet['id_plugin']));
-			}
-				
-	
 		}
 	}
 
@@ -506,7 +489,9 @@ function svp_actualiser_paquets($id_depot, $paquets, &$nb_paquets, &$nb_plugins,
 	if ($insert_dp) {
 		sql_insertq_multi('spip_depots_plugins', $insert_dp);
 	}
-	
+
+	// on recalcul les vmax des plugins de ce depot.
+	svp_corriger_vmax_plugins(array_values($prefixes));
 
 	// On compile maintenant certaines informations des paquets mis a jour dans les plugins
 	// (date de creation, date de modif, version spip...)
@@ -703,14 +688,14 @@ function svp_corriger_vmax_plugins($plugins) {
 		$p = array_map('array_shift', $p);
 
 		// pour les autres, on la fixe correctement
-		$vmax = 0;
 		
 		// On insere, en encapsulant pour sqlite...
 		if (sql_preferer_transaction()) {
 			sql_demarrer_transaction();
 		}
-				
+		
 		foreach ($p as $id_plugin) {
+			$vmax = '';
 			if ($pa = sql_allfetsel('version', 'spip_paquets', 'id_plugin='.$id_plugin)) {
 				foreach ($pa as $v) {
 					if (spip_version_compare($v['version'], $vmax, '>')) {
