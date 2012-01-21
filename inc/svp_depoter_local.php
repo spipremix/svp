@@ -91,8 +91,8 @@ function svp_base_modifier_paquets_locaux($paquets_locaux) {
 	// suppression des anciens paquets
 	sql_delete('spip_paquets', sql_in('id_paquet', $anciens_paquets));
 	
-	// corriger les vmax (et supprimer les plugins orphelins)
-	svp_corriger_vmax_plugins($anciens_plugins);
+	// supprimer les plugins orphelins
+	svp_supprimer_plugins_orphelins($anciens_plugins);
 
 	// on ne garde que les paquets qui ne sont pas presents dans la base
 	$signatures_base = sql_allfetsel('signature', 'spip_paquets', 'id_depot='.sql_quote(0));
@@ -110,52 +110,6 @@ function svp_base_modifier_paquets_locaux($paquets_locaux) {
 
 	svp_base_inserer_paquets_locaux($paquets_locaux);
 }
-
-
-/**
- * Détermine la version max
- * de chaque plugin, c'est a dire
- * la version maxi d'un des paquets qui lui est lié.
- *
- * Supprime les plugins devenus orphelins dans cette liste.
- *
- * @param array $plugins liste d'identifiant de plugins
-**/
-function svp_corriger_vmax_plugins($plugins) {
-	// tous les plugins encore lies a des depots...
-	// la vmax est a retablir...
-	if ($plugins) {
-		$p = sql_allfetsel('DISTINCT(p.id_plugin)', array('spip_plugins AS p', 'spip_paquets AS pa'), array(sql_in('p.id_plugin', $plugins), 'p.id_plugin=pa.id_plugin'));
-		$p = array_map('array_shift', $p);
-		$diff = array_diff($plugins, $p);
-		// pour chaque plugin non encore utilise, on les vire !
-		sql_delete('spip_plugins', sql_in('id_plugin', $diff));
-	
-		// pour les autres, on la fixe correctement
-		$vmax = 0;
-		
-		// On insere, en encapsulant pour sqlite...
-		if (sql_preferer_transaction()) {
-			sql_demarrer_transaction();
-		}
-				
-		foreach ($p as $id_plugin) {
-			if ($pa = sql_allfetsel('version', 'spip_paquets', 'id_plugin='.$id_plugin)) {
-				foreach ($pa as $v) {
-					if (spip_version_compare($v['version'], $vmax, '>')) {
-						$vmax = $v['version'];
-					}
-				}
-			}
-			sql_updateq('spip_plugins', array('vmax'=>$vmax), 'id_plugin=' . intval($id_plugin));
-		}
-		
-		if (sql_preferer_transaction()) {
-			sql_terminer_transaction();
-		}
-	}
-}
-
 
 
 
@@ -333,10 +287,6 @@ function svp_base_inserer_paquets_locaux($paquets_locaux) {
 		sql_insertq_multi('spip_paquets', $insert_paquets);
 
 		svp_corriger_obsolete_paquets( array_keys($id_plugin_concernes) );
-	}
-
-	if (count($cle_plugins)) {
-		svp_corriger_vmax_plugins(array_values($cle_plugins));
 	}
 }
 
@@ -528,4 +478,27 @@ function svp_corriger_obsolete_paquets($ids_plugin = array()) {
 		}
 	}
 }
+
+
+
+
+/**
+ * Supprime les plugins devenus orphelins dans cette liste.
+ *
+ * @param array $plugins liste d'identifiant de plugins
+**/
+function svp_supprimer_plugins_orphelins($plugins) {
+	// tous les plugins encore lies a des depots...
+	// la vmax est a retablir...
+	if ($plugins) {
+		$p = sql_allfetsel('DISTINCT(p.id_plugin)', array('spip_plugins AS p', 'spip_paquets AS pa'), array(sql_in('p.id_plugin', $plugins), 'p.id_plugin=pa.id_plugin'));
+		$p = array_map('array_shift', $p);
+		$diff = array_diff($plugins, $p);
+		// pour chaque plugin non encore utilise, on les vire !
+		sql_delete('spip_plugins', sql_in('id_plugin', $diff));
+		return $p; // les plugins encore en vie !
+	}
+}
+
+
 ?>

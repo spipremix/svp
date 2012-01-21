@@ -294,8 +294,11 @@ function svp_actualiser_paquets($id_depot, $paquets, &$nb_paquets, &$nb_plugins,
 	// suppressions des liaisons depots / anciens plugins
 	sql_delete('spip_depots_plugins', array('id_depot='. sql_quote($id_depot), sql_in('id_plugin', $anciens_plugins)));
 
-	// corriger les vmax des plugins (et supprimer les plugins orphelins)
+	// supprimer les plugins orphelins
 	include_spip('inc/svp_depoter_local');
+	svp_supprimer_plugins_orphelins($anciens_plugins);
+	
+	// corriger les vmax des plugins
 	svp_corriger_vmax_plugins($anciens_plugins);
 	
 	// on ne garde que les paquets qui ne sont pas presents dans la base
@@ -682,5 +685,48 @@ function eclater_plugin_paquet($champs_aplat) {
 			'dependances' => $champs_aplat['dependances'])
 	);
 }
+
+
+
+/**
+ * Détermine la version max
+ * de chaque plugin, c'est a dire
+ * la version maxi d'un des paquets qui lui est lié.
+ * 
+ * @param array $plugins liste d'identifiant de plugins
+**/
+function svp_corriger_vmax_plugins($plugins) {
+	// tous les plugins encore lies a des depots...
+	// la vmax est a retablir...
+	if ($plugins) {
+		$p = sql_allfetsel('DISTINCT(p.id_plugin)', array('spip_plugins AS p', 'spip_paquets AS pa'), array(sql_in('p.id_plugin', $plugins), 'p.id_plugin=pa.id_plugin'));
+		$p = array_map('array_shift', $p);
+
+		// pour les autres, on la fixe correctement
+		$vmax = 0;
+		
+		// On insere, en encapsulant pour sqlite...
+		if (sql_preferer_transaction()) {
+			sql_demarrer_transaction();
+		}
+				
+		foreach ($p as $id_plugin) {
+			if ($pa = sql_allfetsel('version', 'spip_paquets', 'id_plugin='.$id_plugin)) {
+				foreach ($pa as $v) {
+					if (spip_version_compare($v['version'], $vmax, '>')) {
+						$vmax = $v['version'];
+					}
+				}
+			}
+			sql_updateq('spip_plugins', array('vmax'=>$vmax), 'id_plugin=' . intval($id_plugin));
+		}
+		
+		if (sql_preferer_transaction()) {
+			sql_terminer_transaction();
+		}
+	}
+}
+
+
 
 ?>
