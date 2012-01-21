@@ -135,6 +135,7 @@ function svp_base_inserer_paquets_locaux($paquets_locaux) {
 	// on evite des requetes individuelles, tres couteuses en sqlite...
 	$cle_plugins    = array(); // prefixe => id
 	$insert_plugins = array(); // insertion prefixe...
+	$insert_plugins_vmax = array(); // vmax des nouveaux plugins...
 	$insert_paquets = array(); // insertion de paquet...
 
 	include_spip('inc/config');
@@ -184,19 +185,23 @@ function svp_base_inserer_paquets_locaux($paquets_locaux) {
 				// le nom et slogan est TOUJOURS celui de la plus haute version
 				// et il faut donc possiblement mettre a jour la base...
 				// 
-				// + on est tolorant avec les versions identiques de plugin deja presentes
+				// + on est tolerant avec les versions identiques de plugin deja presentes
 				//   on permet le recalculer le titre...
 				if (!isset($cle_plugins[$prefixe])) {
 					if (!$res = sql_fetsel('id_plugin, vmax', 'spip_plugins', 'prefixe = '.sql_quote($prefixe))) {
-						$le_plugin['vmax'] = $le_paquet['version']; // au moins au debut...
+						// on ne stocke pas de vmax pour les plugins locaux dans la bdd... (parait il)
 						if (!isset($insert_plugins[$prefixe])) {
 							$insert_plugins[$prefixe] = $le_plugin;
-						} elseif (spip_version_compare($le_paquet['version'], $insert_plugins[$prefixe]['vmax'], '>')) {
+							$insert_plugins_vmax[$prefixe] = $le_paquet['version'];
+						} elseif (spip_version_compare($le_paquet['version'], $insert_plugins_vmax[$prefixe], '>')) {
 							$insert_plugins[$prefixe] = $le_plugin;
+							$insert_plugins_vmax[$prefixe] = $le_paquet['version'];
 						}
 					} else {
 						$id_plugin = $res['id_plugin'];
 						$cle_plugins[$prefixe] = $id_plugin;
+						// comme justement on ne stocke pas de vmax pour les plugins locaux...
+						// il est possible que ce test soit faux. pff.
 						if (spip_version_compare($le_paquet['version'], $res['vmax'], '>=')) {
 							sql_updateq('spip_plugins', $le_plugin, 'id_plugin='.sql_quote($id_plugin));
 						}
@@ -208,9 +213,9 @@ function svp_base_inserer_paquets_locaux($paquets_locaux) {
 				$le_paquet['constante']   = $const_dir;
 				$le_paquet['src_archive'] = $chemin;
 				$le_paquet['recent']      = isset($recents[$chemin]) ? $recents[$chemin] : 0;
-				$le_paquet['installe']    =  in_array($chemin, $installes) ? 'oui': 'non'; // est desinstallable ?
-				$le_paquet['obsolete']    =  'non';
-				$le_paquet['signature']    =  $paquet['signature'];
+				$le_paquet['installe']    = in_array($chemin, $installes) ? 'oui': 'non'; // est desinstallable ?
+				$le_paquet['obsolete']    = 'non';
+				$le_paquet['signature']   = $paquet['signature'];
 				
 				$actif = "non";
 				if (isset($actifs[$prefixe])
@@ -489,7 +494,6 @@ function svp_corriger_obsolete_paquets($ids_plugin = array()) {
 **/
 function svp_supprimer_plugins_orphelins($plugins) {
 	// tous les plugins encore lies a des depots...
-	// la vmax est a retablir...
 	if ($plugins) {
 		$p = sql_allfetsel('DISTINCT(p.id_plugin)', array('spip_plugins AS p', 'spip_paquets AS pa'), array(sql_in('p.id_plugin', $plugins), 'p.id_plugin=pa.id_plugin'));
 		$p = array_map('array_shift', $p);

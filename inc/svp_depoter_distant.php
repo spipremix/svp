@@ -47,7 +47,7 @@ function svp_ajouter_depot($url, &$erreur='') {
 		$erreur = _T('svp:message_nok_sql_insert_depot', array('objet' => $titre));
 		return false;
 	}
-		
+	
 	// Ajout des paquets dans spip_paquets et actualisation des plugins dans spip_plugins
 	$ok = svp_actualiser_paquets($id_depot, $infos['paquets'], $nb_paquets, $nb_plugins, $nb_autres);
 	if (!$ok OR ($nb_paquets == 0)) {
