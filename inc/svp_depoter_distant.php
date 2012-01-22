@@ -681,10 +681,12 @@ function eclater_plugin_paquet($champs_aplat) {
  * @param array $plugins liste d'identifiant de plugins
 **/
 function svp_corriger_vmax_plugins($plugins) {
-	// tous les plugins encore lies a des depots...
+	// tous les plugins encore lies a des depots (hors local)...
 	// la vmax est a retablir...
 	if ($plugins) {
-		$p = sql_allfetsel('DISTINCT(p.id_plugin)', array('spip_plugins AS p', 'spip_paquets AS pa'), array(sql_in('p.id_plugin', $plugins), 'p.id_plugin=pa.id_plugin'));
+		$p = sql_allfetsel('DISTINCT(p.id_plugin)',
+			array('spip_plugins AS p', 'spip_paquets AS pa'),
+			array(sql_in('p.id_plugin', $plugins), 'p.id_plugin=pa.id_plugin', 'pa.id_depot>'.intval(0)));
 		$p = array_map('array_shift', $p);
 
 		// pour les autres, on la fixe correctement
@@ -696,7 +698,7 @@ function svp_corriger_vmax_plugins($plugins) {
 		
 		foreach ($p as $id_plugin) {
 			$vmax = '';
-			if ($pa = sql_allfetsel('version', 'spip_paquets', 'id_plugin='.$id_plugin)) {
+			if ($pa = sql_allfetsel('version', 'spip_paquets', array('id_plugin='.$id_plugin), 'id_depot>'.intval(0))) {
 				foreach ($pa as $v) {
 					if (spip_version_compare($v['version'], $vmax, '>')) {
 						$vmax = $v['version'];
