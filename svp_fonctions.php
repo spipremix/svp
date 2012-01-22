@@ -252,6 +252,8 @@ function svp_compter($entite, $id_depot=0, $categorie='', $compatible_spip=''){
 
 function balise_SVP_CATEGORIES($p) {
 
+	$tri = interprete_argument_balise(1,$p);
+	$tri = isset($tri) ? str_replace('\'', '"', $tri) : '"ordre_cle"';
 	$categorie = interprete_argument_balise(1,$p);
 	$categorie = isset($categorie) ? str_replace('\'', '"', $categorie) : '""';
 
@@ -260,7 +262,7 @@ function balise_SVP_CATEGORIES($p) {
 	return $p;
 }
 
-function calcul_svp_categories($categorie) {
+function calcul_svp_categories($tri='ordre_cle', $categorie='') {
 
 	$retour = array();
 	include_spip('inc/svp_phraser'); // pour $GLOBALS['categories_plugin']
@@ -270,9 +272,11 @@ function calcul_svp_categories($categorie) {
 		if (($categorie) AND in_array($categorie, $svp_categories))
 			$retour[$categorie] = _T('svp:categorie_' . strtolower($categorie));
 		else {
-			sort($svp_categories);
-			// On positionne l'absence de categorie en fin du tableau
-			$svp_categories[] = array_shift($svp_categories);
+			if ($tri == 'ordre_alpha') {
+				sort($svp_categories);
+				// On positionne l'absence de categorie en fin du tableau
+				$svp_categories[] = array_shift($svp_categories);
+			}
 			foreach ($svp_categories as $_alias)
 				$retour[$_alias] = svp_traduire_categorie($_alias);
 		}
