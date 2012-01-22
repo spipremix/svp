@@ -567,9 +567,9 @@ function svp_completer_plugins($id_depot) {
 	// On limite la revue des paquets a ceux des plugins heberges par le depot en cours d'actualisation
 	$select_plugin = sql_get_select('id_plugin', 'spip_depots_plugins', array('id_depot=' . sql_quote($id_depot)));
 	
-	// -- on recupere tous les paquets associes aux plugins du depot et on compile les infos	
+	// -- on recupere tous les paquets associes aux plugins du depot et on compile les infos
 	if ($resultats = sql_allfetsel('id_plugin, compatibilite_spip, date_crea, date_modif', 'spip_paquets', 
-				sql_in('id_plugin', $select_plugin), '', 'id_plugin')) {
+				array(sql_in('id_plugin', $select_plugin), 'id_depot>'.intval(0)), '', 'id_plugin')) {
 
 		$plugin_en_cours = 0;
 		$inserts = array();
@@ -698,7 +698,7 @@ function svp_corriger_vmax_plugins($plugins) {
 		
 		foreach ($p as $id_plugin) {
 			$vmax = '';
-			if ($pa = sql_allfetsel('version', 'spip_paquets', array('id_plugin='.$id_plugin), 'id_depot>'.intval(0))) {
+			if ($pa = sql_allfetsel('version', 'spip_paquets', array('id_plugin='.$id_plugin, 'id_depot>'.intval(0)))) {
 				foreach ($pa as $v) {
 					if (spip_version_compare($v['version'], $vmax, '>')) {
 						$vmax = $v['version'];
