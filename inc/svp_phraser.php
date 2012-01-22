@@ -34,19 +34,19 @@ define('_SVP_REGEXP_BALISE_MULTIS', '#<multis[^>]*>(.*)</multis>#Uims');
 // Liste des categories de plugin
 # define('_CATEGORIES_PLUGIN', serialize($categories_plugin));
 $GLOBALS['categories_plugin'] = array(
-	'auteur', 
-	'communication', 
-	'date', 
-	'divers', 
-	'edition', 
-	'maintenance', 
-	'multimedia', 
-	'navigation', 
-	'outil', 
-	'performance', 
-	'statistique', 
-	'squelette', 
-	'theme', 
+	'communication',
+	'edition',
+	'multimedia',
+	'navigation',
+	'date',
+	'divers',
+	'auteur',
+	'statistique',
+	'performance',
+	'maintenance',
+	'outil',
+	'theme',
+	'squelette',
 	'aucune'
 );
 
