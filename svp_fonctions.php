@@ -425,7 +425,10 @@ function denormaliser_version($version_normalisee='') {
 		$v = explode('.', $version_normalisee);
 		foreach($v as $_nombre) {
 			$n = ltrim($_nombre, '0');
-			$vn[] = (strlen($n)>0) ? $n : '0';
+			// On traite les cas du type 001.002.000-dev qui doivent etre transformes en 1.2.0-dev.
+			// Etant donne que la denormalisation est toujours effectuee sur une version normalisee on sait
+			// que le suffixe commence toujours pas '-'
+			$vn[] = ((strlen($n)>0) AND substr($n, 0, 1)!='-' ) ? $n : "0$n";
 		}
 		$version = implode('.', $vn);
 	}

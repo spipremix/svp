@@ -315,13 +315,19 @@ function svp_lister_librairies() {
 function normaliser_version($version='') {
 
 	$version_normalisee = '';
-	if ($version) {
-		$v = explode('.', $version);
-		foreach($v as $_nombre) {
-			$vn[] = str_pad($_nombre, 3, '0', STR_PAD_LEFT);
+
+	if (preg_match(',([0-9.]+)[\s-.]?(dev|alpha|a|beta|b|rc|pl|p)?,i', $version, $matches)) {
+		if ($matches[1]) {
+			$v = explode('.', $matches[1]);
+			foreach($v as $_nombre) {
+				$vn[] = str_pad($_nombre, 3, '0', STR_PAD_LEFT);
+			}
+			$version_normalisee = implode('.', $vn);
+			if ($matches[2])
+				$version_normalisee =  $version_normalisee . '-' . $matches[2];
 		}
-		$version_normalisee = implode('.', $vn);
 	}
+
 	return $version_normalisee;
 }
 
