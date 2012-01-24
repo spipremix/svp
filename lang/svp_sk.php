@@ -55,7 +55,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'categorie_statistique' => 'Odkazovanie, štatistiky',
 	'categorie_theme' => 'Farebný motív',
 	'config_activer_log_verbeux' => 'Aktivovať podrobné protokoly?',
-	'config_activer_log_verbeux_explication' => 'Cette option rend les logs de SVP beaucoup plus locaces…', # NEW
+	'config_activer_log_verbeux_explication' => 'Táto možnosť zabezpečí, že protokoly SVP bud podrobnejšie…',
 	'config_activer_pas_a_pas' => 'Aktivovať režim Krok za krokom?',
 	'config_activer_pas_a_pas_explication' => 'Ak aktivujete tento režim, po vykonaní každej akcie sa zobrazí záznam  namiesto súhrnného prehľadu všetkých vykonaných zmien po vykonaní všetkých akcií',
 	'config_activer_runtime' => 'Aktivovať režim runtime?',
@@ -98,7 +98,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// F
 	'fieldset_debug' => 'Ladiť',
 	'fieldset_edition' => 'Upraviť',
-	'fieldset_fonctionnement' => 'Fonctionnement', # NEW
+	'fieldset_fonctionnement' => 'Fungovanie',
 
 	// I
 	'info_1_depot' => '1 depozitár',
@@ -120,11 +120,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_boite_charger_plugin' => '<strong>Cette page est uniquement accessible aux webmestres du site.</strong><p>Elle vous permet de rechercher des plugins mis à disposition par les dépôts enregistrés dans votre configuration et de les installer physiquement sur votre serveur</p>', # NEW
 	'info_boite_depot_gerer' => '<strong>Cette page est uniquement accessible aux webmestres du site.</strong><p>Elle permet l\'ajout et l\'actualisation des dépôts de plugins.</p>', # NEW
 	'info_charger_plugin' => 'Pour ajouter un ou plusieurs plugins, effectuez préalablement une recherche multi-critères sur les plugins de la galaxie SPIP. La recherche n\'inclut que les plugins compatibles avec la version SPIP installée et signale les plugins déjà actifs sur le site.', # NEW
-	'info_compatibilite_dependance' => 'Pour @compatibilite@ :', # NEW
+	'info_compatibilite_dependance' => 'Pre @compatibilite@:',
 	'info_contributions_hebergees' => '@total_autres@ iný(ch) príspevok (-kov) na serveri',
-	'info_critere_phrase' => 'Saisissez les mots-clés à chercher dans le préfixe, le nom, le slogan, la description et les auteurs des plugins', # NEW
+	'info_critere_phrase' => 'Zadajte kľúčové slová, ktoré sa majú vyhľadávať v predpone, názve, slogane, popise a autoroch zásuvných modulov',
 	'info_depots_disponibles' => '@total_depots@ depozitár(ov/e)',
-	'info_fichier_depot' => 'Saisissez l\'url du fichier de description du dépôt à ajouter.<br />Pour ajouter le dépôt «SPIP-Zone - Plugins» cliquez sur ce lien : ', # NEW
+	'info_fichier_depot' => 'Zadajte adresu súboru s popisom depozitára, ktorý sa má pridať.<br />Ak chcete pridať depozitár "SPIP-Zone - Plugins", kliknite na tento odkaz: ',
 	'info_nb_depots' => '@nb@ depozitárov',
 	'info_nb_paquets' => '@nb@ balíkov',
 	'info_nb_plugins' => '@nb@ zásuvných modulov',
@@ -190,8 +190,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_action_finale_stop_ok' => 'Aktivácia zásuvného modulu "@plugin@" (verzia: @version@) bola úspešne dokončená',
 	'message_action_finale_up_fail' => 'Aktualizácia zásuvného modulu "@plugin@" (z verzie: @version@ na @version_maj@) neprebehla správne',
 	'message_action_finale_up_ok' => 'Aktualizácia zásuvného modulu "@plugin@" (z verzie: @version@ na @version_maj@) prebehla úspešne',
-	'message_action_finale_upon_fail' => 'La mise à jour et l\'activation du plugin « @plugin@ » (de la version : @version@ à @version_maj@) ne se sont pas correctement déroulés', # NEW
-	'message_action_finale_upon_ok' => 'La mise à jour et l\'activation du plugin « @plugin@ » (de la version : @version@ à @version_maj@) se sont correctement déroulés', # NEW
+	'message_action_finale_upon_fail' => 'Aktualizácia a aktivácia zásuvného modulu "@plugin@" (z verzie: @version@ na @version_maj@) neprebehla úspešne',
+	'message_action_finale_upon_ok' => 'Aktualizácia a aktivácia zásuvného modulu "@plugin@" (z verzie: @version@ na @version_maj@) bola úspešne dokončená',
 	'message_action_get' => 'Stiahnuť zásuvný modul "@plugin@" (verzia: @version@)',
 	'message_action_getlib' => 'Stiahnuť knižnicu "<a href="@version@" class="spip_out">@plugin@</a>"',
 	'message_action_geton' => 'Stiahnuť a aktivovať zásuvný modul "@plugin@" (verzia: @version@)',
@@ -205,11 +205,10 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_dependance_plugin' => 'Zásuvný modul @plugin@ si vyžaduje @dependance@.',
 	'message_dependance_plugin_version' => 'Zásuvný modul @plugin@ si vyžaduje @dependance@ @version@',
 	'message_erreur_aucun_plugin_selectionne' => 'Nevybrali ste žiaden zásuvný modul.',
-	'message_erreur_ecriture_lib' => '@plugin@ a besoin de la bibliothèque <a href="@lib_url@">@lib@</a>
-   								placée dans le répertoire <var>lib/</var> à la racine de votre site.
-   								Cependant, ce répertoire n\'est pas accessible en écriture.
-   								Vous devez l\'installer manuellement ou donner des permissions d\'écriture
-   								à ce répertoire.', # NEW
+	'message_erreur_ecriture_lib' => '@plugin@ potrebuje knižnicu <a href="@lib_url@">@lib@</a>
+   								umiestnenú v priečinku <var>lib/</var> do koreňového adresára vašej stránky.
+   								Do tohto priečinka sa však nedá zapisovať.
+   								Musíte ho nainštalovať manuálne alebo udeliť tomuto priečinku povolenia na zápis.',
 	'message_erreur_maj_inconnu' => 'Neznámy zásuvný modul (@id@) sa nedá aktualizovať.',
 	'message_erreur_plugin_introuvable' => 'Nedá sa nájsť zásuvný modul @plugin@ na @action@.',
 	'message_erreur_plugin_non_actif' => 'Nedá sa deaktivovať zásuvný modul, ktorý nebol aktivovaný.',
@@ -226,7 +225,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_nok_xml_non_conforme' => 'Súbor XML, ktorý je popisom depozitára,  "@fichier@"  nie je kompatibilný',
 	'message_ok_aucun_plugin_trouve' => 'Vybraným kritériám nevyhovuje žiaden zásuvný modul.',
 	'message_ok_depot_ajoute' => 'Depozitár "@url@" bol priadaný.',
-	'message_ok_plugins_trouves' => '@nb_plugins@ plugin(s) correspondent aux critères choisis (@tri@). Sélectionnez ci-dessous les plugins que vous souhaitez télécharger et activer sur votre serveur.', # NEW
+	'message_ok_plugins_trouves' => 'Vybraným kritériám (@tri@) vyhovuje @nb_plugins@ zásuvný(ch) modul(ov). Vyberte si tie zásuvné moduly, ktoré chcete stiahnuť a aktivovať na svojom serveri.',
 
 	// N
 	'nettoyer_actions' => 'Vymazať tieto akcie! Takto vymažete zoznam akcií, ktoré ešte treba vykonať.',
