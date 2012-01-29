@@ -24,5 +24,6 @@
 	<pipeline nom="autoriser" inclure="svp_pipelines.php" />
 	<pipeline nom="pre_boucle" inclure="svp_pipelines.php" />
 	<pipeline nom="ajouter_onglets" inclure="svp_pipelines.php" />
+	<pipeline nom="ieconfig_metas" inclure="svp_ieconfig.php" />
 
 </paquet>
