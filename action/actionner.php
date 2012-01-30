@@ -6,7 +6,7 @@ function action_actionner_dist() {
 	
 	// droits
 	include_spip('inc/autoriser');
-	if (!autoriser('configurer', 'plugins')) {
+	if (!autoriser('configurer', '_plugins')) {
 		include_spip('inc/minipres');
 		echo minipres();
 		exit;
