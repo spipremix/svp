@@ -55,7 +55,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'categorie_statistique' => 'فهرسة، إحصاءات',
 	'categorie_theme' => 'الموضوع',
 	'config_activer_log_verbeux' => 'تفعيل السجلات المفصلة؟',
-	'config_activer_log_verbeux_explication' => 'Cette option rend les logs de SVP beaucoup plus locaces…', # NEW
+	'config_activer_log_verbeux_explication' => 'هذا الخيار يجعل سجلات خادم معلومات الملحقات أكثر تفصيلاً...',
 	'config_activer_pas_a_pas' => 'تفعيل وضعية الخطوة خطوة؟',
 	'config_activer_pas_a_pas_explication' => 'Activer ce mode permet d\'afficher un bilan après chaque action réalisée, au lieu d\'avoir uniquement un bilan global de toutes les actions effectuées à la fin des traitements.', # NEW
 	'config_activer_runtime' => 'Activer le mode runtime ?', # NEW
@@ -76,7 +76,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'erreur_teleporter_echec_deballage_archive' => 'Impossible de déballer @fichier@', # NEW
 	'erreur_teleporter_format_archive_non_supporte' => 'Le format @extension@ n\'est pas supporté par le téléporteur', # NEW
 	'erreur_teleporter_methode_inconue' => 'Méthode @methode@ inconnue pour téléporter', # NEW
-	'erreur_teleporter_type_fichier_inconnu' => 'Type de fichier inconnu pour la source @source@', # NEW
+	'erreur_teleporter_type_fichier_inconnu' => 'نوع ملفات غير معروف للمصدر @source@',
 
 	// F
 	'fieldset_debug' => 'كشف الأخطاء',
@@ -94,7 +94,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_admin_plugin_verrou_non' => 'Cette page liste tous les plugins non verrouillés du site, actifs ou pas.', # NEW
 	'info_admin_plugin_verrou_tous' => 'Cette page liste tous les plugins du site.', # NEW
 	'info_admin_plugin_verrouille' => 'Cette page liste les plugins verrouillés du site. Ces plugins sont forcément actifs. Aucune action n\'est possible à partir de cette interface.', # NEW
-	'info_adresse_spipzone' => 'SPIP-Zone - Plugins', # NEW
+	'info_adresse_spipzone' => 'SPIP-Zone - ملحقات',
 	'info_ajouter_depot' => 'En ajoutant des dépôts à votre base, vous aurez la possiblité d\'obtenir des informations et d\'effectuer des recherches sur tous les paquets hébergés par les dépôts ajoutés.<br />Un dépôt est décrit par un fichier XML contenant les informations sur le dépôt et sur tous ses paquets.', # NEW
 	'info_aucun_depot' => 'لا وجود لأي مستودع',
 	'info_aucun_depot_ajoute' => 'Aucun dépôt disponible !<br /> Utilisez le formulaire ci-dessous pour ajouter le dépôt «SPIP-Zone - Plugins» dont l\'url est déjà pré-remplie ou un autre dépôt de votre choix.', # NEW
@@ -113,8 +113,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_nb_plugins' => '@nb@ ملحق',
 	'info_paquets_disponibles' => '@total_paquets@ paquet(s) disponible(s)', # NEW
 	'info_plugin_incompatible' => 'إصدار غير متوافق',
-	'info_plugin_installe' => 'déjà installé', # NEW
-	'info_plugin_obsolete' => 'version obsolète', # NEW
+	'info_plugin_installe' => 'مثبت',
+	'info_plugin_obsolete' => 'إصدار قديم',
 	'info_plugins_disponibles' => '@total_plugins@ plugin(s) disponible(s)', # NEW
 	'info_plugins_heberges' => '@total_plugins@ plugin(s) hébergé(s)', # NEW
 	'info_tri_nom' => 'classé(s) par ordre alphabétique', # NEW
@@ -145,7 +145,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'label_type_depot_git' => 'مستودع تحت GIT',
 	'label_type_depot_manuel' => 'مستودع يدوي',
 	'label_type_depot_svn' => 'مستودع تحت SVN',
-	'label_url_archives' => 'عنوان URL الخاص لحاوية الأرسيف',
+	'label_url_archives' => 'عنوان URL الخاص بحاوية الأرشيف',
 	'label_url_brouteur' => 'عنوان URL الخاص بأصل المصادر',
 	'label_url_serveur' => 'عنوان URL الخاص بالخادم',
 	'label_version' => 'إصدار',
@@ -219,7 +219,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'option_etat_tout' => 'كل الحالات',
 
 	// P
-	'placeholder_phrase' => 'préfixe, nom, slogan, description ou auteur', # NEW
+	'placeholder_phrase' => 'بادئة، اسم، شعار، وصف او مؤلف',
 	'plugin_info_actif' => 'ملحق نشط',
 	'plugin_info_up' => 'هناك ترقية متوافرة للملحق (الإصدار @version@)',
 	'plugin_info_verrouille' => 'ملحق مقفل',
@@ -250,9 +250,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'titre_paquets' => 'حزم',
 	'titre_plugin' => 'ملحق',
 	'titre_plugins' => 'ملحقات',
-	'tout_cocher' => 'Tout cocher', # NEW
-	'tout_cocher_up' => 'Cocher les mises à jour', # NEW
-	'tout_decocher' => 'Tout décocher' # NEW
+	'tout_cocher' => 'تحديد الكل',
+	'tout_cocher_up' => 'تحديد التحديثات',
+	'tout_decocher' => 'إزالة تحديد الكل'
 );
 
 ?>

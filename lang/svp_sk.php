@@ -59,40 +59,36 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'config_activer_pas_a_pas' => 'Aktivovať režim Krok za krokom?',
 	'config_activer_pas_a_pas_explication' => 'Ak aktivujete tento režim, po vykonaní každej akcie sa zobrazí záznam  namiesto súhrnného prehľadu všetkých vykonaných zmien po vykonaní všetkých akcií',
 	'config_activer_runtime' => 'Aktivovať režim runtime?',
-	'config_activer_runtime_explication' => '
-		Le mode runtime (oui) ne charge que les plugins compatibles avec la version courante de votre SPIP,
-		ce qui est fortement conseillé pour la plupart des usages.
+	'config_activer_runtime_explication' => '		V režime runtime (áno) spúšťa iba zásuvné moduly kompatibilné s vašou verziou SPIPu,
+		čo sa veľmi odporúča pre väčšinu využití programu.
 		
-		En mode non runtime (non), tous les plugins d\'un dépôt sont chargés,
-		quelle que soit la version du SPIP en cours. Cela est uniquement utile pour
-		utiliser SVP afin de présenter tous les plugins existants comme le fait
-		le site Plugins SPIP (plugins.spip.net)', # NEW
+		V režime runtime nie (nie), sa všetky zásuvné moduly spúšťajú cez depozitár
+		bez ohľadu na aktuálnu verziu SPIPu. To je dobré iba 
+		na využitie SVP na zobrazenie všetkých existujúcich zásuvných modulov ako to robí stránka Plugins SPIP (plugins.spip.net)',
 	'config_autoriser_activer_paquets_obsoletes' => 'Umožniť aktiváciu zastaralých balíkov?',
-	'config_autoriser_activer_paquets_obsoletes_explication' => 'Les paquets obsolètes sont des paquets
-		locaux présents qui sont plus anciens que d\'autres paquets locaux. L\'obsolescence
-		est établie sur la base de l\'état (stable, test, dev) du paquet ainsi que sur la
-		base de sa version.
+	'config_autoriser_activer_paquets_obsoletes_explication' => 'Zastaralé balíky sú balíky,
+		ktoré sú lokálne dostupné a ktoré sú staršie ako ostatné lokálne balíky. Zastaranosť
+		sa určuje podľa stavu balíka (stabilné, testovacie, vo vývoji) a podľa
+		verzie.
 
-		Activez cette option si vous souhaitez malgré tout pouvoir activer ces plugins obsolètes.
-		', # NEW
+		Ak stále chcete aktivovať tieto zastaralé zásuvné moduly, aktivujte túto možnosť.
+		',
 	'config_depot_editable' => 'Umožniť upravovanie depozitárov?',
-	'config_depot_editable_explication' => 'Cela rend éditable les informations d\'un dépot,
-		et permet ainsi de leur joindre éventuellement des mots clés ou documents.
-		Cette option ne devrait intéresser personne ! Préférez laisser «non» !', # NEW
+	'config_depot_editable_explication' => 'Umožňuje upravovať údaje v depozitári a priradiť k ním kľúčové slová alebo dokumenty.
+		Táto možnosť by mala zaujať každého! Radšej preto nenechajte možnosť "nie"!',
 
 	// E
-	'erreur_actions_non_traitees' => 'Certaines actions n\'ont pas été réalisées.
-			Cela peut provenir d\'une erreur lors des actions à réaliser, ou d\'un affichage de cette page
-			alors que des actions sont encore en cours. Les actions avaient été lancées par @auteur@ le @date@.', # NEW
+	'erreur_actions_non_traitees' => 'Niektoré akcie neboli vykonané.
+			Mohlo sa to stať kvôli chybám v akciách, ktoré bolo treba vykonať, alebo kvôli chybe v zobrazení tejto stránky, zatiaľčo akcie čakajú, kým budú vykonané. Akcie spustil(a) @auteur@ @date@.',
 	'erreur_dir_dib_ecriture' => 'Do adresára knižníc @dir@ sa nedá zapisovať. Knižnica sa nedá spustiť!',
 	'erreur_dir_dib_indefini' => 'Priečinok _DIR_LIB nie je definovaný. Knižnica sa nedá spustiť!',
 	'erreur_dir_plugins_auto_ecriture' => 'Do priečinka s balíkmi @dir@ sa nedá zapisovať. Balík sa nedá spustiť!',
 	'erreur_dir_plugins_auto_indefini' => 'Priečinok _DIR_PLUGIN_AUTO nie je definovaný. Balík sa nedá spustiť!',
 	'erreur_teleporter_chargement_source_impossible' => 'Zdroj @source@ sa nedá nahrať',
-	'erreur_teleporter_destination_erreur' => 'Répertoire @dir@ non accessible pour téléporter', # NEW
+	'erreur_teleporter_destination_erreur' => 'Program na premiestňovanie nemá prístup k priečinku @dir@',
 	'erreur_teleporter_echec_deballage_archive' => 'Súbor @fichier@ sa nedá rozbaliť',
-	'erreur_teleporter_format_archive_non_supporte' => 'Le format @extension@ n\'est pas supporté par le téléporteur', # NEW
-	'erreur_teleporter_methode_inconue' => 'Méthode @methode@ inconnue pour téléporter', # NEW
+	'erreur_teleporter_format_archive_non_supporte' => 'Premiestňovací program nepodporuje formát @extension@',
+	'erreur_teleporter_methode_inconue' => 'Premiestňovací program nepozná metódu @methode@',
 	'erreur_teleporter_type_fichier_inconnu' => 'Neznámy typ súboru pre zdroj @source@',
 
 	// F
@@ -110,16 +106,16 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_admin_plugin_actif_oui_verrou_tous' => 'Na tejto stránke sa nachádzajú aktívne zásuvné moduly, či už sú uzamknuté alebo nie.',
 	'info_admin_plugin_verrou_non' => 'Na tejto stránke sa nachádza zoznam odomknutých zásuvných modulov, či aktívnych alebo neaktívnych.',
 	'info_admin_plugin_verrou_tous' => 'Na tejto stránke sa nachádza zoznam všetkých zásuvných modulov stránky.',
-	'info_admin_plugin_verrouille' => 'Cette page liste les plugins verrouillés du site. Ces plugins sont forcément actifs. Aucune action n\'est possible à partir de cette interface.', # NEW
+	'info_admin_plugin_verrouille' => 'Na tejto stránke nájdete zoznam zamknutých zásuvných modulov. Tieto zásuvné moduly sú stále aktívne. Z tohto rozhrania nemôžete vykonať žiadnu akciu.',
 	'info_adresse_spipzone' => 'SPIP-Zone – Zásuvné moduly',
-	'info_ajouter_depot' => 'En ajoutant des dépôts à votre base, vous aurez la possiblité d\'obtenir des informations et d\'effectuer des recherches sur tous les paquets hébergés par les dépôts ajoutés.<br />Un dépôt est décrit par un fichier XML contenant les informations sur le dépôt et sur tous ses paquets.', # NEW
+	'info_ajouter_depot' => 'Ak pridáte depozitáre do svojej databázy, budete môcť o nich získať informácie a vyhľadať všetky balíky, ktoré sa v nich nachádzajú. <br />Depozitár opisuje súbor XML, v ktorom sa nachádzajú informácie o depozitári a všetkých jeho balíkoch.',
 	'info_aucun_depot' => 'žiaden depozitár',
-	'info_aucun_depot_ajoute' => 'Aucun dépôt disponible !<br /> Utilisez le formulaire ci-dessous pour ajouter le dépôt «SPIP-Zone - Plugins» dont l\'url est déjà pré-remplie ou un autre dépôt de votre choix.', # NEW
+	'info_aucun_depot_ajoute' => 'Žiaden depozitár nie je k dispozícii!<br /> Na pridanie depozitára "SPIP-Zone - Plugins", ktorého adresa je vyplnená automaticky, alebo iného depozitára podľa svojho výberu použite formulár.',
 	'info_aucun_paquet' => 'žiaden balík',
 	'info_aucun_plugin' => 'žiaden zásuvný modul',
-	'info_boite_charger_plugin' => '<strong>Cette page est uniquement accessible aux webmestres du site.</strong><p>Elle vous permet de rechercher des plugins mis à disposition par les dépôts enregistrés dans votre configuration et de les installer physiquement sur votre serveur</p>', # NEW
-	'info_boite_depot_gerer' => '<strong>Cette page est uniquement accessible aux webmestres du site.</strong><p>Elle permet l\'ajout et l\'actualisation des dépôts de plugins.</p>', # NEW
-	'info_charger_plugin' => 'Pour ajouter un ou plusieurs plugins, effectuez préalablement une recherche multi-critères sur les plugins de la galaxie SPIP. La recherche n\'inclut que les plugins compatibles avec la version SPIP installée et signale les plugins déjà actifs sur le site.', # NEW
+	'info_boite_charger_plugin' => '<strong>Táto stránka je k dispozícii iba pre webmasterov.</strong><p>Umožňuje vám vyhľadať zásuvné moduly z depozitárov uložených vo vašich nastaveniach a fyzicky ich nainštalovať na váš server</p>',
+	'info_boite_depot_gerer' => '<strong>Táto stránka je k dispozícii iba pre webmasterov.</strong><p>Umožňuje im pridávať a aktualizovať depozitáre so zásuvnými modulmi.</p>',
+	'info_charger_plugin' => 'Ak chcete pridať jeden alebo viac zásuvných modulov SPIPu, vyhľadajte ich v "galaxii" cez vyhľadávanie podľa viacerých kritérií. Do vyhľadávania budú zaradené len zásuvné moduly kompatibilné s nainštalovanou verziou SPIPu a zásuvné moduly, ktoré sú aktívne, budú označené.',
 	'info_compatibilite_dependance' => 'Pre @compatibilite@:',
 	'info_contributions_hebergees' => '@total_autres@ iný(ch) príspevok (-kov) na serveri',
 	'info_critere_phrase' => 'Zadajte kľúčové slová, ktoré sa majú vyhľadávať v predpone, názve, slogane, popise a autoroch zásuvných modulov',
