@@ -93,7 +93,7 @@ function exec_admin_plugin_dist() {
 	plugin_installes_meta();
 
 
-	echo recuperer_fond('prive/squelettes/contenu/svp_admin_plugin', $_REQUEST);
+	echo recuperer_fond('prive/squelettes/contenu/svp_admin_plugin', $_REQUEST, array('ajax' => true));
 
 	echo pipeline('affiche_milieu',
 		array(
