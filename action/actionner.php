@@ -3,7 +3,6 @@
 if (!defined("_ECRIRE_INC_VERSION")) return;
 
 function action_actionner_dist() {
-	
 	// droits
 	include_spip('inc/autoriser');
 	if (!autoriser('configurer', '_plugins')) {
@@ -27,7 +26,6 @@ function action_actionner_dist() {
 			$url = generer_action_auteur('actionner', '',  _request('redirect'));
 		}
 
-		
 		// en mode pas à pas, on affiche un bilan entre chaque action
 		// et on demande a l'utilistateur de cliquer pour realiser
 		// l'action suivante.
@@ -52,8 +50,8 @@ function action_actionner_dist() {
 	include_spip('inc/svp_depoter_local');
 	svp_actualiser_paquets_locaux();
 
-	// retour
-	redirige_par_entete(_request('redirect'));
+	if (!_request('redirect'))
+		$GLOBALS['redirect'] = generer_url_ecrire('admin_plugin');
 
 }
 
