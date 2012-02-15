@@ -58,12 +58,12 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'config_activer_log_verbeux_explication' => 'هذا الخيار يجعل سجلات خادم معلومات الملحقات أكثر تفصيلاً...',
 	'config_activer_pas_a_pas' => 'تفعيل وضعية الخطوة خطوة؟',
 	'config_activer_pas_a_pas_explication' => 'Activer ce mode permet d\'afficher un bilan après chaque action réalisée, au lieu d\'avoir uniquement un bilan global de toutes les actions effectuées à la fin des traitements.', # NEW
-	'config_activer_runtime' => 'Activer le mode runtime ?', # NEW
-	'config_activer_runtime_explication' => 'Le mode runtime (oui) ne charge que les plugins compatibles avec la version courante de votre SPIP, ce qui est fortement conseillé pour la plupart des usages. En mode non runtime (non), tous les plugins d\'un dépôt sont chargés, quelle que soit la version du SPIP en cours. Cela est uniquement utile pour utiliser SVP afin de présenter tous les plugins existants comme le fait le site Plugins SPIP (plugins.spip.net)', # NEW
+	'config_activer_runtime' => 'تفعيل وضعية «خلال التشغيل» (runtime)؟',
+	'config_activer_runtime_explication' => 'لا تحمّل وضعية «خلال التشغيل» (نعم) الا الملحقات المتوافقة مع إصدار SPIP الحالي، وهي الوضعية المستحسنة لمعظم الاستخدامات. في وضعية خارج «خلال التشغيل» (كلا)، يتم تحميل كل ملحقات المخزن مهما كان إصدار SPIP وذلك لعرض كل الملحقات الموجودة تماماً كما يفعل موقع ملحقات SPIP (اي plugins.spip.net)',
 	'config_autoriser_activer_paquets_obsoletes' => 'السماح بتفعيل الحزم القديمة؟',
 	'config_autoriser_activer_paquets_obsoletes_explication' => 'Les paquets obsolètes sont des paquets locaux présents qui sont plus anciens que d\'autres paquets locaux. L\'obsolescence est établie sur la base de l\'état (stable, test, dev) du paquet ainsi que sur la base de sa version. Activez cette option si vous souhaitez malgré tout pouvoir activer ces plugins obsolètes.', # NEW
 	'config_depot_editable' => 'السماح بتحرير المستودعات؟',
-	'config_depot_editable_explication' => 'Cela rend éditable les informations d\'un dépot et permet ainsi de leur joindre éventuellement des mots-clés ou documents. Cette option ne devrait intéresser personne ! Préférez laisser «non» !', # NEW
+	'config_depot_editable_explication' => 'يجعل من معلومات مخزن قابلة للتحرير ويتيح هكذا ربطها بمفاتيح او مستندات. ليس من المتوقع ان يهتم اجد بهذا الخيار! فالأفضل ان تترك «كلا»!',
 
 	// E
 	'erreur_actions_non_traitees' => 'Certaines actions n\'ont pas été réalisées. Cela peut provenir d\'une erreur lors des actions à réaliser, ou d\'un affichage de cette page alors que des actions sont encore en cours. Les actions avaient été lancées par @auteur@ le @date@.', # NEW
@@ -71,9 +71,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'erreur_dir_dib_indefini' => 'Le répertoire _DIR_LIB n\'est pas défini. Impossible d\'y charger une bibliothèque !', # NEW
 	'erreur_dir_plugins_auto_ecriture' => 'Le répertoire de paquets @dir@ n\'est pas accessible en écriture. Impossible d\'y charger un paquet !', # NEW
 	'erreur_dir_plugins_auto_indefini' => 'Le répertoire _DIR_PLUGIN_AUTO n\'est pas défini. Impossible d\'y charger un paquet !', # NEW
-	'erreur_teleporter_chargement_source_impossible' => 'Chargement impossible de la source @source@', # NEW
+	'erreur_teleporter_chargement_source_impossible' => 'لا يمكن تحميل المصدر @source@',
 	'erreur_teleporter_destination_erreur' => 'Répertoire @dir@ non accessible pour téléporter', # NEW
-	'erreur_teleporter_echec_deballage_archive' => 'Impossible de déballer @fichier@', # NEW
+	'erreur_teleporter_echec_deballage_archive' => 'لا يمكن فلش الملف @fichier@',
 	'erreur_teleporter_format_archive_non_supporte' => 'Le format @extension@ n\'est pas supporté par le téléporteur', # NEW
 	'erreur_teleporter_methode_inconue' => 'Méthode @methode@ inconnue pour téléporter', # NEW
 	'erreur_teleporter_type_fichier_inconnu' => 'نوع ملفات غير معروف للمصدر @source@',
