@@ -57,25 +57,25 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'config_activer_log_verbeux' => 'تفعيل السجلات المفصلة؟',
 	'config_activer_log_verbeux_explication' => 'هذا الخيار يجعل سجلات خادم معلومات الملحقات أكثر تفصيلاً...',
 	'config_activer_pas_a_pas' => 'تفعيل وضعية الخطوة خطوة؟',
-	'config_activer_pas_a_pas_explication' => 'Activer ce mode permet d\'afficher un bilan après chaque action réalisée, au lieu d\'avoir uniquement un bilan global de toutes les actions effectuées à la fin des traitements.', # NEW
+	'config_activer_pas_a_pas_explication' => 'ان فعيل هذه الوضعية يسمح بعرض جردة بعد كل عملية منفذة، بدلاً من جردة عامة لكل العمليات المنفذة بعد انتهاء المعالجة. ',
 	'config_activer_runtime' => 'تفعيل وضعية «خلال التشغيل» (runtime)؟',
 	'config_activer_runtime_explication' => 'لا تحمّل وضعية «خلال التشغيل» (نعم) الا الملحقات المتوافقة مع إصدار SPIP الحالي، وهي الوضعية المستحسنة لمعظم الاستخدامات. في وضعية خارج «خلال التشغيل» (كلا)، يتم تحميل كل ملحقات المخزن مهما كان إصدار SPIP وذلك لعرض كل الملحقات الموجودة تماماً كما يفعل موقع ملحقات SPIP (اي plugins.spip.net)',
 	'config_autoriser_activer_paquets_obsoletes' => 'السماح بتفعيل الحزم القديمة؟',
-	'config_autoriser_activer_paquets_obsoletes_explication' => 'Les paquets obsolètes sont des paquets locaux présents qui sont plus anciens que d\'autres paquets locaux. L\'obsolescence est établie sur la base de l\'état (stable, test, dev) du paquet ainsi que sur la base de sa version. Activez cette option si vous souhaitez malgré tout pouvoir activer ces plugins obsolètes.', # NEW
+	'config_autoriser_activer_paquets_obsoletes_explication' => 'الحزم القديمة هي حزم محلية أقدم من حزم محلية أخرى. ويتم تحديد القدم على قاعدة حالة الحزمة (ثابتة، تجريبية او قيد التطوير) ورقم إصدارها. اذا رغبت في تفعيل ملحقات قديمة، قم بتفعيل هذا الخيار.',
 	'config_depot_editable' => 'السماح بتحرير المستودعات؟',
 	'config_depot_editable_explication' => 'يجعل من معلومات مخزن قابلة للتحرير ويتيح هكذا ربطها بمفاتيح او مستندات. ليس من المتوقع ان يهتم اجد بهذا الخيار! فالأفضل ان تترك «كلا»!',
 
 	// E
 	'erreur_actions_non_traitees' => 'Certaines actions n\'ont pas été réalisées. Cela peut provenir d\'une erreur lors des actions à réaliser, ou d\'un affichage de cette page alors que des actions sont encore en cours. Les actions avaient été lancées par @auteur@ le @date@.', # NEW
-	'erreur_dir_dib_ecriture' => 'Le répertoire des bibliothèques @dir@ n\'est pas accessible en écriture. Impossible d\'y charger une bibliothèque !', # NEW
-	'erreur_dir_dib_indefini' => 'Le répertoire _DIR_LIB n\'est pas défini. Impossible d\'y charger une bibliothèque !', # NEW
-	'erreur_dir_plugins_auto_ecriture' => 'Le répertoire de paquets @dir@ n\'est pas accessible en écriture. Impossible d\'y charger un paquet !', # NEW
-	'erreur_dir_plugins_auto_indefini' => 'Le répertoire _DIR_PLUGIN_AUTO n\'est pas défini. Impossible d\'y charger un paquet !', # NEW
+	'erreur_dir_dib_ecriture' => 'مجلد المكتبات @dir@ غير متاح للكتابة. لا يمكن تغيير اي مكتبة داخله!',
+	'erreur_dir_dib_indefini' => 'المجلد _DIR_LIB غير محدد. لا يمكن تغيير اي مكتبة داخله!',
+	'erreur_dir_plugins_auto_ecriture' => 'مجلد الحزم @dir@ غير متاح للكتابة. لا يمكن تغيير اي حزمة داخله!',
+	'erreur_dir_plugins_auto_indefini' => 'المجلد _DIR_PLUGIN_AUTO غير محدد. لا يمكن تغيير اي حزمة داخله!',
 	'erreur_teleporter_chargement_source_impossible' => 'لا يمكن تحميل المصدر @source@',
-	'erreur_teleporter_destination_erreur' => 'Répertoire @dir@ non accessible pour téléporter', # NEW
+	'erreur_teleporter_destination_erreur' => 'لا يمكن الوصول الى مجلد @dir@ للنقل البعيد',
 	'erreur_teleporter_echec_deballage_archive' => 'لا يمكن فلش الملف @fichier@',
-	'erreur_teleporter_format_archive_non_supporte' => 'Le format @extension@ n\'est pas supporté par le téléporteur', # NEW
-	'erreur_teleporter_methode_inconue' => 'Méthode @methode@ inconnue pour téléporter', # NEW
+	'erreur_teleporter_format_archive_non_supporte' => 'الناقل البعيد لا يدعم التنسيق @extension@',
+	'erreur_teleporter_methode_inconue' => 'اسلوب @methode@ غير معروف للنقل البعيد',
 	'erreur_teleporter_type_fichier_inconnu' => 'نوع ملفات غير معروف للمصدر @source@',
 
 	// F
@@ -138,7 +138,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'label_critere_phrase' => 'بحث في الملحقات',
 	'label_modifie_le' => 'تم التعديل في',
 	'label_n_autres_contributions' => 'مشاركات أخرى',
-	'label_prefixe' => 'Préfixe', # NEW
+	'label_prefixe' => 'بادئة',
 	'label_selectionner_plugin' => 'تحديد هذا الملحق',
 	'label_tags' => 'علامات',
 	'label_type_depot' => 'نوع المستودع:',
@@ -163,8 +163,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_action_finale_geton_ok' => 'Le téléchargement et l\'activation du plugin « @plugin@ » (version : @version@) se sont correctement déroulés', # NEW
 	'message_action_finale_install_fail' => 'L\'installation du plugin « @plugin@ » (version : @version@) a échoué', # NEW
 	'message_action_finale_install_ok' => 'L\'installation du plugin « @plugin@ » (version : @version@) s\'est correctement déroulée', # NEW
-	'message_action_finale_kill_fail' => 'Les fichiers du plugin « @plugin@ » (version : @version@) n\'ont pu être correctement effacés', # NEW
-	'message_action_finale_kill_ok' => 'Les fichiers du plugin « @plugin@ » (version : @version@) ont été correctement effacés', # NEW
+	'message_action_finale_kill_fail' => 'لم يتم حذف ملفات الملحق « @plugin@» (الإصدار: @version@) بشكل صحيح',
+	'message_action_finale_kill_ok' => 'تم حذف ملفات الملحق « @plugin@» (الإصدار: @version@) بشكل صحيح',
 	'message_action_finale_off_fail' => 'La désactivation du plugin « @plugin@ » (version : @version@) ne s\'est pas correctement déroulée', # NEW
 	'message_action_finale_off_ok' => 'La désactivation du plugin « @plugin@ » (version : @version@) s\'est correctement déroulée', # NEW
 	'message_action_finale_on_fail' => 'L\'activation du plugin « @plugin@ » (version : @version@) ne s\'est pas correctement déroulée', # NEW
@@ -187,11 +187,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_action_upon' => 'Mise à jour et activation du plugin « @plugin@ » (version : @version@)', # NEW
 	'message_dependance_plugin' => 'Le plugin @plugin@ dépend de @dependance@.', # NEW
 	'message_dependance_plugin_version' => 'Le plugin @plugin@ dépend de @dependance@ @version@', # NEW
-	'message_erreur_aucun_plugin_selectionne' => 'Aucun plugin sélectionné.', # NEW
+	'message_erreur_aucun_plugin_selectionne' => 'لا يوجد اي ملحق محدد',
 	'message_erreur_ecriture_lib' => '@plugin@ a besoin de la bibliothèque <a href="@lib_url@">@lib@</a> placée dans le répertoire <var>lib/</var> à la racine de votre site. Cependant, ce répertoire n\'est pas accessible en écriture. Vous devez l\'installer manuellement ou donner des permissions d\'écriture à ce répertoire.', # NEW
-	'message_erreur_maj_inconnu' => 'Mise à jour impossible d\'un plugin inconnu (@id@).', # NEW
-	'message_erreur_plugin_introuvable' => 'Il est impossible de trouver le plugin @plugin@ pour @action@.', # NEW
-	'message_erreur_plugin_non_actif' => 'Il est impossible de désactiver un plugin non actif.', # NEW
+	'message_erreur_maj_inconnu' => 'ترقية غير ممكنة لملحق غير معروف (@id@)',
+	'message_erreur_plugin_introuvable' => 'لا يمكن العثور على الملحق @plugin@ لـ@action@. ',
+	'message_erreur_plugin_non_actif' => 'لا يمكن إيقاف ملحق غير فعال.',
 	'message_incompatibilite_spip' => '@plugin@  n\'est pas compatible avec la version de SPIP que vous utilisez.', # NEW
 	'message_nok_aucun_depot_disponible' => 'Aucun plugin n\'est disponible ! Veuillez vous rendre dans la page de gestion des dépôts pour ajouter des listes de plugins.', # NEW
 	'message_nok_aucun_paquet_ajoute' => 'Le dépôt « @url@ » ne fournit aucun nouveau paquet par rapport à la base déjà enregistrée. Il n\'a donc pas été ajouté', # NEW
@@ -199,16 +199,16 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_nok_champ_obligatoire' => 'Ce champ est obligatoire', # NEW
 	'message_nok_depot_deja_ajoute' => 'L\'adresse « @url@ » correspond à un dépôt déjà ajouté', # NEW
 	'message_nok_maj_introuvable' => 'Mise à jour du plugin @plugin@ introuvable (@id@).', # NEW
-	'message_nok_plugin_inexistant' => 'Le plugin demandé est inexistant (@plugin@).', # NEW
+	'message_nok_plugin_inexistant' => 'الملحق المطلوب غير موجود (@plugin@)',
 	'message_nok_sql_insert_depot' => 'Erreur SQL lors de l\'ajout du dépôt @objet@', # NEW
 	'message_nok_url_depot_incorrecte' => 'L\'adresse « @url@ » est incorrecte', # NEW
 	'message_nok_xml_non_conforme' => 'Le fichier XML « @fichier@ » de description du dépôt n\'est pas conforme', # NEW
 	'message_ok_aucun_plugin_trouve' => 'Aucun plugin ne correspond aux critères choisis.', # NEW
-	'message_ok_depot_ajoute' => 'Le dépôt « @url@ » a été ajouté.', # NEW
+	'message_ok_depot_ajoute' => 'تمت إضافة المستودع @url@.',
 	'message_ok_plugins_trouves' => '@nb_plugins@ plugin(s) correspondent aux critères choisis (@tri@). Sélectionnez ci-dessous les plugins que vous souhaitez télécharger et activer sur votre serveur.', # NEW
 
 	// N
-	'nettoyer_actions' => 'Nettoyer ces actions ! Cela effacera la liste des actions qui restent à traiter.', # NEW
+	'nettoyer_actions' => 'تنظيف هذه العلميات! سيؤدي ذلك الى حذف العمليات قيد التنفيذ.',
 
 	// O
 	'onglet_depots' => 'إدارة المستودعات',
