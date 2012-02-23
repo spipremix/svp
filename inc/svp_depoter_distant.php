@@ -414,6 +414,15 @@ function svp_actualiser_paquets($id_depot, $paquets, &$nb_paquets, &$nb_plugins,
 					if (!$plugin AND !array_key_exists($insert_plugin['prefixe'], $insert_plugins)) {
 						$insert_plugins[ $insert_plugin['prefixe'] ] = array_merge($insert_plugin, array('vmax' => $insert_paquet['version']));
 					}
+                    elseif (array_key_exists($insert_plugin['prefixe'], $insert_plugins)
+                        AND (spip_version_compare($insert_plugins[ $insert_plugin['prefixe'] ]['vmax'], $insert_paquet['version'], '<=')))
+                    { // attribuer au plugin le nom et le slogan du paquet le plus à jour
+                        $insert_plugins[ $insert_plugin['prefixe'] ] = array_merge($insert_plugin,
+                            array(
+                                'nom' => $insert_plugin['nom'],
+                                'slogan' => $insert_plugin['slogan']
+                            ));
+                    }
 					else {
 
 						if ($plugin) {
