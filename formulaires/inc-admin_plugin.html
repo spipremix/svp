@@ -12,7 +12,7 @@
 			</div>]
 			[(#REM) <!-- Resume du plugin -->]
 			<div class="resume">
-				<h3 class="nom"><a[ href="(#VERSION)"] rel="info">[(#NOM|extraire_multi)]</a></h3>
+				<h3 class="nom"><a href="#" rel="info">[(#NOM|extraire_multi)]</a></h3>
 				<span class="version">[(#VERSION)]</span>
 				<span class="etat">[ - (#ETAT)]</span>
 				[(#SET{erreur,[<span class="information">(#OBSOLETE|=={oui}|oui)<:svp:info_plugin_obsolete:></span> ]})]
@@ -69,29 +69,7 @@
 				[(#GET{incompatible}|oui) [(#SET{err, <:svp:info_plugin_incompatible:>})]]
 				[(#CHEMIN_IMAGE{plugin-dis-16.png}|balise_img{#GET{err}, picto_err}|inserer_attribut{title, #GET{err}})]
 			]
-			<div class="details" style="display:none">
-				<dl class="description">
-					<dd class="desc">
-						[(#DESCRIPTION|extraire_multi|propre)]
-						[<em class="site">
-							<a href="(#LIEN_DOC)" class="spip_out" title="<:svp:bulle_aller_documentation:>"><:en_savoir_plus:></a>
-						</em>]
-					</dd>
-					[<dt class="auteurs"><:public:par_auteur:></dt>
-					<dd class="auteurs">(#AUTEUR*|svp_afficher_credits)</dd>]
-					[<dt class="licence"><:intitule_licence:></dt>
-					<dd class="licence">(#LICENCE|svp_afficher_credits{','})</dd>]
-				</dl>
-				[(#AUTORISER{webmestre}|oui)
-				<dl class="tech">
-					<dt><:version:></dt>
-					<dd>#VERSION[ SVN [(#VAL{91}|chr)](#CONSTANTE|constant|concat{#SRC_ARCHIVE/}|version_svn_courante|abs|sinon{''})[(#VAL{93}|chr)]]</dd>
-					<dt><:repertoire_plugins:></dt>
-					<dd>[(#CONSTANTE|constant|concat{#SRC_ARCHIVE/}|joli_repertoire)]</dd>
-					[<dt><:plugin_info_necessite:></dt>
-					<dd>(#DEPENDANCES|svp_afficher_dependances{necessite, ', '}|supprimer_tags)</dd>]
-				</dl>
-			</div>]
+			[(#INCLURE{fond=prive/squelettes/inclure/plugin_detail,id_paquet=0,ajax=detail_#ID_PAQUET,env})]
 		</li>
 </BOUCLE_plugins>
 	</ul>
@@ -103,6 +81,12 @@
 	jQuery(function(){
 		jQuery('.plugins li.item a[rel=info]').click(function(){
 			var li = jQuery(this).parents('li').eq(0);
+			var id_paquet = li.find('input.checkbox').attr('value');
+			if (!jQuery('div.details',li).html()) {
+				ajaxReload('detail_'+id_paquet, {args: {'id_paquet':id_paquet}}, {callback:function(){
+					li.addClass('on');
+				}});
+			}
 			if (jQuery('div.details',li).toggle().is(':visible'))
 				li.addClass('on');
 			else
