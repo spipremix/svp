@@ -2,7 +2,7 @@
 
 if (!defined("_ECRIRE_INC_VERSION")) return;
 
-function formulaires_admin_plugin_charger_dist($voir='actif', $verrouille='non'){
+function formulaires_admin_plugin_charger_dist($voir='actif', $verrouille='non', $id_paquet=''){
 	$valeurs = array();
 
 	// actualiser la liste des paquets locaux systematiquement
@@ -23,6 +23,7 @@ function formulaires_admin_plugin_charger_dist($voir='actif', $verrouille='non')
 		$valeurs['constante'] = array();
 	
 	$valeurs['verrouille'] = $verrouille;
+	$valeurs['id_paquet'] = $id_paquet;
 	$valeurs['actions'] = array();
 	$valeurs['ids_paquet'] = _request('ids_paquet');
 	$valeurs['_todo'] = _request('_todo');
@@ -30,7 +31,7 @@ function formulaires_admin_plugin_charger_dist($voir='actif', $verrouille='non')
 	return $valeurs;
 }
 
-function formulaires_admin_plugin_verifier_dist($voir='actif', $verrouille='non'){
+function formulaires_admin_plugin_verifier_dist($voir='actif', $verrouille='non', $id_paquet=''){
 
 	$erreurs = array();
 
@@ -79,7 +80,7 @@ function formulaires_admin_plugin_verifier_dist($voir='actif', $verrouille='non'
 	return $erreurs;
 }
 
-function formulaires_admin_plugin_traiter_dist($voir='actif', $verrouille='non'){
+function formulaires_admin_plugin_traiter_dist($voir='actif', $verrouille='non', $id_paquet=''){
 	
 	$retour = array();
 
