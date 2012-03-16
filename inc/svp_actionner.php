@@ -1004,6 +1004,7 @@ class Actionneur {
 	 * @return bool : C'est ok, ou pas
 	**/
 	function tester_repertoire_plugins_auto() {
+		include_spip('inc/plugin'); // pour _DIR_PLUGINS_AUTO
 		if (!defined('_DIR_PLUGINS_AUTO') or !_DIR_PLUGINS_AUTO) {
 			$this->err(_T('svp:erreur_dir_plugins_auto_indefini'));
 			$this->log("/!\ Pas de _DIR_PLUGINS_AUTO defini !");

@@ -5,6 +5,7 @@
 [(#REM) <!-- Barre d'onglets de premier niveau --> ]
 [(#VAL{plugins}|barre_onglets{charger_plugin})]
 
+
 [(#REM) <!-- Barre d'onglets de second niveau de ajouter --> ]
 <div class="onglets_simple second clearfix">
 	<ul>
@@ -12,6 +13,14 @@
 		<li><a[ href="(#URL_ECRIRE{depots})"]><:svp:titre_depots:></a></li>
 	</ul>
 </div>
+
+
+[(#VAL|test_plugins_auto|non)
+<div class='notice'>
+	<h3><:svp:erreur_dir_plugins_auto_titre:></h3>
+	<:svp:erreur_dir_plugins_auto:>
+</div>]
+
 
 <div class="ajax">
 	#FORMULAIRE_CHARGER_PLUGIN

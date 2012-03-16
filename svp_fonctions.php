@@ -440,4 +440,13 @@ function denormaliser_version($version_normalisee='') {
 	}
 	return $version;
 }
+
+function test_plugins_auto() {
+	static $test = null;
+	if (is_null($test)) {
+		include_spip('inc/plugin'); // pour _DIR_PLUGINS_AUTO
+		$test = (defined('_DIR_PLUGINS_AUTO') and _DIR_PLUGINS_AUTO and is_writable(_DIR_PLUGINS_AUTO));
+	}
+	return $test;
+}
 ?>
