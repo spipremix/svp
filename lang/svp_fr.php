@@ -67,12 +67,12 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'erreur_actions_non_traitees' => 'Certaines actions n\'ont pas été réalisées. Cela peut provenir d\'une erreur lors des actions à réaliser, ou d\'un affichage de cette page alors que des actions sont encore en cours. Les actions avaient été lancées par @auteur@ le @date@.',
 	'erreur_dir_dib_ecriture' => 'Le répertoire des bibliothèques @dir@ n\'est pas accessible en écriture. Impossible d\'y charger une bibliothèque !',
 	'erreur_dir_dib_indefini' => 'Le répertoire _DIR_LIB n\'est pas défini. Impossible d\'y charger une bibliothèque !',
-	'erreur_dir_plugins_auto_titre' => '« plugins/auto » est inaccessible !',
 	'erreur_dir_plugins_auto' => 'Le répertoire « plugins/auto » permettant de télécharger des paquets
 		n\'est pas créé ou n\'est pas accessible en écriture.
 		<strong>Vous devez le créer pour pouvoir installer de nouveaux plugins depuis cette interface.</strong>',
 	'erreur_dir_plugins_auto_ecriture' => 'Le répertoire de paquets @dir@ n\'est pas accessible en écriture. Impossible d\'y charger un paquet !',
 	'erreur_dir_plugins_auto_indefini' => 'Le répertoire _DIR_PLUGIN_AUTO n\'est pas défini. Impossible d\'y charger un paquet !',
+	'erreur_dir_plugins_auto_titre' => '« plugins/auto » est inaccessible !',
 	'erreur_teleporter_chargement_source_impossible' => 'Chargement impossible de la source @source@',
 	'erreur_teleporter_destination_erreur' => 'Répertoire @dir@ non accessible pour téléporter',
 	'erreur_teleporter_echec_deballage_archive' => 'Impossible de déballer @fichier@',

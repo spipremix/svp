@@ -69,8 +69,12 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'erreur_actions_non_traitees' => 'لقد تم تنفيذ بعض العمليات. قد يأتي ذلك من خطأ في عمليات ستنفذ او من عرض هذه الصفحة بينما هناك عمليات قيد التنفيذ. تم إطلاق العمليات من قبل @auteur@ في @date@.',
 	'erreur_dir_dib_ecriture' => 'مجلد المكتبات @dir@ غير متاح للكتابة. لا يمكن تغيير اي مكتبة داخله!',
 	'erreur_dir_dib_indefini' => 'المجلد _DIR_LIB غير محدد. لا يمكن تغيير اي مكتبة داخله!',
+	'erreur_dir_plugins_auto' => 'Le répertoire « plugins/auto » permettant de télécharger des paquets
+		n\'est pas créé ou n\'est pas accessible en écriture.
+		<strong>Vous devez le créer pour pouvoir installer de nouveaux plugins depuis cette interface.</strong>', # NEW
 	'erreur_dir_plugins_auto_ecriture' => 'مجلد الحزم @dir@ غير متاح للكتابة. لا يمكن تغيير اي حزمة داخله!',
 	'erreur_dir_plugins_auto_indefini' => 'المجلد _DIR_PLUGIN_AUTO غير محدد. لا يمكن تغيير اي حزمة داخله!',
+	'erreur_dir_plugins_auto_titre' => '« plugins/auto » est inaccessible !', # NEW
 	'erreur_teleporter_chargement_source_impossible' => 'لا يمكن تحميل المصدر @source@',
 	'erreur_teleporter_destination_erreur' => 'لا يمكن الوصول الى مجلد @dir@ للنقل البعيد',
 	'erreur_teleporter_echec_deballage_archive' => 'لا يمكن فلش الملف @fichier@',

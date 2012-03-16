@@ -82,8 +82,12 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 			Mohlo sa to stať kvôli chybám v akciách, ktoré bolo treba vykonať, alebo kvôli chybe v zobrazení tejto stránky, zatiaľčo akcie čakajú, kým budú vykonané. Akcie spustil(a) @auteur@ @date@.',
 	'erreur_dir_dib_ecriture' => 'Do adresára knižníc @dir@ sa nedá zapisovať. Knižnica sa nedá spustiť!',
 	'erreur_dir_dib_indefini' => 'Priečinok _DIR_LIB nie je definovaný. Knižnica sa nedá spustiť!',
+	'erreur_dir_plugins_auto' => 'Le répertoire « plugins/auto » permettant de télécharger des paquets
+		n\'est pas créé ou n\'est pas accessible en écriture.
+		<strong>Vous devez le créer pour pouvoir installer de nouveaux plugins depuis cette interface.</strong>', # NEW
 	'erreur_dir_plugins_auto_ecriture' => 'Do priečinka s balíkmi @dir@ sa nedá zapisovať. Balík sa nedá spustiť!',
 	'erreur_dir_plugins_auto_indefini' => 'Priečinok _DIR_PLUGIN_AUTO nie je definovaný. Balík sa nedá spustiť!',
+	'erreur_dir_plugins_auto_titre' => '« plugins/auto » est inaccessible !', # NEW
 	'erreur_teleporter_chargement_source_impossible' => 'Zdroj @source@ sa nedá nahrať',
 	'erreur_teleporter_destination_erreur' => 'Program na premiestňovanie nemá prístup k priečinku @dir@',
 	'erreur_teleporter_echec_deballage_archive' => 'Súbor @fichier@ sa nedá rozbaliť',
