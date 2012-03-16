@@ -45,6 +45,9 @@ class Actionneur {
 		include_spip('inc/svp_decider');
 		$this->decideur = new Decideur();
 		#$this->decideur->start();
+
+		// pour denormaliser_version()
+		include_spip('svp_fonctions');
 	}
 
 
@@ -947,7 +950,7 @@ class Actionneur {
 				$base =  ($prefixe ? strtolower($prefixe) : substr($i['nom_archive'], 0, -4) ); // enlever .zip ...
 
 				// prefixe/version
-				$dest = $base . '/v' . $i['version'];
+				$dest = $base . '/v' . denormaliser_version($i['version']);
 				
 				// si on tombe sur un auto/X ayant des fichiers (et pas uniquement des dossiers)
 				// ou un dossier qui ne commence pas par 'v'
