@@ -55,7 +55,7 @@
 				<span class="information"><:svp:info_verrouille:></span>
 			]
 			</div>
-			[(#ACTIF|=={oui}|oui) #SET{prefixe,#PREFIXE|strtolower}
+			[(#ACTIF|=={oui}|et{#ATTENTE|=={non}}|oui) #SET{prefixe,#PREFIXE|strtolower}
 				[(#CHEMIN_IMAGE{ok-16.png}|balise_img{<:svp:plugin_info_actif:>,picto_actif}|inserer_attribut{title,<:svp:plugin_info_actif:>})]
 				[(#INCLURE{fond=prive/squelettes/inclure/cfg,script=configurer_#GET{prefixe},nom=#NOM})]
 			]
@@ -65,10 +65,12 @@
 			[(#MAJ_VERSION|oui)
 			[(#CHEMIN_IMAGE{update-16.png}|balise_img{<:svp:plugin_info_up:>,picto_up}|inserer_attribut{title,<:svp:plugin_info_up{version=#MAJ_VERSION}:>})]
 			]
-			[(#OBSOLETE|=={oui}|ou{#GET{incompatible}}|oui)
+			[(#OBSOLETE|=={oui}|ou{#GET{incompatible}}|ou{#ATTENTE|=={oui}}|oui)
+				[(#SET{image,plugin-dis-16.png})]
 				[(#OBSOLETE|=={oui}|oui) [(#SET{err, <:svp:info_plugin_obsolete:>})]]
 				[(#GET{incompatible}|oui) [(#SET{err, <:svp:info_plugin_incompatible:>})]]
-				[(#CHEMIN_IMAGE{plugin-dis-16.png}|balise_img{#GET{err}, picto_err}|inserer_attribut{title, #GET{err}})]
+				[(#ATTENTE|=={oui}|oui) [(#SET{image, erreur-16.png})]]
+				[(#CHEMIN_IMAGE{#GET{image}}|balise_img{#GET{err}, picto_err}|inserer_attribut{title, #GET{err}})]
 			][(#ENV{id_paquet}|=={#ID_PAQUET}|?{#SET{id_paquet,#ID_PAQUET},#SET{id_paquet,0}})]
 			[(#INCLURE{fond=prive/squelettes/inclure/plugin_detail,id_paquet=#GET{id_paquet},ajax=detail_#ID_PAQUET,env})]
 		</li>
