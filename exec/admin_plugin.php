@@ -78,10 +78,13 @@ function exec_admin_plugin_dist() {
 	echo gros_titre(_T('icone_admin_plugin'),'',false);
 
 	// message d'erreur au retour d'une operation
-	if ($erreur)
-		echo "<div class='error'>$erreur</div>";
+	if ($erreur){
+		include_spip('inc/filtres_boites');
+		echo "<div class='svp_retour'>" . boite_ouvrir(_T('svp:actions_en_erreur'), 'error') . $erreur . boite_fermer() . "</div>";
+	}
 	if ($erreur_activation){
-		echo "<div class='error'>$erreur_activation</div>";
+		include_spip('inc/filtres_boites');
+		echo "<div class='svp_retour'>" . boite_ouvrir(_T('svp:actions_en_erreur'), 'error') . $erreur_activation . boite_fermer() . "</div>";
 	}
 
 	// afficher les actions realisees s'il y en a eu

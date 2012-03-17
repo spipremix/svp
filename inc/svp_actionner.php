@@ -407,7 +407,7 @@ class Actionneur {
 
 		if ($affiche) {
 			include_spip('inc/filtres');
-			$affiche = wrap($affiche, "<div id='actionner'>");
+			$affiche = wrap($affiche, "<div class='svp_retour'>");
 		}
 		
 		return $affiche;

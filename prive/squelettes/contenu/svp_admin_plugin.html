@@ -29,3 +29,18 @@
 <div class="ajax noscroll">
 	#FORMULAIRE_ADMIN_PLUGIN{#ENV{voir},#ENV{verrouille},#ENV{id_paquet}}
 </div>
+<script type="text/javascript">
+    //<![CDATA[
+    jQuery(function(){
+		jQuery('#contenu .svp_retour').on('hover',function(){
+			if (jQuery('.box .inner .hd h3 img.close', this).length == 0) {
+				jQuery('.box .inner .hd h3', this)
+					.append("[(#CHEMIN_IMAGE{fermer-16.png}|balise_img|inserer_attribut{class,close})]")
+					.on('click',function(){
+						jQuery(this).parents('.box').remove();
+					});
+			}
+		});
+    });
+    //]]>
+</script>
