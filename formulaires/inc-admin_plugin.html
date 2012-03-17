@@ -83,11 +83,13 @@
 		jQuery('.plugins li.item a[rel=info]').click(function(){
 			var li = jQuery(this).parents('li').eq(0);
 			var id_paquet = li.find('input.checkbox').attr('value');
+			// premier clic, on charge le contenu du bloc details en ajax
 			if (!jQuery('div.details',li).html()) {
 				ajaxReload('detail_'+id_paquet, {args: {'id_paquet':id_paquet}}, {callback:function(){
 					li.addClass('on');
 				}});
 			}
+			// clics suivants, masquer ou afficher les details
 			if (jQuery('div.details',li).toggle().is(':visible'))
 				li.addClass('on');
 			else
