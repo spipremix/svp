@@ -980,7 +980,7 @@ class Actionneur {
 				// on recupere la mise a jour...
 				include_spip('action/teleporter');
 				$teleporter_composant = charger_fonction('teleporter_composant', 'action');
-				$ok = $teleporter_composant('http', $zip, _DIR_PLUGINS_AUTO . $dest);				
+				$ok = $teleporter_composant('http', $zip, _DIR_PLUGINS_AUTO . $dest);
 				if ($ok === true) {
 					return array(
 						'dir'=> _DIR_PLUGINS_AUTO . $dest,
@@ -988,7 +988,7 @@ class Actionneur {
 					);
 				}
 				$this->err($ok);
-				$this->log("Téléporteur en erreur : " . $ok);	
+				$this->log("Téléporteur en erreur : " . $ok);
 			} else {
 				$this->log("Aucune adresse pour le dépot " . $i['id_depot'] );
 			}

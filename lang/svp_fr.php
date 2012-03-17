@@ -19,6 +19,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'bouton_actualiser' => 'Actualiser',
 	'bouton_actualiser_tout' => 'Actualiser les dépôts',
 	'bouton_appliquer' => 'Appliquer',
+	'bouton_confirmer' => 'Confirmer',
 	'bouton_desactiver' => 'Désactiver',
 	'bouton_desinstaller' => 'Désinstaller',
 	'bouton_installer' => 'Télécharger et activer',
@@ -62,6 +63,10 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'config_autoriser_activer_paquets_obsoletes_explication' => 'Les paquets obsolètes sont des paquets locaux présents qui sont plus anciens que d\'autres paquets locaux. L\'obsolescence est établie sur la base de l\'état (stable, test, dev) du paquet ainsi que sur la base de sa version. Activez cette option si vous souhaitez malgré tout pouvoir activer ces plugins obsolètes.',
 	'config_depot_editable' => 'Permettre l\'édition des dépots ?',
 	'config_depot_editable_explication' => 'Cela rend éditable les informations d\'un dépot et permet ainsi de leur joindre éventuellement des mots-clés ou documents. Cette option ne devrait intéresser personne ! Préférez laisser «non» !',
+	'confirmer_telecharger_dans' => 'Le plugin sera chargé dans un répertoire (@dir@) qui existe déjà.
+	Cela écrasera le contenu de ce répertoire.
+	Une copie de l\'ancien contenu sera sauvegardé dans «&nbsp;@dir_backup@&nbsp;».
+		Vous devez confirmer cette action.',
 
 	// E
 	'erreur_actions_non_traitees' => 'Certaines actions n\'ont pas été réalisées. Cela peut provenir d\'une erreur lors des actions à réaliser, ou d\'un affichage de cette page alors que des actions sont encore en cours. Les actions avaient été lancées par @auteur@ le @date@.',
@@ -79,7 +84,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'erreur_teleporter_format_archive_non_supporte' => 'Le format @extension@ n\'est pas supporté par le téléporteur',
 	'erreur_teleporter_methode_inconue' => 'Méthode @methode@ inconnue pour téléporter',
 	'erreur_teleporter_type_fichier_inconnu' => 'Type de fichier inconnu pour la source @source@',
-
+	'explication_destination' => 'Le chemin sera calculé depuis le nom de l\'archive si vous ne le remplissez pas.',
+	
 	// F
 	'fieldset_debug' => 'Débug',
 	'fieldset_edition' => 'Édition',
@@ -130,6 +136,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// L
 	'label_1_autre_contribution' => 'autre contribution',
 	'label_actualise_le' => 'Actualisé le',
+	'label_archive' => 'URL de l\'archive',
 	'label_branches_spip' => 'Compatible',
 	'label_categorie' => 'Catégorie',
 	'label_compatibilite_spip' => 'Compatiblité',
@@ -138,6 +145,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'label_critere_doublon' => 'Compatibilité',
 	'label_critere_etat' => 'États',
 	'label_critere_phrase' => 'Rechercher dans les plugins',
+	'label_destination' => 'Chemin depuis le répertoire «&nbsp;auto&nbsp;» où déposer le plugin',
 	'label_modifie_le' => 'Modifié le',
 	'label_n_autres_contributions' => 'autres contributions',
 	'label_prefixe' => 'Préfixe',
@@ -208,6 +216,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_ok_aucun_plugin_trouve' => 'Aucun plugin ne correspond aux critères choisis.',
 	'message_ok_depot_ajoute' => 'Le dépôt « @url@ » a été ajouté.',
 	'message_ok_plugins_trouves' => '@nb_plugins@ plugin(s) correspondent aux critères choisis (@tri@). Sélectionnez ci-dessous les plugins que vous souhaitez télécharger et activer sur votre serveur.',
+	'message_telechargement_archive_effectue' => 'L\'archive a été correctement extraite dans @dir@.',
 
 	// N
 	'nettoyer_actions' => 'Nettoyer ces actions ! Cela effacera la liste des actions qui restent à traiter.',
@@ -235,10 +244,14 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'resume_table_plugins' => 'Liste des plugins @categorie@',
 
 	// T
+	'telecharger_archive_plugin_explication' => 'Vous pouvez télécharger une archive qui se chargera
+		dans votre répertoire «&nbsp;plugins/auto&nbsp;», en écrivant l\'URL de l\'archive dans le champ de saisie.',
 	'titre_depot' => 'Dépôt',
 	'titre_depots' => 'Dépôts',
 	'titre_form_ajouter_depot' => 'Ajouter un dépôt',
 	'titre_form_configurer_svp' => 'Configurer le Serveur de Plugins',
+	'titre_form_charger_plugin' => 'Rechercher et ajouter des plugins',
+	'titre_form_charger_plugin_archive' => 'Télécharger un plugin depuis son archive',
 	'titre_liste_autres_contributions' => 'Squelettes, bibliothèques, jeux d\'icônes...',
 	'titre_liste_autres_depots' => 'Autres dépôts',
 	'titre_liste_depots' => 'Liste des dépôts disponibles',
