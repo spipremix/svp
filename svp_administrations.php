@@ -8,7 +8,9 @@ function svp_upgrade($nom_meta_base_version, $version_cible){
 
 	$maj['create'][] = array('maj_tables', array('spip_depots','spip_plugins','spip_depots_plugins','spip_paquets'));
 	$maj['0.2'][]    = array('maj_tables', 'spip_paquets');
-	
+	$maj['0.3'][]    = array('maj_tables', 'spip_paquets'); // prefixe et attente
+	$maj['0.3'][]    = array('svp_synchroniser_prefixe');
+
 	include_spip('base/upgrade');
 	maj_plugin($nom_meta_base_version, $version_cible, $maj);
 }
@@ -23,4 +25,29 @@ function svp_vider_tables($nom_meta_base_version) {
 	spip_log('DESINSTALLATION BDD', 'svp_actions.' . _LOG_INFO);
 }
 
+
+// ajoute le prefixe des plugins dans chaque ligne de paquets
+function svp_synchroniser_prefixe() {
+	$paquets = sql_allfetsel(
+		array('pa.id_paquet', 'pl.prefixe'),
+		array('spip_paquets AS pa', 'spip_plugins AS pl'),
+		'pl.id_plugin=pa.id_plugin');
+
+	if ($paquets) {
+		// On insere, en encapsulant pour sqlite...
+		if (sql_preferer_transaction()) {
+			sql_demarrer_transaction();
+		}
+		
+		foreach ($paquets as $paquet) {
+			sql_updateq('spip_paquets',
+				array('prefixe' => $paquet['prefixe']),
+				'id_paquet=' . intval($paquet['id_paquet']));
+		}
+
+		if (sql_preferer_transaction()) {
+			sql_terminer_transaction();
+		}
+	}
+}
 ?>

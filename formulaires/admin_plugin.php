@@ -63,7 +63,7 @@ function formulaires_admin_plugin_verifier_dist($voir='actif', $verrouille='non'
 				foreach ($p as $i => $null) {
 					$a_actionner[$i] = $action;
 				}
-			}			
+			}
 		}
 		// lancer les verifications
 		if (!$a_actionner)

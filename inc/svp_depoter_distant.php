@@ -78,7 +78,7 @@ function svp_ajouter_depot($url, &$erreur='') {
 // $id	=> id_depot de l'objet depot dans la table spip_depots
 function svp_supprimer_depot($id){
 	$id = intval($id);
-	
+
 	// Pas de depot a cet id ?
 	if (!$id_depot = sql_getfetsel('id_depot', 'spip_depots', 'id_depot='. sql_quote($id)) ){
 		return false;
@@ -86,7 +86,7 @@ function svp_supprimer_depot($id){
 
 	// on calcule les versions max des plugins heberges par le depot
 	$vmax =array();
-			
+
 	if ($resultats = sql_allfetsel('id_plugin, version', 'spip_paquets', 'id_depot='. sql_quote($id))) {
 		foreach ($resultats as $paquet) {
 			$id_plugin = $paquet['id_plugin'];
@@ -427,7 +427,7 @@ function svp_actualiser_paquets($id_depot, $paquets, &$nb_paquets, &$nb_plugins,
 							$insert_plugins[ $insert_plugin['prefixe'] ]['vmax'] = $insert_paquet['version'];
 						}
 					}
-	
+
 					// On traite maintenant le paquet connaissant l'id du plugin
 					// temporaire qui sera supprime lors de la connaissance de l'id_paquet
 					$insert_paquet['prefixe'] = $insert_plugin['prefixe']; 
@@ -445,8 +445,8 @@ function svp_actualiser_paquets($id_depot, $paquets, &$nb_paquets, &$nb_plugins,
 				if (!$id_paquet = sql_getfetsel('id_paquet', 'spip_paquets', $where)) {
 					// Ce n'est pas un plugin, donc id_plugin=0 et toutes les infos plugin sont nulles
 					$insert_paquet['id_plugin'] = 0;
-					$insert_contribs[] = $insert_paquet;				}
-				else
+					$insert_contribs[] = $insert_paquet;
+				} else
 					$collision = true;
 			}
 			// On loge le paquet ayant ete refuse dans un fichier a part afin de les verifier
@@ -530,12 +530,15 @@ function svp_inserer_multi(&$insert_plugins, &$insert_paquets, &$insert_contribs
 	}
 	
 	if (count($insert_paquets)) {
-		
+
+		// on cherche tous les id_plugin/prefixe que l'on a a recuperer
+		// en une seule requete
 		$prefixes_manquants = array();
 		foreach ($insert_paquets as $p) {
+			// on ne connait que le prefixe
 			if (isset($p['prefixe']) and !isset($prefixes[ $p['prefixe'] ])) {
-				$prefixes_manquants[] = $p['prefixe'];
-			}
+				$prefixes_manquants[] = $p['prefixe']; 
+			} 
 		}
 
 		// recuperer les nouveaux prefixes :
@@ -545,10 +548,12 @@ function svp_inserer_multi(&$insert_plugins, &$insert_paquets, &$insert_contribs
 		}
 
 		// inserer les id_plugin dans les paquets a inserer
+		// inserer le prefixe dans le paquet (pour raccourcis de jointures)
 		foreach ($insert_paquets as $c=>$p) {
 			if (isset($p['prefixe'])) {
 				$insert_paquets[$c]['id_plugin'] = $prefixes[ $insert_paquets[$c]['prefixe'] ];
-				unset($insert_paquets[$c]['prefixe']);
+			} else {
+				$insert_paquets[$c]['prefixe'] = array_search($p['id_plugin'], $prefixes);
 			}
 		}
 

@@ -14,14 +14,14 @@ class Decideur {
 		'p' => array(),
 	);
 
-    // plugins actifs a la fin des modifications effectuees
-    var $end = array(
-        'i' => array(),
-        'p' => array(),
-    );
+	// plugins actifs a la fin des modifications effectuees
+	var $end = array(
+		'i' => array(),
+		'p' => array(),
+	);
 
-    // plugins procure par SPIP
-    var $procure = array();
+	// plugins procure par SPIP
+	var $procure = array();
 
 	var $ask = array();     // toutes les actions a faire demandees
 	var $todo = array();    // toutes les actions a faire
@@ -43,22 +43,31 @@ class Decideur {
 
 	/* Liste des plugins deja actifs */
 	function liste_plugins_actifs() {
-		return $this->infos_courtes('pa.actif='.sql_quote('oui'));
+		return $this->infos_courtes(array('pa.actif='.sql_quote('oui'),  'pa.attente=' . sql_quote('non')));
+	}
+	
+	/* Liste des plugins en attente */
+	function est_attente_id($id) {
+		static $attente = null;
+		if (is_null($attente)) {
+			$attente = $this->infos_courtes('pa.attente=' . sql_quote('oui'));
+		}
+		return isset($attente['i'][$id]) ? $attente['i'][$id] : false;
 	}
 
-    /* Liste des plugins procure par SPIP */
-    function liste_plugins_procure() {
-        $procure = array();
-        $get_infos = charger_fonction('get_infos','plugins');
-       	$infos['_DIR_RESTREINT'][''] = $get_infos('./',false,_DIR_RESTREINT,'plugin.xml');
+	/* Liste des plugins procure par SPIP */
+	function liste_plugins_procure() {
+		$procure = array();
+		$get_infos = charger_fonction('get_infos','plugins');
+		$infos['_DIR_RESTREINT'][''] = $get_infos('./',false,_DIR_RESTREINT,'plugin.xml');
 
-        foreach($infos['_DIR_RESTREINT']['']['procure'] as $_procure) {
-       		$prefixe = strtoupper($_procure['id']);
-       		$procure[$prefixe] = $_procure['version'];
-       	}
+		foreach($infos['_DIR_RESTREINT']['']['procure'] as $_procure) {
+			$prefixe = strtoupper($_procure['id']);
+			$procure[$prefixe] = $_procure['version'];
+		}
 
-        return $procure;
-    }
+		return $procure;
+	}
 
 	function log($quoi) {
 		if ($this->log) {
@@ -89,15 +98,15 @@ class Decideur {
 			'p'=>array()
 		);
 
-        $from = array('spip_paquets AS pa', 'spip_plugins AS pl');
+		$from = array('spip_paquets AS pa', 'spip_plugins AS pl');
 		$orderby = $multiple ? 'pa.etatnum DESC' : '';
-        $where = array('pa.id_plugin = pl.id_plugin');
-        if (is_array($condition))
-            $where = array_merge($where, $condition);
-        else
-            $where[] = $condition;
+		$where = array('pa.id_plugin = pl.id_plugin');
+		if (is_array($condition))
+			$where = array_merge($where, $condition);
+		else
+			$where[] = $condition;
 
-        include_spip('inc/filtres'); // extraire_multi()
+		include_spip('inc/filtres'); // extraire_multi()
 		$res = sql_allfetsel(array(
 			'pa.id_paquet AS i',
 			'pl.nom AS n',
@@ -423,14 +432,17 @@ class Decideur {
 						// retirer ce plugin
 						// (il l'est peut etre deja)
 						if ($info = $this->sera_actif_id($id)
-						or  $info_off = $this->sera_off_id($id)) {
+						or  $info_off = $this->sera_off_id($id)
+						// un plugin en attente (desactive parce sa dependance a disparu certainement par ftp)
+						// peut etre desactive
+						or $info = $this->est_attente_id($id)) {
 							// annuler le signalement en "proposition" (due a une mise a 'off' recursive)
 							// de cet arret de plugin, vu qu'on le demande reellement
 							if (!$info) {
 								$info = $info_off;
 								$this->annule_change($info);
 							}
-							$this->log("--> $t : " . $info['p'] . ' en version : ' . $info['v'] );
+							$this->log("--> $t : " . $info['p'] . ' en version : ' . denormaliser_version($info['v']) );
 							$this->ask($info, $t);
 							$this->todo($info, $t);
 							$this->off($info, true);
@@ -520,7 +532,7 @@ class Decideur {
 			$this->erreur($id, _T('svp:message_incompatibilite_spip',array('plugin'=>$info['n'])));
 			return false;
 		}
-					
+
 		// 2
 		// ajouter les librairies necessaires a notre paquet
 		if (is_array($info['dl']) and count($info['dl'])) {
@@ -547,8 +559,8 @@ class Decideur {
 							'n' => $lib,
 							'v' => $l['lien'],
 						), 'getlib');
+						$this->log("- La librairie $lib sera a télécharger");
 					}
-					
 				}
 			}
 			if ($err) {
@@ -570,11 +582,11 @@ class Decideur {
 					// ca ne devrait plus apparaitre comme dependence a un plugin.
 				}
 
-                // le core procure le paquet que l'on demande !
-                elseif ((array_key_exists($p, $this->procure))
-                  and (plugin_version_compatible($v, $this->procure[$p]))) {
-                    // rien a faire...
-                    $this->log("-- est procure par le core ($p)");
+				// le core procure le paquet que l'on demande !
+				elseif ((array_key_exists($p, $this->procure))
+				  and (plugin_version_compatible($v, $this->procure[$p]))) {
+					// rien a faire...
+					$this->log("-- est procure par le core ($p)");
 
 				}
 

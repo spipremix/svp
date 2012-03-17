@@ -123,6 +123,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_plugin_incompatible' => 'version incompatible',
 	'info_plugin_installe' => 'déjà installé',
 	'info_plugin_obsolete' => 'version obsolète',
+	'info_plugin_attente_dependance' => 'dépendences manquantes',
 	'info_plugins_disponibles' => '@total_plugins@ plugin(s) disponible(s)',
 	'info_plugins_heberges' => '@total_plugins@ plugin(s) hébergé(s)',
 	'info_tri_nom' => 'classé(s) par ordre alphabétique',

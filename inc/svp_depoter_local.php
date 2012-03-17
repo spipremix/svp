@@ -142,6 +142,7 @@ function svp_base_inserer_paquets_locaux($paquets_locaux) {
 	$recents = lire_config('plugins_interessants');
 	$installes  = lire_config('plugin_installes');
 	$actifs  = lire_config('plugin');
+	$attentes  = lire_config('plugin_attente');
 
 	foreach($paquets_locaux as $const_dir => $paquets) {
 		foreach ($paquets as $chemin => $paquet) {
@@ -208,7 +209,7 @@ function svp_base_inserer_paquets_locaux($paquets_locaux) {
 					}
 				}
 
-				// ajout du prefixe dans le paquet, supprime avant insertion...
+				// ajout du prefixe dans le paquet
 				$le_paquet['prefixe']     = $prefixe;
 				$le_paquet['constante']   = $const_dir;
 				$le_paquet['src_archive'] = $chemin;
@@ -216,7 +217,8 @@ function svp_base_inserer_paquets_locaux($paquets_locaux) {
 				$le_paquet['installe']    = in_array($chemin, $installes) ? 'oui': 'non'; // est desinstallable ?
 				$le_paquet['obsolete']    = 'non';
 				$le_paquet['signature']   = $paquet['signature'];
-				
+
+				// le plugin est il actuellement actif ?
 				$actif = "non";
 				if (isset($actifs[$prefixe])
 					and ($actifs[$prefixe]['dir_type'] == $const_dir)
@@ -224,6 +226,18 @@ function svp_base_inserer_paquets_locaux($paquets_locaux) {
 					$actif = "oui";
 				}
 				$le_paquet['actif'] = $actif;
+
+				// le plugin etait il actif mais temporairement desactive
+				// parce qu'une dependence a disparue ?
+				$attente = "non";
+				if (isset($attentes[$prefixe])
+					and ($attentes[$prefixe]['dir_type'] == $const_dir)
+					and ($attentes[$prefixe]['dir'] == $chemin)) {
+					$attente = "oui";
+					$le_paquet['actif'] = "oui"; // il est presenté dans la liste des actifs (en erreur).
+				}
+				$le_paquet['attente'] = $attente;
+
 				// on recherche d'eventuelle mises a jour existantes
 				if ($res = sql_allfetsel(
 					array('pl.id_plugin', 'pa.version'),
@@ -269,7 +283,6 @@ function svp_base_inserer_paquets_locaux($paquets_locaux) {
 		foreach ($insert_paquets as $c => $p) {
 			$insert_paquets[$c]['id_plugin'] = $cle_plugins[$p['prefixe']];
 			$id_plugin_concernes[ $insert_paquets[$c]['id_plugin'] ] = true;
-			unset($insert_paquets[$c]['prefixe']);
 
 			// remettre les necessite, utilise, librairie dans la cle 0
 			// comme SVP
@@ -303,11 +316,12 @@ function svp_base_inserer_paquets_locaux($paquets_locaux) {
 function svp_base_actualiser_paquets_actifs() {
 	$installes  = lire_config('plugin_installes');
 	$actifs  = lire_config('plugin');
+	$attentes  = lire_config('plugin_attente');
 
 	$locaux = sql_allfetsel(
-		array('pa.id_paquet', 'pl.prefixe', 'pa.actif', 'pa.installe', 'pa.constante', 'pa.src_archive'),
-		array('spip_paquets AS pa', 'spip_plugins AS pl'),
-		array('pa.id_plugin=pl.id_plugin', 'id_depot='.sql_quote(0)));
+		array('id_paquet', 'prefixe', 'actif', 'installe', 'attente', 'constante', 'src_archive'),
+		'spip_paquets',
+		'id_depot='.sql_quote(0));
 	$changements = array();
 
 	foreach ($locaux as $l) {
@@ -321,7 +335,17 @@ function svp_base_actualiser_paquets_actifs() {
 		} else {
 			$copie['actif'] = "non";
 		}
-			
+		
+		// attente ?
+		if (isset($attentes[$prefixe])
+			and ($attentes[$prefixe]['dir_type'] == $l['constante'])
+			and ($attentes[$prefixe]['dir'] == $l['src_archive'])) {
+			$copie['attente'] = "oui";
+			$copie['actif'] = "oui"; // il est presente dans la liste des actifs (en erreur). 
+		} else {
+			$copie['attente'] = "non";
+		}
+		
 		// installe ?
 		if (in_array($l['src_archive'], $installes)) {
 			$copie['installe'] = "oui";
@@ -330,7 +354,10 @@ function svp_base_actualiser_paquets_actifs() {
 		}
 
 		if ($copie != $l) {
-			$changements[ $l['id_paquet'] ] = array( 'actif'=> $copie['actif'], 'installe'=>$copie['installe'] );
+			$changements[ $l['id_paquet'] ] = array(
+				'actif'    => $copie['actif'],
+				'installe' => $copie['installe'],
+				'attente'  => $copie['attente'] );
 		}
 	}
 
@@ -339,11 +366,11 @@ function svp_base_actualiser_paquets_actifs() {
 		if (sql_preferer_transaction()) {
 			sql_demarrer_transaction();
 		}
-				
+
 		foreach ($changements as $id_paquet => $data) {
 			sql_updateq('spip_paquets', $data, 'id_paquet=' . intval($id_paquet));
 		}
-		
+
 		if (sql_preferer_transaction()) {
 			sql_terminer_transaction();
 		}
