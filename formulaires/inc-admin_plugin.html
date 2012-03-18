@@ -2,7 +2,7 @@
 <B_plugins>
 <div class="liste plugins">
 	<ul class="liste-items">
-<BOUCLE_plugins(PAQUETS plugins){tout}{par multi nom, plugins.prefixe}{!par constante, actif}{id_depot=0}{actif ?}{constante ?IN #ENV{constante}}>
+<BOUCLE_plugins(PAQUETS plugins){tout}{par multi nom, paquets.prefixe}{!par constante, actif}{id_depot=0}{actif ?}{constante ?IN #ENV{constante}}>
 		#SET{incompatible, #COMPATIBILITE_SPIP|plugin_version_compatible{#GET{vspip}}|non}
 		#SET{verrou,#CONSTANTE|=={_DIR_EXTENSIONS}|oui}
 		<li class="item[ (#ACTIF|=={oui}|?{actif,inactif})][(#OBSOLETE|=={oui}|ou{#ATTENTE|=={oui}}|ou{#GET{incompatible}}|oui) disabled][(#GET{verrou}|oui) verrou][(#MAJ_VERSION|oui) up]"[ id="(#PREFIXE|strtolower)-#COMPTEUR_BOUCLE"][ data-id_paquet="(#ID_PAQUET)"]>
