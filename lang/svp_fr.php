@@ -65,7 +65,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'config_depot_editable_explication' => 'Cela rend éditable les informations d\'un dépot et permet ainsi de leur joindre éventuellement des mots-clés ou documents. Cette option ne devrait intéresser personne ! Préférez laisser «non» !',
 	'confirmer_telecharger_dans' => 'Le plugin sera chargé dans un répertoire (@dir@) qui existe déjà.
 	Cela écrasera le contenu de ce répertoire.
-	Une copie de l\'ancien contenu sera sauvegardé dans «&nbsp;@dir_backup@&nbsp;».
+	Une copie de l\'ancien contenu sera sauvegardé dans « @dir_backup@ ».
 		Vous devez confirmer cette action.',
 
 	// E
@@ -85,7 +85,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'erreur_teleporter_methode_inconue' => 'Méthode @methode@ inconnue pour téléporter',
 	'erreur_teleporter_type_fichier_inconnu' => 'Type de fichier inconnu pour la source @source@',
 	'explication_destination' => 'Le chemin sera calculé depuis le nom de l\'archive si vous ne le remplissez pas.',
-	
+
 	// F
 	'fieldset_debug' => 'Débug',
 	'fieldset_edition' => 'Édition',
@@ -120,10 +120,10 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_nb_paquets' => '@nb@ paquets',
 	'info_nb_plugins' => '@nb@ plugins',
 	'info_paquets_disponibles' => '@total_paquets@ paquet(s) disponible(s)',
+	'info_plugin_attente_dependance' => 'dépendances manquantes',
 	'info_plugin_incompatible' => 'version incompatible',
 	'info_plugin_installe' => 'déjà installé',
 	'info_plugin_obsolete' => 'version obsolète',
-	'info_plugin_attente_dependance' => 'dépendances manquantes',
 	'info_plugins_disponibles' => '@total_plugins@ plugin(s) disponible(s)',
 	'info_plugins_heberges' => '@total_plugins@ plugin(s) hébergé(s)',
 	'info_tri_nom' => 'classé(s) par ordre alphabétique',
@@ -146,7 +146,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'label_critere_doublon' => 'Compatibilité',
 	'label_critere_etat' => 'États',
 	'label_critere_phrase' => 'Rechercher dans les plugins',
-	'label_destination' => 'Chemin depuis le répertoire «&nbsp;auto&nbsp;» où déposer le plugin',
+	'label_destination' => 'Chemin depuis le répertoire « auto » où déposer le plugin',
 	'label_modifie_le' => 'Modifié le',
 	'label_n_autres_contributions' => 'autres contributions',
 	'label_prefixe' => 'Préfixe',
@@ -246,13 +246,13 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// T
 	'telecharger_archive_plugin_explication' => 'Vous pouvez télécharger une archive qui se chargera
-		dans votre répertoire «&nbsp;plugins/auto&nbsp;», en écrivant l\'URL de l\'archive dans le champ de saisie.',
+		dans votre répertoire « plugins/auto », en écrivant l\'URL de l\'archive dans le champ de saisie.',
 	'titre_depot' => 'Dépôt',
 	'titre_depots' => 'Dépôts',
 	'titre_form_ajouter_depot' => 'Ajouter un dépôt',
-	'titre_form_configurer_svp' => 'Configurer le Serveur de Plugins',
 	'titre_form_charger_plugin' => 'Rechercher et ajouter des plugins',
 	'titre_form_charger_plugin_archive' => 'Télécharger un plugin depuis son archive',
+	'titre_form_configurer_svp' => 'Configurer le Serveur de Plugins',
 	'titre_liste_autres_contributions' => 'Squelettes, bibliothèques, jeux d\'icônes...',
 	'titre_liste_autres_depots' => 'Autres dépôts',
 	'titre_liste_depots' => 'Liste des dépôts disponibles',

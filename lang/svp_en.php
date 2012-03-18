@@ -21,6 +21,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'bouton_actualiser' => 'Refresh',
 	'bouton_actualiser_tout' => 'Refresh the repositories',
 	'bouton_appliquer' => 'Apply',
+	'bouton_confirmer' => 'Confirmer', # NEW
 	'bouton_desactiver' => 'Disable',
 	'bouton_desinstaller' => 'Uninstall',
 	'bouton_installer' => 'Download and enable',
@@ -64,6 +65,10 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'config_autoriser_activer_paquets_obsoletes_explication' => 'Les paquets obsolètes sont des paquets locaux présents qui sont plus anciens que d\'autres paquets locaux. L\'obsolescence est établie sur la base de l\'état (stable, test, dev) du paquet ainsi que sur la base de sa version. Activez cette option si vous souhaitez malgré tout pouvoir activer ces plugins obsolètes.', # NEW
 	'config_depot_editable' => 'Allow repository edition?',
 	'config_depot_editable_explication' => 'Cela rend éditable les informations d\'un dépot et permet ainsi de leur joindre éventuellement des mots-clés ou documents. Cette option ne devrait intéresser personne ! Préférez laisser «non» !', # NEW
+	'confirmer_telecharger_dans' => 'Le plugin sera chargé dans un répertoire (@dir@) qui existe déjà.
+	Cela écrasera le contenu de ce répertoire.
+	Une copie de l\'ancien contenu sera sauvegardé dans « @dir_backup@ ».
+		Vous devez confirmer cette action.', # NEW
 
 	// E
 	'erreur_actions_non_traitees' => 'Certaines actions n\'ont pas été réalisées. Cela peut provenir d\'une erreur lors des actions à réaliser, ou d\'un affichage de cette page alors que des actions sont encore en cours. Les actions avaient été lancées par @auteur@ le @date@.', # NEW
@@ -81,6 +86,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'erreur_teleporter_format_archive_non_supporte' => 'Le format @extension@ n\'est pas supporté par le téléporteur', # NEW
 	'erreur_teleporter_methode_inconue' => 'Méthode @methode@ inconnue pour téléporter', # NEW
 	'erreur_teleporter_type_fichier_inconnu' => 'Unknown file type for the source @source@',
+	'explication_destination' => 'Le chemin sera calculé depuis le nom de l\'archive si vous ne le remplissez pas.', # NEW
 
 	// F
 	'fieldset_debug' => 'Debug',
@@ -116,6 +122,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_nb_paquets' => '@nb@ packages',
 	'info_nb_plugins' => '@nb@ plugins',
 	'info_paquets_disponibles' => '@total_paquets@ available package(s)',
+	'info_plugin_attente_dependance' => 'dépendances manquantes', # NEW
 	'info_plugin_incompatible' => 'incompatible version',
 	'info_plugin_installe' => 'allready installed',
 	'info_plugin_obsolete' => 'obsolete version',
@@ -132,6 +139,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// L
 	'label_1_autre_contribution' => 'other contribution',
 	'label_actualise_le' => 'Updated on',
+	'label_archive' => 'URL de l\'archive', # NEW
 	'label_branches_spip' => 'Compatible',
 	'label_categorie' => 'Category',
 	'label_compatibilite_spip' => 'Compatiblity',
@@ -140,6 +148,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'label_critere_doublon' => 'Compatibility',
 	'label_critere_etat' => 'States',
 	'label_critere_phrase' => 'Search in plugins',
+	'label_destination' => 'Chemin depuis le répertoire « auto » où déposer le plugin', # NEW
 	'label_modifie_le' => 'Edited on',
 	'label_n_autres_contributions' => 'other contributions',
 	'label_prefixe' => 'Prefix',
@@ -210,6 +219,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_ok_aucun_plugin_trouve' => 'No plugins that match the selected criteria.',
 	'message_ok_depot_ajoute' => 'The repository "@url@" has been added.',
 	'message_ok_plugins_trouves' => '@nb_plugins@ plugin(s) correspondent aux critères choisis (@tri@). Sélectionnez ci-dessous les plugins que vous souhaitez télécharger et activer sur votre serveur.', # NEW
+	'message_telechargement_archive_effectue' => 'L\'archive a été correctement extraite dans @dir@.', # NEW
 
 	// N
 	'nettoyer_actions' => 'Nettoyer ces actions ! Cela effacera la liste des actions qui restent à traiter.', # NEW
@@ -237,9 +247,13 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'resume_table_plugins' => 'Liste des plugins @categorie@', # NEW
 
 	// T
+	'telecharger_archive_plugin_explication' => 'Vous pouvez télécharger une archive qui se chargera
+		dans votre répertoire « plugins/auto », en écrivant l\'URL de l\'archive dans le champ de saisie.', # NEW
 	'titre_depot' => 'Repository',
 	'titre_depots' => 'Repositories',
 	'titre_form_ajouter_depot' => 'Add a repository',
+	'titre_form_charger_plugin' => 'Rechercher et ajouter des plugins', # NEW
+	'titre_form_charger_plugin_archive' => 'Télécharger un plugin depuis son archive', # NEW
 	'titre_form_configurer_svp' => 'Setup the plugins server',
 	'titre_liste_autres_contributions' => 'Templates, libraries, icon sets...',
 	'titre_liste_autres_depots' => 'Other repositories',

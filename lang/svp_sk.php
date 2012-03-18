@@ -21,6 +21,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'bouton_actualiser' => 'Aktualizovať',
 	'bouton_actualiser_tout' => 'Aktualizovať depozitáre',
 	'bouton_appliquer' => 'Použiť',
+	'bouton_confirmer' => 'Confirmer', # NEW
 	'bouton_desactiver' => 'Deaktivovať',
 	'bouton_desinstaller' => 'Odinštalovať',
 	'bouton_installer' => 'Stiahnuť a aktivovať',
@@ -76,24 +77,29 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'config_depot_editable' => 'Umožniť upravovanie depozitárov?',
 	'config_depot_editable_explication' => 'Umožňuje upravovať údaje v depozitári a priradiť k ním kľúčové slová alebo dokumenty.
 		Táto možnosť by mala zaujať každého! Radšej preto nenechajte možnosť "nie"!',
+	'confirmer_telecharger_dans' => 'Le plugin sera chargé dans un répertoire (@dir@) qui existe déjà.
+	Cela écrasera le contenu de ce répertoire.
+	Une copie de l\'ancien contenu sera sauvegardé dans « @dir_backup@ ».
+		Vous devez confirmer cette action.', # NEW
 
 	// E
 	'erreur_actions_non_traitees' => 'Niektoré akcie neboli vykonané.
 			Mohlo sa to stať kvôli chybám v akciách, ktoré bolo treba vykonať, alebo kvôli chybe v zobrazení tejto stránky, zatiaľčo akcie čakajú, kým budú vykonané. Akcie spustil(a) @auteur@ @date@.',
 	'erreur_dir_dib_ecriture' => 'Do adresára knižníc @dir@ sa nedá zapisovať. Knižnica sa nedá spustiť!',
 	'erreur_dir_dib_indefini' => 'Priečinok _DIR_LIB nie je definovaný. Knižnica sa nedá spustiť!',
-	'erreur_dir_plugins_auto' => 'Le répertoire « plugins/auto » permettant de télécharger des paquets
-		n\'est pas créé ou n\'est pas accessible en écriture.
-		<strong>Vous devez le créer pour pouvoir installer de nouveaux plugins depuis cette interface.</strong>', # NEW
+	'erreur_dir_plugins_auto' => 'Priečinok "plugins/auto" na stiahnutie balíkov
+		nebol vytvorený alebo sa doň nedá zapisovať.
+		<strong>Musíte ho vytvoriť, aby ste si pomocou tohto rozhrania mohli nainštalovať nové zásuvné moduly.</strong>',
 	'erreur_dir_plugins_auto_ecriture' => 'Do priečinka s balíkmi @dir@ sa nedá zapisovať. Balík sa nedá spustiť!',
 	'erreur_dir_plugins_auto_indefini' => 'Priečinok _DIR_PLUGIN_AUTO nie je definovaný. Balík sa nedá spustiť!',
-	'erreur_dir_plugins_auto_titre' => '« plugins/auto » est inaccessible !', # NEW
+	'erreur_dir_plugins_auto_titre' => 'K umiestneniu "plugins/auto" sa nedá dostať!',
 	'erreur_teleporter_chargement_source_impossible' => 'Zdroj @source@ sa nedá nahrať',
 	'erreur_teleporter_destination_erreur' => 'Program na premiestňovanie nemá prístup k priečinku @dir@',
 	'erreur_teleporter_echec_deballage_archive' => 'Súbor @fichier@ sa nedá rozbaliť',
 	'erreur_teleporter_format_archive_non_supporte' => 'Premiestňovací program nepodporuje formát @extension@',
 	'erreur_teleporter_methode_inconue' => 'Premiestňovací program nepozná metódu @methode@',
 	'erreur_teleporter_type_fichier_inconnu' => 'Neznámy typ súboru pre zdroj @source@',
+	'explication_destination' => 'Le chemin sera calculé depuis le nom de l\'archive si vous ne le remplissez pas.', # NEW
 
 	// F
 	'fieldset_debug' => 'Ladiť',
@@ -129,6 +135,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_nb_paquets' => '@nb@ balíkov',
 	'info_nb_plugins' => '@nb@ zásuvných modulov',
 	'info_paquets_disponibles' => '@total_paquets@ dostupný(ch) balík(ov)',
+	'info_plugin_attente_dependance' => 'dépendances manquantes', # NEW
 	'info_plugin_incompatible' => 'nekompatibilná verzia',
 	'info_plugin_installe' => 'už je nainštalovaný',
 	'info_plugin_obsolete' => 'zastaraná verzia',
@@ -145,6 +152,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// L
 	'label_1_autre_contribution' => 'iný príspevok',
 	'label_actualise_le' => 'Aktualizovaný',
+	'label_archive' => 'URL de l\'archive', # NEW
 	'label_branches_spip' => 'Kompatibilný',
 	'label_categorie' => 'Kategória',
 	'label_compatibilite_spip' => 'Kompatibilita',
@@ -153,6 +161,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'label_critere_doublon' => 'Kompatibilita',
 	'label_critere_etat' => 'Stavy',
 	'label_critere_phrase' => 'Vyhľadávať v zásuvných moduloch',
+	'label_destination' => 'Chemin depuis le répertoire « auto » où déposer le plugin', # NEW
 	'label_modifie_le' => 'Zmenený',
 	'label_n_autres_contributions' => 'iné príspevky',
 	'label_prefixe' => 'Predpona',
@@ -226,6 +235,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_ok_aucun_plugin_trouve' => 'Vybraným kritériám nevyhovuje žiaden zásuvný modul.',
 	'message_ok_depot_ajoute' => 'Depozitár "@url@" bol priadaný.',
 	'message_ok_plugins_trouves' => 'Vybraným kritériám (@tri@) vyhovuje @nb_plugins@ zásuvný(ch) modul(ov). Vyberte si tie zásuvné moduly, ktoré chcete stiahnuť a aktivovať na svojom serveri.',
+	'message_telechargement_archive_effectue' => 'L\'archive a été correctement extraite dans @dir@.', # NEW
 
 	// N
 	'nettoyer_actions' => 'Vymazať tieto akcie! Takto vymažete zoznam akcií, ktoré ešte treba vykonať.',
@@ -253,9 +263,13 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'resume_table_plugins' => 'Zoznam zásuvných modulov @categorie@',
 
 	// T
+	'telecharger_archive_plugin_explication' => 'Vous pouvez télécharger une archive qui se chargera
+		dans votre répertoire « plugins/auto », en écrivant l\'URL de l\'archive dans le champ de saisie.', # NEW
 	'titre_depot' => 'Depozitár',
 	'titre_depots' => 'Depozitáre',
 	'titre_form_ajouter_depot' => 'Pridať depozitár',
+	'titre_form_charger_plugin' => 'Rechercher et ajouter des plugins', # NEW
+	'titre_form_charger_plugin_archive' => 'Télécharger un plugin depuis son archive', # NEW
 	'titre_form_configurer_svp' => 'Nastaviť server zásuvných modulov',
 	'titre_liste_autres_contributions' => 'Šablóny, knižnice, sady ikon, atď.',
 	'titre_liste_autres_depots' => 'Ostatné depozitáre',

@@ -21,6 +21,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'bouton_actualiser' => 'تحديث',
 	'bouton_actualiser_tout' => 'تحديث المستودعات',
 	'bouton_appliquer' => 'تطبيق',
+	'bouton_confirmer' => 'Confirmer', # NEW
 	'bouton_desactiver' => 'إيقاف',
 	'bouton_desinstaller' => 'إزالة التثبيت',
 	'bouton_installer' => 'تحميل وتفعيل',
@@ -64,23 +65,28 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'config_autoriser_activer_paquets_obsoletes_explication' => 'الحزم القديمة هي حزم محلية أقدم من حزم محلية أخرى. ويتم تحديد القدم على قاعدة حالة الحزمة (ثابتة، تجريبية او قيد التطوير) ورقم إصدارها. اذا رغبت في تفعيل ملحقات قديمة، قم بتفعيل هذا الخيار.',
 	'config_depot_editable' => 'السماح بتحرير المستودعات؟',
 	'config_depot_editable_explication' => 'يجعل من معلومات مخزن قابلة للتحرير ويتيح هكذا ربطها بمفاتيح او مستندات. ليس من المتوقع ان يهتم اجد بهذا الخيار! فالأفضل ان تترك «كلا»!',
+	'confirmer_telecharger_dans' => 'Le plugin sera chargé dans un répertoire (@dir@) qui existe déjà.
+	Cela écrasera le contenu de ce répertoire.
+	Une copie de l\'ancien contenu sera sauvegardé dans « @dir_backup@ ».
+		Vous devez confirmer cette action.', # NEW
 
 	// E
 	'erreur_actions_non_traitees' => 'لقد تم تنفيذ بعض العمليات. قد يأتي ذلك من خطأ في عمليات ستنفذ او من عرض هذه الصفحة بينما هناك عمليات قيد التنفيذ. تم إطلاق العمليات من قبل @auteur@ في @date@.',
 	'erreur_dir_dib_ecriture' => 'مجلد المكتبات @dir@ غير متاح للكتابة. لا يمكن تغيير اي مكتبة داخله!',
 	'erreur_dir_dib_indefini' => 'المجلد _DIR_LIB غير محدد. لا يمكن تغيير اي مكتبة داخله!',
-	'erreur_dir_plugins_auto' => 'Le répertoire « plugins/auto » permettant de télécharger des paquets
-		n\'est pas créé ou n\'est pas accessible en écriture.
-		<strong>Vous devez le créer pour pouvoir installer de nouveaux plugins depuis cette interface.</strong>', # NEW
+	'erreur_dir_plugins_auto' => 'المجلد «plugins/auto» الذي يتيح تحميل الرزم 
+غير موجود او ممنوع من الكتابة.
+<strong>يجب إنشاؤه للتمكن من تثبيت ملحقات جديدة من هذه الواجهة.</strong>',
 	'erreur_dir_plugins_auto_ecriture' => 'مجلد الحزم @dir@ غير متاح للكتابة. لا يمكن تغيير اي حزمة داخله!',
 	'erreur_dir_plugins_auto_indefini' => 'المجلد _DIR_PLUGIN_AUTO غير محدد. لا يمكن تغيير اي حزمة داخله!',
-	'erreur_dir_plugins_auto_titre' => '« plugins/auto » est inaccessible !', # NEW
+	'erreur_dir_plugins_auto_titre' => 'لا يمكن الوصول الى «plugins/auto»!',
 	'erreur_teleporter_chargement_source_impossible' => 'لا يمكن تحميل المصدر @source@',
 	'erreur_teleporter_destination_erreur' => 'لا يمكن الوصول الى مجلد @dir@ للنقل البعيد',
 	'erreur_teleporter_echec_deballage_archive' => 'لا يمكن فلش الملف @fichier@',
 	'erreur_teleporter_format_archive_non_supporte' => 'الناقل البعيد لا يدعم التنسيق @extension@',
 	'erreur_teleporter_methode_inconue' => 'اسلوب @methode@ غير معروف للنقل البعيد',
 	'erreur_teleporter_type_fichier_inconnu' => 'نوع ملفات غير معروف للمصدر @source@',
+	'explication_destination' => 'Le chemin sera calculé depuis le nom de l\'archive si vous ne le remplissez pas.', # NEW
 
 	// F
 	'fieldset_debug' => 'كشف الأخطاء',
@@ -116,6 +122,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_nb_paquets' => '@nb@ حزمة',
 	'info_nb_plugins' => '@nb@ ملحق',
 	'info_paquets_disponibles' => '@total_paquets@ حزمة متوافرة',
+	'info_plugin_attente_dependance' => 'dépendances manquantes', # NEW
 	'info_plugin_incompatible' => 'إصدار غير متوافق',
 	'info_plugin_installe' => 'مثبت',
 	'info_plugin_obsolete' => 'إصدار قديم',
@@ -132,6 +139,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// L
 	'label_1_autre_contribution' => 'مشاركة أخرى',
 	'label_actualise_le' => 'تم التحديث في',
+	'label_archive' => 'URL de l\'archive', # NEW
 	'label_branches_spip' => 'متوافق',
 	'label_categorie' => 'فئة',
 	'label_compatibilite_spip' => 'توافق',
@@ -140,6 +148,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'label_critere_doublon' => 'توافق',
 	'label_critere_etat' => 'حالات',
 	'label_critere_phrase' => 'بحث في الملحقات',
+	'label_destination' => 'Chemin depuis le répertoire « auto » où déposer le plugin', # NEW
 	'label_modifie_le' => 'تم التعديل في',
 	'label_n_autres_contributions' => 'مشاركات أخرى',
 	'label_prefixe' => 'بادئة',
@@ -210,6 +219,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_ok_aucun_plugin_trouve' => 'لم يتم العثور على اي ملحق يطابق المعايير المحددة.',
 	'message_ok_depot_ajoute' => 'تمت إضافة المستودع @url@.',
 	'message_ok_plugins_trouves' => 'يتطابق @nb_plugins@ ملحق مع العايير المحددة (@tri@). الرجاء تحديد أدناه الملحقات المطلوب تحميلها وتفعيلها على الخادم.',
+	'message_telechargement_archive_effectue' => 'L\'archive a été correctement extraite dans @dir@.', # NEW
 
 	// N
 	'nettoyer_actions' => 'تنظيف هذه العلميات! سيؤدي ذلك الى حذف العمليات قيد التنفيذ.',
@@ -237,9 +247,13 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'resume_table_plugins' => 'لائحة ملحقات @categorie@',
 
 	// T
+	'telecharger_archive_plugin_explication' => 'Vous pouvez télécharger une archive qui se chargera
+		dans votre répertoire « plugins/auto », en écrivant l\'URL de l\'archive dans le champ de saisie.', # NEW
 	'titre_depot' => 'مستودع',
 	'titre_depots' => 'مستودعات',
 	'titre_form_ajouter_depot' => 'إضافة مستودع',
+	'titre_form_charger_plugin' => 'Rechercher et ajouter des plugins', # NEW
+	'titre_form_charger_plugin_archive' => 'Télécharger un plugin depuis son archive', # NEW
 	'titre_form_configurer_svp' => 'إعداد خادم الملحقات',
 	'titre_liste_autres_contributions' => 'صفحات نموذجية، مكتبات، مجموعات أيقونات...',
 	'titre_liste_autres_depots' => 'مستودعات أخرى',
