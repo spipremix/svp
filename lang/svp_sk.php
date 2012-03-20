@@ -21,7 +21,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'bouton_actualiser' => 'Aktualizovať',
 	'bouton_actualiser_tout' => 'Aktualizovať depozitáre',
 	'bouton_appliquer' => 'Použiť',
-	'bouton_confirmer' => 'Confirmer', # NEW
+	'bouton_confirmer' => 'Potvrdiť',
 	'bouton_desactiver' => 'Deaktivovať',
 	'bouton_desinstaller' => 'Odinštalovať',
 	'bouton_installer' => 'Stiahnuť a aktivovať',
@@ -77,10 +77,10 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'config_depot_editable' => 'Umožniť upravovanie depozitárov?',
 	'config_depot_editable_explication' => 'Umožňuje upravovať údaje v depozitári a priradiť k ním kľúčové slová alebo dokumenty.
 		Táto možnosť by mala zaujať každého! Radšej preto nenechajte možnosť "nie"!',
-	'confirmer_telecharger_dans' => 'Le plugin sera chargé dans un répertoire (@dir@) qui existe déjà.
-	Cela écrasera le contenu de ce répertoire.
-	Une copie de l\'ancien contenu sera sauvegardé dans « @dir_backup@ ».
-		Vous devez confirmer cette action.', # NEW
+	'confirmer_telecharger_dans' => 'Zásuvný modul, ktorý bude nahraný do priečonka (@dir@), už existuje.
+	Prepíšete tak obsah tohto priečinka.
+	Kópia starého obsahu bude uložená v priečinku "@dir_backup@".
+		Túto akciu musíte potvrdiť.',
 
 	// E
 	'erreur_actions_non_traitees' => 'Niektoré akcie neboli vykonané.
@@ -99,7 +99,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'erreur_teleporter_format_archive_non_supporte' => 'Premiestňovací program nepodporuje formát @extension@',
 	'erreur_teleporter_methode_inconue' => 'Premiestňovací program nepozná metódu @methode@',
 	'erreur_teleporter_type_fichier_inconnu' => 'Neznámy typ súboru pre zdroj @source@',
-	'explication_destination' => 'Le chemin sera calculé depuis le nom de l\'archive si vous ne le remplissez pas.', # NEW
+	'explication_destination' => 'Ak nevyplníte umiestnenie, určí sa podľa názvu archívu.',
 
 	// F
 	'fieldset_debug' => 'Ladiť',
@@ -135,7 +135,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_nb_paquets' => '@nb@ balíkov',
 	'info_nb_plugins' => '@nb@ zásuvných modulov',
 	'info_paquets_disponibles' => '@total_paquets@ dostupný(ch) balík(ov)',
-	'info_plugin_attente_dependance' => 'dépendances manquantes', # NEW
+	'info_plugin_attente_dependance' => 'chýbajú závislosti',
 	'info_plugin_incompatible' => 'nekompatibilná verzia',
 	'info_plugin_installe' => 'už je nainštalovaný',
 	'info_plugin_obsolete' => 'zastaraná verzia',
@@ -152,7 +152,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// L
 	'label_1_autre_contribution' => 'iný príspevok',
 	'label_actualise_le' => 'Aktualizovaný',
-	'label_archive' => 'URL de l\'archive', # NEW
+	'label_archive' => 'Internetová adresa archívu',
 	'label_branches_spip' => 'Kompatibilný',
 	'label_categorie' => 'Kategória',
 	'label_compatibilite_spip' => 'Kompatibilita',
@@ -161,7 +161,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'label_critere_doublon' => 'Kompatibilita',
 	'label_critere_etat' => 'Stavy',
 	'label_critere_phrase' => 'Vyhľadávať v zásuvných moduloch',
-	'label_destination' => 'Chemin depuis le répertoire « auto » où déposer le plugin', # NEW
+	'label_destination' => 'Cesta z priečinka "auto" k zásuvnému modulu',
 	'label_modifie_le' => 'Zmenený',
 	'label_n_autres_contributions' => 'iné príspevky',
 	'label_prefixe' => 'Predpona',
@@ -235,7 +235,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_ok_aucun_plugin_trouve' => 'Vybraným kritériám nevyhovuje žiaden zásuvný modul.',
 	'message_ok_depot_ajoute' => 'Depozitár "@url@" bol priadaný.',
 	'message_ok_plugins_trouves' => 'Vybraným kritériám (@tri@) vyhovuje @nb_plugins@ zásuvný(ch) modul(ov). Vyberte si tie zásuvné moduly, ktoré chcete stiahnuť a aktivovať na svojom serveri.',
-	'message_telechargement_archive_effectue' => 'L\'archive a été correctement extraite dans @dir@.', # NEW
+	'message_telechargement_archive_effectue' => 'Archív bol úspešne rozbalený do priečinka @dir@.',
 
 	// N
 	'nettoyer_actions' => 'Vymazať tieto akcie! Takto vymažete zoznam akcií, ktoré ešte treba vykonať.',
@@ -263,13 +263,13 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'resume_table_plugins' => 'Zoznam zásuvných modulov @categorie@',
 
 	// T
-	'telecharger_archive_plugin_explication' => 'Vous pouvez télécharger une archive qui se chargera
-		dans votre répertoire « plugins/auto », en écrivant l\'URL de l\'archive dans le champ de saisie.', # NEW
+	'telecharger_archive_plugin_explication' => 'Môžete si stiahnuť archív,  ktorý sa postará
+		o zápis internetovej adresy archívu do poľa pre vstup od používateľa vo vašom priečinku "plugins/auto".',
 	'titre_depot' => 'Depozitár',
 	'titre_depots' => 'Depozitáre',
 	'titre_form_ajouter_depot' => 'Pridať depozitár',
-	'titre_form_charger_plugin' => 'Rechercher et ajouter des plugins', # NEW
-	'titre_form_charger_plugin_archive' => 'Télécharger un plugin depuis son archive', # NEW
+	'titre_form_charger_plugin' => 'Vyhľadať a pridať zásuvné moduly',
+	'titre_form_charger_plugin_archive' => 'Stiahnuť zásuvný modul z archívu',
 	'titre_form_configurer_svp' => 'Nastaviť server zásuvných modulov',
 	'titre_liste_autres_contributions' => 'Šablóny, knižnice, sady ikon, atď.',
 	'titre_liste_autres_depots' => 'Ostatné depozitáre',

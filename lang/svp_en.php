@@ -68,7 +68,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'confirmer_telecharger_dans' => 'The plugin will be loaded into a directory (@dir@) which already exists.
 This will overwrite the content of this directory.
 A copy of the old files will be saved in "@dir_backup@".
-You must confirm this action.', # MODIF
+You must confirm this action.',
 
 	// E
 	'erreur_actions_non_traitees' => 'Some actions have not been performed. This may be due to an error during actions to be processed, or of a display of this page while actions are still pending. Actions were initiated by @auteur@ at @date@.',
@@ -148,7 +148,7 @@ is not created or is not writable.
 	'label_critere_doublon' => 'Compatibility',
 	'label_critere_etat' => 'States',
 	'label_critere_phrase' => 'Search in plugins',
-	'label_destination' => 'Path from the directory "auto" where to drop the plugin', # MODIF
+	'label_destination' => 'Path from the directory "auto" where to drop the plugin',
 	'label_modifie_le' => 'Edited on',
 	'label_n_autres_contributions' => 'other contributions',
 	'label_prefixe' => 'Prefix',
@@ -247,7 +247,7 @@ is not created or is not writable.
 	'resume_table_plugins' => 'List of plugins @categorie@',
 
 	// T
-	'telecharger_archive_plugin_explication' => 'You can download an archive that will be stored in your directory "plugins/auto", by writing the URL of the archive in the input field.', # MODIF
+	'telecharger_archive_plugin_explication' => 'You can download an archive that will be stored in your directory "plugins/auto", by writing the URL of the archive in the input field.',
 	'titre_depot' => 'Repository',
 	'titre_depots' => 'Repositories',
 	'titre_form_ajouter_depot' => 'Add a repository',
