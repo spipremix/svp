@@ -1,13 +1,26 @@
 <?php
 
 
-function svp_actualiser_paquets_locaux() {
+/**
+ * Met a jour les tables paquets et plugins
+ * en ce qui concerne les paquets locaux (presents sur le site).
+ *
+ * On ne met a jour que ce qui a change, sauf si :
+ * - $force = true
+ * - ou var_mode=vider_paquets_locaux
+ * Dans ces cas, toutes les infos locales sont recalculees.
+ *
+ * @param bool $force
+ * 		Forcer les mises a jour des infos en base de tous les paquets locaux
+ * @return
+**/
+function svp_actualiser_paquets_locaux($force = false) {
 
 	spip_timer('paquets_locaux');
 	$paquets = svp_descriptions_paquets_locaux();
 
 	// un mode pour tout recalculer sans désinstaller le plugin... !
-	if (_request('var_mode') == 'vider_paquets_locaux') { 
+	if ($force OR _request('var_mode') == 'vider_paquets_locaux') { 
 		svp_base_supprimer_paquets_locaux();
 		svp_base_inserer_paquets_locaux($paquets);
 	} else {
@@ -455,15 +468,16 @@ function svp_corriger_obsolete_paquets($ids_plugin = array()) {
 		$where);
 
 	foreach ($paquets as $c => $p) {
-		
+
 		$obsoletes[$p['prefixe']][] = $c;
-		
+
 		// si 2 paquet locaux ont le meme prefixe, mais pas la meme version,
 		// l'un est obsolete : la version la plus ancienne
+		// Si version et etat sont egaux, on ne decide pas d'obsolescence.
 		if (count($obsoletes[$p['prefixe']]) > 1) {
 			foreach ($obsoletes[$p['prefixe']] as $cle) {
 				if ($cle == $c) continue;
-				
+
 				// je suis plus petit qu'un autre
 				if (spip_version_compare($paquets[$c]['version'], $paquets[$cle]['version'], '<')) {
 					if ($paquets[$c]['etatnum'] <= $paquets[$cle]['etatnum']) {
@@ -473,16 +487,30 @@ function svp_corriger_obsolete_paquets($ids_plugin = array()) {
 						}
 					}
 				}
-				
-				// je suis plus grand qu'un autre...
-				// si mon etat est meilleur, rendre obsolete les autres
-				elseif ($paquets[$c]['etatnum'] >= $paquets[$cle]['etatnum']) {
-						if ($paquets[$cle]['obsolete'] != 'oui') {
-							$paquets[$cle]['obsolete'] = 'oui';
-							$changements[$cle] = true;
+
+				// je suis plus grand ou egal a un autre...
+				else {
+					// je suis plus strictement plus grand a un autre...
+					if (spip_version_compare($paquets[$c]['version'], $paquets[$cle]['version'], '>')) {
+						// si mon etat est meilleur, rendre obsolete les autres
+						if ($paquets[$c]['etatnum'] >= $paquets[$cle]['etatnum']) {
+								if ($paquets[$cle]['obsolete'] != 'oui') {
+									$paquets[$cle]['obsolete'] = 'oui';
+									$changements[$cle] = true;
+								}
 						}
+					}
+
+					// je suis egal a un autre
+					// si mon etat est strictement meilleur, rendre obsolete les autres
+					elseif ($paquets[$c]['etatnum'] > $paquets[$cle]['etatnum']) {
+							if ($paquets[$cle]['obsolete'] != 'oui') {
+								$paquets[$cle]['obsolete'] = 'oui';
+								$changements[$cle] = true;
+							}
+					}
 				}
-				
+
 			}
 		} else {
 			if ($paquets[$c]['obsolete'] != 'non') {

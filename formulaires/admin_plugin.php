@@ -8,7 +8,7 @@ function formulaires_admin_plugin_charger_dist($voir='actif', $verrouille='non',
 	// actualiser la liste des paquets locaux systematiquement
 	include_spip('inc/svp_depoter_local');
 	svp_actualiser_paquets_locaux();
-		
+
 
 	$valeurs['actif'] = 'oui';
 	if ($voir == 'inactif')
@@ -21,13 +21,13 @@ function formulaires_admin_plugin_charger_dist($voir='actif', $verrouille='non',
 		$valeurs['constante'] = array('_DIR_EXTENSIONS');
 	if ($verrouille == 'tous')
 		$valeurs['constante'] = array();
-	
+
 	$valeurs['verrouille'] = $verrouille;
 	$valeurs['id_paquet'] = $id_paquet;
 	$valeurs['actions'] = array();
 	$valeurs['ids_paquet'] = _request('ids_paquet');
 	$valeurs['_todo'] = _request('_todo');
-			
+
 	return $valeurs;
 }
 

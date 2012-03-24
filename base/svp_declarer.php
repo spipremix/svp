@@ -207,17 +207,18 @@ function svp_declarer_tables_auxiliaires($tables_auxiliaires) {
 function svp_declarer_tables_interfaces($interface) {
 	// Les tables : permet d'appeler une boucle avec le *type* de la table uniquement
  	$interface['table_des_tables']['depots'] = 'depots';
-	$interface['table_des_tables']['plugins'] = 'plugins';	
-	$interface['table_des_tables']['paquets'] = 'paquets';	
-	$interface['table_des_tables']['depots_plugins'] = 'depots_plugins';	
+	$interface['table_des_tables']['plugins'] = 'plugins';
+	$interface['table_des_tables']['paquets'] = 'paquets';
+	$interface['table_des_tables']['depots_plugins'] = 'depots_plugins';
 
 	// Les traitements
 	// - table spip_plugins
-	$interface['table_des_traitements']['SLOGAN']['plugins'] = _TRAITEMENT_RACCOURCIS;	
+	$interface['table_des_traitements']['SLOGAN']['plugins'] = _TRAITEMENT_RACCOURCIS;
 	$interface['table_des_traitements']['VMAX']['plugins'] = 'denormaliser_version(%s)';
 	// - table spip_paquets
-	$interface['table_des_traitements']['DESCRIPTION']['paquets'] = _TRAITEMENT_RACCOURCIS;	
+	$interface['table_des_traitements']['DESCRIPTION']['paquets'] = _TRAITEMENT_RACCOURCIS;
 	$interface['table_des_traitements']['VERSION']['paquets'] = 'denormaliser_version(%s)';
+	$interface['table_des_traitements']['MAJ_VERSION']['paquets'] = 'denormaliser_version(%s)';
 
 	return $interface;
 }
