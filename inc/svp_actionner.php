@@ -41,7 +41,7 @@ class Actionneur {
 	function Actionneur(){
 		include_spip('inc/config');
 		$this->log = (lire_config('svp/mode_log_verbeux') == 'oui');
-		
+
 		include_spip('inc/svp_decider');
 		$this->decideur = new Decideur();
 		#$this->decideur->start();
@@ -660,10 +660,14 @@ class Actionneur {
 			$constante = $i['constante'];
 
 			# $constante = $this->donner_chemin_constante_plugins( $i['constante'] );
-				
+
 			$installer_plugins = charger_fonction('installer', 'plugins');
+			// retourne :
+			// - false : pas de procedure d'install/desinstalle
+			// - true : operation deja faite
+			// - tableau : operation faite ce tour ci.
 			$infos = $installer_plugins($dossier, 'uninstall');
-			if ($infos AND !$infos['install_test'][0]) {
+			if (is_bool($infos) OR !$infos['install_test'][0]) {
 				include_spip('inc/plugin');
 				ecrire_plugin_actifs(array($dossier), false, 'enleve');
 				sql_updateq('spip_paquets', array('actif'=>'non', 'installe'=>'non'), 'id_paquet='.sql_quote($info['i']));
