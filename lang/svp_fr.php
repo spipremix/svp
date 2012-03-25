@@ -13,6 +13,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'actions_necessaires' => 'Les actions supplémentaires suivantes seront effectuées :',
 	'actions_non_traitees' => 'Actions non réalisées',
 	'actions_realises' => 'Actions réalisées',
+	'afficher_les_plugins_incompatibles' => 'Afficher les plugins incompatibles',
 
 	// B
 	'bouton_activer' => 'Activer',
@@ -39,6 +40,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'bulle_telecharger_librairie' => 'Télécharger la bibliothèque',
 
 	// C
+	'cacher_les_plugins_incompatibles' => 'Cacher les plugins incompatibles',
 	'categorie_aucune' => 'Sans catégorie',
 	'categorie_auteur' => 'Authentification, auteur, autorisation',
 	'categorie_communication' => 'Communication, interactivité, messagerie',
