@@ -15,6 +15,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'actions_necessaires' => 'Budú vykonané tieto dodatočné akcie:',
 	'actions_non_traitees' => 'Nevykonané akcie',
 	'actions_realises' => 'Vykonané akcie',
+	'afficher_les_plugins_incompatibles' => 'Afficher les plugins incompatibles', # NEW
 
 	// B
 	'bouton_activer' => 'Aktivovať',
@@ -41,6 +42,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'bulle_telecharger_librairie' => 'Stiahnuť knižnicu',
 
 	// C
+	'cacher_les_plugins_incompatibles' => 'Cacher les plugins incompatibles', # NEW
 	'categorie_aucune' => 'Bez kategórie',
 	'categorie_auteur' => 'Prihlásenie, autor, povolenie',
 	'categorie_communication' => 'Komunikácia, interaktivita, odkazovač',
@@ -116,7 +118,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_admin_plugin_actif_oui_verrou_tous' => 'Na tejto stránke sa nachádzajú aktívne zásuvné moduly, či už sú uzamknuté alebo nie.',
 	'info_admin_plugin_verrou_non' => 'Na tejto stránke sa nachádza zoznam odomknutých zásuvných modulov, či aktívnych alebo neaktívnych.',
 	'info_admin_plugin_verrou_tous' => 'Na tejto stránke sa nachádza zoznam všetkých zásuvných modulov stránky.',
-	'info_admin_plugin_verrouille' => 'Na tejto stránke nájdete zoznam zamknutých zásuvných modulov. Tieto zásuvné moduly sú stále aktívne. Z tohto rozhrania nemôžete vykonať žiadnu akciu.',
+	'info_admin_plugin_verrouille' => 'Na tejto stránke nájdete zoznam zamknutých zásuvných modulov. Tieto zásuvné moduly sú stále aktívne. Z tohto rozhrania nemôžete vykonať žiadnu akciu.', # MODIF
 	'info_adresse_spipzone' => 'SPIP-Zone – Zásuvné moduly',
 	'info_ajouter_depot' => 'Ak pridáte depozitáre do svojej databázy, budete môcť o nich získať informácie a vyhľadať všetky balíky, ktoré sa v nich nachádzajú. <br />Depozitár opisuje súbor XML, v ktorom sa nachádzajú informácie o depozitári a všetkých jeho balíkoch.',
 	'info_aucun_depot' => 'žiaden depozitár',

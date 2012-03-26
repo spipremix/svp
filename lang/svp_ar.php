@@ -15,6 +15,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'actions_necessaires' => 'سيتم تنفيذ العمليات الإضافية التالية:',
 	'actions_non_traitees' => 'العمليات غير المنفذة',
 	'actions_realises' => 'العمليات المنفذة',
+	'afficher_les_plugins_incompatibles' => 'Afficher les plugins incompatibles', # NEW
 
 	// B
 	'bouton_activer' => 'تفعيل',
@@ -41,6 +42,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'bulle_telecharger_librairie' => 'تحميل المكتبة',
 
 	// C
+	'cacher_les_plugins_incompatibles' => 'Cacher les plugins incompatibles', # NEW
 	'categorie_aucune' => 'بدون تصنيف',
 	'categorie_auteur' => 'تعريف، مؤلف، سماح',
 	'categorie_communication' => 'تواصل، تفاعلية، مراسلة',
@@ -103,7 +105,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_admin_plugin_actif_oui_verrou_tous' => 'تعرض هذه الصفحة كل الملحقات النشطة في الموقع، ان كانت مقفلة ام لا.',
 	'info_admin_plugin_verrou_non' => 'تعرض هذه الصفحة كل الملحقات غير المقفلة  في الموقع، ان كانت نشطة ام لا.',
 	'info_admin_plugin_verrou_tous' => 'تعرض هذه الصفحة كل الملحقات في الموقع.',
-	'info_admin_plugin_verrouille' => 'تعرض هذه الصفحة الملحقات المقفلة في الموقع. بالطبع هذه الملحقات نشطة وبالتالي لا يمكن تنفيذ اي عملية من هذه الواجهة.',
+	'info_admin_plugin_verrouille' => 'تعرض هذه الصفحة الملحقات المقفلة في الموقع. بالطبع هذه الملحقات نشطة وبالتالي لا يمكن تنفيذ اي عملية من هذه الواجهة.', # MODIF
 	'info_adresse_spipzone' => 'SPIP-Zone - ملحقات',
 	'info_ajouter_depot' => 'بإضافة مستودعات الى قاعدة بياناتك، يمكنك الحصول على معلومات والبحث في كل الحزم التي تشملها المستودعات المضافة.<br />ويتم وصف اي مستودع بواسطة ملف XML يحتوي معلومات المستودع وكل حزمه.',
 	'info_aucun_depot' => 'لا وجود لأي مستودع',
