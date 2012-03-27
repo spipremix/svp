@@ -8,10 +8,12 @@
 		<div class="liste-plugins">
 			<fieldset>
 				<p class="explication">
-				[(#ENV{verrouille}|=={oui}|?{
-					<:svp:info_admin_plugin_verrouille:>,
-					[(#VAL{svp:info_admin_plugin}|concat{[_actif_(#ENV{actif, oui})], [_verrou_(#ENV{verrouille, non})]}|_T)]}
-				)]
+				[(#ENV{verrouille}|=={oui}|oui)
+					#SET{dir_extensions,#EVAL{_DIR_EXTENSIONS}|joli_repertoire}
+					<:svp:info_admin_plugin_verrouille{dir_extensions=#GET{dir_extensions}}:>
+				][(#ENV{verrouille}|=={oui}|non)
+					[(#VAL{svp:info_admin_plugin}|concat{[_actif_(#ENV{actif, oui})], [_verrou_(#ENV{verrouille, non})]}|_T)]
+				]
 				</p>
 				<INCLURE{fond=formulaires/inc-admin_plugin,env} />
 			</fieldset>
