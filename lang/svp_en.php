@@ -15,7 +15,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'actions_necessaires' => 'The following additional actions will be performed:',
 	'actions_non_traitees' => 'Actions not processed',
 	'actions_realises' => 'Actions processed',
-	'afficher_les_plugins_incompatibles' => 'Afficher les plugins incompatibles', # NEW
+	'afficher_les_plugins_incompatibles' => 'Display incompatible plugins',
 
 	// B
 	'bouton_activer' => 'Enable',
@@ -42,7 +42,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'bulle_telecharger_librairie' => 'Download the library',
 
 	// C
-	'cacher_les_plugins_incompatibles' => 'Cacher les plugins incompatibles', # NEW
+	'cacher_les_plugins_incompatibles' => 'Hide incompatible plugins',
 	'categorie_aucune' => 'No category',
 	'categorie_auteur' => 'Authentication, author, authorization',
 	'categorie_communication' => 'Communication, interaction, messaging',
@@ -105,7 +105,7 @@ is not created or is not writable.
 	'info_admin_plugin_actif_oui_verrou_tous' => 'This page lists all the active plugins of the site, locked or not.',
 	'info_admin_plugin_verrou_non' => 'This page lists all unlocked plugins of the site, active or not.',
 	'info_admin_plugin_verrou_tous' => 'This page lists all the plugins of the website.',
-	'info_admin_plugin_verrouille' => 'This page lists the plugins locked of the site. These plugins are always active. No action is possible from this interface.', # MODIF
+	'info_admin_plugin_verrouille' => 'This page lists the active and locked plugins (placed in the <code>extensions</code> directory). I you wish to disable them, please contact the webmaster of the site or see <a href="http://programmer.spip.org/directory_extensions">the documentation</a>.', # MODIF
 	'info_adresse_spipzone' => 'SPIP-Zone - Plugins',
 	'info_ajouter_depot' => 'By adding repositories to your base, you will have the possibility to get information and to search on all packages hosted by the added repositories.<br />A repository is described by an XML file containing the informations on the deposit and on all its packages.',
 	'info_aucun_depot' => 'No repository',

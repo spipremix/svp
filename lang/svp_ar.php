@@ -15,14 +15,14 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'actions_necessaires' => 'سيتم تنفيذ العمليات الإضافية التالية:',
 	'actions_non_traitees' => 'العمليات غير المنفذة',
 	'actions_realises' => 'العمليات المنفذة',
-	'afficher_les_plugins_incompatibles' => 'Afficher les plugins incompatibles', # NEW
+	'afficher_les_plugins_incompatibles' => 'عرض الملحقات غير المتوافقة',
 
 	// B
 	'bouton_activer' => 'تفعيل',
 	'bouton_actualiser' => 'تحديث',
 	'bouton_actualiser_tout' => 'تحديث المستودعات',
 	'bouton_appliquer' => 'تطبيق',
-	'bouton_confirmer' => 'Confirmer', # NEW
+	'bouton_confirmer' => 'تأكيد',
 	'bouton_desactiver' => 'إيقاف',
 	'bouton_desinstaller' => 'إزالة التثبيت',
 	'bouton_installer' => 'تحميل وتفعيل',
@@ -42,7 +42,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'bulle_telecharger_librairie' => 'تحميل المكتبة',
 
 	// C
-	'cacher_les_plugins_incompatibles' => 'Cacher les plugins incompatibles', # NEW
+	'cacher_les_plugins_incompatibles' => 'إخفاء الملحقات غير المتوافقة',
 	'categorie_aucune' => 'بدون تصنيف',
 	'categorie_auteur' => 'تعريف، مؤلف، سماح',
 	'categorie_communication' => 'تواصل، تفاعلية، مراسلة',
@@ -67,10 +67,10 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'config_autoriser_activer_paquets_obsoletes_explication' => 'الحزم القديمة هي حزم محلية أقدم من حزم محلية أخرى. ويتم تحديد القدم على قاعدة حالة الحزمة (ثابتة، تجريبية او قيد التطوير) ورقم إصدارها. اذا رغبت في تفعيل ملحقات قديمة، قم بتفعيل هذا الخيار.',
 	'config_depot_editable' => 'السماح بتحرير المستودعات؟',
 	'config_depot_editable_explication' => 'يجعل من معلومات مخزن قابلة للتحرير ويتيح هكذا ربطها بمفاتيح او مستندات. ليس من المتوقع ان يهتم اجد بهذا الخيار! فالأفضل ان تترك «كلا»!',
-	'confirmer_telecharger_dans' => 'Le plugin sera chargé dans un répertoire (@dir@) qui existe déjà.
-	Cela écrasera le contenu de ce répertoire.
-	Une copie de l\'ancien contenu sera sauvegardé dans « @dir_backup@ ».
-		Vous devez confirmer cette action.', # NEW
+	'confirmer_telecharger_dans' => 'سيتم تحميل الملحق في مجلد (@dir@) موجود.
+سيؤدي ذلك الى حذف محتوى هذا المجلد.
+سيتم حفظ نسخة عن محتوى المجلد القديم في «@dir_backup@».
+يجب تأكيد هذه العملية.',
 
 	// E
 	'erreur_actions_non_traitees' => 'لقد تم تنفيذ بعض العمليات. قد يأتي ذلك من خطأ في عمليات ستنفذ او من عرض هذه الصفحة بينما هناك عمليات قيد التنفيذ. تم إطلاق العمليات من قبل @auteur@ في @date@.',
@@ -88,7 +88,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'erreur_teleporter_format_archive_non_supporte' => 'الناقل البعيد لا يدعم التنسيق @extension@',
 	'erreur_teleporter_methode_inconue' => 'اسلوب @methode@ غير معروف للنقل البعيد',
 	'erreur_teleporter_type_fichier_inconnu' => 'نوع ملفات غير معروف للمصدر @source@',
-	'explication_destination' => 'Le chemin sera calculé depuis le nom de l\'archive si vous ne le remplissez pas.', # NEW
+	'explication_destination' => 'سيتم حساب المسار من اسم الأرشيف اذا لم تدخله.',
 
 	// F
 	'fieldset_debug' => 'كشف الأخطاء',
@@ -105,7 +105,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_admin_plugin_actif_oui_verrou_tous' => 'تعرض هذه الصفحة كل الملحقات النشطة في الموقع، ان كانت مقفلة ام لا.',
 	'info_admin_plugin_verrou_non' => 'تعرض هذه الصفحة كل الملحقات غير المقفلة  في الموقع، ان كانت نشطة ام لا.',
 	'info_admin_plugin_verrou_tous' => 'تعرض هذه الصفحة كل الملحقات في الموقع.',
-	'info_admin_plugin_verrouille' => 'تعرض هذه الصفحة الملحقات المقفلة في الموقع. بالطبع هذه الملحقات نشطة وبالتالي لا يمكن تنفيذ اي عملية من هذه الواجهة.', # MODIF
+	'info_admin_plugin_verrouille' => 'تعرض هذه الصفحة الملحقات النشطة والمقفلة (الموجودة في مجلد <code>extensions</code>). 
+في حال أردت إيقافها', # MODIF
 	'info_adresse_spipzone' => 'SPIP-Zone - ملحقات',
 	'info_ajouter_depot' => 'بإضافة مستودعات الى قاعدة بياناتك، يمكنك الحصول على معلومات والبحث في كل الحزم التي تشملها المستودعات المضافة.<br />ويتم وصف اي مستودع بواسطة ملف XML يحتوي معلومات المستودع وكل حزمه.',
 	'info_aucun_depot' => 'لا وجود لأي مستودع',
@@ -124,7 +125,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_nb_paquets' => '@nb@ حزمة',
 	'info_nb_plugins' => '@nb@ ملحق',
 	'info_paquets_disponibles' => '@total_paquets@ حزمة متوافرة',
-	'info_plugin_attente_dependance' => 'dépendances manquantes', # NEW
+	'info_plugin_attente_dependance' => 'اعتمادات غير موجودة',
 	'info_plugin_incompatible' => 'إصدار غير متوافق',
 	'info_plugin_installe' => 'مثبت',
 	'info_plugin_obsolete' => 'إصدار قديم',
@@ -141,7 +142,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// L
 	'label_1_autre_contribution' => 'مشاركة أخرى',
 	'label_actualise_le' => 'تم التحديث في',
-	'label_archive' => 'URL de l\'archive', # NEW
+	'label_archive' => 'عنوان URL الخاص بالأرشيف',
 	'label_branches_spip' => 'متوافق',
 	'label_categorie' => 'فئة',
 	'label_compatibilite_spip' => 'توافق',
@@ -150,7 +151,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'label_critere_doublon' => 'توافق',
 	'label_critere_etat' => 'حالات',
 	'label_critere_phrase' => 'بحث في الملحقات',
-	'label_destination' => 'Chemin depuis le répertoire « auto » où déposer le plugin', # NEW
+	'label_destination' => 'المسار من المجلد «auto» حيث سيتم وضع الملحق',
 	'label_modifie_le' => 'تم التعديل في',
 	'label_n_autres_contributions' => 'مشاركات أخرى',
 	'label_prefixe' => 'بادئة',
@@ -221,7 +222,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_ok_aucun_plugin_trouve' => 'لم يتم العثور على اي ملحق يطابق المعايير المحددة.',
 	'message_ok_depot_ajoute' => 'تمت إضافة المستودع @url@.',
 	'message_ok_plugins_trouves' => 'يتطابق @nb_plugins@ ملحق مع العايير المحددة (@tri@). الرجاء تحديد أدناه الملحقات المطلوب تحميلها وتفعيلها على الخادم.',
-	'message_telechargement_archive_effectue' => 'L\'archive a été correctement extraite dans @dir@.', # NEW
+	'message_telechargement_archive_effectue' => 'تم استرجاع الأرشيف دون مشاكل في @dir@.',
 
 	// N
 	'nettoyer_actions' => 'تنظيف هذه العلميات! سيؤدي ذلك الى حذف العمليات قيد التنفيذ.',
@@ -249,13 +250,12 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'resume_table_plugins' => 'لائحة ملحقات @categorie@',
 
 	// T
-	'telecharger_archive_plugin_explication' => 'Vous pouvez télécharger une archive qui se chargera
-		dans votre répertoire « plugins/auto », en écrivant l\'URL de l\'archive dans le champ de saisie.', # NEW
+	'telecharger_archive_plugin_explication' => 'يمكنك تحميل أرشيف يُحفظ في مجلد «plugins/auto»، وذلك بإدخال عنوان URL الخاص بهذا الأرشيف في حقل الإدخال.',
 	'titre_depot' => 'مستودع',
 	'titre_depots' => 'مستودعات',
 	'titre_form_ajouter_depot' => 'إضافة مستودع',
-	'titre_form_charger_plugin' => 'Rechercher et ajouter des plugins', # NEW
-	'titre_form_charger_plugin_archive' => 'Télécharger un plugin depuis son archive', # NEW
+	'titre_form_charger_plugin' => 'البحث عن ملحقات وإضافتها',
+	'titre_form_charger_plugin_archive' => 'تحميل ملحق من أرشيفه',
 	'titre_form_configurer_svp' => 'إعداد خادم الملحقات',
 	'titre_liste_autres_contributions' => 'صفحات نموذجية، مكتبات، مجموعات أيقونات...',
 	'titre_liste_autres_depots' => 'مستودعات أخرى',
