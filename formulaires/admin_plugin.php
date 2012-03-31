@@ -5,6 +5,12 @@ if (!defined("_ECRIRE_INC_VERSION")) return;
 function formulaires_admin_plugin_charger_dist($voir='actif', $verrouille='non', $id_paquet=''){
 	$valeurs = array();
 
+	if (_request('var_mode') == 'reinstaller_svp') {
+		include_spip('svp_administrations');
+		svp_vider_tables('svp_base_version');
+		include_spip('inc/headers');
+		return redirige_formulaire(parametre_url(self(), 'var_mode', null));
+	}
 	// actualiser la liste des paquets locaux systematiquement
 	include_spip('inc/svp_depoter_local');
 	svp_actualiser_paquets_locaux();

@@ -6,13 +6,17 @@ function svp_upgrade($nom_meta_base_version, $version_cible){
 
 	$maj = array();
 
-	$maj['create'][] = array('maj_tables', array('spip_depots','spip_plugins','spip_depots_plugins','spip_paquets'));
+	$install = array('maj_tables', array('spip_depots','spip_plugins','spip_depots_plugins','spip_paquets'));
+	$maj['create'][] = $install;
 	$maj['0.2'][]    = array('maj_tables', 'spip_paquets');
 	$maj['0.3'][]    = array('maj_tables', 'spip_paquets'); // prefixe et attente
 	$maj['0.3'][]    = array('svp_synchroniser_prefixe');
 	include_spip('inc/svp_depoter_local');
 	// on force le recalcul des infos des paquets locaux.
 	$maj['0.3.1'][]  = array('svp_actualiser_paquets_locaux', true);
+	// autant mettre tout a jour pour avoir une base propre.
+	$maj['0.3.2'][] = array('svp_vider_tables', $nom_meta_base_version);
+	$maj['0.3.2'][] = $install;
 
 	include_spip('base/upgrade');
 	maj_plugin($nom_meta_base_version, $version_cible, $maj);
