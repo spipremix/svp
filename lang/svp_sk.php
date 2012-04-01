@@ -118,10 +118,10 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_admin_plugin_actif_oui_verrou_tous' => 'Na tejto stránke sa nachádzajú aktívne zásuvné moduly, či už sú uzamknuté alebo nie.',
 	'info_admin_plugin_verrou_non' => 'Na tejto stránke sa nachádza zoznam odomknutých zásuvných modulov, či aktívnych alebo neaktívnych.',
 	'info_admin_plugin_verrou_tous' => 'Na tejto stránke sa nachádza zoznam všetkých zásuvných modulov stránky.',
-	'info_admin_plugin_verrouille' => 'Na tejto stránke nájdete zoznam  aktívnych a zamknutých zásuvných modulov (uložených v priečinku <code>extensions</code>).
+	'info_admin_plugin_verrouille' => 'Na tejto stránke sa nachádza zoznam  aktivovaných a zamknutých zásuvných modulov (umiestnených v priečinku <code>@dir_extensions@</code>).
 	Ak ich chcete deaktivovať,
 	kontaktujte, prosím, webmastera stránky,
-	alebo si prečítajte <a href="http://programmer.spip.org/repertoire_extensions">dokumentáciu.</a>', # MODIF
+	alebo si prečítajte <a href="http://programmer.spip.org/repertoire_extensions">dokumentáciu.</a>',
 	'info_adresse_spipzone' => 'SPIP-Zone – Zásuvné moduly',
 	'info_ajouter_depot' => 'Ak pridáte depozitáre do svojej databázy, budete môcť o nich získať informácie a vyhľadať všetky balíky, ktoré sa v nich nachádzajú. <br />Depozitár opisuje súbor XML, v ktorom sa nachádzajú informácie o depozitári a všetkých jeho balíkoch.',
 	'info_aucun_depot' => 'žiaden depozitár',
