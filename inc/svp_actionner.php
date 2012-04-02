@@ -591,7 +591,7 @@ class Actionneur {
 			'pa.version='.sql_quote($info['maj']),
 			'pa.id_depot>'.sql_quote(0)),
 			'', 'pa.etatnum DESC', '0,1')) {
-				
+
 			if ($dirs = $this->get_paquet_id($maj)) {
 				// Si le plugin a jour n'est pas dans le meme dossier que l'ancien...
 				// il faut :
@@ -611,7 +611,7 @@ class Actionneur {
 						}
 					}
 				}
-							
+
 				$this->ajouter_plugin_interessants_meta($dirs['dossier']);
 				return $dirs;
 			}
