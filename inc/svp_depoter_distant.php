@@ -64,6 +64,11 @@ function svp_ajouter_depot($url, &$erreur='') {
 	sql_updateq('spip_depots',
 				array('nbr_paquets'=> $nb_paquets, 'nbr_plugins'=> $nb_plugins, 'nbr_autres'=> $nb_autres),
 				'id_depot=' . sql_quote($id_depot));
+
+	// On vide les paquets locaux pour mettre a jour leurs donnees relatives au depot
+	// comme les mises a jour disponibles
+	include_spip('inc/svp_depoter_local');
+	svp_base_supprimer_paquets_locaux();
 	
 	return true;
 }
@@ -121,6 +126,11 @@ function svp_supprimer_depot($id){
 
 	// On supprime le depot lui-meme
 	sql_delete('spip_depots','id_depot='.sql_quote($id_depot));
+
+	// on supprime les paquets locaux pour reactualisation
+	include_spip('inc/svp_depoter_local');
+	svp_base_supprimer_paquets_locaux();
+
 	return true;
 }
 
