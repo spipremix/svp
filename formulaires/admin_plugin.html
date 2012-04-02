@@ -28,7 +28,7 @@
 				<select class="action" name="action_globale">
 					[(#ENV{actif}|=={oui}|non)<option value="on"><:svp:bouton_activer:></option>]
 					[(#ENV{actif}|=={non}|non)<option value="off"><:svp:bouton_desactiver:></option>]
-					<option value="up"><:svp:bouton_up:></option>
+					<option value="up" id="option_up"><:svp:bouton_up:></option>
 					[(#ENV{actif}|=={non}|non)<option value="stop"><:svp:bouton_desinstaller:></option>]
 				</select>
 				<input type="submit" class="submit" name="appliquer" value="<:svp:bouton_appliquer:>" />
@@ -53,6 +53,7 @@
 						} else {
 							$("#select_up").hide();
 							$("#select_up").prev(".sep").hide();
+							$("#option_up").hide();
 						}
 					}
 					// lorsqu'il y a de nombreux plugins et comme la remontee ajax est desactivee
