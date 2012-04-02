@@ -35,29 +35,37 @@
 			</fieldset>]
 			<script type="text/javascript">
 			//<![CDATA[
-				jQuery(function(){
-					jQuery("#select_tous").click(function(){
+				(function($){
+					$("#select_tous").click(function(){
 						jQuery("input.select_plugin").attr("checked",true);
 						return false;
 					});
-					jQuery("#select_aucun").click(function(){
-						jQuery("input.select_plugin").attr("checked",false);
+					$("#select_aucun").click(function(){
+						$("input.select_plugin").attr("checked",false);
 						return false;
 					});
 					var cocher_plugins_up = function(){
-						if (jQuery(".plugins li.item.up").length != 0) {
-							jQuery("#select_up").click(function(){
-								jQuery(".plugins li.item.up input.select_plugin").attr("checked",true);
+						if ($(".plugins li.item.up").length != 0) {
+							$("#select_up").click(function(){
+								$(".plugins li.item.up input.select_plugin").attr("checked",true);
 								return false;
 							});
 						} else {
-							jQuery("#select_up").hide();
-							jQuery("#select_up").prev(".sep").hide();
+							$("#select_up").hide();
+							$("#select_up").prev(".sep").hide();
+						}
+					}
+					// lorsqu'il y a de nombreux plugins et comme la remontee ajax est desactivee
+					// on ne voit pas forcement les erreurs. A ce monent la, on remonte dessus.
+					var remonter_sur_erreurs = function() {
+						if ($('#formulaire_admin_plugin .reponse_formulaire_erreur').length) {
+							$(document).scrollTop($('#formulaire_admin_plugin').offset().top - 20);
 						}
 					}
 					cocher_plugins_up();
 					onAjaxLoad(cocher_plugins_up);
-				});
+					onAjaxLoad(remonter_sur_erreurs);
+				})(jQuery);
 			//]]>
 			</script>
 		</div>
