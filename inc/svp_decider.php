@@ -34,6 +34,8 @@ class Decideur {
 	var $ok = true;     // le resultat permet d'effectuer toutes les actions
 	var $log = false;   // loguer les differents elements
 
+	var $erreur_sur_maj_introuvable = true; // generer une erreur si on demande une mise a jour d'un plugin alors que l'on n'en connait pas.
+
 
 	function Decideur () {
 		include_spip('inc/config');
@@ -418,8 +420,10 @@ class Decideur {
 								}
 								$this->ask($i, $t);
 							} else {
-								// on n'a pas trouve la nouveaute !!!
-								$this->erreur($id, _T('svp:message_nok_maj_introuvable',array('plugin' => $i['n'],'id'=>$id)));
+								if ($this->erreur_sur_maj_introuvable) {
+									// on n'a pas trouve la nouveaute !!!
+									$this->erreur($id, _T('svp:message_nok_maj_introuvable',array('plugin' => $i['n'],'id'=>$id)));
+								}
 							}
 						} else {
 							// mauvais identifiant ?
@@ -718,6 +722,7 @@ class Decideur {
 **/
 function svp_decider_verifier_actions_demandees($a_actionner, &$erreurs) {
 	$decideur = new Decideur;
+	$decideur->erreur_sur_maj_introuvable = false;
 	$decideur->verifier_dependances($a_actionner);
 
 	if (!$decideur->ok) {
