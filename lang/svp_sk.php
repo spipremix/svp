@@ -118,10 +118,10 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_admin_plugin_actif_oui_verrou_tous' => 'Na tejto stránke sa nachádzajú aktívne zásuvné moduly, či už sú uzamknuté alebo nie.',
 	'info_admin_plugin_verrou_non' => 'Na tejto stránke sa nachádza zoznam odomknutých zásuvných modulov, či aktívnych alebo neaktívnych.',
 	'info_admin_plugin_verrou_tous' => 'Na tejto stránke sa nachádza zoznam všetkých zásuvných modulov stránky.',
-	'info_admin_plugin_verrouille' => 'Na tejto stránke sa nachádza zoznam  aktivovaných a zamknutých zásuvných modulov (umiestnených v priečinku <code>@dir_extensions@</code>).
+	'info_admin_plugin_verrouille' => 'Na tejto stránke sa nachádza zoznam  aktivovaných a zamknutých zásuvných modulov (umiestnených v priečinku <code>@dir_plugins_dist@</code>).
 	Ak ich chcete deaktivovať,
 	kontaktujte, prosím, webmastera stránky,
-	alebo si prečítajte <a href="http://programmer.spip.org/repertoire_extensions">dokumentáciu.</a>',
+	alebo si prečítajte <a href="http://programmer.spip.org/repertoire_plugins_dist">dokumentáciu.</a>',
 	'info_adresse_spipzone' => 'SPIP-Zone – Zásuvné moduly',
 	'info_ajouter_depot' => 'Ak pridáte depozitáre do svojej databázy, budete môcť o nich získať informácie a vyhľadať všetky balíky, ktoré sa v nich nachádzajú. <br />Depozitár opisuje súbor XML, v ktorom sa nachádzajú informácie o depozitári a všetkých jeho balíkoch.',
 	'info_aucun_depot' => 'žiaden depozitár',
@@ -223,7 +223,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
    								umiestnenú v priečinku <var>lib/</var> do koreňového adresára vašej stránky.
    								Do tohto priečinka sa však nedá zapisovať.
    								Musíte ho nainštalovať manuálne alebo udeliť tomuto priečinku povolenia na zápis.',
-	'message_erreur_maj_inconnu' => 'Neznámy zásuvný modul (@id@) sa nedá aktualizovať.',
+	'message_erreur_maj_inconnu' => 'Neznámy zásuvný modul (@id@) sa nedá aktualizovať.', # MODIF
 	'message_erreur_plugin_introuvable' => 'Nedá sa nájsť zásuvný modul @plugin@ na @action@.',
 	'message_erreur_plugin_non_actif' => 'Nedá sa deaktivovať zásuvný modul, ktorý nebol aktivovaný.',
 	'message_incompatibilite_spip' => '@plugin@  nie je kompatibilný s verziou SPIPu, ktorú používate.',
@@ -232,7 +232,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_nok_aucun_plugin_selectionne' => 'Nevybrali ste žiadne zásuvné moduly. Vyberte, prosím, zásuvné moduly, ktoré sa majú nainštalovať',
 	'message_nok_champ_obligatoire' => 'Toto pole je povinné',
 	'message_nok_depot_deja_ajoute' => 'Adresa "@url@" patrí depozitáru, ktorý bol už pridaný',
-	'message_nok_maj_introuvable' => 'Aktualizácia zásuvného modulu @plugin@ sa nenašla (@id@).',
+	'message_nok_maj_introuvable' => 'Aktualizácia zásuvného modulu @plugin@ sa nenašla (@id@).', # MODIF
 	'message_nok_plugin_inexistant' => 'Požadovaný zásuvný modul neexistuje (@plugin@).',
 	'message_nok_sql_insert_depot' => 'Pri pridávaní depozitára @objet@ sa vyskytla chyba SQL',
 	'message_nok_url_depot_incorrecte' => 'Adresa "@url@" je nesprávna',

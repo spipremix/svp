@@ -105,7 +105,7 @@ is not created or is not writable.
 	'info_admin_plugin_actif_oui_verrou_tous' => 'This page lists all the active plugins of the site, locked or not.',
 	'info_admin_plugin_verrou_non' => 'This page lists all unlocked plugins of the site, active or not.',
 	'info_admin_plugin_verrou_tous' => 'This page lists all the plugins of the website.',
-	'info_admin_plugin_verrouille' => 'This page lists the active and locked plugins (placed in the <code>@dir_extensions@</code> directory). I you wish to disable them, please contact the webmaster of the site or see <a href="http://programmer.spip.org/directory_extensions">the documentation</a>.',
+	'info_admin_plugin_verrouille' => 'This page lists the active and locked plugins (placed in the <code>@dir_plugins_dist@</code> directory). I you wish to disable them, please contact the webmaster of the site or see <a href="http://programmer.spip.org/directory_extensions">the documentation</a>.',
 	'info_adresse_spipzone' => 'SPIP-Zone - Plugins',
 	'info_ajouter_depot' => 'By adding repositories to your base, you will have the possibility to get information and to search on all packages hosted by the added repositories.<br />A repository is described by an XML file containing the informations on the deposit and on all its packages.',
 	'info_aucun_depot' => 'No repository',
@@ -204,7 +204,7 @@ is not created or is not writable.
 	'message_dependance_plugin_version' => 'The plugin @plugin@ depends on @dependance@ @version@',
 	'message_erreur_aucun_plugin_selectionne' => 'No plugin selected.',
 	'message_erreur_ecriture_lib' => '@plugin@ requires the library <a href="@lib_url@">@lib@</a> placed in the <var>lib/</var> at the root of your site. However, this directory is not writable. You must manually install it or give write permissions to that directory.',
-	'message_erreur_maj_inconnu' => 'Impossible update of an unknown plugin (@id@).',
+	'message_erreur_maj_inconnu' => 'Impossible update of an unknown plugin (@id@).', # MODIF
 	'message_erreur_plugin_introuvable' => 'It is impossible to find the plugin@plugin@ for @action@.',
 	'message_erreur_plugin_non_actif' => 'It is impossible to disable a plugin not active.',
 	'message_incompatibilite_spip' => '@plugin@ is not compatible with the SPIP version you use.',
@@ -213,7 +213,7 @@ is not created or is not writable.
 	'message_nok_aucun_plugin_selectionne' => 'No plugin to install. Please select the plugins you want to install.',
 	'message_nok_champ_obligatoire' => 'This field is required',
 	'message_nok_depot_deja_ajoute' => 'The URL "@url@" matches an already added a repository',
-	'message_nok_maj_introuvable' => 'Update of the plugin "@plugin@" not found (@id@).',
+	'message_nok_maj_introuvable' => 'Update of the plugin "@plugin@" not found (@id@).', # MODIF
 	'message_nok_plugin_inexistant' => 'The requested plugin does not exist(@plugin@).',
 	'message_nok_sql_insert_depot' => 'SQL error when adding the repository @objet@',
 	'message_nok_url_depot_incorrecte' => 'The address "@url@" is incorrect',
