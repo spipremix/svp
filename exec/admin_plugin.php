@@ -35,14 +35,15 @@ function exec_admin_plugin_dist() {
 		exit;
 	}
 
-	// resinstaller svp si on le demande expressemment
+	// reinstaller SVP si on le demande expressement.
 	if (_request('var_mode') == 'reinstaller_svp') {
 		include_spip('svp_administrations');
 		svp_vider_tables('svp_base_version');
 		include_spip('inc/headers');
-		return redirige_formulaire(self());
+		echo redirige_formulaire(self());
+		exit;
 	}
-	
+
 // le code ci-dessous eut ete bien beau mais...
 // si l'on veut que les messages d'installation moches des plugins
 // soient au bon endroit, nous sommes obliges d'appeler la fonction
