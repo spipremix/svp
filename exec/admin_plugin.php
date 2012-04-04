@@ -35,6 +35,12 @@ function exec_admin_plugin_dist() {
 		exit;
 	}
 
+	if (_request('var_mode')=='svp_reinit'){
+		include_spip('svp_administrations');
+		svp_vider_tables("svp_base_version");
+		include_spip('inc/headers');
+		redirige_par_entete(self());
+	}
 
 // le code ci-dessous eut ete bien beau mais...
 // si l'on veut que les messages d'installation moches des plugins

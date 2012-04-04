@@ -39,11 +39,11 @@ function svp_actualiser_paquets_locaux($force = false) {
 function svp_descriptions_paquets_locaux() {
 	include_spip('inc/plugin');
 	liste_plugin_files(_DIR_PLUGINS);
-	liste_plugin_files(_DIR_EXTENSIONS);
+	liste_plugin_files(_DIR_PLUGINS_DIST);
 	$get_infos = charger_fonction('get_infos', 'plugins');
 	$paquets_locaux = array(
 		'_DIR_PLUGINS'    => $get_infos(array(), false, _DIR_PLUGINS),
-		'_DIR_EXTENSIONS' => $get_infos(array(), false, _DIR_EXTENSIONS),
+		'_DIR_PLUGINS_DIST' => $get_infos(array(), false, _DIR_PLUGINS_DIST),
 	);
 	if (defined('_DIR_PLUGINS_SUPP') and _DIR_PLUGINS_SUPP) {
 		liste_plugin_files(_DIR_PLUGINS_SUPP);

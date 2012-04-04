@@ -160,7 +160,7 @@ function svp_lister_plugins_installes(){
 
 	// - liste des id de plugin correspondants
 	//   Il se peut que certains plugins ne soient pas trouves dans la bdd car aucun zip n'est disponible
-	//   (donc pas inclus dans archives.xml). C'est le cas des extensions du core
+	//   (donc pas inclus dans archives.xml). C'est le cas des plugins_dist du core
 	$ids = sql_allfetsel('id_plugin', 'spip_plugins', sql_in('prefixe', array_keys($plugins)));
 	$ids = array_map('reset', $ids);
 	$ids = array_map('intval', $ids);

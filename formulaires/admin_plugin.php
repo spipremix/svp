@@ -24,7 +24,7 @@ function formulaires_admin_plugin_charger_dist($voir='actif', $verrouille='non',
 
 	$valeurs['constante'] = array('_DIR_PLUGINS','_DIR_PLUGINS_SUPPL');
 	if ($verrouille == 'oui')
-		$valeurs['constante'] = array('_DIR_EXTENSIONS');
+		$valeurs['constante'] = array('_DIR_PLUGINS_DIST');
 	if ($verrouille == 'tous')
 		$valeurs['constante'] = array();
 
