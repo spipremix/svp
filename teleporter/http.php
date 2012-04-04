@@ -140,9 +140,11 @@ function http_deballe_recherche_racine($list){
 	AND array_values($paths[$i]) == array($total))
 		$i++;
 
-	$racine = $i
-		? array_pop(array_keys($paths[$i-1])).'/'
-		: '';
+	$racine = '';
+	if ($i){
+		$racine = array_keys($paths[$i-1]);
+		$racine = array_pop($racine).'/';
+	}
 
 	return $racine;
 }
