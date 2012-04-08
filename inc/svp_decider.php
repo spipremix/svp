@@ -624,13 +624,19 @@ class Decideur {
 								and $new = $this->chercher_plugin_compatible($p, $v)
 								and $this->verifier_dependances_plugin($new, ++$prof)) {
 									// si le plugin existe localement et possede maj_version,
-									// c'est que c'est une mise a jour + activation a faire
+									// c'est que c'est peut etre une mise a jour + activation a faire
+									// si le plugin
+									// nouveau est local   => non
+									// nouveau est distant => oui peut etre
 									$cache[] = $new;
-									$i = $this->infos_courtes(array(
-											'pl.prefixe=' . sql_quote($new['p']),
-											'pa.maj_version=' . sql_quote($new['v'])
-										), true);
-									if (isset($i['p'][$new['p']]) and count($i['p'][$new['p']])) {
+									$i = array();
+									if (!$new['local']) {
+										$i = $this->infos_courtes(array(
+												'pl.prefixe=' . sql_quote($new['p']),
+												'pa.maj_version=' . sql_quote($new['v'])
+											), true);
+									}
+									if ($i and isset($i['p'][$new['p']]) and count($i['p'][$new['p']])) {
 										// c'est une mise a jour
 										$vieux = $i['p'][$new['p']][0];
 										$this->change($vieux, 'upon');
@@ -638,7 +644,11 @@ class Decideur {
 									} else {
 										// tout nouveau tout beau
 										$this->change($new, $new['local'] ? 'on' : 'geton');
-										$this->log("-- nouveau : $p");
+										if ($new['local']) {
+											$this->log("-- nouveau present : $p");
+										} else {
+											$this->log("-- nouveau distant : $p");
+										}
 									}
 									$this->add($new);
 								} else {
