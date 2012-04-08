@@ -2,7 +2,7 @@
 	prefix="svp"
 	categorie="maintenance"
 	version="0.78.9"
-	etat="test"
+	etat="stable"
 	compatibilite="[3.0.0-beta;3.0.*]"
 	logo="svp-64.png"
 	schema="0.4.0"
