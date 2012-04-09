@@ -107,7 +107,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_admin_plugin_verrou_tous' => 'تعرض هذه الصفحة كل الملحقات في الموقع.',
 	'info_admin_plugin_verrouille' => 'تعرض هذه الصفحة الملحقات النشطة والمقفلة (الموجودة في مجلد <code>@dir_plugins_dist@</code>). 
 في حال أردت إيقافها، الرجاء الاتصال بالمشرف على الموقع،
-او العودة الى <a href="http://programmer.spip.org/repertoire_plugins_dist">التوثيق</a>.',
+او العودة الى <a href="http://programmer.spip.org/repertoire_plugins_dist">التوثيق</a>.', # MODIF
 	'info_adresse_spipzone' => 'SPIP-Zone - ملحقات',
 	'info_ajouter_depot' => 'بإضافة مستودعات الى قاعدة بياناتك، يمكنك الحصول على معلومات والبحث في كل الحزم التي تشملها المستودعات المضافة.<br />ويتم وصف اي مستودع بواسطة ملف XML يحتوي معلومات المستودع وكل حزمه.',
 	'info_aucun_depot' => 'لا وجود لأي مستودع',
@@ -206,7 +206,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_dependance_plugin_version' => 'الملحق @plugin@ يعتمد على @dependance@ @version@.',
 	'message_erreur_aucun_plugin_selectionne' => 'لا يوجد اي ملحق محدد',
 	'message_erreur_ecriture_lib' => 'يتطلب @plugin@ مكتبة <a href="@lib_url@">@lib@</a> الموجودة في مجلد <var>lib/</var> في أصل الموقع. الا ان هذا المجلد ممنوع عن الكتابة. بالتالي يجب تثبيت الملحق يدوياً او إعطاء اذن الكتابة لهذا المجلد.',
-	'message_erreur_maj_inconnu' => 'ترقية غير ممكنة لملحق غير معروف (@id@)', # MODIF
+	'message_erreur_maj_inconnu' => 'ترقية غير ممكنة لملحق غير معروف.',
 	'message_erreur_plugin_introuvable' => 'لا يمكن العثور على الملحق @plugin@ لـ@action@. ',
 	'message_erreur_plugin_non_actif' => 'لا يمكن إيقاف ملحق غير فعال.',
 	'message_incompatibilite_spip' => 'لا يتوافق @plugin@ مع إصار SPIP المستخدم هنا.',
@@ -215,7 +215,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_nok_aucun_plugin_selectionne' => 'لا يوجد اي ملحق للتثبيت. الرجاء تحديد المحلقات المطلوب تثبيتها.',
 	'message_nok_champ_obligatoire' => 'هذا الحقل إجباري',
 	'message_nok_depot_deja_ajoute' => 'العنوان «@url@» يعود الى مستودع مثبت مسبقاً',
-	'message_nok_maj_introuvable' => 'لم يتم العثور على تحديث الملحق @plugin@ (رقم @id@).', # MODIF
+	'message_nok_maj_introuvable' => 'لم يتم العثور على تحديث الملحق @plugin@.',
 	'message_nok_plugin_inexistant' => 'الملحق المطلوب غير موجود (@plugin@)',
 	'message_nok_sql_insert_depot' => 'خطأ SQL لدى إضافة المستودع @objet@',
 	'message_nok_url_depot_incorrecte' => '@url@» غير صحيح',
