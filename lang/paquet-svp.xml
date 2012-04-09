@@ -6,6 +6,12 @@
 		<traducteur nom="kent1" lien="http://trad.spip.org/auteur/kent1" />
 		<traducteur nom="_Eric_" lien="http://trad.spip.org/auteur/_eric_" />
 	</langue>
+	<langue code="es" url="http://trad.spip.org/tradlang_module/paquet-svp?lang_cible=es">
+		<traducteur nom="jotacese" lien="http://trad.spip.org/auteur/jotacese" />
+	</langue>
+	<langue code="fa" url="http://trad.spip.org/tradlang_module/paquet-svp?lang_cible=fa">
+		<traducteur nom="Davood Hossein" lien="http://trad.spip.org/auteur/davood-hossein" />
+	</langue>
 	<langue code="fr" />
 	<langue code="ru" url="http://trad.spip.org/tradlang_module/paquet-svp?lang_cible=ru">
 		<traducteur nom="nazar" lien="http://trad.spip.org/auteur/nazar" />
