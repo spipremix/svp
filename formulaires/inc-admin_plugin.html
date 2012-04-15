@@ -10,6 +10,14 @@
 			<div class="check">
 				<input type="checkbox" class="checkbox select_plugin" name="ids_paquet[(#VAL{91}|chr)][(#VAL{93}|chr)]" value="#ID_PAQUET" />
 			</div>]
+			[(#REM) si la configuration le permet, on peut activer un plugin obsolete ]
+			[(#OBSOLETE|=={oui}|et{#CONSTANTE|!={_DIR_PLUGINS_DIST}}|et{#GET{incompatible}|non}|oui)
+				[(#CONFIG{svp/autoriser_activer_paquets_obsoletes}|=={oui}|oui)
+					<div class="check">
+						<input type="checkbox" class="checkbox select_plugin" name="ids_paquet[(#VAL{91}|chr)][(#VAL{93}|chr)]" value="#ID_PAQUET" />
+					</div>
+				]
+			]
 			[(#REM) <!-- Resume du plugin -->]
 			<div class="resume">[(#ENV{id_paquet}|=={#ID_PAQUET}|?{#SET{id_paquet,''},#SET{id_paquet,#ID_PAQUET}})]
 				<h3 class="nom"><a href="[(#SELF|parametre_url{id_paquet,#GET{id_paquet}})]" rel="info">[(#NOM|extraire_multi)]</a></h3>
