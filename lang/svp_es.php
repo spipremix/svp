@@ -33,16 +33,16 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'bulle_actualiser_tout_depot' => 'Actualizar los paquetes de todos los repositorios',
 	'bulle_afficher_xml_plugin' => 'Contenido del archivo XML del plugin',
 	'bulle_ajouter_spipzone' => 'Añadir el repositorio SPIP-Zone',
-	'bulle_aller_depot' => 'Se rendre sur la page de ce dépôt', # NEW
-	'bulle_aller_documentation' => 'Se rendre sur la page de documentation', # NEW
-	'bulle_aller_plugin' => 'Se rendre sur la page du plugin', # NEW
+	'bulle_aller_depot' => 'Dirige a la página de este repositorio',
+	'bulle_aller_documentation' => 'Se dirige a la página de documentación',
+	'bulle_aller_plugin' => 'Se dirige a la página del plugin',
 	'bulle_supprimer_depot' => 'Suprimir el repositorio y sus paquetes',
 	'bulle_telecharger_archive' => 'Descargar el archivo',
 	'bulle_telecharger_fichier_depot' => 'Descargar el archivo XML del repositorio',
-	'bulle_telecharger_librairie' => 'Télécharger la bibliothèque', # NEW
+	'bulle_telecharger_librairie' => 'Descargar la biblioteca',
 
 	// C
-	'cacher_les_plugins_incompatibles' => 'Cacher les plugins incompatibles', # NEW
+	'cacher_les_plugins_incompatibles' => 'No mostrar los plugins incompatibles',
 	'categorie_aucune' => 'Sin categoría',
 	'categorie_auteur' => 'Autenticación, autor, autorización',
 	'categorie_communication' => 'Comunicación, interactividad, mensajería',
@@ -56,21 +56,18 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'categorie_performance' => 'Optimización, desempeño, seguridad',
 	'categorie_squelette' => 'Esqueleto',
 	'categorie_statistique' => 'Referenciamiento, estadísticas',
-	'categorie_theme' => 'Thème', # NEW
+	'categorie_theme' => 'Tema',
 	'config_activer_log_verbeux' => '¿Activar los logs detallados?',
 	'config_activer_log_verbeux_explication' => 'Esta opción genera logs de SVP mucho más locuaces...',
 	'config_activer_pas_a_pas' => '¿Activar el modo paso a paso?',
-	'config_activer_pas_a_pas_explication' => 'Activer ce mode permet d\'afficher un bilan après chaque action réalisée, au lieu d\'avoir uniquement un bilan global de toutes les actions effectuées à la fin des traitements.', # NEW
-	'config_activer_runtime' => 'Activer le mode runtime ?', # NEW
-	'config_activer_runtime_explication' => 'Le mode runtime (oui) ne charge que les plugins compatibles avec la version courante de votre SPIP, ce qui est fortement conseillé pour la plupart des usages. En mode non runtime (non), tous les plugins d\'un dépôt sont chargés, quelle que soit la version du SPIP en cours. Cela est uniquement utile pour utiliser SVP afin de présenter tous les plugins existants comme le fait le site Plugins SPIP (plugins.spip.net)', # NEW
-	'config_autoriser_activer_paquets_obsoletes' => 'Autoriser l\'activation des paquets obsolètes ?', # NEW
-	'config_autoriser_activer_paquets_obsoletes_explication' => 'Les paquets obsolètes sont des paquets locaux présents qui sont plus anciens que d\'autres paquets locaux. L\'obsolescence est établie sur la base de l\'état (stable, test, dev) du paquet ainsi que sur la base de sa version. Activez cette option si vous souhaitez malgré tout pouvoir activer ces plugins obsolètes.', # NEW
-	'config_depot_editable' => 'Permettre l\'édition des dépots ?', # NEW
-	'config_depot_editable_explication' => 'Cela rend éditable les informations d\'un dépot et permet ainsi de leur joindre éventuellement des mots-clés ou documents. Cette option ne devrait intéresser personne ! Préférez laisser «non» !', # NEW
-	'confirmer_telecharger_dans' => 'Le plugin sera chargé dans un répertoire (@dir@) qui existe déjà.
-	Cela écrasera le contenu de ce répertoire.
-	Une copie de l\'ancien contenu sera sauvegardé dans « @dir_backup@ ».
-		Vous devez confirmer cette action.', # NEW
+	'config_activer_pas_a_pas_explication' => 'Activar este modo permite mostrar información sobre los resultados de la acción después de que se completa cada paso, en lugar de mostrar conjuntamente el resultado global de todas las acciones al finalizar el proceso solicitado.',
+	'config_activer_runtime' => '¿Activer el modo runtime ?',
+	'config_activer_runtime_explication' => 'El modo runtime (si) carga únicamente los plugins compatibles con la versión de SPIP que estás utilizando, lo que es altamente recomendado para la mayoría de los usuarios. En el modo no-runtime (non) son cargados todos los plugins de un repositorio, cualquiera sea la versión de SPIP que estés utilizando. Esto es útil únicamente para utilizar SVP con el propósito de presentar todos los plugins existentes, como lo hace el sitio Plugins SPIP (plugins.spip.net)',
+	'config_autoriser_activer_paquets_obsoletes' => '¿Autorizar la activación de los paquetes obsoletos?',
+	'config_autoriser_activer_paquets_obsoletes_explication' => 'Los paquetes obsoletos son paquetes locales que son más antiguos que otros paquetes existentes a nivel local. La obsolescencia es determinada sobre la base del estado (estable, en prueba, en desarrollo) del paquete, así como en función de su versión. Activa esta opción si deseas conservar la capacidad de activar estos plugins obsoletos. ',
+	'config_depot_editable' => '¿Permitir la edición de los repositorios?',
+	'config_depot_editable_explication' => 'Esto permite que las informaciones de un repositorio puedan ser modificadas y que se les puedan asignar palabras clave o documentos. Esta opción no debería interesarle a nadie! Es preferible dejarla establecida en "no"!',
+	'confirmer_telecharger_dans' => 'El plugin será cargado en una carpeta (@dir@) que ya existe. Esta acción  eliminará el contenido actual de dicha carpeta. Una copia de los contenidos actuales será guardado en "@dir_backup@". Debes confirmar esta acción.',
 
 	// E
 	'erreur_actions_non_traitees' => 'Certaines actions n\'ont pas été réalisées. Cela peut provenir d\'une erreur lors des actions à réaliser, ou d\'un affichage de cette page alors que des actions sont encore en cours. Les actions avaient été lancées par @auteur@ le @date@.', # NEW
@@ -81,13 +78,13 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 		<strong>Vous devez le créer pour pouvoir installer de nouveaux plugins depuis cette interface.</strong>', # NEW
 	'erreur_dir_plugins_auto_ecriture' => 'Le répertoire de paquets @dir@ n\'est pas accessible en écriture. Impossible d\'y charger un paquet !', # NEW
 	'erreur_dir_plugins_auto_indefini' => 'La carpeta _DIR_PLUGIN_AUTO no está definida. No es posible cargar el paquete! ',
-	'erreur_dir_plugins_auto_titre' => '« plugins/auto » est inaccessible !', # NEW
+	'erreur_dir_plugins_auto_titre' => 'No se puede acceder a "plugins/auto"!',
 	'erreur_teleporter_chargement_source_impossible' => 'Chargement impossible de la source @source@', # NEW
 	'erreur_teleporter_destination_erreur' => 'Répertoire @dir@ non accessible pour téléporter', # NEW
-	'erreur_teleporter_echec_deballage_archive' => 'Impossible de déballer @fichier@', # NEW
+	'erreur_teleporter_echec_deballage_archive' => 'No se puede descomprimir  @fichier@',
 	'erreur_teleporter_format_archive_non_supporte' => 'Le format @extension@ n\'est pas supporté par le téléporteur', # NEW
 	'erreur_teleporter_methode_inconue' => 'Méthode @methode@ inconnue pour téléporter', # NEW
-	'erreur_teleporter_type_fichier_inconnu' => 'Type de fichier inconnu pour la source @source@', # NEW
+	'erreur_teleporter_type_fichier_inconnu' => 'Tipo de archivo desconocido para  @source@',
 	'explication_destination' => 'Le chemin sera calculé depuis le nom de l\'archive si vous ne le remplissez pas.', # NEW
 
 	// F
@@ -135,9 +132,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_plugins_heberges' => '@total_plugins@ plugin(s) almacenado(s)',
 	'info_tri_nom' => 'ordenado(s) alfabéticamente',
 	'info_tri_score' => 'ordenado(s) por pertinencia decreciente',
-	'info_type_depot_git' => 'Dépôt géré sous GIT', # NEW
-	'info_type_depot_manuel' => 'Dépôt géré manuellement', # NEW
-	'info_type_depot_svn' => 'Dépôt géré sous SVN', # NEW
+	'info_type_depot_git' => 'Repositorio administrado con GIT',
+	'info_type_depot_manuel' => 'Repositorio administrado manualmente',
+	'info_type_depot_svn' => 'Repositorio administrado con SVN',
 	'info_verrouille' => 'No es posible desactivar o desinstalar este plugin.',
 	'installation_en_cours' => 'Las acciones solicitadas están siendo ejecutadas',
 
@@ -158,13 +155,13 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'label_n_autres_contributions' => 'otras contribuciones',
 	'label_prefixe' => 'Prefijo',
 	'label_selectionner_plugin' => 'Seleccionar este plugin',
-	'label_tags' => 'Tags', # NEW
+	'label_tags' => 'Etiquetas',
 	'label_type_depot' => 'Tipo de repositorio:',
-	'label_type_depot_git' => 'Dépôt sous GIT', # NEW
-	'label_type_depot_manuel' => 'Dépôt manuel', # NEW
-	'label_type_depot_svn' => 'Dépôt sous SVN', # NEW
-	'label_url_archives' => 'URL du conteneur des archives', # NEW
-	'label_url_brouteur' => 'URL de la racine des sources', # NEW
+	'label_type_depot_git' => 'Repositorio en GIT',
+	'label_type_depot_manuel' => 'Repositorio manual',
+	'label_type_depot_svn' => 'Repositorio con SVN',
+	'label_url_archives' => 'URL del contenedor de los archivos',
+	'label_url_brouteur' => 'URL de la raíz de las fuentes',
 	'label_url_serveur' => 'URL del servidor',
 	'label_version' => 'Versión',
 	'label_xml_depot' => 'Archivo XML del repositorio',
@@ -207,27 +204,27 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_dependance_plugin_version' => 'El plugin @plugin@ depende de @dependance@ @version@',
 	'message_erreur_aucun_plugin_selectionne' => 'No se ha seleccionado ningún plugin.',
 	'message_erreur_ecriture_lib' => '@plugin@ a besoin de la bibliothèque <a href="@lib_url@">@lib@</a> placée dans le répertoire <var>lib/</var> à la racine de votre site. Cependant, ce répertoire n\'est pas accessible en écriture. Vous devez l\'installer manuellement ou donner des permissions d\'écriture à ce répertoire.', # NEW
-	'message_erreur_maj_inconnu' => 'Mise à jour impossible d\'un plugin inconnu.', # NEW
-	'message_erreur_plugin_introuvable' => 'Il est impossible de trouver le plugin @plugin@ pour @action@.', # NEW
-	'message_erreur_plugin_non_actif' => 'Il est impossible de désactiver un plugin non actif.', # NEW
-	'message_incompatibilite_spip' => '@plugin@  n\'est pas compatible avec la version de SPIP que vous utilisez.', # NEW
+	'message_erreur_maj_inconnu' => 'No se puede actualizar un plugin desconocido.',
+	'message_erreur_plugin_introuvable' => 'No fue posible encontrar el plugin @plugin@ para @action@.',
+	'message_erreur_plugin_non_actif' => 'No se puede desactivar un plugin inactivo.',
+	'message_incompatibilite_spip' => '@plugin@  no es compatible con la versión de SPIP que estás utilizando.',
 	'message_nok_aucun_depot_disponible' => 'Aucun plugin n\'est disponible ! Veuillez vous rendre dans la page de gestion des dépôts pour ajouter des listes de plugins.', # NEW
 	'message_nok_aucun_paquet_ajoute' => 'Le dépôt « @url@ » ne fournit aucun nouveau paquet par rapport à la base déjà enregistrée. Il n\'a donc pas été ajouté', # NEW
-	'message_nok_aucun_plugin_selectionne' => 'Aucun plugin à installer. Veuillez sélectionner les plugins à installer', # NEW
+	'message_nok_aucun_plugin_selectionne' => 'No hay plugins a instalar. Selecciona los plugins que deseas instalar',
 	'message_nok_champ_obligatoire' => 'Este campo es requerido',
-	'message_nok_depot_deja_ajoute' => 'L\'adresse « @url@ » correspond à un dépôt déjà ajouté', # NEW
-	'message_nok_maj_introuvable' => 'Mise à jour du plugin @plugin@ introuvable.', # NEW
-	'message_nok_plugin_inexistant' => 'Le plugin demandé est inexistant (@plugin@).', # NEW
-	'message_nok_sql_insert_depot' => 'Erreur SQL lors de l\'ajout du dépôt @objet@', # NEW
+	'message_nok_depot_deja_ajoute' => 'La dirección "@url@" corresponde a un repositorio que ya ha sido añadido',
+	'message_nok_maj_introuvable' => 'No fue posible encontrar la actualización del plugin @plugin@.',
+	'message_nok_plugin_inexistant' => 'El plugin solicitado no existe  (@plugin@).',
+	'message_nok_sql_insert_depot' => 'Se obtuvo un error SQL al intentar añadir el repositorio  @objet@',
 	'message_nok_url_depot_incorrecte' => 'La dirección "@url@" no es correcta',
 	'message_nok_xml_non_conforme' => 'Le fichier XML « @fichier@ » de description du dépôt n\'est pas conforme', # NEW
-	'message_ok_aucun_plugin_trouve' => 'Aucun plugin ne correspond aux critères choisis.', # NEW
-	'message_ok_depot_ajoute' => 'Le dépôt « @url@ » a été ajouté.', # NEW
-	'message_ok_plugins_trouves' => '@nb_plugins@ plugin(s) correspondent aux critères choisis (@tri@). Sélectionnez ci-dessous les plugins que vous souhaitez télécharger et activer sur votre serveur.', # NEW
-	'message_telechargement_archive_effectue' => 'L\'archive a été correctement extraite dans @dir@.', # NEW
+	'message_ok_aucun_plugin_trouve' => 'No hay plugins coincidentes con los criterios señalados.',
+	'message_ok_depot_ajoute' => 'El repositorio "@url@" ha sido añadido.',
+	'message_ok_plugins_trouves' => '@nb_plugins@ plugin(s) coinciden con los criterios de búsqueda señalados (@tri@). Selecciona debajo los plugins que deseas descargar y activar en tu servidor.',
+	'message_telechargement_archive_effectue' => 'El archivo ha sido descomprimido exitosamente en @dir@.',
 
 	// N
-	'nettoyer_actions' => 'Nettoyer ces actions ! Cela effacera la liste des actions qui restent à traiter.', # NEW
+	'nettoyer_actions' => 'Limpiar estas acciones! Esto eliminará la lista de acciones pendientes de ejecutar.',
 
 	// O
 	'onglet_depots' => 'Administrar los repositorios',
@@ -238,7 +235,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'option_etat_tout' => 'Todos los estados',
 
 	// P
-	'placeholder_phrase' => 'préfixe, nom, slogan, description ou auteur', # NEW
+	'placeholder_phrase' => 'prefijo, nombre, eslogan, descripción o autor',
 	'plugin_info_actif' => 'Plugin activo',
 	'plugin_info_up' => 'Está disponible una actualización del plugin (versión @version@)',
 	'plugin_info_verrouille' => 'Plugin verrouillé', # NEW
@@ -257,10 +254,10 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'titre_depot' => 'Repositorio',
 	'titre_depots' => 'Repositorios',
 	'titre_form_ajouter_depot' => 'Añadir un repositorio',
-	'titre_form_charger_plugin' => 'Rechercher et ajouter des plugins', # NEW
-	'titre_form_charger_plugin_archive' => 'Télécharger un plugin depuis son archive', # NEW
-	'titre_form_configurer_svp' => 'Configurer le Serveur de Plugins', # NEW
-	'titre_liste_autres_contributions' => 'Squelettes, bibliothèques, jeux d\'icônes...', # NEW
+	'titre_form_charger_plugin' => 'Buscar y añadir plugins',
+	'titre_form_charger_plugin_archive' => 'Descargar un plugin desde su archivo',
+	'titre_form_configurer_svp' => 'Configurar el Servidor de Plugins',
+	'titre_liste_autres_contributions' => 'Esqueletos, bibliotecas, paquetes de íconos...',
 	'titre_liste_autres_depots' => 'Otros repositorios',
 	'titre_liste_depots' => 'Lista de los repositorios  disponibles',
 	'titre_liste_paquets_plugin' => 'Lista de los paquetes del plugin',
