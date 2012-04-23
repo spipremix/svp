@@ -61,10 +61,10 @@ class Decideur {
 	function liste_plugins_procure() {
 		$procure = array();
 		$get_infos = charger_fonction('get_infos','plugins');
-		$infos['_DIR_RESTREINT'][''] = $get_infos('./',false,_DIR_RESTREINT,'plugin.xml');
+		$infos['_DIR_RESTREINT'][''] = $get_infos('./',false,_DIR_RESTREINT);
 
 		foreach($infos['_DIR_RESTREINT']['']['procure'] as $_procure) {
-			$prefixe = strtoupper($_procure['id']);
+			$prefixe = strtoupper($_procure['nom']);
 			$procure[$prefixe] = $_procure['version'];
 		}
 
