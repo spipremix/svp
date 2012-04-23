@@ -64,7 +64,7 @@ class Decideur {
 		$infos['_DIR_RESTREINT'][''] = $get_infos('./',false,_DIR_RESTREINT);
 
 		foreach($infos['_DIR_RESTREINT']['']['procure'] as $_procure) {
-			$prefixe = strtoupper($_procure['nom']);
+			$prefixe = strtoupper($_procure['id']);
 			$procure[$prefixe] = $_procure['version'];
 		}
 
