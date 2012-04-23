@@ -1,7 +1,7 @@
 <paquet
 	prefix="svp"
 	categorie="maintenance"
-	version="0.78.10"
+	version="0.78.11"
 	etat="stable"
 	compatibilite="[3.0.0-rc;3.0.*]"
 	logo="svp-64.png"
