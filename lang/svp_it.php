@@ -66,21 +66,20 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'config_autoriser_activer_paquets_obsoletes' => 'Autorizzare l\'attivazione dei pacchetti obsoleti?',
 	'config_autoriser_activer_paquets_obsoletes_explication' => 'Pacchetti obsoleti sono pacchetti locali che sono più vecchi rispetto agli altri pacchetti locali. L\'obsolescenza di un pacchetto è stabilita sulla base dello stato (stable, testing, dev) del pacchetto e in base della sua versione. Attivare questa opzione se si vuole attivare questi plugin obsoleti.',
 	'config_depot_editable' => 'Consentire la modifica dei repository?',
-	'config_depot_editable_explication' => 'Cela rend éditable les informations d\'un dépot et permet ainsi de leur joindre éventuellement des mots-clés ou documents. Cette option ne devrait intéresser personne ! Préférez laisser «non» !', # NEW
-	'confirmer_telecharger_dans' => 'Le plugin sera chargé dans un répertoire (@dir@) qui existe déjà.
-	Cela écrasera le contenu de ce répertoire.
-	Une copie de l\'ancien contenu sera sauvegardé dans « @dir_backup@ ».
-		Vous devez confirmer cette action.', # NEW
+	'config_depot_editable_explication' => 'Questo rende modificabili le informazioni di un repository e abilitata eventualmente l\'associazione di parole chiave o documenti ad esso. Questa opzione non dovrebbe interessanre nessuno! Quindi lasciate "no"!',
+	'confirmer_telecharger_dans' => 'Il plugin sarà caricato nella directory (@dir@) che esiste già.
+Questo sovrascriverà il contenuto della directory.
+Una copia dei vecchi file saranno salvati in "@dir_backup@".
+Devi confermare questa azione.',
 
 	// E
-	'erreur_actions_non_traitees' => 'Certaines actions n\'ont pas été réalisées. Cela peut provenir d\'une erreur lors des actions à réaliser, ou d\'un affichage de cette page alors que des actions sont encore en cours. Les actions avaient été lancées par @auteur@ le @date@.', # NEW
-	'erreur_dir_dib_ecriture' => 'Le répertoire des bibliothèques @dir@ n\'est pas accessible en écriture. Impossible d\'y charger une bibliothèque !', # NEW
+	'erreur_actions_non_traitees' => 'Alcune azioni non possono essere eseguite. Questo potrebbe dipendere da un\'errore intercorso durante l\'esecuzione dell\'azione oppure dalla visualizzazione di questa pagina mentre le azioni erano in attesa. Le azioni sono state iniziare da @auteur@ il @date@.',
+	'erreur_dir_dib_ecriture' => 'La directory della libreria @dir@ non è scrivibile. Impossibile caricare una libreria!',
 	'erreur_dir_dib_indefini' => 'La directory _DIR_LIB non è definita. Impossibile caricare la libreria!',
-	'erreur_dir_plugins_auto' => 'Le répertoire « plugins/auto » permettant de télécharger des paquets
-		n\'est pas créé ou n\'est pas accessible en écriture.
-		<strong>Vous devez le créer pour pouvoir installer de nouveaux plugins depuis cette interface.</strong>', # NEW
-	'erreur_dir_plugins_auto_ecriture' => 'Le répertoire de paquets @dir@ n\'est pas accessible en écriture. Impossible d\'y charger un paquet !', # NEW
-	'erreur_dir_plugins_auto_indefini' => 'Le répertoire _DIR_PLUGIN_AUTO n\'est pas défini. Impossible d\'y charger un paquet !', # NEW
+	'erreur_dir_plugins_auto' => 'La directory "plugins/auto" che permette il download dei pacchetti non esiste oppure non è scrivibile
+<strong>Dovete crearla per consentire l\'installazione di nuovi plugin a partire da questa interfaccia.</strong>',
+	'erreur_dir_plugins_auto_ecriture' => 'La directory dei pacchetti @dir@ non è accessibile e scrivibile. Impossibile caricare un pacchetto!',
+	'erreur_dir_plugins_auto_indefini' => 'La directory _DIR_PLUGIN_AUTO non è definita. Impossibile caricare il pacchetto in essa.',
 	'erreur_dir_plugins_auto_titre' => '"plugins/auto" non è accessibile!',
 	'erreur_teleporter_chargement_source_impossible' => 'Impossibile caricare la sorgente @source@',
 	'erreur_teleporter_destination_erreur' => 'La directory @dir@ non è accessibile',
@@ -100,30 +99,28 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_1_depot' => '1 repository',
 	'info_1_paquet' => '1 pacchetto',
 	'info_1_plugin' => '1 plugin',
-	'info_admin_plugin_actif_non_verrou_non' => 'Cette page liste les plugins non actifs du site. Ces plugins sont forcément non verrouillés.', # NEW
-	'info_admin_plugin_actif_non_verrou_tous' => 'Cette page liste les plugins non actifs du site. Ces plugins sont forcément non verrouillés.', # NEW
+	'info_admin_plugin_actif_non_verrou_non' => 'Questa pagine mostra la lista dei plugin inattivi del sito. Questi plugin sono sempre sbloccati.',
+	'info_admin_plugin_actif_non_verrou_tous' => 'Questa pagina contiene la lista dei plugin inattivi del sito. Questi plug in sono sempre bloccati.',
 	'info_admin_plugin_actif_oui_verrou_non' => 'La pagina liste i plugin attivi e non bloccati del sito.',
 	'info_admin_plugin_actif_oui_verrou_tous' => 'La pagina delle liste dei plugin attivi, bloccati e non per il sito.',
 	'info_admin_plugin_verrou_non' => 'La pagina mostra tutti i plugin non bloccati del sito, sia attivi che non.',
 	'info_admin_plugin_verrou_tous' => 'La pagina lista tutti i plugin del sito.',
-	'info_admin_plugin_verrouille' => 'Cette page liste les plugins actifs et verrouillés (placés dans le répertoire <code>@dir_plugins_dist@</code>).
-	Si vous souhaitez les désactiver,
-	veuillez contacter le webmestre du site,
-	ou vous reporter <a href="http://programmer.spip.org/repertoire_plugins_dist">à la documentation</a>.', # NEW
+	'info_admin_plugin_verrouille' => 'Questa pagina mostra la lista dei plugin attivi e bloccati (posizionati in <code>@dir_plugins_dist@</code>).
+Se vuoi disabilitarla, per favore contatta il webmaster del sito oppure controlla <a href="http://programmer.spip.org/directory_extensions">la documentazione</a>.',
 	'info_adresse_spipzone' => 'SPIP-Zone - Plugins',
-	'info_ajouter_depot' => 'En ajoutant des dépôts à votre base, vous aurez la possiblité d\'obtenir des informations et d\'effectuer des recherches sur tous les paquets hébergés par les dépôts ajoutés.<br />Un dépôt est décrit par un fichier XML contenant les informations sur le dépôt et sur tous ses paquets.', # NEW
+	'info_ajouter_depot' => 'Aggiungendo dei repository hai la possibilità di ottenere informazione e cercare su tutti i pacchetti gestiti dai repository aggiunti<br />Un repository è descritto da un file XML contenente le informazioni del deposito e di tutti i suoi pacchetti.',
 	'info_aucun_depot' => 'nessun repository',
-	'info_aucun_depot_ajoute' => 'Aucun dépôt disponible !<br /> Utilisez le formulaire ci-dessous pour ajouter le dépôt «SPIP-Zone - Plugins» dont l\'url est déjà pré-remplie ou un autre dépôt de votre choix.', # NEW
+	'info_aucun_depot_ajoute' => 'Nessun repository disponibile!<br /> Utilizza il form sottostante per aggiungere il repository "SPIP-Zone - Plugins" il cui URL è già precaricato oppure di un\'altro repository a tua scelta.',
 	'info_aucun_paquet' => 'nessun pacchetto',
 	'info_aucun_plugin' => 'nessun plugin',
-	'info_boite_charger_plugin' => '<strong>Cette page est uniquement accessible aux webmestres du site.</strong><p>Elle vous permet de rechercher des plugins mis à disposition par les dépôts enregistrés dans votre configuration et de les installer physiquement sur votre serveur</p>', # NEW
-	'info_boite_depot_gerer' => '<strong>Cette page est uniquement accessible aux webmestres du site.</strong><p>Elle permet l\'ajout et l\'actualisation des dépôts de plugins.</p>', # NEW
-	'info_charger_plugin' => 'Pour ajouter un ou plusieurs plugins, effectuez préalablement une recherche multi-critères sur les plugins de la galaxie SPIP. La recherche n\'inclut que les plugins compatibles avec la version SPIP installée et signale les plugins déjà actifs sur le site.', # NEW
+	'info_boite_charger_plugin' => '<strong>Questa pagina è solamente accessibile al webmaster del sito.</strong><p>Essa permette di ricercare i plugin disponibili sui repository memorizzati nella tua configurazione e installarli fisicamente nel tuo server</p>',
+	'info_boite_depot_gerer' => '<strong>Questa pagina è disponibile solo per il webmaster del sito</strong><p>Essa permette l\'aggiunta e l\'aggiornamento dei repository dei pluin.</p>',
+	'info_charger_plugin' => 'Per aggiungere uno o più plugin, effettuare una ricerca con più criteri nella galassia SPIP. La ricerca include solamente i plugin compatibili con la versione di SPIP installata e riporta quali plugin sono già attivi sul sito.',
 	'info_compatibilite_dependance' => 'Per @compatibilite@ :',
 	'info_contributions_hebergees' => '@total_autres@ contributi da altri host',
-	'info_critere_phrase' => 'Saisissez les mots-clés à chercher dans le préfixe, le nom, le slogan, la description et les auteurs des plugins', # NEW
+	'info_critere_phrase' => 'Inserire le parole chiave per cercare nei prefissi, nel nome, lo slogan, la descrizione e gli autori del plugin.',
 	'info_depots_disponibles' => '@total_depots@ repository',
-	'info_fichier_depot' => 'Saisissez l\'url du fichier de description du dépôt à ajouter.<br />Pour ajouter le dépôt «SPIP-Zone - Plugins» cliquez sur ce lien : ', # NEW
+	'info_fichier_depot' => 'Digita nell\'url del file di descrizione del repository da aggiungere.<br />Per aggiungere il repository «SPIP-Zone - Plugins» cliccate su questo link: ',
 	'info_nb_depots' => '@nb@ repository',
 	'info_nb_paquets' => '@nb@ pacchetti',
 	'info_nb_plugins' => '@nb@ plugin',
@@ -174,28 +171,28 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'legende_rechercher_plugins' => 'Cerca plugin',
 
 	// M
-	'message_action_finale_get_fail' => 'Le plugin « @plugin@ » (version : @version@) n\'a pu être correctement récupéré', # NEW
-	'message_action_finale_get_ok' => 'Le plugin « @plugin@ » (version : @version@) a été correctement récupéré', # NEW
+	'message_action_finale_get_fail' => 'Il plugin "@plugin@" (versione: @version@) non può essere scaricato con successo',
+	'message_action_finale_get_ok' => 'Il plugin "@plugin@" (versione: @version@) è stato scaricato con successo',
 	'message_action_finale_getlib_fail' => 'L\'installazione della libreria "@plugin@" fallita',
-	'message_action_finale_getlib_ok' => 'La bibliothèque « @plugin@ » a été installée', # NEW
-	'message_action_finale_geton_fail' => 'Le téléchargement ou l\'activation du plugin « @plugin@ » (version : @version@) ne se sont pas correctement déroulés', # NEW
-	'message_action_finale_geton_ok' => 'Le téléchargement et l\'activation du plugin « @plugin@ » (version : @version@) se sont correctement déroulés', # NEW
-	'message_action_finale_install_fail' => 'L\'installation du plugin « @plugin@ » (version : @version@) a échoué', # NEW
-	'message_action_finale_install_ok' => 'L\'installation du plugin « @plugin@ » (version : @version@) s\'est correctement déroulée', # NEW
-	'message_action_finale_kill_fail' => 'Les fichiers du plugin « @plugin@ » (version : @version@) n\'ont pu être correctement effacés', # NEW
-	'message_action_finale_kill_ok' => 'Les fichiers du plugin « @plugin@ » (version : @version@) ont été correctement effacés', # NEW
-	'message_action_finale_off_fail' => 'La désactivation du plugin « @plugin@ » (version : @version@) ne s\'est pas correctement déroulée', # NEW
-	'message_action_finale_off_ok' => 'La désactivation du plugin « @plugin@ » (version : @version@) s\'est correctement déroulée', # NEW
-	'message_action_finale_on_fail' => 'L\'activation du plugin « @plugin@ » (version : @version@) ne s\'est pas correctement déroulée', # NEW
-	'message_action_finale_on_ok' => 'L\'activation du plugin « @plugin@ » (version : @version@) s\'est correctement déroulée', # NEW
-	'message_action_finale_stop_fail' => 'La désinstallation du plugin « @plugin@ » (version : @version@) ne s\'est pas correctement déroulée', # NEW
-	'message_action_finale_stop_ok' => 'La désinstallation du plugin « @plugin@ » (version : @version@) s\'est correctement déroulée', # NEW
-	'message_action_finale_up_fail' => 'La mise à jour du plugin « @plugin@ » (de la version : @version@ à @version_maj@) ne s\'est pas correctement déroulée', # NEW
-	'message_action_finale_up_ok' => 'La mise à jour du plugin « @plugin@ » (de la version : @version@ à @version_maj@) s\'est correctement déroulée', # NEW
-	'message_action_finale_upon_fail' => 'La mise à jour et l\'activation du plugin « @plugin@ » (de la version : @version@ à @version_maj@) ne se sont pas correctement déroulés', # NEW
-	'message_action_finale_upon_ok' => 'La mise à jour et l\'activation du plugin « @plugin@ » (de la version : @version@ à @version_maj@) se sont correctement déroulés', # NEW
-	'message_action_get' => 'Télécharger le plugin « @plugin@ » (version : @version@)', # NEW
-	'message_action_getlib' => 'Télécharger la bibliothèque « <a href="@version@" class="spip_out">@plugin@</a> »', # NEW
+	'message_action_finale_getlib_ok' => 'La libreria "@plugin@" è stata installata',
+	'message_action_finale_geton_fail' => 'Il download o l\'attivazione del plugin "@plugin@" (versione: @version@) non ha avuto successo',
+	'message_action_finale_geton_ok' => 'Il download e l\'attivazione del plugin "@plugin@" (versione : @version@) è avvenuta con successo',
+	'message_action_finale_install_fail' => 'L\'installazione del plugin "@plugin@" (versione: @version@) è fallita',
+	'message_action_finale_install_ok' => 'L\'installazione del plugin "@plugin@" (versione: @version@) è stata completata con successo',
+	'message_action_finale_kill_fail' => 'I file del plugin "@plugin@" (versione: @version@) potrebbero non essere stati cancellati correttamente',
+	'message_action_finale_kill_ok' => 'I file del plugin "@plugin@" (versione: @version@) sono stati cancellati correttamente',
+	'message_action_finale_off_fail' => 'La disattivazione del plugin "@plugin@" (versione: @version@) non è avvenuta',
+	'message_action_finale_off_ok' => 'La disattivazione plugin "@plugin@" (versione: @version@) è stata correttamente eseguita',
+	'message_action_finale_on_fail' => 'L\'attivazione plugin "@plugin@" (versione: @version@) non è stata correttamente eseguita',
+	'message_action_finale_on_ok' => 'L\'attivazione plugin "@plugin@" (versione: @version@) è stata correttamente eseguita',
+	'message_action_finale_stop_fail' => 'La disinstallazione del plugin "@plugin@" (versione: @version@) non è stata completata con successo',
+	'message_action_finale_stop_ok' => 'La disisnstallazione del plugin "@plugin@" (versione: @version@) è stata completata con successo',
+	'message_action_finale_up_fail' => 'L\'aggiornamento del plugin "@plugin@" (dalla versione: @version@ alla @version_maj@) non è stato eseguito',
+	'message_action_finale_up_ok' => 'L\'aggiornamento del plugin "@plugin@" (dalla versione: @version@ alla @version_maj@) è stato eseguito correttamente',
+	'message_action_finale_upon_fail' => 'L\'aggiornamento e l\'attivazione del plugin "@plugin@" (dalla versione: @version@ alla @version_maj@) non è stato eseguito correttamente',
+	'message_action_finale_upon_ok' => 'L\'aggiornamento del plugin "@plugin@" (dalla versione: @version@ alla @version_maj@) è stato correttamente eseguito',
+	'message_action_get' => 'Scaricare il plugin "@plugin@" (versione: @version@)',
+	'message_action_getlib' => 'Scaricare la libreria "<a href="@version@" class="spip_out">@plugin@</a>"',
 	'message_action_geton' => 'Scarico e installazione del plugin "@plugin@" (versione : @version@)',
 	'message_action_install' => 'Il plugin "@plugin@" (versione : @version@) verrà installata',
 	'message_action_kill' => 'Cancellati i file del plugin "@plugin@" (versione : @version@)',
@@ -207,28 +204,28 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_dependance_plugin' => 'Il plugin @plugin@ dipende da @dependance@.',
 	'message_dependance_plugin_version' => 'Il plugin @plugin@ dipende da @dependance@ @version@',
 	'message_erreur_aucun_plugin_selectionne' => 'Nessun plugin selezionato.',
-	'message_erreur_ecriture_lib' => '@plugin@ a besoin de la bibliothèque <a href="@lib_url@">@lib@</a> placée dans le répertoire <var>lib/</var> à la racine de votre site. Cependant, ce répertoire n\'est pas accessible en écriture. Vous devez l\'installer manuellement ou donner des permissions d\'écriture à ce répertoire.', # NEW
+	'message_erreur_ecriture_lib' => '@plugin@ richiede la libreria <a href="@lib_url@">@lib@</a> posizionata nella directory <var>lib/</var> sulla radice del vostro sito. Però questa directory non è accessibile in scrittura.  Dovete installarlo manualmente oppure dare i permessi di scrittura in questa directory.',
 	'message_erreur_maj_inconnu' => 'Impossibile aggiornare un plugin sconosciuto.',
 	'message_erreur_plugin_introuvable' => 'Non è possibile trovare il plugin @plugin@ per @action@.',
 	'message_erreur_plugin_non_actif' => 'Non è possibile disabilitare un plugin non attivo.',
 	'message_incompatibilite_spip' => '@plugin@ non è compatibile con la versione di SPIP in uso.',
-	'message_nok_aucun_depot_disponible' => 'Aucun plugin n\'est disponible ! Veuillez vous rendre dans la page de gestion des dépôts pour ajouter des listes de plugins.', # NEW
-	'message_nok_aucun_paquet_ajoute' => 'Le dépôt « @url@ » ne fournit aucun nouveau paquet par rapport à la base déjà enregistrée. Il n\'a donc pas été ajouté', # NEW
-	'message_nok_aucun_plugin_selectionne' => 'Aucun plugin à installer. Veuillez sélectionner les plugins à installer', # NEW
+	'message_nok_aucun_depot_disponible' => 'Nessun plugin disponibile! Per favore andare alla pagina di gestione dei repository per aggiungere una lista di plugin.',
+	'message_nok_aucun_paquet_ajoute' => 'Il repository "@url@" non fornisce nessun nuovo pacchetto rispetto a quelli già gestiti. Non sarà aggiunto',
+	'message_nok_aucun_plugin_selectionne' => 'Nessun plugin da installare. Per favore selezionare il plugin che volete installare.',
 	'message_nok_champ_obligatoire' => 'Il campo è richiesto.',
 	'message_nok_depot_deja_ajoute' => 'L\'URL « @url@ » corrisponde ad un repository già aggiunto.',
 	'message_nok_maj_introuvable' => 'L\'aggiornamento del plugin @plugin@ non è stato trovato.',
 	'message_nok_plugin_inexistant' => 'Il plugin richiesto non esiste (@plugin@).',
 	'message_nok_sql_insert_depot' => 'Errore SQL aggiungendo il repository @objet@',
 	'message_nok_url_depot_incorrecte' => 'L\'indirizzo « @url@ » è sbagliato',
-	'message_nok_xml_non_conforme' => 'Le fichier XML « @fichier@ » de description du dépôt n\'est pas conforme', # NEW
+	'message_nok_xml_non_conforme' => 'Il file XML di descrizione "@fichier@" » del repository non è conforme',
 	'message_ok_aucun_plugin_trouve' => 'Nessun plugin corrisponde al criterio selezionato.',
 	'message_ok_depot_ajoute' => 'Il repository « @url@ » è stato aggiunto.',
-	'message_ok_plugins_trouves' => '@nb_plugins@ plugin(s) correspondent aux critères choisis (@tri@). Sélectionnez ci-dessous les plugins que vous souhaitez télécharger et activer sur votre serveur.', # NEW
+	'message_ok_plugins_trouves' => '@nb_plugins@ plugin corrisponde ai criteri selezionati (@tri@). Selezionare qui sotto i plugin che volete scaricare e attivare sul vostro server.',
 	'message_telechargement_archive_effectue' => 'L\'archivio è stato correttamente estratto in @dir@.',
 
 	// N
-	'nettoyer_actions' => 'Nettoyer ces actions ! Cela effacera la liste des actions qui restent à traiter.', # NEW
+	'nettoyer_actions' => 'Pulite queste azioni! Questo ripulirà la lista delle azioni che rimangono da eseguire.',
 
 	// O
 	'onglet_depots' => 'Gestione dei repository',
@@ -253,8 +250,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'resume_table_plugins' => 'Lista dei plugin @categorie@',
 
 	// T
-	'telecharger_archive_plugin_explication' => 'Vous pouvez télécharger une archive qui se chargera
-		dans votre répertoire « plugins/auto », en écrivant l\'URL de l\'archive dans le champ de saisie.', # NEW
+	'telecharger_archive_plugin_explication' => 'Puoi scaricare un\'archivio che sarà memorizzato nella directory "plugins/auto", scrivendo l\'URL dell\'archivio nel campo di input.',
 	'titre_depot' => 'Respository',
 	'titre_depots' => 'Respository',
 	'titre_form_ajouter_depot' => 'Aggiungi un repository',
@@ -276,7 +272,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'titre_plugins' => 'Plugin',
 	'tout_cocher' => 'Controlla tutto',
 	'tout_cocher_up' => 'Controlla per aggiornamenti',
-	'tout_decocher' => 'Tout décocher' # NEW
+	'tout_decocher' => 'Deseleziona tutto'
 );
 
 ?>
