@@ -14,6 +14,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'actions_non_traitees' => 'Actions non réalisées',
 	'actions_realises' => 'Actions réalisées',
 	'afficher_les_plugins_incompatibles' => 'Afficher les plugins incompatibles',
+	'alerte_compatibilite' => 'Compatibilité forcée',
 
 	// B
 	'bouton_activer' => 'Activer',

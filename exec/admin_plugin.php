@@ -83,6 +83,10 @@ function exec_admin_plugin_dist() {
 
 	echo debut_droite('plugin', true);
 
+	//  alerte si mode de compatibilité forcée
+	$mode_compat = defined('_DEV_PLUGINS') ?
+		'<span class="notice">'. _T('svp:alerte_compatibilite') .'</span>' : '';
+	
 	echo gros_titre(_T('icone_admin_plugin'),'',false);
 
 	// message d'erreur au retour d'une operation
