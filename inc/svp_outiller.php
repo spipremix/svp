@@ -11,7 +11,7 @@ if (!defined('_SVP_VERSION_SPIP_MIN')) {
 
 // -- Pour l'instant on ne connait pas la borne sup exacte
 if (!defined('_SVP_VERSION_SPIP_MAX')) {
-	define('_SVP_VERSION_SPIP_MAX', '3.0.99');
+	define('_SVP_VERSION_SPIP_MAX', '3.1.99');
 }
 
 // Liste des branches significatives de SPIP et de leurs bornes (versions min et max)
@@ -21,7 +21,8 @@ $GLOBALS['infos_branches_spip'] = array(
 	'1.9' => array(_SVP_VERSION_SPIP_MIN,'1.9.2'),
 	'2.0' => array('2.0.0','2.0.99'),
 	'2.1' => array('2.1.0','2.1.99'),
-	'3.0' => array('3.0.0',_SVP_VERSION_SPIP_MAX) 
+	'3.0' => array('3.0.0','3.0.99'),
+	'3.1' => array('3.1.0',_SVP_VERSION_SPIP_MAX)
 );
 
 // Liste des licences de plugin
@@ -105,7 +106,7 @@ function fusionner_intervalles($intervalle_a, $intervalle_b) {
 	else
 		$bornes_fusionnees['max'] = $borne_a['max'];
 
-	return contruire_intervalle($bornes_fusionnees);
+	return construire_intervalle($bornes_fusionnees);
 }
 
 
@@ -135,7 +136,7 @@ function extraire_bornes($intervalle, $initialiser=false) {
 	return $bornes;
 }
 
-function contruire_intervalle($bornes, $dtd='paquet') {
+function construire_intervalle($bornes, $dtd='paquet') {
 	return ($bornes['min']['incluse'] ? '[' : ($dtd=='paquet' ? ']' : '('))
 			. $bornes['min']['valeur'] . ';' . $bornes['max']['valeur']
 			. ($bornes['max']['incluse'] ? ']' : ($dtd=='paquet' ? '[' : ')'));
