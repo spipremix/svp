@@ -224,7 +224,7 @@ class Decideur {
 			'pa.id_depot='.sql_quote(0)), true);
 		if ($locaux and count($locaux['p'][$prefixe]) > 0) {
 			foreach ($locaux['p'][$prefixe] as $new) {
-				if (plugin_version_compatible($version, $new['v'])
+				if (plugin_version_compatible($version, $new['v'],'plug')
 				and svp_verifier_compatibilite_spip($new['compatibilite_spip']) ){
 					return $new;
 				}
@@ -238,7 +238,7 @@ class Decideur {
 			'pa.id_depot>'.sql_quote(0)), true);
 		if ($distants and count($distants['p'][$prefixe]) > 0) {
 			foreach ($distants['p'][$prefixe] as $new) {
-				if (plugin_version_compatible($version, $new['v'])
+				if (plugin_version_compatible($version, $new['v'],'plug')
 				and svp_verifier_compatibilite_spip($new['compatibilite_spip']) ){
 					return $new;
 				}
@@ -602,7 +602,7 @@ class Decideur {
 					// sinon on le cherche et on l'ajoute
 					if ($ninfo = $this->sera_actif($p)
 					and !$err = $this->en_erreur($ninfo['i'])
-					and plugin_version_compatible($v, $ninfo['v'])) {
+					and plugin_version_compatible($v, $ninfo['v'],'plug')) {
 						// il est deja actif ou a activer, et tout est ok
 						$this->log('-- dep OK pour '.$info['p'].' : '.$p);
 					}
