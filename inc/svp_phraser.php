@@ -173,7 +173,7 @@ function svp_phraser_archives($archives,&$md5_cache=array()) {
 				// la version courant de SPIP. On ne stocke donc pas les autres plugins.
 				// Si on est pas en mode runtime on prend tout !
 				if (!_SVP_MODE_RUNTIME
-				OR (_SVP_MODE_RUNTIME AND plugin_version_compatible($xml['compatibilite'], $version_spip))) {
+				OR (_SVP_MODE_RUNTIME AND plugin_version_compatible($xml['compatibilite'], $version_spip, 'spip'))) {
 					$paquets[$zip['file']] = $zip;
 					$paquets[$zip['file']]['traductions'] = $traductions;
 					$paquets[$zip['file']]['dtd'] = $dtd;

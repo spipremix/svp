@@ -3,7 +3,7 @@
 <div class="liste plugins" id="liste_plugins">
 	<ul class="liste-items">
 <BOUCLE_plugins(PAQUETS plugins){tout}{par multi nom, paquets.prefixe}{!par constante, actif}{id_depot=0}{actif ?}{constante ?IN #ENV{constante}}>
-		#SET{incompatible, #COMPATIBILITE_SPIP|plugin_version_compatible{#GET{vspip}}|non}
+		#SET{incompatible, #COMPATIBILITE_SPIP|plugin_version_compatible{#GET{vspip}, spip}|non}
 		#SET{verrou,#CONSTANTE|=={_DIR_PLUGINS_DIST}|oui}
 		<li class="item[ (#ACTIF|=={oui}|?{actif,inactif})][(#OBSOLETE|=={oui}|ou{#ATTENTE|=={oui}}|ou{#GET{incompatible}}|oui) disabled][(#GET{incompatible}|oui) incompatible][(#GET{verrou}|oui) verrou][(#MAJ_VERSION|oui) up]"[ id="(#PREFIXE|strtolower)-#COMPTEUR_BOUCLE"][ data-id_paquet="(#ID_PAQUET)"]>
 			[(#OBSOLETE|=={non}|et{#CONSTANTE|!={_DIR_PLUGINS_DIST}}|et{#GET{incompatible}|non}|ou{#ATTENTE|=={oui}}|oui)
