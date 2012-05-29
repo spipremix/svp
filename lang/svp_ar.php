@@ -16,7 +16,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'actions_non_traitees' => 'العمليات غير المنفذة',
 	'actions_realises' => 'العمليات المنفذة',
 	'afficher_les_plugins_incompatibles' => 'عرض الملحقات غير المتوافقة',
-	'alerte_compatibilite' => 'Compatibilité forcée', # NEW
+	'alerte_compatibilite' => 'توافق قصري',
 
 	// B
 	'bouton_activer' => 'تفعيل',
@@ -61,7 +61,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'config_activer_log_verbeux' => 'تفعيل السجلات المفصلة؟',
 	'config_activer_log_verbeux_explication' => 'هذا الخيار يجعل سجلات خادم معلومات الملحقات أكثر تفصيلاً...',
 	'config_activer_pas_a_pas' => 'تفعيل وضعية الخطوة خطوة؟',
-	'config_activer_pas_a_pas_explication' => 'ان فعيل هذه الوضعية يسمح بعرض جردة بعد كل عملية منفذة، بدلاً من جردة عامة لكل العمليات المنفذة بعد انتهاء المعالجة. ',
+	'config_activer_pas_a_pas_explication' => 'ان تفعيل هذه الوضعية يسمح بعرض جردة بعد كل عملية منفذة، بدلاً من جردة عامة لكل العمليات المنفذة بعد انتهاء المعالجة. ',
 	'config_activer_runtime' => 'تفعيل وضعية «خلال التشغيل» (runtime)؟',
 	'config_activer_runtime_explication' => 'لا تحمّل وضعية «خلال التشغيل» (نعم) الا الملحقات المتوافقة مع إصدار SPIP الحالي، وهي الوضعية المستحسنة لمعظم الاستخدامات. في وضعية خارج «خلال التشغيل» (كلا)، يتم تحميل كل ملحقات المخزن مهما كان إصدار SPIP وذلك لعرض كل الملحقات الموجودة تماماً كما يفعل موقع ملحقات SPIP (اي plugins.spip.net)',
 	'config_autoriser_activer_paquets_obsoletes' => 'السماح بتفعيل الحزم القديمة؟',

@@ -16,7 +16,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'actions_non_traitees' => 'Nevykonané akcie',
 	'actions_realises' => 'Vykonané akcie',
 	'afficher_les_plugins_incompatibles' => 'Zobraziť nekompatibilné zásuvné moduly',
-	'alerte_compatibilite' => 'Compatibilité forcée', # NEW
+	'alerte_compatibilite' => 'Vynútená kompatibilita',
 
 	// B
 	'bouton_activer' => 'Aktivovať',
