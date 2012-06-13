@@ -322,6 +322,9 @@ function svp_actualiser_paquets($id_depot, $paquets, &$nb_paquets, &$nb_plugins,
 		
 		// corriger les vmax des plugins
 		svp_corriger_vmax_plugins($anciens_plugins);
+
+		// corriger les compats, branches aussi
+		svp_completer_plugins($anciens_plugins);
 	}
 
 	// on ne garde que les paquets qui ne sont pas presents dans la base
@@ -524,7 +527,7 @@ function svp_actualiser_paquets($id_depot, $paquets, &$nb_paquets, &$nb_plugins,
 
 	// On compile maintenant certaines informations des paquets mis a jour dans les plugins
 	// (date de creation, date de modif, version spip...)
-	svp_completer_plugins($id_depot);
+	svp_completer_plugins_depot($id_depot);
 
 	// Si on est pas en mode runtime, on utilise surement l'espace public pour afficher les plugins.
 	// Il faut donc s'assurer que les urls suivent bien la mise à jour
@@ -593,17 +596,40 @@ function svp_inserer_multi(&$insert_plugins, &$insert_paquets, &$insert_contribs
 	}
 }
 
+/**
+ * Complète les informations des plugins contenus dans un depot
+ * en compilant certaines informations (compatibilités, dates,  branches)
+ *
+ * @param int $id_depot
+ * 		Identifiant du depot à actualiser
+**/
+function svp_completer_plugins_depot($id_depot) {
+	// On limite la revue des paquets a ceux des plugins heberges par le depot en cours d'actualisation
+	$ids_plugins = sql_allfetsel('id_plugin', 'spip_depots_plugins', array('id_depot=' . sql_quote($id_depot)));
+	$ids_plugins = array_map('reset', $ids_plugins);
+	if ($ids_plugins) {
+		svp_completer_plugins($ids_plugins);
+	}
+}
 
-function svp_completer_plugins($id_depot) {
+/**  
+ * Complète les informations des plugins, d'une liste de plugins donnés,
+ * en compilant certaines informations (compatibilités, dates,  branches)
+ *
+ * @param array $ids_plugin
+ * 		Liste d'identifiants de plugins
+**/
+function svp_completer_plugins($ids_plugin) {
+
+	if (!$ids_plugin) {
+		return;
+	}
 
 	include_spip('inc/svp_outiller');
 
-	// On limite la revue des paquets a ceux des plugins heberges par le depot en cours d'actualisation
-	$select_plugin = sql_get_select('id_plugin', 'spip_depots_plugins', array('id_depot=' . sql_quote($id_depot)));
-	
-	// -- on recupere tous les paquets associes aux plugins du depot et on compile les infos
+	// -- on recupere tous les paquets associes aux plugins indiques et on compile les infos
 	if ($resultats = sql_allfetsel('id_plugin, compatibilite_spip, date_crea, date_modif', 'spip_paquets', 
-				array(sql_in('id_plugin', $select_plugin), 'id_depot>'.intval(0)), '', 'id_plugin')) {
+				array(sql_in('id_plugin', $ids_plugin), 'id_depot>'.intval(0)), '', 'id_plugin')) {
 
 		$plugin_en_cours = 0;
 		$inserts = array();
@@ -656,6 +682,7 @@ function svp_completer_plugins($id_depot) {
 
 	return true;
 }
+
 
 
 function svp_actualiser_url_plugins () {
