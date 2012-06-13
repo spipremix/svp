@@ -295,22 +295,35 @@ function svp_actualiser_paquets($id_depot, $paquets, &$nb_paquets, &$nb_plugins,
 	$anciens_paquets = sql_allfetsel('id_paquet', 'spip_paquets', array('id_depot=' . sql_quote($id_depot), sql_in('signature', $signatures, 'NOT')));
 	$anciens_paquets = array_map('array_shift', $anciens_paquets);
 
-	// tous les plugins correspondants aux anciens paquets
-	$anciens_plugins = sql_allfetsel('pl.id_plugin',	array('spip_plugins AS pl', 'spip_paquets AS pa'), array('pl.id_plugin=pa.id_plugin', sql_in('pa.id_paquet', $anciens_paquets)));
-	$anciens_plugins = array_map('array_shift', $anciens_plugins);
+	// pour ces vieux paquets, on les nettoie de la base
+	if ($anciens_paquets) {
+		// tous les plugins correspondants aux anciens paquets
+		$anciens_plugins = sql_allfetsel('pl.id_plugin', array('spip_plugins AS pl', 'spip_paquets AS pa'), array('pl.id_plugin=pa.id_plugin', sql_in('pa.id_paquet', $anciens_paquets)));
+		$anciens_plugins = array_map('array_shift', $anciens_plugins);
 
-	// suppression des anciens paquets
-	sql_delete('spip_paquets', sql_in('id_paquet', $anciens_paquets));
-	// suppressions des liaisons depots / anciens plugins
-	sql_delete('spip_depots_plugins', array('id_depot='. sql_quote($id_depot), sql_in('id_plugin', $anciens_plugins)));
+		// suppression des anciens paquets
+		sql_delete('spip_paquets', sql_in('id_paquet', $anciens_paquets));
+		// suppressions des liaisons depots / anciens plugins
+		// on enlève la liaison lorsqu'il n'y a plus aucun paquet lie a un des plugins qui ont vu un paquet enlevé
 
-	// supprimer les plugins orphelins
-	include_spip('inc/svp_depoter_local');
-	svp_supprimer_plugins_orphelins($anciens_plugins);
-	
-	// corriger les vmax des plugins
-	svp_corriger_vmax_plugins($anciens_plugins);
-	
+		// liste des plugins qui ont encore des paquets dans ce depot
+		$plugins_restants = sql_allfetsel('pl.id_plugin',
+			array('spip_plugins AS pl', 'spip_paquets AS pa'),
+			array(sql_in('pl.id_plugin', $anciens_plugins), 'pl.id_plugin=pa.id_plugin', 'pa.id_depot=' . sql_quote($id_depot)));
+		$plugins_restants = array_map('array_shift', $plugins_restants);
+		// par opposition, on retrouve ceux qui n'en ont plus...
+		$plugins_supprimes = array_diff($anciens_plugins, $plugins_restants);
+		sql_delete('spip_depots_plugins', array('id_depot='. sql_quote($id_depot), sql_in('id_plugin', $plugins_supprimes)));
+		unset($plugins_restants, $plugins_supprimes);
+
+		// supprimer les plugins orphelins
+		include_spip('inc/svp_depoter_local');
+		svp_supprimer_plugins_orphelins($anciens_plugins);
+		
+		// corriger les vmax des plugins
+		svp_corriger_vmax_plugins($anciens_plugins);
+	}
+
 	// on ne garde que les paquets qui ne sont pas presents dans la base
 	$signatures = sql_allfetsel('signature', 'spip_paquets', 'id_depot='.sql_quote($id_depot));
 	$signatures = array_map('array_shift', $signatures);
@@ -654,7 +667,7 @@ function svp_actualiser_url_plugins () {
 	// On recupere les ids des plugins et on regenere les urls
 	if ($ids_plugin = sql_allfetsel('id_plugin', 'spip_plugins')) {
 		$ids_plugin = array_map('reset', $ids_plugin);
-		$nb_plugins = count($ids_plugins);
+		$nb_plugins = count($ids_plugin);
 		
 		foreach ($ids_plugin as $_id)
 			generer_url_entite($_id, 'plugin', '', '', true);

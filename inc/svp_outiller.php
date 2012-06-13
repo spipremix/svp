@@ -181,7 +181,7 @@ function compiler_branches_spip($intervalle) {
 	if (!in_array($branche_inf, $liste_branches_spip))
 		return '';
 	// -- on complete la borne inf de l'intervalle de x.y en x.y.z et on determine la vraie branche
-	if (!$t[2]) {
+	if (!isset($t[2]) or !$t[2]) {
 		if ($bornes['min']['incluse'])
 			$borne_inf = $infos_branches_spip[$branche_inf][0];
 		else {
@@ -192,7 +192,9 @@ function compiler_branches_spip($intervalle) {
 	
 	// -- on initialise la branche sup de l'intervalle que l'on va preciser ensuite
 	$t = explode('.', $borne_sup);
-	$branche_sup = $t[0] . '.' . $t[1];
+	// des gens mettent juste * (pas glop)
+	$branche_sup = $t[0] . (isset($t[1]) ? '.' . $t[1] : '');
+
 	// -- pour eviter toutes erreur fatale on verifie que la branche est bien dans la liste des possibles
 	// -- -> si non, on renvoie vide
 	if (!in_array($branche_sup, $liste_branches_spip))

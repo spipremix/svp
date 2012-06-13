@@ -312,7 +312,10 @@ function svp_aplatir_balises($balises, $arbre_xml, $mode='vide_et_nonvide', $tab
 
 	foreach ($balises as $_cle => $_valeur){
 		$tag = (is_string($_cle)) ? $_cle : $_valeur;
-		$valeur_aplatie = trim(spip_xml_aplatit($arbre_xml[$tag]));
+		$valeur_applatie = '';
+		if (isset($arbre_xml[$tag])) {
+			$valeur_aplatie = trim(spip_xml_aplatit($arbre_xml[$tag]));
+		}
 		if (($mode == 'vide_et_nonvide')
 		OR (($mode == 'nonvide') AND $valeur_aplatie))
 			$tableau_aplati[$_valeur] = $valeur_aplatie;
