@@ -8,13 +8,15 @@
 		<li class="item[ (#ACTIF|=={oui}|?{actif,inactif})][(#OBSOLETE|=={oui}|ou{#ATTENTE|=={oui}}|ou{#GET{incompatible}}|oui) disabled][(#GET{incompatible}|oui) incompatible][(#GET{verrou}|oui) verrou][(#MAJ_VERSION|oui) up]"[ id="(#PREFIXE|strtolower)-#COMPTEUR_BOUCLE"][ data-id_paquet="(#ID_PAQUET)"]>
 			[(#OBSOLETE|=={non}|et{#CONSTANTE|!={_DIR_PLUGINS_DIST}}|et{#GET{incompatible}|non}|ou{#ATTENTE|=={oui}}|oui)
 			<div class="check">
-				<input type="checkbox" class="checkbox select_plugin" name="ids_paquet[(#VAL{91}|chr)][(#VAL{93}|chr)]" value="#ID_PAQUET" />
+				<input type="checkbox" class="checkbox select_plugin" name="ids_paquet\[\]" value="#ID_PAQUET"
+					[(#ID_PAQUET|in_any{#ENV{ids_paquet}}) checked="checked"] />
 			</div>]
 			[(#REM) si la configuration le permet, on peut activer un plugin obsolete ]
 			[(#OBSOLETE|=={oui}|et{#CONSTANTE|!={_DIR_PLUGINS_DIST}}|et{#GET{incompatible}|non}|oui)
 				[(#CONFIG{svp/autoriser_activer_paquets_obsoletes}|=={oui}|oui)
 					<div class="check">
-						<input type="checkbox" class="checkbox select_plugin" name="ids_paquet[(#VAL{91}|chr)][(#VAL{93}|chr)]" value="#ID_PAQUET" />
+						<input type="checkbox" class="checkbox select_plugin" name="ids_paquet\[\]" value="#ID_PAQUET"
+							[(#ID_PAQUET|in_any{#ENV{ids_paquet}}) checked="checked"] />
 					</div>
 				]
 			]
