@@ -328,8 +328,21 @@ class Decideur {
 
 	// retirer un plugin des actifs
 	function remove($info) {
-		$i = $this->end['p'][$info['p']]; // aucazou ce ne soit pas les memes ids
-		unset($this->end['i'][$info['i']], $this->end['p'][$info['p']], $this->end['i'][$i['i']]);
+		// aucazou ce ne soit pas les memes ids entre la demande et la bdd,
+		// on efface aussi avec l'id donne par le prefixe.
+		// Lorsqu'on desactive un plugin en "attente", il n'est pas actif !
+		// on teste tout de meme donc qu'il est la ce prefixe !
+		$i = false;
+		if (isset($this->end['p'][$info['p']])) {
+			$i = $this->end['p'][$info['p']];
+		}
+		// on enleve les cles par id indique et par prefixe
+		unset($this->end['i'][$info['i']], $this->end['p'][$info['p']]);
+		// ainsi que l'id aucazou du prefixe
+		if ($i) {
+			unset($this->end['i'][$i['i']]);
+		}
+
 	}
 
 	// invalider un plugin...
