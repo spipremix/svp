@@ -12,12 +12,14 @@
  *
  * @param bool $force
  * 		Forcer les mises a jour des infos en base de tous les paquets locaux
+ * @param bool $afficher_erreurs_xml
+ * 		Si des erreurs XML sont remonter, les afficher ou non (en echo)
  * @return
 **/
-function svp_actualiser_paquets_locaux($force = false) {
+function svp_actualiser_paquets_locaux($force = false, $afficher_erreurs_xml = false) {
 
 	spip_timer('paquets_locaux');
-	$paquets = svp_descriptions_paquets_locaux();
+	$paquets = svp_descriptions_paquets_locaux($afficher_erreurs_xml);
 
 	// un mode pour tout recalculer sans désinstaller le plugin... !
 	if ($force OR _request('var_mode') == 'vider_paquets_locaux') { 
@@ -36,7 +38,21 @@ function svp_actualiser_paquets_locaux($force = false) {
 }
 
 
-function svp_descriptions_paquets_locaux() {
+/**
+ * Calcul la description de chaque paquet local
+ *
+ * Les paquets peuvent être stockés à 3 endroits :
+ * plugins, plugins-dist, plugins-supp définis par les constantes respectives
+ * _DIR_PLUGINS, _DIR_PLUGINS_DIST, _DIR_PLUGINS_SUPP
+ *
+ * @param bool $afficher_erreurs_xml
+ * 		Lorsqu'un paquet a une erreur XML, l'afficher à l'écran ou pas
+ * @return array
+ * 		Descriptions des paquets (intégrant un hash), stockés par
+ * 		constante, puis par chemin.
+ * 		array[_DIR_PLUGIN*][$chemin] = description
+**/
+function svp_descriptions_paquets_locaux($afficher_erreurs_xml = false) {
 	include_spip('inc/plugin');
 	liste_plugin_files(_DIR_PLUGINS);
 	liste_plugin_files(_DIR_PLUGINS_DIST);
@@ -49,14 +65,37 @@ function svp_descriptions_paquets_locaux() {
 		liste_plugin_files(_DIR_PLUGINS_SUPP);
 		$paquets_locaux['_DIR_PLUGINS_SUPP'] = $get_infos(array(), false, _DIR_PLUGINS_SUPP);
 	}
-	
+
+	// paquets qui ont des erreurs XML
+	$erreurs = array();
+
 	// creer la liste des signatures
 	foreach($paquets_locaux as $const_dir => $paquets) {
 		foreach ($paquets as $chemin => $paquet) {
-			$paquets_locaux[$const_dir][$chemin]['signature'] = md5($const_dir . $chemin . serialize($paquet));
+			// on propose le paquet uniquement s'il n'y a pas eu d'erreur de lecture XML bloquante 
+			if (!isset($paquet['erreur'])) {
+				$paquets_locaux[$const_dir][$chemin]['signature'] = md5($const_dir . $chemin . serialize($paquet));
+			} else {
+				// Erreur XML !
+				unset($paquets_locaux[$const_dir][$chemin]);
+				spip_log("Impossible de lire la description XML de $chemin . Erreurs :", 'svp.' . _LOG_ERREUR);
+				spip_log($paquet['erreur'], 'svp.' . _LOG_ERREUR);
+				$erreurs[] = $paquet['erreur'][0];
+			}
 		}
 	}
-	
+
+	if ($afficher_erreurs_xml and $erreurs) {
+		echo "<div class='svp_retour'>"
+			. boite_ouvrir(_T('svp:actions_en_erreur'), 'error')
+			. _T('svp:erreurs_xml')
+			. '<ul><li>'
+			. implode('</li><li>', $erreurs) // lien vers le validateur
+			. '</li></ul>'
+			. boite_fermer()
+			. "</div>";
+	}
+
 	return $paquets_locaux;
 }
 

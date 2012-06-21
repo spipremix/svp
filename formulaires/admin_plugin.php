@@ -7,7 +7,8 @@ function formulaires_admin_plugin_charger_dist($voir='actif', $verrouille='non',
 
 	// actualiser la liste des paquets locaux systematiquement
 	include_spip('inc/svp_depoter_local');
-	svp_actualiser_paquets_locaux();
+	// sans forcer tout le recalcul en base, mais en affichant les erreurs XML
+	svp_actualiser_paquets_locaux(false, true);
 
 	$valeurs['actif'] = 'oui';
 	if ($voir == 'inactif')
