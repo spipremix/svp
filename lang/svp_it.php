@@ -88,6 +88,7 @@ Devi confermare questa azione.',
 	'erreur_teleporter_format_archive_non_supporte' => 'Il formato @extension@ non è supportato',
 	'erreur_teleporter_methode_inconue' => 'Metodo @methode@ sconosciuto',
 	'erreur_teleporter_type_fichier_inconnu' => 'Tipo di file sconosciuto per la sorgente @source@',
+	'erreurs_xml' => 'Impossible de lire certaines descriptions XML', # NEW
 	'explication_destination' => 'Il percorso calcolato dal nome delle archivio se non viene compilato.
 ',
 
