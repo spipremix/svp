@@ -1060,6 +1060,7 @@ class Actionneur {
  *
  * @param array $actions la liste des actions a faire (id_paquet => action)
  * @param array $retour le tableau de retour du CVT dans la partie traiter
+ * @param string $redirect l'url de retour
  * @return bool Action ok.
 **/
 function svp_actionner_traiter_actions_demandees($actions, &$retour,$redirect=null) {
