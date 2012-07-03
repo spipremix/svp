@@ -637,7 +637,7 @@ function svp_actualiser_maj_version() {
 	if ($locaux = sql_allfetsel(
 		array('id_paquet', 'prefixe', 'version', 'maj_version', 'etatnum'),
 		array('spip_paquets'),
-		array('pa.id_depot=' . sql_quote(0))))
+		array('id_depot=' . sql_quote(0))))
 	{
 		foreach ($locaux as $paquet) {
 			$new_maj_version = svp_rechercher_maj_version($paquet['prefixe'], $paquet['version'], $paquet['etatnum']);
