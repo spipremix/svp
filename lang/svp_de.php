@@ -68,15 +68,15 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'config_autoriser_activer_paquets_obsoletes_explication' => 'Überflüssige Pakete sind lokal vorhandene, die älter als gleichartige lokal installierte sind. Ob ein Paket überflüssig ist, wird anhand seines Status (stabil, test, dev) und aufgrund seiner Version ermittelt. Aktivieren sie diese Option, falls sie solche veralteten Pakete aktivieren möchten.',
 	'config_depot_editable' => 'Bearbeitung der Depots erlauben?',
 	'config_depot_editable_explication' => 'Hiermit können die Informationen über ein Depot bearbeitet werden und dem Depot z.B. Schlagworte zugeordnet werden. Diese Option sollte in der Regel ohne Nutzen sein! Die Einstellung «non» sollte beibehalten werden!',
-	'confirmer_telecharger_dans' => 'Le plugin sera chargé dans un répertoire (@dir@) qui existe déjà.
-	Cela écrasera le contenu de ce répertoire.
-	Une copie de l\'ancien contenu sera sauvegardé dans « @dir_backup@ ».
-		Vous devez confirmer cette action.', # NEW
+	'confirmer_telecharger_dans' => 'Das Plugin wird in das vorhandene Verzeichnis (@dir@) geladen.
+	Der Inhalt dieses Verzeichnis wird dabei überschrieben.
+	Eine Kopie des Verzeichnisinhalts wird in « @dir_backup@ » angelegt.
+		Sie müssen diese Aktion bestätigen.',
 
 	// E
-	'erreur_actions_non_traitees' => 'Certaines actions n\'ont pas été réalisées. Cela peut provenir d\'une erreur lors des actions à réaliser, ou d\'un affichage de cette page alors que des actions sont encore en cours. Les actions avaient été lancées par @auteur@ le @date@.', # NEW
+	'erreur_actions_non_traitees' => 'Manche Aktionen konnten nicht ausgefühert werden. Die Ursache kann entweder ein Ausführungsfehler sein, oder diese Seite wurde neu geladen, währen die Aktionen noch nicht abgeschlossen waren. Die Aktionen wurden von @auteur@ am @date@ ausgelöst.',
 	'erreur_dir_dib_ecriture' => 'Le répertoire des bibliothèques @dir@ n\'est pas accessible en écriture. Impossible d\'y charger une bibliothèque !', # NEW
-	'erreur_dir_dib_indefini' => 'Le répertoire _DIR_LIB n\'est pas défini. Impossible d\'y charger une bibliothèque !', # NEW
+	'erreur_dir_dib_indefini' => 'Das Verzeichnis _DIR_LIB wurde nicht definiert. Bibliotheken können dadurch nicht geladen werden !',
 	'erreur_dir_plugins_auto' => 'Le répertoire « plugins/auto » permettant de télécharger des paquets
 		n\'est pas créé ou n\'est pas accessible en écriture.
 		<strong>Vous devez le créer pour pouvoir installer de nouveaux plugins depuis cette interface.</strong>', # NEW
@@ -89,7 +89,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'erreur_teleporter_format_archive_non_supporte' => 'Le format @extension@ n\'est pas supporté par le téléporteur', # NEW
 	'erreur_teleporter_methode_inconue' => 'Méthode @methode@ inconnue pour téléporter', # NEW
 	'erreur_teleporter_type_fichier_inconnu' => 'Type de fichier inconnu pour la source @source@', # NEW
-	'erreurs_xml' => 'Impossible de lire certaines descriptions XML', # NEW
+	'erreurs_xml' => 'Manche XML-Beschreibungen können nicht gelesen werden.',
 	'explication_destination' => 'Le chemin sera calculé depuis le nom de l\'archive si vous ne le remplissez pas.', # NEW
 
 	// F
@@ -101,7 +101,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_1_depot' => '1 Depot',
 	'info_1_paquet' => '1 Paket',
 	'info_1_plugin' => '1 Plugin',
-	'info_admin_plugin_actif_non_verrou_non' => 'Cette page liste les plugins non actifs du site. Ces plugins sont forcément non verrouillés.', # NEW
+	'info_admin_plugin_actif_non_verrou_non' => 'Diese Seite zeigt eine Liste der inaktiven Plugins de Website. Diese Plugins sind zwangsläufig aktivierbar und deaktivierbar.',
 	'info_admin_plugin_actif_non_verrou_tous' => 'Cette page liste les plugins non actifs du site. Ces plugins sont forcément non verrouillés.', # NEW
 	'info_admin_plugin_actif_oui_verrou_non' => 'Cette page liste les plugins actifs et non verrouillés du site.', # NEW
 	'info_admin_plugin_actif_oui_verrou_tous' => 'Cette page liste tous les plugins actifs du site, verrouillés ou pas.', # NEW
