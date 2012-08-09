@@ -242,13 +242,52 @@ function svp_afficher_statistiques_globales($id_depot=0){
 }
 
 
+/**
+ * Retourne un texte indiquant un nombre total de paquets
+ *
+ * Calcule le nombre de paquets correspondant à certaines contraintes,
+ * tel que l'appartenance à un certain dépot, une certaine catégorie
+ * ou une certaine branche de SPIP et retourne une phrase traduite
+ * tel que «78 paquets disponibles»
+ * 
+ * @param int $id_depot
+ *     Identifiant du dépot
+ *     Zéro (par défaut) signifie ici : «dans tous les dépots distants»
+ *     (id_dépot>0) et non «dans le dépot local»
+ * @param string $categorie
+ *     Type de catégorie (auteur, communication, date...)
+ * @param string $compatible_spip
+ *     Numéro de branche de SPIP. (3.0, 2.1, ...)
+ * @return string
+ *     Texte indiquant un nombre total de paquets
+**/
 function svp_compter_telechargements($id_depot=0, $categorie='', $compatible_spip=''){
 	$total = svp_compter('paquet', $id_depot, $categorie, $compatible_spip);
 	$info = _T('svp:info_paquets_disponibles', array('total_paquets'=>$total['paquet']));
 	return $info;
 }
 
-
+/**
+ * Retourne un texte indiquant un nombre total de contributions pour un dépot
+ *
+ * Calcule différents totaux pour un dépot donné et retourne un texte
+ * de ces différents totaux. Les totaux correspondent par défaut aux
+ * plugins et paquets, mais l'on peut demander le total des autres contributions
+ * avec le second paramètre.
+ * 
+ * @param int $id_depot
+ *     Identifiant du dépot
+ *     Zéro (par défaut) signifie ici : «dans tous les dépots distants»
+ *     (id_dépot>0) et non «dans le dépot local»
+ * @param string $contrib
+ *     Type de total demandé ('plugin' ou autre)
+ *     Si 'plugin' : indique le nombre de plugins et de paquets du dépot
+ *     Si autre chose : indique le nombre des autres contributions, c'est
+ *     à dire des zips qui ne sont pas des plugins, comme certaines libraires ou
+ *     certains jeux de squelettes.
+ * @return string
+ *     Texte indiquant certains totaux tel que nombre de plugins, nombre de paquets...
+**/
 function svp_compter_depots($id_depot, $contrib='plugin'){
 	$info = '';
 
@@ -271,6 +310,25 @@ function svp_compter_depots($id_depot, $contrib='plugin'){
 }
 
 
+/**
+ * Retourne un texte indiquant un nombre total de plugins
+ *
+ * Calcule le nombre de plugins correspondant à certaines contraintes,
+ * tel que l'appartenance à un certain dépot, une certaine catégorie
+ * ou une certaine branche de SPIP et retourne une phrase traduite
+ * tel que «64 plugins disponibles»
+ * 
+ * @param int $id_depot
+ *     Identifiant du dépot
+ *     Zéro (par défaut) signifie ici : «dans tous les dépots distants»
+ *     (id_dépot>0) et non «dans le dépot local»
+ * @param string $categorie
+ *     Type de catégorie (auteur, communication, date...)
+ * @param string $compatible_spip
+ *     Numéro de branche de SPIP. (3.0, 2.1, ...)
+ * @return string
+ *     Texte indiquant un nombre total de paquets
+**/
 function svp_compter_plugins($id_depot=0, $categorie='', $compatible_spip='') {
 	$total = svp_compter('plugin', $id_depot, $categorie, $compatible_spip);
 	$info = _T('svp:info_plugins_disponibles', array('total_plugins'=>$total['plugin']));
@@ -278,7 +336,35 @@ function svp_compter_plugins($id_depot=0, $categorie='', $compatible_spip='') {
 }
 
 
-// Attention le critere de compatibilite spip pris en compte est uniquement celui d'une branche SPIP
+/**
+ * Compte le nombre de plugins, paquets ou autres contributions
+ * en fonction de l'entité demandée et de contraintes
+ *
+ * Calcule, pour un type d'entité demandé (depot, plugin, paquet, catégorie)
+ * leur nombre en fonction de certaines contraintes, tel que l'appartenance
+ * à un certain dépot, une certaine catégorie ou une certaine branche de SPIP.
+ *
+ * Lorsque l'entité demandée est un dépot, le tableau des totaux possède,
+ * en plus du nombre de dépots, le nombre de plugins et paquets.
+ * 
+ * @note
+ *     Attention le critère de compatibilite SPIP pris en compte est uniquement
+ *     celui d'une branche SPIP
+ * 
+ * @param string $entite
+ *     De quoi veut-on obtenir des comptes. Peut être 'depot', 'plugin',
+ *    'paquet' ou 'categorie'
+ * @param int $id_depot
+ *     Identifiant du dépot
+ *     Zéro (par défaut) signifie ici : «dans tous les dépots distants»
+ *     (id_dépot>0) et non «dans le dépot local»
+ * @param string $categorie
+ *     Type de catégorie (auteur, communication, date...)
+ * @param string $compatible_spip
+ *     Numéro de branche de SPIP. (3.0, 2.1, ...)
+ * @return array
+ *     Couples (entite => nombre).
+**/
 function svp_compter($entite, $id_depot=0, $categorie='', $compatible_spip=''){
 	$compteurs = array();
 
@@ -343,18 +429,52 @@ function svp_compter($entite, $id_depot=0, $categorie='', $compatible_spip=''){
 }
 
 
+/**
+ * Compile la balise #SVP_CATEGORIES
+ *
+ * Cette balise retourne un tableau listant chaque type de catégorie
+ * en index, associé à sa traduction en valeur.
+ *
+ * Accèpte 2 paramètres :
+ * 1) le type du tri (ordre_cle ou ordre_alpha)
+ * 2) une catégorie (dans ce cas, limite le tableau à cette seule catégorie si elle existe)
+ *
+ * @example
+ *     #SVP_CATEGORIES
+ *     #SVP_CATEGORIES{ordre_alpha}
+ *     #SVP_CATEGORIES{ordre_cle,auteur}
+ *
+ * @balise svp_categories
+ * @see calcul_svp_categories()
+ * @param Champ $p
+ *     Pile au niveau de la balise
+ * @return Champ
+ *     Pile complétée par le code à générer
+**/
 function balise_SVP_CATEGORIES($p) {
-
-	$tri = interprete_argument_balise(1,$p);
-	$tri = isset($tri) ? str_replace('\'', '"', $tri) : '"ordre_cle"';
-	$categorie = interprete_argument_balise(1,$p);
-	$categorie = isset($categorie) ? str_replace('\'', '"', $categorie) : '""';
-
-	$p->code = 'calcul_svp_categories('.$categorie.')';
-
+	// tri, peut être 'ordre_cle' ou 'ordre_alpha'
+	if (!$tri = interprete_argument_balise(1,$p)) {
+		$tri = "'ordre_cle'";
+	}
+	// catégorie (pour n'en prendre qu'une au lieu de toutes)
+	if (!$categorie = interprete_argument_balise(2,$p)) {
+		$categorie = "''";
+	}
+	$p->code = 'calcul_svp_categories(' . $tri .  ',' . $categorie . ')';
 	return $p;
 }
 
+/**
+ * Retourne un tableau listant chaque type de catégorie
+ * en index, associé à sa traduction en valeur.
+ *
+ * @param string $tri
+ *     Type de tri (ordre_cle ou ordre_alpha)
+ * @param string $categorie
+ *     Restreindre le tableau de retour à cette catégorie si elle existe
+ * @return array
+ *     Couples (type de catégorie => Texte de la catégorie)
+**/
 function calcul_svp_categories($tri='ordre_cle', $categorie='') {
 
 	$retour = array();
@@ -379,16 +499,45 @@ function calcul_svp_categories($tri='ordre_cle', $categorie='') {
 }
 
 
+/**
+ * Compile la balise #SVP_BRANCHES_SPIP
+ *
+ * Cette balise retourne une liste des branches de SPIP
+ *
+ * Avec un paramètre indiquant une branche, la balise retourne
+ * une liste des bornes mini et maxi de cette branche.
+ * 
+ * @example
+ *     #SVP_BRANCHES_SPIP       : array('1.9', '2.0', '2.1', ....)
+ *     #SVP_BRANCHES_SPIP{3.0}  : array('3.0.0', '3.0.99')
+ *
+ * @balise svp_branches_spip
+ * @see calcul_svp_branches_spip()
+ * 
+ * @param Champ $p
+ *     Pile au niveau de la balise
+ * @return Champ
+ *     Pile complétée par le code à générer
+**/
 function balise_SVP_BRANCHES_SPIP($p) {
-
-	$branche = interprete_argument_balise(1,$p);
-	$branche = isset($branche) ? str_replace('\'', '"', $branche) : '""';
-
+	// nom d'une branche en premier argument
+	if (!$branche = interprete_argument_balise(1,$p)) {
+		$branche = "''";
+	}
 	$p->code = 'calcul_svp_branches_spip('.$branche.')';
-
 	return $p;
 }
 
+/**
+ * Retourne une liste des branches de SPIP, ou les bornes mini et maxi
+ * d'une branche donnée
+ *
+ * @param string $branche
+ *     Branche dont on veut récupérer les bornes mini et maxi
+ * @return array
+ *     Liste des branches array('1.9', '2.0', '2.1', ....)
+ *     ou liste mini et maxi d'une branche array('3.0.0', '3.0.99')
+**/
 function calcul_svp_branches_spip($branche) {
 
 	$retour = array();
@@ -495,7 +644,29 @@ function critere_compatible_spip_dist($idb, &$boucles, $crit) {
 	$boucle->where[] = '$where';
 }
 
-
+/**
+ * Retourne la liste des plugins trouvés par une recherche
+ *
+ * @filtre construire_recherche_plugins
+ * @param string $phrase
+ *     Texte de la recherche
+ * @param string $categorie
+ *     Type de catégorie de plugin (auteur, date...)
+ * @param string $etat
+ *     État de plugin (stable, test...)
+ * @param string|int $depot
+ *     Identifiant de dépot
+ * @param bool|string $afficher_exclusions
+ *     Afficher aussi les paquets déjà installés (true ou 'oui')
+ *     ou ceux qui ne le sont pas (false) ?
+ * @param bool|string $afficher_doublons
+ *     Afficher toutes les versions de paquet (true ou 'oui')
+ *     ou seulement la plus récente (false) ?
+ * @return array
+ *     Tableau classé par pertinence de résultat
+ *     - 'prefixe' => tableau de description du paquet (si pas de doublons demandé)
+ *     - n => tableau de descriptions du paquet (si doublons autorisés)
+**/
 function filtre_construire_recherche_plugins($phrase='', $categorie='', $etat='', $depot='', $afficher_exclusions=true, $afficher_doublons=false) {
 
 	// On traite les paramètres d'affichage
