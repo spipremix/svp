@@ -1,5 +1,25 @@
 <?php
 
+/**
+ * Déclarations de fonctions
+ * 
+ * @plugin SVP pour SPIP
+ * @license GPL
+ * @package Plugins\SVP\Fonctions
+**/
+
+/**
+ * Retourne un texte expliquant l'intervalle de compatibilité avec un plugin ou SPIP
+ *
+ * Retourne par exemple "2.0 <= SPIP < 3.1"
+ * 
+ * @param string $intervalle
+ *     L'intervalle tel que déclaré dans paquet.xml. Par exemple "[2.1;3.0.*]"
+ * @param string $logiciel
+ *     Nom du plugin pour qui est cette intervalle
+ * @return string
+ *     Texte expliquant l'intervalle
+**/
 function svp_afficher_intervalle($intervalle, $logiciel){
 	if (!strlen($intervalle)) return '';
 	if (!preg_match(',^[\[\(\]]([0-9.a-zRC\s\-]*)[;]([0-9.a-zRC\s\-\*]*)[\]\)\[]$,Uis',$intervalle,$regs)) return false;
@@ -23,13 +43,39 @@ function svp_afficher_intervalle($intervalle, $logiciel){
 	return $version;
 }
 
-
+/**
+ * Traduit un type d'état de plugin
+ *
+ * Si l'état n'existe pas, prendra par défaut 'developpement'
+ *
+ * @see plugin_etat_en_clair()
+ * @param string $etat
+ *     Le type d'état (stable, test, ...)
+ * @return string
+ *     Traduction de l'état dans la langue en cours
+**/
 function svp_afficher_etat($etat) {
 	include_spip('plugins/afficher_plugin');
 	return plugin_etat_en_clair($etat);
 }
 
-
+/**
+ * Retourne un texte HTML présentant la liste des dépendances d'un plugin 
+ *
+ * Des liens vers les plugins dépendants sont présents lorsque les plugins
+ * en dépendance sont connus dans notre base.
+ * 
+ * @param string $balise_serialisee
+ *     Informations des dépendances (tableau sérialisé) tel que stocké
+ *     en base dans la table spip_paquets
+ * @param string $dependance
+ *     Type de dépendances à afficher (necessite ou utilise).
+ *     Une autre valeur indique qu'on demande la liste des librairies dépendantes.
+ * @param string $sep
+ *     Séparateur entre les noms de dépendances
+ * @return string
+ *     Texte informant des dépendances
+**/
 function svp_afficher_dependances($balise_serialisee, $dependance='necessite', $sep='<br />') {
 	$texte = '';
 	
@@ -68,7 +114,15 @@ function svp_afficher_dependances($balise_serialisee, $dependance='necessite', $
 	return $texte;
 }
 
-
+/**
+ * Teste si un plugin possède des dépendances
+ *
+ * @param string $balise_serialisee
+ *     Informations des dépendances (tableau sérialisé) tel que stocké
+ *     en base dans la table spip_paquets
+ * @return bool
+ *     Le plugin possède t'il des dépendances ?
+**/
 function svp_dependances_existe($balise_serialisee) {
 	$dependances = unserialize($balise_serialisee);
 	foreach($dependances as $_dependance) {
@@ -80,6 +134,20 @@ function svp_dependances_existe($balise_serialisee) {
 }
 
 
+/**
+ * Retourne un texte HTML présentant les crédits d'un plugin 
+ *
+ * Des liens vers les crédits sont présents lorsqu'ils sont déclarés
+ * dans le paquet.xml.
+ * 
+ * @param string $balise_serialisee
+ *     Informations des crédits (tableau sérialisé) tel que stocké
+ *     en base dans la table spip_paquets
+ * @param string $sep
+ *     Séparateur entre les différents crédits
+ * @return string
+ *     Texte informant des crédits
+**/
 function svp_afficher_credits($balise_serialisee, $sep=', ') {
 	$texte = '';
 	
@@ -102,6 +170,18 @@ function svp_afficher_credits($balise_serialisee, $sep=', ') {
 }
 
 
+/**
+ * Retourne un texte HTML présentant la liste des langues et traducteurs d'un plugin 
+ *
+ * Des liens vers les traducteurs sont présents lorsqu'ils sont connus.
+ * 
+ * @param array $langues
+ *     Tableau code de langue => traducteurs
+ * @param string $sep
+ *     Séparateur entre les différentes langues
+ * @return string
+ *     Texte informant des langues et traducteurs
+**/
 function svp_afficher_langues($langues, $sep=', '){
 	$texte = '';
 	
@@ -125,6 +205,17 @@ function svp_afficher_langues($langues, $sep=', '){
 }
 
 
+/**
+ * Retourne un texte HTML présentant des statistiques d'un dépot
+ *
+ * Liste le nombre de plugins et de paquets d'un dépot
+ * Indique aussi le nombre de dépots si l'on ne demande pas de dépot particulier.
+ * 
+ * @param int $id_depot
+ *     Identifiant du dépot
+ * @return string
+ *     Code HTML présentant les statistiques du dépot
+**/
 function svp_afficher_statistiques_globales($id_depot=0){
 	$info = '';
 
@@ -317,8 +408,15 @@ function calcul_svp_branches_spip($branche) {
 	return $retour;
 }
 
+/**
+ * Traduit un type de catégorie de plugin 
+ *
+ * @param string $alias
+ *     Type de catégorie (auteur, communication, date...)
+ * @return string
+ *     Titre complet et traduit de la catégorie
+**/
 function svp_traduire_categorie($alias) {
-
 	$traduction = '';
 	if ($alias) {
 		$traduction = _T('svp:categorie_' . strtolower($alias));
@@ -326,6 +424,14 @@ function svp_traduire_categorie($alias) {
 	return $traduction;
 }
 
+/**
+ * Traduit un type de dépot de plugin 
+ *
+ * @param string $type
+ *     Type de dépot (svn, git, manuel)
+ * @return string
+ *     Titre complet et traduit du type de dépot
+**/
 function svp_traduire_type_depot($type) {
 
 	$traduction = '';
@@ -336,18 +442,26 @@ function svp_traduire_type_depot($type) {
 }
 
 /**
- * Critere de compatibilite avec une VERSION precise ou une BRANCHE de SPIP :
+ * Critère de compatibilité avec une version précise ou une branche de SPIP.
+ * 
  * Fonctionne sur les tables spip_paquets et spip_plugins
  *
+ * Si aucune valeur n'est explicité dans le critère, tous les enregistrements
+ * sont retournés.
+ *
+ * Le ! (NOT) fonctionne sur le critère BRANCHE
+ * 
+ * @critere compatible_spip
+ * @example
  *   {compatible_spip}
  *   {compatible_spip 2.0.8} ou {compatible_spip 1.9}
  *   {compatible_spip #ENV{vers}} ou {compatible_spip #ENV{vers, 1.9.2}}
  *   {compatible_spip #GET{vers}} ou {compatible_spip #GET{vers, 2.1}}
- *
- *   Si aucune valeur explicite (dans le critère, par #ENV, par #SET)
- *   tous les enregistrements sont retournés.
- *
- *   Le ! (NOT) fonctionne sur le critère BRANCHE
+ * 
+ * @param string $idb     Identifiant de la boucle
+ * @param array $boucles  AST du squelette
+ * @param Critere $crit   Paramètres du critère dans cette boucle
+ * @return void
  */
 function critere_compatible_spip_dist($idb, &$boucles, $crit) {
 
@@ -407,10 +521,11 @@ function filtre_construire_recherche_plugins($phrase='', $categorie='', $etat=''
 }
 
 /**
- * Retourner le nombre d'heure entre chaque actualisation
+ * Retourne le nombre d'heures entre chaque actualisation
  * si le cron est activé.
  *
- * @return nb d'heures (sinon 0)
+ * @return int
+ *     Nombre d'heures (sinon 0)
 **/
 function filtre_svp_periode_actualisation_depots() {
 	include_spip('genie/svp_taches_generales_cron');
@@ -419,10 +534,16 @@ function filtre_svp_periode_actualisation_depots() {
 
 
 /**
- * Retourner la chaine de la version x.y.z sous une forme sa forme initiale
- * sans remplissage à gauche avec des 0
+ * Retourne 'x.y.z' à partir de '00x.00y.00z'
+ * 
+ * Retourne la chaine de la version x.y.z sous sa forme initiale,
+ * sans remplissage à gauche avec des 0.
  *
+ * @see normaliser_version()
+ * @param string $version_normalisee
+ *     Numéro de version normalisée
  * @return string
+ *     Numéro de version dénormalisée
 **/
 function denormaliser_version($version_normalisee='') {
 
@@ -441,6 +562,16 @@ function denormaliser_version($version_normalisee='') {
 	return $version;
 }
 
+/**
+ * Teste l'utilisation du répertoire auto des plugins.
+ *
+ * Ce répertoire permet de télécharger dedans des plugins
+ * lorsqu'il est présent.
+ * 
+ * @return bool
+ *     Le répertoire de chargement des plugins auto est-il présent
+ *     et utilisable ?
+ */
 function test_plugins_auto() {
 	static $test = null;
 	if (is_null($test)) {

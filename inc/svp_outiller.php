@@ -1,22 +1,38 @@
 <?php
 
+/**
+ * Fichier de fonctions 
+ *
+ * @plugin SVP pour SPIP
+ * @license GPL
+ * @package Plugins\SVP\Fonctions
+**/
+
 if (!defined('_ECRIRE_INC_VERSION')) return;
 
 
-// Version SPIP minimale quand un plugin ne le precise pas
-// -- Version SPIP correspondant a l'apparition des plugins
 if (!defined('_SVP_VERSION_SPIP_MIN')) {
+/**
+ * Version SPIP minimale quand un plugin ne le precise pas
+ *
+ * Version SPIP correspondant à l'apparition des plugins */
 	define('_SVP_VERSION_SPIP_MIN', '1.9.0');
 }
 
-// -- Pour l'instant on ne connait pas la borne sup exacte
 if (!defined('_SVP_VERSION_SPIP_MAX')) {
+/**
+ * Version SPIP maximale 
+ *
+ * Pour l'instant on ne connait pas la borne sup exacte */
 	define('_SVP_VERSION_SPIP_MAX', '3.1.99');
 }
 
-// Liste des branches significatives de SPIP et de leurs bornes (versions min et max)
-// A mettre a jour en fonction des sorties
-# define('_INFOS_BRANCHES_SPIP', serialize($infos_branches_spip));
+/**
+ * Liste des branches significatives de SPIP et de leurs bornes (versions min et max)
+ *
+ * À mettre a jour en fonction des sorties
+ * @global infos_branches_spip
+ */
 $GLOBALS['infos_branches_spip'] = array(
 	'1.9' => array(_SVP_VERSION_SPIP_MIN,'1.9.2'),
 	'2.0' => array('2.0.0','2.0.99'),
@@ -24,9 +40,13 @@ $GLOBALS['infos_branches_spip'] = array(
 	'3.0' => array('3.0.0','3.0.99'),
 	'3.1' => array('3.1.0',_SVP_VERSION_SPIP_MAX)
 );
+# define('_INFOS_BRANCHES_SPIP', serialize($infos_branches_spip));
 
-// Liste des licences de plugin
-# define('_LICENCES_PLUGIN', serialize($licences_plugin));
+/**
+ * Liste des licences de plugin
+ *
+ * @global licences_plugin
+ */
 $GLOBALS['licences_plugin'] = array(
 	'apache' => array(
 		'versions' => array('2.0', '1.1', '1.0'),
@@ -66,7 +86,7 @@ $GLOBALS['licences_plugin'] = array(
 		'nom' => 'CC BY@suffixe@ @version@',
 		'url' => 'http://creativecommons.org/licenses/by@suffixe@/@version@/')
 );
-
+# define('_LICENCES_PLUGIN', serialize($licences_plugin));
 
 function fusionner_intervalles($intervalle_a, $intervalle_b) {
 
@@ -294,6 +314,17 @@ function definir_licence($prefixe, $nom, $suffixe, $version) {
 	return $licence;
 }
 
+/**
+ * Liste les librairies présentes 
+ *
+ * Cherche des librairie dans tous les dossiers 'lib' présents dans chaque
+ * chemin déclaré (plugins, squelettes, SPIP). Un répertoire dans un dossier
+ * 'lib' est considéré comme une librairie, et le nom de ce répertoire est
+ * utilisé comme nom de la librairie.
+ * 
+ * @return array
+ *     Tableau de couples (nom de la librairie => répertoire de la librairie)
+**/
 function svp_lister_librairies() {
 	$libs = array();
 	foreach (array_reverse(creer_chemin()) as $d) {
@@ -310,10 +341,17 @@ function svp_lister_librairies() {
 
 
 /**
- * Retourner la chaine de la version x.y.z sous une forme normalisee
- * permettant le tri naturel.
+ * Retourne '00x.00y.00z' à partir de 'x.y.z'
+ * 
+ * Retourne la chaine de la version x.y.z sous une forme normalisée
+ * permettant le tri naturel. On complète à gauche d'un nombre de zéro
+ * manquant pour aller à 3 caractères entre chaque point.
  *
+ * @see denormaliser_version()
+ * @param string $version
+ *     Numéro de version dénormalisée
  * @return string
+ *     Numéro de version normalisée
 **/
 function normaliser_version($version='') {
 
