@@ -1,21 +1,48 @@
 <?php
 
+/**
+ * Gestion de l'actionneur : il effectue les actions sur les plugins 
+ *
+ * @plugin SVP pour SPIP
+ * @license GPL
+ * @package Plugins\SVP\Actionneur
+ */
+ 
 if (!defined("_ECRIRE_INC_VERSION")) return;
 
-// l'actionneur calcule l'ordre des actions
-// et permet de les stocker et de les effectuer.
 
+/**
+ * L'actionneur calcule l'ordre des actions, permet de les stocker
+ * dans un fichier cache et de les effectuer.
+ *
+ * @package Plugins\SVP\Actionner
+**/
 class Actionneur {
 
+	/**
+	 * Instance du décideur
+	 * @var Decideur */
 	var $decideur;
 
-	// loggue t'on ?
+	/**
+	 * Loguer les différents éléments
+	 * 
+	 * Sa valeur sera initialisée par la configuration 'mode_log_verbeux' de SVP
+	 * 
+	 * @var bool */
 	var $log = false;
 
-	// actions au debut (avant analyse)
+	/**
+	 * Liste des actions à faire
+	 * @var array
+	 *     Tableau identifiant du paquet => type d'action
+	 */
 	var $start = array();
 
-	// actions en cours d'analyse
+	/**
+	 * Actions en cours d'analyse
+	 * @var array
+	 */
 	var $middle = array(
 		'off' => array(),
 		'lib' => array(),
@@ -28,7 +55,10 @@ class Actionneur {
 	var $done = array(); // faites
 	var $work = array(); // en cours
 
-	// listing des erreurs rencontrées
+	/**
+	 * Liste des erreurs
+	 * 
+	 * @var array Liste des erreurs */
 	var $err = array();
 	
 	// Verrou.
@@ -53,10 +83,11 @@ class Actionneur {
 
 	/**
 	 * Ajoute un log
-	 * lorsqu'on a activé les logs sur notre objet
-	 * $actionneur->log = true;
 	 *
-	 * @param string $quoi : le texte du log
+	 * Ajoute un log si la propriété $log l'autorise;
+	 *
+	 * @param mixed $quoi
+	 *     La chose à logguer (souvent un texte)
 	**/
 	function log($quoi) {
 		if ($this->log) {
@@ -66,9 +97,12 @@ class Actionneur {
 
 	/**
 	 * Ajoute une erreur
-	 * a la liste des erreurs presentees au moment de traiter les actions.
+	 * 
+	 * Ajoute une erreur à la liste des erreurs présentées au moment
+	 * de traiter les actions.
 	 *
-	 * @param string $erreur : le texte de l'erreur
+	 * @param string $erreur
+	 *     Le texte de l'erreur
 	**/
 	function err($erreur) {
 		if ($erreur) {
@@ -88,6 +122,12 @@ class Actionneur {
 		$this->work = array();
 	}
 
+	/**
+	 * Ajoute les actions à faire dans l'actionneur 
+	 *
+	 * @param array $todo
+	 *     Tableau des actions à faire (identifiant de paquet => type d'action)
+	**/
 	function ajouter_actions($todo) {
 		foreach ($todo as $id => $action) {
 			$this->start[$id] = $action;
