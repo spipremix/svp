@@ -30,7 +30,7 @@ function formulaires_charger_plugin_archive_charger_dist() {
  * demande à confirmer l'écrasement
  * 
  * @return array
- *     Liste des erreurs
+ *     Tableau des erreurs
 **/
 function formulaires_charger_plugin_archive_verifier_dist(){
 	include_spip('inc/plugin'); // _DIR_PLUGINS_AUTO

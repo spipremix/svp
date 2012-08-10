@@ -35,7 +35,7 @@ function formulaires_editer_depot_charger_dist($id_depot, $redirect){
  * @param string $redirect
  *     URL de redirection
  * @return array
- *     Liste des erreurs
+ *     Tableau des erreurs
 **/
 function formulaires_editer_depot_verifier_dist($id_depot, $redirect){
 	$erreurs = formulaires_editer_objet_verifier('depot', $id_depot, array('titre'));

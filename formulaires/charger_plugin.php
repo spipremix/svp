@@ -44,7 +44,7 @@ function formulaires_charger_plugin_charger_dist(){
  * Si on reçoit une demande de confirmation, on sort sans lever d'erreur !
  * 
  * @return array
- *     Liste des erreurs
+ *     Tableau des erreurs
 **/
 function formulaires_charger_plugin_verifier_dist(){
 
@@ -98,8 +98,8 @@ function formulaires_charger_plugin_verifier_dist(){
 /**
  * Traitement du formulaire de recherche et téléchargement de plugins
  *
- * Si une action est validée, on redirige de formulaire sur l'action 'actionner'
- * qui les traitera une par une.
+ * Si une liste d'action est validée, on redirige de formulaire sur
+ * l'action 'actionner' qui les traitera une par une.
  * 
  * @return array
  *     Retours du traitement
