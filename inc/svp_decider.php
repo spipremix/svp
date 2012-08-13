@@ -1119,12 +1119,14 @@ class Decideur {
 
 
 /**
- * Simplification pour la partie verifier
- * des formulaires utilisant le decideur 
+ * Gère la partie vérifier des formulaires utilisant le Décideur 
  *
- * @param array $a_actionner Tableau des actions par paquet (id_paquet => action)
- * @param array $erreurs Tableau d'erreurs de verifier (CVT)
- * @return bool Operation ok.
+ * @param array $a_actionner
+ *     Tableau des actions par paquet (id_paquet => action)
+ * @param array $erreurs
+ *     Tableau d'erreurs de verifier (CVT)
+ * @return bool
+ *     true si tout va bien, false sinon (erreur pour trouver les dépendances, ...)
 **/
 function svp_decider_verifier_actions_demandees($a_actionner, &$erreurs) {
 	$decideur = new Decideur;
@@ -1141,9 +1143,9 @@ function svp_decider_verifier_actions_demandees($a_actionner, &$erreurs) {
 		return false;
 	}
 
-	$erreurs['decideur_propositions'] 	= $decideur->presenter_actions('changes');
-	$erreurs['decideur_demandes'] 		= $decideur->presenter_actions('ask');
-	$erreurs['decideur_actions'] 		= $decideur->presenter_actions('todo');
+	$erreurs['decideur_propositions'] = $decideur->presenter_actions('changes');
+	$erreurs['decideur_demandes']     = $decideur->presenter_actions('ask');
+	$erreurs['decideur_actions']      = $decideur->presenter_actions('todo');
 
 	// On construit la liste des actions pour la passer au formulaire en hidden
 	$todo = array();
