@@ -5,7 +5,7 @@
  *
  * @plugin SVP pour SPIP
  * @license GPL
- * @package Plugins\SVP\Formulaires
+ * @package SPIP\Plugins\SVP\Formulaires
  */
  
 if (!defined("_ECRIRE_INC_VERSION")) return;

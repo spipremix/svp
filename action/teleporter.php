@@ -4,7 +4,7 @@
  *
  * @plugin SVP pour SPIP
  * @license GPL
- * @package Plugins\SVP\Actions
+ * @package SPIP\Plugins\SVP\Actions
  */
  
 

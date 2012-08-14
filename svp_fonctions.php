@@ -5,7 +5,7 @@
  * 
  * @plugin SVP pour SPIP
  * @license GPL
- * @package Plugins\SVP\Fonctions
+ * @package SPIP\Plugins\SVP\Fonctions
 **/
 
 /**
@@ -435,7 +435,7 @@ function svp_compter($entite, $id_depot=0, $categorie='', $compatible_spip=''){
  * Cette balise retourne un tableau listant chaque type de catégorie
  * en index, associé à sa traduction en valeur.
  *
- * Accèpte 2 paramètres :
+ * Accepte 2 paramètres :
  * 1) le type du tri (ordre_cle ou ordre_alpha)
  * 2) une catégorie (dans ce cas, limite le tableau à cette seule catégorie si elle existe)
  *

@@ -5,7 +5,7 @@
  *
  * @plugin SVP pour SPIP
  * @license GPL
- * @package Plugins\SVP\Installation
+ * @package SPIP\Plugins\SVP\Installation
 **/
 
 include_spip('base/create');
