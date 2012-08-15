@@ -61,11 +61,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'config_activer_log_verbeux' => 'Включить подробное логирование?',
 	'config_activer_log_verbeux_explication' => 'Эта опция позволяет вести подробное логирование действий…',
 	'config_activer_pas_a_pas' => 'Включить пошаговый режим?',
-	'config_activer_pas_a_pas_explication' => 'Activer ce mode permet d\'afficher un bilan après chaque action réalisée, au lieu d\'avoir uniquement un bilan global de toutes les actions effectuées à la fin des traitements.', # NEW
+	'config_activer_pas_a_pas_explication' => 'Данная опция позволяет выполнять операции с плагинами не в пакетном режиме ( когда сразу выполняется несколько операция), а пошагово, подтверждая каждую операцию.',
 	'config_activer_runtime' => 'Activer le mode runtime ?', # NEW
 	'config_activer_runtime_explication' => 'Le mode runtime (oui) ne charge que les plugins compatibles avec la version courante de votre SPIP, ce qui est fortement conseillé pour la plupart des usages. En mode non runtime (non), tous les plugins d\'un dépôt sont chargés, quelle que soit la version du SPIP en cours. Cela est uniquement utile pour utiliser SVP afin de présenter tous les plugins existants comme le fait le site Plugins SPIP (plugins.spip.net)', # NEW
 	'config_autoriser_activer_paquets_obsoletes' => 'Разрешить включать устаревшие плагины ?',
-	'config_autoriser_activer_paquets_obsoletes_explication' => 'Les paquets obsolètes sont des paquets locaux présents qui sont plus anciens que d\'autres paquets locaux. L\'obsolescence est établie sur la base de l\'état (stable, test, dev) du paquet ainsi que sur la base de sa version. Activez cette option si vous souhaitez malgré tout pouvoir activer ces plugins obsolètes.', # NEW
+	'config_autoriser_activer_paquets_obsoletes_explication' => 'Устаревшие плагины - это плагины, установленные на вашем сайте, которые старше других плагинов. Определяется по статусу плагина ( тестируется, стабильный и т.д.), а так же по номеру текущей версии. Включить эту настройку, если вы хотите иметь возможность использовать устаревшие плагины.',
 	'config_depot_editable' => 'Разрешить редактирование репозитория?',
 	'config_depot_editable_explication' => 'Cela rend éditable les informations d\'un dépot et permet ainsi de leur joindre éventuellement des mots-clés ou documents. Cette option ne devrait intéresser personne ! Préférez laisser «non» !', # NEW
 	'confirmer_telecharger_dans' => 'Эта операция перезапишет содержимое папки.
@@ -95,27 +95,25 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// F
 	'fieldset_debug' => 'Отладка',
-	'fieldset_edition' => 'Édition', # NEW
-	'fieldset_fonctionnement' => 'Fonctionnement', # NEW
+	'fieldset_edition' => 'Редактирование',
+	'fieldset_fonctionnement' => 'Функционирование',
 
 	// I
 	'info_1_depot' => '1 репозиторий',
 	'info_1_paquet' => '1 пакет',
 	'info_1_plugin' => '1 плагин',
-	'info_admin_plugin_actif_non_verrou_non' => 'Cette page liste les plugins non actifs du site. Ces plugins sont forcément non verrouillés.', # NEW
-	'info_admin_plugin_actif_non_verrou_tous' => 'Cette page liste les plugins non actifs du site. Ces plugins sont forcément non verrouillés.', # NEW
+	'info_admin_plugin_actif_non_verrou_non' => 'Список отключенных плагинов.',
+	'info_admin_plugin_actif_non_verrou_tous' => 'Список отключенных плагинов.',
 	'info_admin_plugin_actif_oui_verrou_non' => 'Список всех включенных плагинов (кроме системных).',
 	'info_admin_plugin_actif_oui_verrou_tous' => 'Список всех включенных плагинов, установленных и системных.',
 	'info_admin_plugin_verrou_non' => 'Список всех плагинов, кроме системных. Включенные и отключенные.',
 	'info_admin_plugin_verrou_tous' => 'Список всех плагинов на сайте.',
-	'info_admin_plugin_verrouille' => 'Cette page liste les plugins actifs et verrouillés (placés dans le répertoire <code>@dir_plugins_dist@</code>).
-	Si vous souhaitez les désactiver,
-	veuillez contacter le webmestre du site,
-	ou vous reporter <a href="http://programmer.spip.org/repertoire_plugins_dist">à la documentation</a>.', # NEW
+	'info_admin_plugin_verrouille' => 'На этой странице вы видите список всех включенных и системных плагинов (установленных в папке <code>@dir_plugins_dist@</code>).
+Если вы хотите отключить плагин - свяжитесь с разработчиками сайта или проконсультируйтесь в  <a href="http://programmer.spip.org/repertoire_plugins_dist">документации</a>.',
 	'info_adresse_spipzone' => 'Плагины SPIP-Zone',
 	'info_ajouter_depot' => 'En ajoutant des dépôts à votre base, vous aurez la possiblité d\'obtenir des informations et d\'effectuer des recherches sur tous les paquets hébergés par les dépôts ajoutés.<br />Un dépôt est décrit par un fichier XML contenant les informations sur le dépôt et sur tous ses paquets.', # NEW
 	'info_aucun_depot' => 'Нет репозитория',
-	'info_aucun_depot_ajoute' => 'Aucun dépôt disponible !<br /> Utilisez le formulaire ci-dessous pour ajouter le dépôt «SPIP-Zone - Plugins» dont l\'url est déjà pré-remplie ou un autre dépôt de votre choix.', # NEW
+	'info_aucun_depot_ajoute' => 'Нет добавленных репозиториев !<br /> Используйте эту форму, что бы добавить репозиторий «Плагины SPIP-Zone», ссылка на который установлена по умолчанию.',
 	'info_aucun_paquet' => 'нет пакетов',
 	'info_aucun_plugin' => 'Нет плагинов',
 	'info_boite_charger_plugin' => '<strong>Cette page est uniquement accessible aux webmestres du site.</strong><p>Elle vous permet de rechercher des plugins mis à disposition par les dépôts enregistrés dans votre configuration et de les installer physiquement sur votre serveur</p>', # NEW
@@ -145,7 +143,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'installation_en_cours' => 'Выполняются запрошенные операции',
 
 	// L
-	'label_1_autre_contribution' => 'autre contribution', # NEW
+	'label_1_autre_contribution' => 'другие разработки',
 	'label_actualise_le' => 'Обновление',
 	'label_archive' => 'Ссылка на архивный файл плагина ',
 	'label_branches_spip' => 'Совместимый',
@@ -158,7 +156,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'label_critere_phrase' => 'Найти плагин',
 	'label_destination' => 'Chemin depuis le répertoire « auto » où déposer le plugin', # NEW
 	'label_modifie_le' => 'Изменялось',
-	'label_n_autres_contributions' => 'autres contributions', # NEW
+	'label_n_autres_contributions' => 'другие разработки',
 	'label_prefixe' => 'Префикс',
 	'label_selectionner_plugin' => 'Выбрать плагин',
 	'label_tags' => 'Теги',
@@ -219,7 +217,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_nok_aucun_plugin_selectionne' => 'Aucun plugin à installer. Veuillez sélectionner les plugins à installer', # NEW
 	'message_nok_champ_obligatoire' => 'Поле, обязательное для заполнения',
 	'message_nok_depot_deja_ajoute' => 'URL « @url@ » соответствует уже добавленному репозиторию',
-	'message_nok_maj_introuvable' => 'Mise à jour du plugin @plugin@ introuvable (@id@).', # NEW
+	'message_nok_maj_introuvable' => 'Не удалось найти новую версию плагина @plugin@ .',
 	'message_nok_plugin_inexistant' => 'Запрошенный плагин не существует(@plugin@).',
 	'message_nok_sql_insert_depot' => 'Произошла SQL ошибка при добавления репозитория @objet@',
 	'message_nok_url_depot_incorrecte' => 'Адрес « @url@ » задан неправильно',
@@ -230,7 +228,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_telechargement_archive_effectue' => 'Файл успешно разархивирован в папке @dir@.',
 
 	// N
-	'nettoyer_actions' => 'Nettoyer ces actions ! Cela effacera la liste des actions qui restent à traiter.', # NEW
+	'nettoyer_actions' => 'Очистить список операций! Вы можете удалить операции, намеченные к выполнению.',
 
 	// O
 	'onglet_depots' => 'Репозитории',
@@ -255,8 +253,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'resume_table_plugins' => 'Плагины в разделе @categorie@',
 
 	// T
-	'telecharger_archive_plugin_explication' => 'Vous pouvez télécharger une archive qui se chargera
-		dans votre répertoire « plugins/auto », en écrivant l\'URL de l\'archive dans le champ de saisie.', # NEW
+	'telecharger_archive_plugin_explication' => 'Вы можете ввести прямую ссылку на файл с архивом плагина и он будет сохранен и установлен в папку « plugins/auto ».',
 	'titre_depot' => 'Репозиторий',
 	'titre_depots' => 'Репозитории',
 	'titre_form_ajouter_depot' => 'Добавить репозиторий',

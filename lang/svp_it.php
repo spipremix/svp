@@ -206,7 +206,7 @@ Se vuoi disabilitarla, per favore contatta il webmaster del sito oppure controll
 	'message_dependance_plugin' => 'Il plugin @plugin@ dipende da @dependance@.',
 	'message_dependance_plugin_version' => 'Il plugin @plugin@ dipende da @dependance@ @version@',
 	'message_erreur_aucun_plugin_selectionne' => 'Nessun plugin selezionato.',
-	'message_erreur_ecriture_lib' => '@plugin@ richiede la libreria <a href="@lib_url@">@lib@</a> posizionata nella directory <var>lib/</var> sulla radice del vostro sito. Però questa directory non è accessibile in scrittura.  Dovete installarlo manualmente oppure dare i permessi di scrittura in questa directory.',
+	'message_erreur_ecriture_lib' => '@plugin@ richiede la libreria <a href="@lib_url@">@lib@</a> posizionata nella directory <var>lib/</var> sulla radice del vostro sito. Però questa directory non è accessibile in scrittura.  Dovete installarlo manualmente oppure dare i permessi di scrittura in questa directory.', # MODIF
 	'message_erreur_maj_inconnu' => 'Impossibile aggiornare un plugin sconosciuto.',
 	'message_erreur_plugin_introuvable' => 'Non è possibile trovare il plugin @plugin@ per @action@.',
 	'message_erreur_plugin_non_actif' => 'Non è possibile disabilitare un plugin non attivo.',

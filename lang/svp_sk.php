@@ -224,7 +224,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_erreur_ecriture_lib' => '@plugin@ potrebuje knižnicu <a href="@lib_url@">@lib@</a>
    								umiestnenú v priečinku <var>lib/</var> do koreňového adresára vašej stránky.
    								Do tohto priečinka sa však nedá zapisovať.
-   								Musíte ho nainštalovať manuálne alebo udeliť tomuto priečinku povolenia na zápis.',
+   								Musíte ho nainštalovať manuálne alebo udeliť tomuto priečinku povolenia na zápis.', # MODIF
 	'message_erreur_maj_inconnu' => 'Neznámy zásuvný modul sa nedá aktualizovať.',
 	'message_erreur_plugin_introuvable' => 'Nedá sa nájsť zásuvný modul @plugin@ na @action@.',
 	'message_erreur_plugin_non_actif' => 'Nedá sa deaktivovať zásuvný modul, ktorý nebol aktivovaný.',
