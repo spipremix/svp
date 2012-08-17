@@ -88,6 +88,22 @@ $GLOBALS['licences_plugin'] = array(
 );
 # define('_LICENCES_PLUGIN', serialize($licences_plugin));
 
+/**
+ * Fusionne 2 intervalles de compatibilité 
+ *
+ * Soit '[1.9;2.1]' et '[2.1;3.0.*]', la fonction retourne '[1.9;3.0.*]'
+ *
+ * En gros la fonction est utilisé pour calculer l'intervalle de validité
+ * d'un plugin ayant plusieurs paquets avec des compatibilités différentes.
+ * La compatibilité du plugin est le total de toutes les compatibilités.
+ * 
+ * @param string $intervalle_a
+ *     Intervalle de compatibilité
+ * @param string $intervalle_b
+ *     Intervalle de compatibilité
+ * @return string
+ *     Intervalle de compatibilité
+**/
 function fusionner_intervalles($intervalle_a, $intervalle_b) {
 
 	// On recupere les bornes de chaque intervalle
@@ -129,7 +145,24 @@ function fusionner_intervalles($intervalle_a, $intervalle_b) {
 	return construire_intervalle($bornes_fusionnees);
 }
 
-
+/**
+ * Extrait les valeurs d'un intervalle de compatibilité.
+ *
+ * Calcule les valeurs min, max et si ces valeurs sont intégrées ou non
+ * à l'intervalle.
+ *
+ * @param string $intervalle
+ *     Intervalle de compatibilité, tel que '[2.1;3.0]'
+ * @param bool $initialiser
+ *     - True pour mettre les valeurs connues mini et maxi de SPIP lorsque
+ *     les bornes ne sont pas renseignées dans l'intervalle.
+ *     - False pour ne rien mettre sinon.
+ * @return array
+ *     Tableau avec les index :
+ *     - min : la borne inférieure, qui contient les index 'valeur' et 'incluse'
+ *     - max : la borne  supérieure, qui contient les index 'valeur' et 'incluse'
+ *     Le sous index 'incluse' vaut true si cette borne est incluse dans l'intervalle.
+**/
 function extraire_bornes($intervalle, $initialiser=false) {
 	static $borne_vide = array('valeur' => '', 'incluse' => false);
 	static $borne_inf_init = array('valeur' => _SVP_VERSION_SPIP_MIN, 'incluse' => true);
@@ -152,10 +185,24 @@ function extraire_bornes($intervalle, $initialiser=false) {
 		}
 	}
 
-	
 	return $bornes;
 }
 
+/**
+ * Contruit un intervalle de compatibilité 
+ *
+ * @param array $bornes
+ *     L'intervalle décrit sous forme de tableau avec pour index :
+ *     - min : la borne inférieure, qui contient les index 'valeur' et 'incluse'
+ *     - max : la borne  supérieure, qui contient les index 'valeur' et 'incluse'
+ *     Le sous index 'incluse' vaut true si cette borne est incluse dans l'intervalle.
+ * @param string $dtd
+ *     DTD de destination (paquet ou plugin) qui influera sur l'écriture à faire
+ *     en utilisant des parenthèses ou des crochets pour définir l'exclusion d'une intervalle
+ *     tel que ']2.1.2,3.0.1[' (paquet) ou '(2.1.2,3.0.1)' (plugin)
+ * @return string
+ *     Intervalle de compatibilité tel que '[2.1;3.0]'
+**/
 function construire_intervalle($bornes, $dtd='paquet') {
 	return ($bornes['min']['incluse'] ? '[' : ($dtd=='paquet' ? ']' : '('))
 			. $bornes['min']['valeur'] . ';' . $bornes['max']['valeur']
