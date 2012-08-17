@@ -75,55 +75,54 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// E
 	'erreur_actions_non_traitees' => 'Manche Aktionen konnten nicht ausgefühert werden. Die Ursache kann entweder ein Ausführungsfehler sein, oder diese Seite wurde neu geladen, währen die Aktionen noch nicht abgeschlossen waren. Die Aktionen wurden von @auteur@ am @date@ ausgelöst.',
-	'erreur_dir_dib_ecriture' => 'Le répertoire des bibliothèques @dir@ n\'est pas accessible en écriture. Impossible d\'y charger une bibliothèque !', # NEW
+	'erreur_dir_dib_ecriture' => 'In das Verzeichnis für Bibliotheken @dir@ kann nicht geschrieben werden. Bibliotheken können nicht geladen werden!',
 	'erreur_dir_dib_indefini' => 'Das Verzeichnis _DIR_LIB wurde nicht definiert. Bibliotheken können dadurch nicht geladen werden !',
-	'erreur_dir_plugins_auto' => 'Le répertoire « plugins/auto » permettant de télécharger des paquets
-		n\'est pas créé ou n\'est pas accessible en écriture.
-		<strong>Vous devez le créer pour pouvoir installer de nouveaux plugins depuis cette interface.</strong>', # NEW
-	'erreur_dir_plugins_auto_ecriture' => 'Le répertoire de paquets @dir@ n\'est pas accessible en écriture. Impossible d\'y charger un paquet !', # NEW
-	'erreur_dir_plugins_auto_indefini' => 'Le répertoire _DIR_PLUGIN_AUTO n\'est pas défini. Impossible d\'y charger un paquet !', # NEW
+	'erreur_dir_plugins_auto' => 'Das Verzeichnis « plugins/auto », in das Pakete geladen werden,
+existiert nicht oder hat keinen Schreibrechte.
+		<strong>Sie müssen es anlegen, um mit diesem Interface neue Plugins zu installieren.</strong>',
+	'erreur_dir_plugins_auto_ecriture' => 'Das Verzeichnis für Pakete @dir@ hat keine Schreibrechte. Es ist so nicht möglich, Pakte zu laden!',
+	'erreur_dir_plugins_auto_indefini' => 'Das Verzeichnis _DIR_PLUGIN_AUTO wurde nicht definiert. Das ist erforderlich, um dort Pakete zu laden!',
 	'erreur_dir_plugins_auto_titre' => 'auf « plugins/auto » kann nicht zugegriffen werden!',
 	'erreur_teleporter_chargement_source_impossible' => 'Die Quelle source @source@ kann nicht geladen werden.',
-	'erreur_teleporter_destination_erreur' => 'Répertoire @dir@ non accessible pour téléporter', # NEW
+	'erreur_teleporter_destination_erreur' => 'Das Verzeichnis @dir@ ist für Datenübertragungen nicht zugänglich.',
 	'erreur_teleporter_echec_deballage_archive' => 'Die Datei @fichier@ kann nicht entpackt werden.',
-	'erreur_teleporter_format_archive_non_supporte' => 'Le format @extension@ n\'est pas supporté par le téléporteur', # NEW
-	'erreur_teleporter_methode_inconue' => 'Méthode @methode@ inconnue pour téléporter', # NEW
-	'erreur_teleporter_type_fichier_inconnu' => 'Type de fichier inconnu pour la source @source@', # NEW
+	'erreur_teleporter_format_archive_non_supporte' => 'Datenübertragungen im Format @extension@ werden nicht unterstützt.',
+	'erreur_teleporter_methode_inconue' => 'Datenübertragung mit der Methode @methode@ ist nicht eingerichtet.',
+	'erreur_teleporter_type_fichier_inconnu' => 'Dateityp der Quelle @source@ unbekannt',
 	'erreurs_xml' => 'Manche XML-Beschreibungen können nicht gelesen werden.',
-	'explication_destination' => 'Le chemin sera calculé depuis le nom de l\'archive si vous ne le remplissez pas.', # NEW
+	'explication_destination' => 'Der Pfadname wird von der Bezeichnung des Archivs abgeleitet, wenn sie ihn nicht eintragen..',
 
 	// F
 	'fieldset_debug' => 'Debug',
-	'fieldset_edition' => 'Édition', # NEW
-	'fieldset_fonctionnement' => 'Fonctionnement', # NEW
+	'fieldset_edition' => 'Bearbeiten',
+	'fieldset_fonctionnement' => 'Funktionsweise',
 
 	// I
 	'info_1_depot' => '1 Depot',
 	'info_1_paquet' => '1 Paket',
 	'info_1_plugin' => '1 Plugin',
 	'info_admin_plugin_actif_non_verrou_non' => 'Diese Seite zeigt eine Liste der inaktiven Plugins de Website. Diese Plugins sind zwangsläufig aktivierbar und deaktivierbar.',
-	'info_admin_plugin_actif_non_verrou_tous' => 'Cette page liste les plugins non actifs du site. Ces plugins sont forcément non verrouillés.', # NEW
-	'info_admin_plugin_actif_oui_verrou_non' => 'Cette page liste les plugins actifs et non verrouillés du site.', # NEW
-	'info_admin_plugin_actif_oui_verrou_tous' => 'Cette page liste tous les plugins actifs du site, verrouillés ou pas.', # NEW
+	'info_admin_plugin_actif_non_verrou_tous' => 'Diese Seite zeigt die inaktiven Plugins der Website. Diese Plugins sind nie verriegelt.',
+	'info_admin_plugin_actif_oui_verrou_non' => 'Diese Seite zeigt alle aktiven und nicht verriegelten Plugins der Website.',
+	'info_admin_plugin_actif_oui_verrou_tous' => 'Diese Seite zeigt alle aktiven Plugins der Website, auch die verriegelten.',
 	'info_admin_plugin_verrou_non' => 'Diese Seite zeigt alle nicht gesperrten, aktiven und deaktivierten Plugins der Seite an.',
 	'info_admin_plugin_verrou_tous' => 'Diese Seite zeigt alle Plugins der Website an.',
-	'info_admin_plugin_verrouille' => 'Cette page liste les plugins actifs et verrouillés (placés dans le répertoire <code>@dir_plugins_dist@</code>).
-	Si vous souhaitez les désactiver,
-	veuillez contacter le webmestre du site,
-	ou vous reporter <a href="http://programmer.spip.org/repertoire_plugins_dist">à la documentation</a>.', # NEW
+	'info_admin_plugin_verrouille' => 'Diese Seite zeigt alle aktiven und verriegelten  (im Verzeichnis <code>@dir_plugins_dist@</code> gespeicherten) Plugins.
+	Wenn sie sie deaktivieren möchten, wenden sie sich bitte an den Webmaster,
+	oder ziehen sie die Informationen in <a href="http://programmer.spip.org/repertoire_plugins_dist">zu Rate.</a>.',
 	'info_adresse_spipzone' => 'SPIP-Zone - Plugins',
-	'info_ajouter_depot' => 'En ajoutant des dépôts à votre base, vous aurez la possiblité d\'obtenir des informations et d\'effectuer des recherches sur tous les paquets hébergés par les dépôts ajoutés.<br />Un dépôt est décrit par un fichier XML contenant les informations sur le dépôt et sur tous ses paquets.', # NEW
+	'info_ajouter_depot' => 'Wenn sie Depots in ihre Datenbank eintragen, können sie auf die Informationen über alle dort gespeicherten Pakete zugreifen und gezielt in den im Depot vorhandenen Paketen suchen.<br />Ein Depot wird durch eine XML-Datei beschrieben, die Informationen über das Depot selbst und die in ihm gespeicherten Pakete enthält.',
 	'info_aucun_depot' => 'Kein Depot',
-	'info_aucun_depot_ajoute' => 'Aucun dépôt disponible !<br /> Utilisez le formulaire ci-dessous pour ajouter le dépôt «SPIP-Zone - Plugins» dont l\'url est déjà pré-remplie ou un autre dépôt de votre choix.', # NEW
+	'info_aucun_depot_ajoute' => 'Kein Depot verfügbar!<br /> Verwenden sie das Formular, um das Depot «SPIP-Zone - Plugins» in die Datenbank einzutragen. Sein URL steht bereits im Formular, sie können aber auch ein anderes Depot ihrer Wahl eintragen.',
 	'info_aucun_paquet' => 'Kein Paket',
 	'info_aucun_plugin' => 'Kein Plugin',
-	'info_boite_charger_plugin' => '<strong>Cette page est uniquement accessible aux webmestres du site.</strong><p>Elle vous permet de rechercher des plugins mis à disposition par les dépôts enregistrés dans votre configuration et de les installer physiquement sur votre serveur</p>', # NEW
-	'info_boite_depot_gerer' => '<strong>Cette page est uniquement accessible aux webmestres du site.</strong><p>Elle permet l\'ajout et l\'actualisation des dépôts de plugins.</p>', # NEW
-	'info_charger_plugin' => 'Pour ajouter un ou plusieurs plugins, effectuez préalablement une recherche multi-critères sur les plugins de la galaxie SPIP. La recherche n\'inclut que les plugins compatibles avec la version SPIP installée et signale les plugins déjà actifs sur le site.', # NEW
+	'info_boite_charger_plugin' => '<strong>Diese Seite ist nur für den Webmaster der Site zugänglich.</strong><p>Sie ermöglicht ihnen, in den eingetragenen Depots nach Plugins zu suchen und diese auf ihrem Server zu installieren.</p>',
+	'info_boite_depot_gerer' => '<strong>Diese Seite ist nur für den Webmaster der Site zugänglich.</strong><p>Sie ermöglich das Aktualisieren und Hinzufügen von Depots für Plugins.</p>',
+	'info_charger_plugin' => 'Sie können ihrer Website ein oder mehrere Plugins hinzufügen, indem sie eine Auswahl nach ihren Kriterien treffen. Die SPIP-Galaxis wird mit ihren Kriterien nach den mit Ihrer SPIP-Version kompatiblen Plugins durchsucht und zeigt ebenfalls bereits in ihrer Website aktive Plugins an.',
 	'info_compatibilite_dependance' => 'Pour @compatibilite@ :', # NEW
 	'info_contributions_hebergees' => '@total_autres@ weitere Kontributionen beherbergt',
-	'info_critere_phrase' => 'Saisissez les mots-clés à chercher dans le préfixe, le nom, le slogan, la description et les auteurs des plugins', # NEW
-	'info_depots_disponibles' => '@total_depots@ dépôt(s)', # NEW
+	'info_critere_phrase' => 'Geben sie die Schlagworte ein, nach denen in Präfix, Name, Slogan, Beschreibung und Autoren der Plugins gesucht werden soll.',
+	'info_depots_disponibles' => '@total_depots@ Depot/s',
 	'info_fichier_depot' => 'Saisissez l\'url du fichier de description du dépôt à ajouter.<br />Pour ajouter le dépôt «SPIP-Zone - Plugins» cliquez sur ce lien : ', # NEW
 	'info_nb_depots' => '@nb@ Depots',
 	'info_nb_paquets' => '@nb@ Pakete',

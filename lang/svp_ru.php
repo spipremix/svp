@@ -62,12 +62,12 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'config_activer_log_verbeux_explication' => 'Эта опция позволяет вести подробное логирование действий…',
 	'config_activer_pas_a_pas' => 'Включить пошаговый режим?',
 	'config_activer_pas_a_pas_explication' => 'Данная опция позволяет выполнять операции с плагинами не в пакетном режиме ( когда сразу выполняется несколько операция), а пошагово, подтверждая каждую операцию.',
-	'config_activer_runtime' => 'Activer le mode runtime ?', # NEW
+	'config_activer_runtime' => 'Включить режим совместимости ?',
 	'config_activer_runtime_explication' => 'Le mode runtime (oui) ne charge que les plugins compatibles avec la version courante de votre SPIP, ce qui est fortement conseillé pour la plupart des usages. En mode non runtime (non), tous les plugins d\'un dépôt sont chargés, quelle que soit la version du SPIP en cours. Cela est uniquement utile pour utiliser SVP afin de présenter tous les plugins existants comme le fait le site Plugins SPIP (plugins.spip.net)', # NEW
 	'config_autoriser_activer_paquets_obsoletes' => 'Разрешить включать устаревшие плагины ?',
 	'config_autoriser_activer_paquets_obsoletes_explication' => 'Устаревшие плагины - это плагины, установленные на вашем сайте, которые старше других плагинов. Определяется по статусу плагина ( тестируется, стабильный и т.д.), а так же по номеру текущей версии. Включить эту настройку, если вы хотите иметь возможность использовать устаревшие плагины.',
 	'config_depot_editable' => 'Разрешить редактирование репозитория?',
-	'config_depot_editable_explication' => 'Cela rend éditable les informations d\'un dépot et permet ainsi de leur joindre éventuellement des mots-clés ou documents. Cette option ne devrait intéresser personne ! Préférez laisser «non» !', # NEW
+	'config_depot_editable_explication' => 'Возможность редактировать информацию о репозитории. Такая потребность не должна у вас возникнуть, поэтому оставьте эту опцию выключенной.',
 	'confirmer_telecharger_dans' => 'Эта операция перезапишет содержимое папки.
 Плагин будет загружен в существующую папку « @dir@».
 Старые файлы будут сохранены в папке« @dir_backup@ ».
@@ -78,9 +78,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'erreur_actions_non_traitees' => 'Некоторые операции не были выполнены. Возможно, были ошибки в процессе выполнения. Выполнение операции инициировал @auteur@  @date@.',
 	'erreur_dir_dib_ecriture' => 'Отсутствуют права на запись папки @dir@. Невозможно загркзить библиотеку!',
 	'erreur_dir_dib_indefini' => 'Не задано значение _DIR_LIB. Невозможно загрузить библиотеку!',
-	'erreur_dir_plugins_auto' => 'Le répertoire « plugins/auto » permettant de télécharger des paquets
-		n\'est pas créé ou n\'est pas accessible en écriture.
-		<strong>Vous devez le créer pour pouvoir installer de nouveaux plugins depuis cette interface.</strong>', # NEW
+	'erreur_dir_plugins_auto' => 'Папка « plugins/auto » позволяющая добавлять плагины из административной части сайта не создана или не хватает прав для записи в нее. Если вы хотите иметь такую возможность, то <strong>вам необходимо ее создать или установить права доступа 777 ( если такая папка существует)</strong>.',
 	'erreur_dir_plugins_auto_ecriture' => 'Отсутствуют права на запись в папке @dir@. Невозможно загрузить пакет!',
 	'erreur_dir_plugins_auto_indefini' => 'Не указана папка _DIR_PLUGIN_AUTO. Невозможно загрузить плагин!',
 	'erreur_dir_plugins_auto_titre' => 'недоступна папка « plugins/auto »!',
@@ -91,7 +89,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'erreur_teleporter_methode_inconue' => 'Неизвестный метод @methode@ для загрузчика файлов',
 	'erreur_teleporter_type_fichier_inconnu' => 'Неизвестный тип файла для источника @source@',
 	'erreurs_xml' => 'Невозможно прочитать некоторый XML описания',
-	'explication_destination' => 'Le chemin sera calculé depuis le nom de l\'archive si vous ne le remplissez pas.', # NEW
+	'explication_destination' => 'Если вы не заполните, то путь будет задан по имени архивного файла.',
 
 	// F
 	'fieldset_debug' => 'Отладка',
@@ -111,19 +109,19 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_admin_plugin_verrouille' => 'На этой странице вы видите список всех включенных и системных плагинов (установленных в папке <code>@dir_plugins_dist@</code>).
 Если вы хотите отключить плагин - свяжитесь с разработчиками сайта или проконсультируйтесь в  <a href="http://programmer.spip.org/repertoire_plugins_dist">документации</a>.',
 	'info_adresse_spipzone' => 'Плагины SPIP-Zone',
-	'info_ajouter_depot' => 'En ajoutant des dépôts à votre base, vous aurez la possiblité d\'obtenir des informations et d\'effectuer des recherches sur tous les paquets hébergés par les dépôts ajoutés.<br />Un dépôt est décrit par un fichier XML contenant les informations sur le dépôt et sur tous ses paquets.', # NEW
+	'info_ajouter_depot' => 'Добавив репозиторий на сайт вы получаете возможность получить информацию о всех плагинах, которые находятся в репозитории. <br /> Название и описание плагинов содержится в  XML файле репозитория.',
 	'info_aucun_depot' => 'Нет репозитория',
 	'info_aucun_depot_ajoute' => 'Нет добавленных репозиториев !<br /> Используйте эту форму, что бы добавить репозиторий «Плагины SPIP-Zone», ссылка на который установлена по умолчанию.',
 	'info_aucun_paquet' => 'нет пакетов',
 	'info_aucun_plugin' => 'Нет плагинов',
-	'info_boite_charger_plugin' => '<strong>Cette page est uniquement accessible aux webmestres du site.</strong><p>Elle vous permet de rechercher des plugins mis à disposition par les dépôts enregistrés dans votre configuration et de les installer physiquement sur votre serveur</p>', # NEW
+	'info_boite_charger_plugin' => '<strong>Эта страница доступна только для вебмастеров сайта.</strong><p>На ней расположена система поиска по плагинам, а также реализована возможность добавлять их на сайт.</p>',
 	'info_boite_depot_gerer' => '<strong>Страница доступна только для вебмастера сайта.</strong><p>Тут вы можете добавлять и изменять репозитории плагинов.</p>',
-	'info_charger_plugin' => 'Pour ajouter un ou plusieurs plugins, effectuez préalablement une recherche multi-critères sur les plugins de la galaxie SPIP. La recherche n\'inclut que les plugins compatibles avec la version SPIP installée et signale les plugins déjà actifs sur le site.', # NEW
+	'info_charger_plugin' => 'Для того, что бы добавить плагин, найдите при помощи системы поиска. Поиск выполняется только среди плагинов, совместимых в версией SPIP, используемой на сайте.',
 	'info_compatibilite_dependance' => 'Для @compatibilite@ :',
-	'info_contributions_hebergees' => '@total_autres@ autre(s) contribution(s) hébergée(s)', # NEW
+	'info_contributions_hebergees' => '@total_autres@ прочих  разработок',
 	'info_critere_phrase' => 'Задайте слово  для поиска в названии, описании, слогане, префиксе или разработчиков плагинов.',
 	'info_depots_disponibles' => '@total_depots@ репозиториев',
-	'info_fichier_depot' => 'Saisissez l\'url du fichier de description du dépôt à ajouter.<br />Pour ajouter le dépôt «SPIP-Zone - Plugins» cliquez sur ce lien : ', # NEW
+	'info_fichier_depot' => 'Укажите ссылку на XML файл репозитория.<br /> Чтобы добавить репозиторий  « Плагины SPIP-Zone » просто нажмите на ссылку: ',
 	'info_nb_depots' => '@nb@ репозиториев',
 	'info_nb_paquets' => '@nb@ пакетов',
 	'info_nb_plugins' => '@nb@ плагинов',
@@ -154,7 +152,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'label_critere_doublon' => 'Совместимость',
 	'label_critere_etat' => 'Статус',
 	'label_critere_phrase' => 'Найти плагин',
-	'label_destination' => 'Chemin depuis le répertoire « auto » où déposer le plugin', # NEW
+	'label_destination' => 'Путь относительно папки « auto » для загрузки плагина',
 	'label_modifie_le' => 'Изменялось',
 	'label_n_autres_contributions' => 'другие разработки',
 	'label_prefixe' => 'Префикс',
@@ -207,14 +205,14 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_dependance_plugin' => 'Для  @plugin@ необходим @dependance@.',
 	'message_dependance_plugin_version' => 'Для установки @plugin@ необходим @dependance@ @version@',
 	'message_erreur_aucun_plugin_selectionne' => 'Ни один плагин не выбран.',
-	'message_erreur_ecriture_lib' => '@plugin@ a besoin de la bibliothèque <a href="@lib_url@">@lib@</a> placée dans le répertoire <var>lib/</var> à la racine de votre site. Cependant, ce répertoire n\'est pas accessible en écriture. Vous devez l\'installer manuellement ou donner des permissions d\'écriture à ce répertoire.', # NEW
+	'message_erreur_ecriture_lib' => 'Для установки плагина @plugin@ необходима библиотека <a href="@lib_url@">@lib@</a>. Библиотеки должны находится в папке <var>lib/</var> в корне сайта. Но эта папка или не существует или не хвватает прав на запись. Необходимо или создать папку, или установить права на запись (обычно 777).',
 	'message_erreur_maj_inconnu' => 'Невозможно обновить неизвестный плагин (@id@).',
 	'message_erreur_plugin_introuvable' => 'Не получается найти плагин @plugin@ для @action@.',
 	'message_erreur_plugin_non_actif' => 'Нельзя отключить отключенный плагин.',
 	'message_incompatibilite_spip' => '@plugin@  не совместим с текущей версией вашей CMS SPIP.',
-	'message_nok_aucun_depot_disponible' => 'Aucun plugin n\'est disponible ! Veuillez vous rendre dans la page de gestion des dépôts pour ajouter des listes de plugins.', # NEW
-	'message_nok_aucun_paquet_ajoute' => 'Le dépôt « @url@ » ne fournit aucun nouveau paquet par rapport à la base déjà enregistrée. Il n\'a donc pas été ajouté', # NEW
-	'message_nok_aucun_plugin_selectionne' => 'Aucun plugin à installer. Veuillez sélectionner les plugins à installer', # NEW
+	'message_nok_aucun_depot_disponible' => 'Нет доступных плагинов! Добавьте хотя бы один репозиторий на странице управления репозиториями.',
+	'message_nok_aucun_paquet_ajoute' => 'В репозитории « @url@ » нет новых пакетов по сравнению с плагинами в базе сайта. Репозиторий не был добавлен.',
+	'message_nok_aucun_plugin_selectionne' => 'Не выбран ни один плагин. Выберите плагин, который вы хотите установить.',
 	'message_nok_champ_obligatoire' => 'Поле, обязательное для заполнения',
 	'message_nok_depot_deja_ajoute' => 'URL « @url@ » соответствует уже добавленному репозиторию',
 	'message_nok_maj_introuvable' => 'Не удалось найти новую версию плагина @plugin@ .',
@@ -224,7 +222,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_nok_xml_non_conforme' => 'Не подходит описание XML файла « @fichier@',
 	'message_ok_aucun_plugin_trouve' => 'Не найдены плагины по заданным критериям поиска.',
 	'message_ok_depot_ajoute' => 'Репозиторий « @url@ » успешно добавлен.',
-	'message_ok_plugins_trouves' => '@nb_plugins@ plugin(s) correspondent aux critères choisis (@tri@). Sélectionnez ci-dessous les plugins que vous souhaitez télécharger et activer sur votre serveur.', # NEW
+	'message_ok_plugins_trouves' => 'Найдено @nb_plugins@ плагин(ов) по запросу (@tri@). Вы можете выбрать какие плагины вы хотите скачать и установить.',
 	'message_telechargement_archive_effectue' => 'Файл успешно разархивирован в папке @dir@.',
 
 	// N
