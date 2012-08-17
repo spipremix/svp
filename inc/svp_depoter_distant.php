@@ -3,7 +3,7 @@
 /**
  * Traitement des dépots distants
  *
- * Un dépot distant est est une liste de paquets que l'on peut télécharger.
+ * Un dépot distant est une liste de paquets que l'on peut télécharger.
  * Cette liste est donnée par un fichier XML que l'on peut relire
  * régulièrement pour actualiser nos informations. Effectivement, chaque
  * paquet (et plugin) décrit est inséré en base de données pour nous

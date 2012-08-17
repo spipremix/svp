@@ -271,7 +271,22 @@ function balise_identique($balise1, $balise2) {
 }
 
 
-// Determiner la licence exacte avec un nom et un lien de doc standardise
+/**
+ * Déterminer la licence exacte avec un nom et un lien de doc standardisé
+ *
+ * @param string $prefixe
+ *     Préfixe de la licence tel que gnu, free, cc, creative common
+ * @param string $nom
+ *     Nom de la licence tel que gpl, lgpl, agpl, fdl, mit, bsd...
+ * @param string $suffixe
+ *     Suffixe de la licence tel que licence, -sharealike, -nc-nd ...
+ * @param string $version
+ *     Version de la licence tel que 3.0
+ * @return array
+ *     Si la licence est connu, retourne 2 index :
+ *     - nom : le nom le la licence
+ *     - url : lien vers la licence
+ */
 function definir_licence($prefixe, $nom, $suffixe, $version) {
 	global $licences_plugin;
 	$licence = array();
