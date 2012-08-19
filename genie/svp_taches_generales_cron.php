@@ -12,7 +12,7 @@ if (!defined("_ECRIRE_INC_VERSION")) return;
 
 if (!defined('_SVP_CRON_ACTUALISATION_DEPOTS')) {
 	/**
-	 * Mise a jour automatique des depots (CRON)
+	 * Mise à jour automatique des depots (CRON)
 	 * true pour autoriser les actualisations automatique
 	 * @var bool
 	 */

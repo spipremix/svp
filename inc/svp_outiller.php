@@ -31,7 +31,7 @@ if (!defined('_SVP_VERSION_SPIP_MAX')) {
  * Liste des branches significatives de SPIP et de leurs bornes (versions min et max)
  *
  * À mettre a jour en fonction des sorties
- * @global infos_branches_spip
+ * @global array $GLOBALS['infos_branches_spip']
  */
 $GLOBALS['infos_branches_spip'] = array(
 	'1.9' => array(_SVP_VERSION_SPIP_MIN,'1.9.2'),
@@ -45,7 +45,7 @@ $GLOBALS['infos_branches_spip'] = array(
 /**
  * Liste des licences de plugin
  *
- * @global licences_plugin
+ * @global array $GLOBALS['licences_plugin']
  */
 $GLOBALS['licences_plugin'] = array(
 	'apache' => array(
@@ -210,6 +210,15 @@ function construire_intervalle($bornes, $dtd='paquet') {
 }
 
 
+/**
+ * Retourne la liste des branches de SPIP comprises dans un intervalle
+ * de compatibilité donné.
+ *
+ * @param string $intervalle
+ *     Intervalle de compatibilité, tel que [2.0.0;3.0.0]
+ * @return string
+ *     Branches de SPIP séparées par des virgules, tel que 2.0,2.1,3.0
+**/
 function compiler_branches_spip($intervalle) {
 	include_spip('plugins/installer');
 
@@ -267,7 +276,7 @@ function compiler_branches_spip($intervalle) {
 	if (!in_array($branche_sup, $liste_branches_spip))
 		return '';
 	// -- on complete la borne sup de l'intervalle de x.y en x.y.z et on determine la vraie branche
-	if (!$t[2]) {
+	if (!isset($t[2]) or !$t[2]) {
 		if ($bornes['max']['incluse'])
 			$borne_sup = $infos_branches_spip[$branche_sup][1];
 		else {
@@ -295,6 +304,14 @@ function compiler_branches_spip($intervalle) {
 }
 
 
+/**
+ * Transforme un texte écrit en entités HTML, dans le charset du site 
+ *
+ * @param string $texte
+ *     Texte avec des entités HTML
+ * @return string $texte
+ *     Texte dans le charset du site
+**/
 function entite2charset($texte) {
 	if (!strlen($texte)) return '';
 	include_spip('inc/charsets');
@@ -302,6 +319,16 @@ function entite2charset($texte) {
 }
 
 
+/**
+ * Teste si 2 balises XML sont identiques 
+ *
+ * @param array|string $balise1
+ *     Balise à comparer
+ * @param array|string $balise2
+ *     Balise à comparer
+ * @return bool
+ *     True si elles sont identiques, false sinon.
+**/
 function balise_identique($balise1, $balise2) {
 	if (is_array($balise1)) {
 		foreach ($balise1 as $_attribut1 => $_valeur1){
