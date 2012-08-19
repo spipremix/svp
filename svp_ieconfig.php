@@ -5,7 +5,7 @@
  * 
  * @plugin SVP pour SPIP
  * @license GPL
- * @package SPIP\Plugins\SVP\Pipelines
+ * @package SPIP\SVP\Pipelines
 **/
 
 if (!defined("_ECRIRE_INC_VERSION")) return;
@@ -13,7 +13,7 @@ if (!defined("_ECRIRE_INC_VERSION")) return;
 /**
  * Ajoute les metas sauvegardables de SVP pour le plugin IEConfig
  *
- * @pipelined ieconfig_metas
+ * @pipeline ieconfig_metas
  *
  * @param array $table
  *     Déclaration des sauvegardes

@@ -5,7 +5,7 @@
  *
  * @plugin SVP pour SPIP
  * @license GPL
- * @package SPIP\Plugins\SVP\Actionneur
+ * @package SPIP\SVP\Actionneur
  */
  
 if (!defined("_ECRIRE_INC_VERSION")) return;
@@ -15,7 +15,7 @@ if (!defined("_ECRIRE_INC_VERSION")) return;
  * L'actionneur calcule l'ordre des actions, permet de les stocker
  * dans un fichier cache et de les effectuer.
  *
- * @package SPIP\Plugins\SVP\Actionner
+ * @package SPIP\SVP\Actionner
 **/
 class Actionneur {
 

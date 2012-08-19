@@ -13,7 +13,7 @@
  * 
  * @plugin SVP pour SPIP
  * @license GPL
- * @package SPIP\Plugins\SVP\Depots
+ * @package SPIP\SVP\Depots
  */
 
 /**

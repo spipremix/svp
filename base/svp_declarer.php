@@ -4,7 +4,7 @@
  * 
  * @plugin SVP pour SPIP
  * @license GPL
- * @package SPIP\Plugins\SVP\Pipelines
+ * @package SPIP\SVP\Pipelines
 **/
 
 /**
@@ -14,7 +14,7 @@
  * - Plugin : table spip_plugins
  * - Paquet : table spip_paquets
  *
- * @pipelined declarer_tables_objets_sql
+ * @pipeline declarer_tables_objets_sql
  * @param array $tables
  *     Description des tables
  * @return array
@@ -206,7 +206,7 @@ function svp_declarer_tables_objets_sql($tables) {
  *
  * Déclare la table spip_depots_plugins
  *
- * @pipelined declarer_tables_auxiliaires
+ * @pipeline declarer_tables_auxiliaires
  * @param array $tables_auxiliaires
  *     Description des tables auxiliaires
  * @return array
@@ -232,7 +232,7 @@ function svp_declarer_tables_auxiliaires($tables_auxiliaires) {
 /**
  * Déclare les alias de boucle et traitements automatiques de certaines balises
  *
- * @pipelined declarer_tables_interfaces
+ * @pipeline declarer_tables_interfaces
  * @param array $interface
  *     Déclarations d'interface pour le compilateur
  * @return array

@@ -7,7 +7,7 @@
  *
  * @plugin SVP pour SPIP
  * @license GPL
- * @package SPIP\Plugins\SVP\Decideur
+ * @package SPIP\SVP\Decideur
  */
  
 if (!defined("_ECRIRE_INC_VERSION")) return;
@@ -20,7 +20,7 @@ include_spip('inc/svp_rechercher'); // svp_verifier_compatibilite_spip()
  * Le décideur calcule les actions qui doivent être faites en fonction
  * de ce qui est demandé et des différentes dépendances des plugins.
  *
- * @package SPIP\Plugins\SVP\Actionner
+ * @package SPIP\SVP\Actionner
 **/
 class Decideur {
 

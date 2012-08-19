@@ -5,7 +5,7 @@
  *
  * @plugin SVP pour SPIP
  * @license GPL
- * @package SPIP\Plugins\SVP\Genie
+ * @package SPIP\SVP\Genie
  */
 if (!defined("_ECRIRE_INC_VERSION")) return;
 
@@ -31,7 +31,7 @@ if (!defined('_SVP_PERIODE_ACTUALISATION_DEPOTS')) {
 /**
  * Ajoute la tâche d'actualisation des dépots dans la liste des tâches périodiques
  *
- * @pipelined taches_generales_cron
+ * @pipeline taches_generales_cron
  *
  * @param array $taches_generales
  *     Tableau des tâches et leur périodicité en seconde

@@ -4,12 +4,12 @@
  * 
  * @plugin SVP pour SPIP
  * @license GPL
- * @package SPIP\Plugins\SVP\Pipelines
+ * @package SPIP\SVP\Pipelines
 **/
 
 /**
  * Fonction du pipeline autoriser. N'a rien à faire
- * @pipelined autoriser
+ * @pipeline autoriser
  */
 function svp_autoriser(){}
 
@@ -34,7 +34,7 @@ function autoriser_depot_iconifier_dist($faire, $type, $id, $qui, $opt){
  * L'URL dépend de l'existence ou pas d'un dépot de plugins.
  * En absence, on amène sur la page permettant de créer un premier dépot.
  *
- * @pipelined ajouter_onglets
+ * @pipeline ajouter_onglets
  * @param array $flux Données du pipeline
  * @return array      Données du pipeline
  */
@@ -61,7 +61,7 @@ function svp_ajouter_onglets($flux){
  * Utiliser {tout} pour tout avoir.
  * Utiliser {tout}{id_depot=0} pour avoir les plugins ou paquets locaux.
  *
- * @pipelined pre_boucle
+ * @pipeline pre_boucle
  * @param Boucle $boucle Description de la boucle
  * @return Boucle        Description de la boucle
 **/

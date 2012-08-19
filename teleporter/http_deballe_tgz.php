@@ -4,7 +4,7 @@
  *
  * @plugin SVP pour SPIP
  * @license GPL
- * @package SPIP\Plugins\SVP\Teleporteur
+ * @package SPIP\SVP\Teleporteur
  */
 
 
