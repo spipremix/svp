@@ -328,16 +328,6 @@ function entite2charset($texte) {
  * @return bool
  *     True si elles sont identiques, false sinon.
 **/
-/**
- * Teste si 2 balises XML sont identiques 
- *
- * @param array|string $balise1
- *     Balise à comparer
- * @param array|string $balise2
- *     Balise à comparer
- * @return bool
- *     True si elles sont identiques, false sinon.
-**/
 function balise_identique($balise1, $balise2) {
 	if (is_array($balise1)) {
 		foreach ($balise1 as $_attribut1 => $_valeur1){
