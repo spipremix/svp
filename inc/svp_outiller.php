@@ -318,7 +318,16 @@ function entite2charset($texte) {
 	return unicode2charset(html_entity_decode(preg_replace('/&([lg]t;)/S', '&amp;\1', $texte), ENT_NOQUOTES, $GLOBALS['meta']['charset']));
 }
 
-
+/**
+ * Teste si 2 balises XML sont identiques 
+ *
+ * @param array|string $balise1
+ *     Balise à comparer
+ * @param array|string $balise2
+ *     Balise à comparer
+ * @return bool
+ *     True si elles sont identiques, false sinon.
+**/
 /**
  * Teste si 2 balises XML sont identiques 
  *

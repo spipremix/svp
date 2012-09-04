@@ -94,15 +94,19 @@ function svp_afficher_dependances($balise_serialisee, $dependance='necessite', $
 				if ($texte)
 					$texte .= $sep;
 				if (($dependance == 'necessite' ) OR ($dependance == 'utilise')) {
-					if ($plugin = sql_fetsel('id_plugin, nom', 'spip_plugins', 'prefixe=' . sql_quote($_plugin['nom'])))
+					if ($plugin = sql_fetsel('id_plugin, nom', 'spip_plugins', 'prefixe=' . sql_quote($_plugin['nom']))) {
 						$logiciel = '<a href="' . generer_url_entite($plugin['id_plugin'], 'plugin') . '" title="' . _T('svp:bulle_aller_plugin') . '">' .
 									extraire_multi($plugin['nom']) . '</a>';
-					else
+					} else {
 						// Cas ou le plugin n'est pas encore dans la base SVP.
 						// On affiche son préfixe, cependant ce n'est pas un affichage devant perdurer
 						$logiciel = $_plugin['nom'];
-					$intervalle = svp_afficher_intervalle($_plugin['compatibilite'], $logiciel);
-					$texte .= ($intervalle) ? svp_afficher_intervalle($_plugin['compatibilite'], $logiciel) : $logiciel;
+					}
+					$intervalle = "";
+					if (isset($_plugin['compatibilite'])) {
+						$intervalle = svp_afficher_intervalle($_plugin['compatibilite'], $logiciel);
+					}
+					$texte .= ($intervalle) ? $intervalle : $logiciel;
 				}
 				else
 					// On demande l'affichage des librairies
