@@ -833,6 +833,7 @@ class Actionneur {
 			array(
 			'pl.prefixe='.sql_quote($info['p']),
 			'pa.version='.sql_quote($info['maj']),
+			'pa.id_plugin = pl.id_plugin',
 			'pa.id_depot>'.sql_quote(0)),
 			'', 'pa.etatnum DESC', '0,1')) {
 
