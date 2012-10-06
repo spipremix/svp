@@ -16,7 +16,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'actions_non_traitees' => 'Acciones no ejecutadas',
 	'actions_realises' => 'Acciones ejecutadas',
 	'afficher_les_plugins_incompatibles' => 'Mostrar los plugins incompatibles',
-	'alerte_compatibilite' => 'Compatibilité forcée', # NEW
+	'alerte_compatibilite' => 'Compatibilidad forzada',
 
 	// B
 	'bouton_activer' => 'Activar',
@@ -71,7 +71,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'confirmer_telecharger_dans' => 'El plugin será cargado en una carpeta (@dir@) que ya existe. Esta acción  eliminará el contenido actual de dicha carpeta. Una copia de los contenidos actuales será guardado en "@dir_backup@". Debes confirmar esta acción.',
 
 	// E
-	'erreur_actions_non_traitees' => 'Certaines actions n\'ont pas été réalisées. Cela peut provenir d\'une erreur lors des actions à réaliser, ou d\'un affichage de cette page alors que des actions sont encore en cours. Les actions avaient été lancées par @auteur@ le @date@.', # NEW
+	'erreur_actions_non_traitees' => 'Ciertas acciones no fueron realizadas. Esto puede provenir de un error durante las acciones por realizar, o de la activación de esta página mientras las acciones aún están en curso. Las acciones fueron lanzadas por @auteur@ el @date@.',
 	'erreur_dir_dib_ecriture' => 'Le répertoire des bibliothèques @dir@ n\'est pas accessible en écriture. Impossible d\'y charger une bibliothèque !', # NEW
 	'erreur_dir_dib_indefini' => 'Le répertoire _DIR_LIB n\'est pas défini. Impossible d\'y charger une bibliothèque !', # NEW
 	'erreur_dir_plugins_auto' => 'Le répertoire « plugins/auto » permettant de télécharger des paquets
@@ -86,7 +86,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'erreur_teleporter_format_archive_non_supporte' => 'Le format @extension@ n\'est pas supporté par le téléporteur', # NEW
 	'erreur_teleporter_methode_inconue' => 'Méthode @methode@ inconnue pour téléporter', # NEW
 	'erreur_teleporter_type_fichier_inconnu' => 'Tipo de archivo desconocido para  @source@',
-	'erreurs_xml' => 'Impossible de lire certaines descriptions XML', # NEW
+	'erreurs_xml' => 'Imposible leer ciertas descripciones XML',
 	'explication_destination' => 'Le chemin sera calculé depuis le nom de l\'archive si vous ne le remplissez pas.', # NEW
 
 	// F
