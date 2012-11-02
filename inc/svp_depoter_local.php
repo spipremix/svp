@@ -457,6 +457,7 @@ function svp_compiler_multis($prefixe, $dir_source) {
 
 	// On cherche tous les fichiers de langue destines a la traduction du paquet.xml
 	if ($fichiers_langue = glob($dir_source . "/lang/{$module}_*.php")) {
+		include_spip('inc/lang_liste');
 		$nom = $slogan = $description = '';
 		foreach ($fichiers_langue as $_fichier_langue) {
 			$nom_fichier = basename($_fichier_langue, '.php');
