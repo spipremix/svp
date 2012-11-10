@@ -349,4 +349,32 @@ cc by-nc-sa 2.5
 	</description>
 </multis>
 </archive>
+
+<archive id="css_imbriques.zip" dtd="paquet">
+<zip>
+	<file>css_imbriques.zip</file>
+	<size>22576</size>
+	<date>1352124002</date>
+	<source>_plugins_/css_imbriques</source>
+	<last_commit>2012-11-05 15:00:02</last_commit>
+</zip>
+
+<paquet
+	prefix="css_imbriques"
+	categorie="outil"
+	version="3.1.1"
+	documentation="http://www.paris-beyrouth.org/tutoriaux-spip/article/plugin-spip-pre-processeur-de-css"
+	etat="stable"
+	compatibilite="[3.0.0;3.*]"
+>
+	<nom>CSS imbriqu&#233;s</nom>
+
+	<auteur lien="http://www.paris-beyrouth.org">ARNO*</auteur>
+	<licence lien="http://www.gnu.org/licenses/lgpl.html">GNU/LGPL</licence>
+
+	<chemin path="/" />
+
+</paquet>
+</archive>
+
 </archives>
