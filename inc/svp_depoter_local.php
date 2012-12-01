@@ -77,9 +77,9 @@ function svp_descriptions_paquets_locaux(&$erreurs_xml = array()) {
 		'_DIR_PLUGINS'    => $get_infos(array(), false, _DIR_PLUGINS),
 		'_DIR_PLUGINS_DIST' => $get_infos(array(), false, _DIR_PLUGINS_DIST),
 	);
-	if (defined('_DIR_PLUGINS_SUPP') and _DIR_PLUGINS_SUPP) {
-		liste_plugin_files(_DIR_PLUGINS_SUPP);
-		$paquets_locaux['_DIR_PLUGINS_SUPP'] = $get_infos(array(), false, _DIR_PLUGINS_SUPP);
+	if (defined('_DIR_PLUGINS_SUPPL') and _DIR_PLUGINS_SUPPL) {
+		liste_plugin_files(_DIR_PLUGINS_SUPPL);
+		$paquets_locaux['_DIR_PLUGINS_SUPPL'] = $get_infos(array(), false, _DIR_PLUGINS_SUPPL);
 	}
 
 	// creer la liste des signatures
