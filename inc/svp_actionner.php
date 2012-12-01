@@ -837,7 +837,13 @@ class Actionneur {
 			'pa.id_depot>'.sql_quote(0)),
 			'', 'pa.etatnum DESC', '0,1')) {
 
-			if ($dirs = $this->get_paquet_id($maj)) {
+			// si dans auto, on autorise à mettre à jour depuis auto pour les VCS
+			$dir_actuel_dans_auto = '';
+			if (substr($i['src_archive'], 0, 5) == 'auto/') {
+				$dir_actuel_dans_auto = substr($i['src_archive'], 5);
+			}
+
+			if ($dirs = $this->get_paquet_id($maj, $dir_actuel_dans_auto)) {
 				// Si le plugin a jour n'est pas dans le meme dossier que l'ancien...
 				// il faut :
 				// - activer le plugin sur son nouvel emplacement (uniquement si l'ancien est actif)...
@@ -1257,13 +1263,15 @@ class Actionneur {
 	 *
 	 * @param int|array $id_or_row
 	 *     Identifiant du paquet ou description ligne SQL du paquet
+	 * @param string $dest_ancien
+	 *     Chemin vers l'ancien répertoire (pour les mises à jour par VCS)
 	 * @return bool|array
 	 *     False si erreur.
 	 *     Tableau de 2 index sinon :
 	 *     - dir : Chemin du paquet téléchargé depuis la racine
 	 *     - dossier : Chemin du paquet téléchargé, depuis _DIR_PLUGINS
 	 */
-	function get_paquet_id($id_or_row) {
+	function get_paquet_id($id_or_row, $dest_ancien="") {
 		// on peut passer direct le row sql...
 		if (!is_array($id_or_row)) {
 			$i = sql_fetsel('*','spip_paquets','id_paquet='.sql_quote($id_or_row));
@@ -1274,8 +1282,11 @@ class Actionneur {
 
 		if ($i['nom_archive'] and $i['id_depot']) {
 			$this->log("Recuperer l'archive : " . $i['nom_archive'] );
-			if ($adresse = sql_getfetsel('url_archives', 'spip_depots', 'id_depot='.sql_quote($i['id_depot']))) {
-				$zip = $adresse . '/' . $i['nom_archive'];
+			// on récupère les informations intéressantes du dépot :
+			// - url des archives
+			// - éventuellement : type de serveur (svn, git) et url de la racine serveur (svn://..../)
+			$adresses = sql_fetsel(array('url_archives', 'type', 'url_serveur'), 'spip_depots', 'id_depot='.sql_quote($i['id_depot']));
+			if ($adresses and $adresse = $adresses['url_archives']) {
 
 				// destination : auto/prefixe/version (sinon auto/nom_archive/version)
 				$prefixe = sql_getfetsel('pl.prefixe',
@@ -1286,37 +1297,32 @@ class Actionneur {
 				$base =  ($prefixe ? strtolower($prefixe) : substr($i['nom_archive'], 0, -4) ); // enlever .zip ...
 
 				// prefixe/version
-				$dest = $base . '/v' . denormaliser_version($i['version']);
-				
-				// si on tombe sur un auto/X ayant des fichiers (et pas uniquement des dossiers)
-				// ou un dossier qui ne commence pas par 'v'
-				// c'est que auto/X n'était pas chargé avec SVP
-				// ce qui peut arriver lorsqu'on migre de SPIP 2.1 à 3.0
-				// dans ce cas, on supprime auto X pour mettre notre nouveau paquet.
-				$ecraser_base = false;
-				if (is_dir(_DIR_PLUGINS_AUTO . $base)) {
-					$base_files = scandir(_DIR_PLUGINS_AUTO . $base);
-					if (is_array($base_files)) {
-						$base_files = array_diff($base_files, array('.', '..'));
-						foreach ($base_files as $f) {
-							if (($f[0] != '.' and $f[0] != 'v') // commence pas par v
-							OR ($f[0] != '.' and !is_dir(_DIR_PLUGINS_AUTO . $base . '/' . $f))) { // commence par v mais pas repertoire
-								$ecraser_base = true;
-								break;
-							}
-						}
-					}
-				}
-				if ($ecraser_base) {
+				$dest_future = $base . '/v' . denormaliser_version($i['version']);
+
+				// Nettoyer les vieux formats dans auto/
+				if ($this->tester_repertoire_destination_ancien_format(_DIR_PLUGINS_AUTO . $base)) {
 					supprimer_repertoire(_DIR_PLUGINS_AUTO . $base);
 				}
 
+				// l'url est différente en fonction du téléporteur
+				$teleporteur = $this->choisir_teleporteur($adresses['type']);
+				if ($teleporteur == 'http') {
+					$url  = $adresse . '/' . $i['nom_archive'];
+					$dest = $dest_future;
+				} else {
+					$url  = $adresses['url_serveur'] . '/' . $i['src_archive'];
+					$dest = $dest_ancien ? $dest_ancien : $dest_future;
+				}
 
 				// on recupere la mise a jour...
 				include_spip('action/teleporter');
 				$teleporter_composant = charger_fonction('teleporter_composant', 'action');
-				$ok = $teleporter_composant('http', $zip, _DIR_PLUGINS_AUTO . $dest);
+				$ok = $teleporter_composant($teleporteur, $url, _DIR_PLUGINS_AUTO . $dest);
 				if ($ok === true) {
+					// pour une mise à jour via VCS, il faut rebasculer sur le nouveau nom de repertoire
+					if ($dest != $dest_future) {
+						rename(_DIR_PLUGINS_AUTO . $dest, _DIR_PLUGINS_AUTO . $dest_future);
+					}
 					return array(
 						'dir'=> _DIR_PLUGINS_AUTO . $dest,
 						'dossier' => 'auto/' . $dest, // c'est depuis _DIR_PLUGINS ... pas bien en dur...
@@ -1352,6 +1358,68 @@ class Actionneur {
 			return false;
 		}
 		return true;
+	}
+
+
+	/**
+	 * Teste si un répertoire du plugin auto, contenant un plugin
+	 * est dans un ancien format auto/prefixe/ (qui doit alors être supprimé)
+	 * ou dans un format normal auto/prefixe/vx.y.z
+	 *
+	 * @example
+	 *     $this->tester_repertoire_destination_ancien_format(_DIR_PLUGINS_AUTO . $base);
+	 *
+	 * @param string $dir_dans_auto
+	 *      Chemin du répertoire à tester
+	 * @return bool
+	 *      true si le répertoire est dans un ancien format
+	 */
+	function tester_repertoire_destination_ancien_format($dir_dans_auto) {
+		// si on tombe sur un auto/X ayant des fichiers (et pas uniquement des dossiers)
+		// ou un dossier qui ne commence pas par 'v'
+		// c'est que auto/X n'était pas chargé avec SVP
+		// ce qui peut arriver lorsqu'on migre de SPIP 2.1 à 3.0
+		// dans ce cas, on supprime auto X pour mettre notre nouveau paquet.
+		if (is_dir($dir_dans_auto)) {
+			$base_files = scandir($dir_dans_auto);
+			if (is_array($base_files)) {
+				$base_files = array_diff($base_files, array('.', '..'));
+				foreach ($base_files as $f) {
+					if (($f[0] != '.' and $f[0] != 'v') // commence pas par v
+					OR ($f[0] != '.' and !is_dir($dir_dans_auto . '/' . $f))) { // commence par v mais pas repertoire
+						return true;
+					}
+				}
+			}
+		}
+
+		return false;
+	}
+
+
+	/**
+	 * Teste s'il est possible d'utiliser un téléporteur particulier,
+	 * sinon retourne le nom du téléporteur par défaut
+	 *
+	 * @param string $teleporteur Téléporteur VCS à tester
+	 * @param string $defaut Téléporteur par défaut
+	 * 
+	 * @return string Nom du téléporteur à utiliser
+	**/
+	function choisir_teleporteur($teleporteur, $defaut = 'http') {
+		// Utiliser un teleporteur vcs si possible si demandé
+		if (defined('SVP_PREFERER_TELECHARGEMENT_PAR_VCS') and SVP_PREFERER_TELECHARGEMENT_PAR_VCS) {
+			if ($teleporteur) {
+				include_spip('teleporter/' . $teleporteur);
+				$tester_teleporteur = "teleporter_{$teleporteur}_tester";
+				if (function_exists($tester_teleporteur)) {
+					if ($tester_teleporteur()) {
+						return $teleporteur;
+					}
+				}
+			}
+		}
+		return $defaut;
 	}
 
 

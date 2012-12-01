@@ -151,3 +151,18 @@ function teleporter_git_exec($dest,$command) {
 	exec($command);
 	chdir($curdir);
 }
+
+
+/**
+ * Tester si la commande 'git' est disponible
+ *
+ * @return bool
+ *     true si on peut utiliser la commande svn
+**/
+function teleporter_git_tester() {
+	static $erreurs = null;
+	if (is_null($erreurs)) {
+		exec("git --version", $output, $erreurs);
+	}
+	return !$erreurs;
+}

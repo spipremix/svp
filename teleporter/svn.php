@@ -116,3 +116,18 @@ function teleporter_svn_read($dest,$options=array()){
 		'dest' => $dest
 	);
 }
+
+
+/**
+ * Tester si la commande 'svn' est disponible
+ *
+ * @return bool
+ *     true si on peut utiliser la commande svn
+**/
+function teleporter_svn_tester() {
+	static $erreurs = null;
+	if (is_null($erreurs)) {
+		exec("svn --version", $output, $erreurs);
+	}
+	return !$erreurs;
+}
