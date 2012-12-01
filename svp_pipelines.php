@@ -38,7 +38,9 @@ function autoriser_depot_iconifier_dist($faire, $type, $id, $qui, $opt){
  * @return bool          true s'il a le droit, false sinon
  */
 function autoriser_plugins_ajouter_dist($faire, $type, $id, $qui, $opt){
-	return autoriser('webmestre');
+	if (!defined('_AUTORISER_TELECHARGER_PLUGINS'))
+		define('_AUTORISER_TELECHARGER_PLUGINS', true);
+	return _AUTORISER_TELECHARGER_PLUGINS AND autoriser('webmestre');
 }
 
 
