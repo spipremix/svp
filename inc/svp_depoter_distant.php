@@ -47,7 +47,7 @@ function svp_ajouter_depot($url, &$erreur='') {
 		return false;
 	}
 
-	$fichier_xml = _DIR_RACINE . $ficher_xml;
+	$fichier_xml = _DIR_RACINE . $fichier_xml;
 
 	// Lire les donnees d'un depot de paquets
 	$infos = svp_phraser_depot($fichier_xml);
