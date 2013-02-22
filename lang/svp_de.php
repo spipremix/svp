@@ -222,6 +222,7 @@ existiert nicht oder hat keinen Schreibrechte.
 	'message_nok_sql_insert_depot' => 'SQL-Fehler beim Hinzufügen des Depots @objet@',
 	'message_nok_url_depot_incorrecte' => 'Die Adresse « @url@ » ist falsch.',
 	'message_nok_xml_non_conforme' => 'Formatfehler der XML-Datei « @fichier@ » zur Beschreibung des Depots.',
+	'message_nok_xml_non_recupere' => 'Le fichier XML « @fichier@ » n\'a pas pu être récupéré', # NEW
 	'message_ok_aucun_plugin_trouve' => 'Diesen Kriterien entsprcht kein Plugin.',
 	'message_ok_depot_ajoute' => 'Das Depot « @url@ » wurde hinzugefügt.',
 	'message_ok_plugins_trouves' => 'Die Plugin(s) @nb_plugins@ entsprechen den Kriterien (@tri@). Bitte wählen sie, welche sie auf ihren Server laden und aktivieren möchten.',
