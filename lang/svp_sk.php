@@ -88,7 +88,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// E
 	'erreur_actions_non_traitees' => 'Niektoré akcie neboli vykonané.
 			Mohlo sa to stať kvôli chybám v akciách, ktoré bolo treba vykonať, alebo kvôli chybe v zobrazení tejto stránky, zatiaľčo akcie čakajú, kým budú vykonané. Akcie spustil(a) @auteur@ @date@.',
-	'erreur_auth_plugins_ajouter_lib' => 'Vous n\'avez pas les droits nécessaires pour ajouter une librairie.', # NEW
+	'erreur_auth_plugins_ajouter_lib' => 'Na pridanie knižnice nemáte potrebné práva.',
 	'erreur_dir_dib_ecriture' => 'Do adresára knižníc @dir@ sa nedá zapisovať. Knižnica sa nedá spustiť!',
 	'erreur_dir_dib_indefini' => 'Priečinok _DIR_LIB nie je definovaný. Knižnica sa nedá spustiť!',
 	'erreur_dir_plugins_auto' => 'Priečinok "plugins/auto" na stiahnutie balíkov
@@ -238,7 +238,7 @@ alebo vytvoriť tento priečinok a nastaviť mu povolenie na zápis.',
 	'message_nok_sql_insert_depot' => 'Pri pridávaní depozitára @objet@ sa vyskytla chyba SQL',
 	'message_nok_url_depot_incorrecte' => 'Adresa "@url@" je nesprávna',
 	'message_nok_xml_non_conforme' => 'Súbor XML, ktorý je popisom depozitára,  "@fichier@"  nie je kompatibilný',
-	'message_nok_xml_non_recupere' => 'Le fichier XML « @fichier@ » n\'a pas pu être récupéré', # NEW
+	'message_nok_xml_non_recupere' => 'Súbor XML " @fichier@ " sa nepodarilo získať',
 	'message_ok_aucun_plugin_trouve' => 'Vybraným kritériám nevyhovuje žiaden zásuvný modul.',
 	'message_ok_depot_ajoute' => 'Depozitár "@url@" bol priadaný.',
 	'message_ok_plugins_trouves' => 'Vybraným kritériám (@tri@) vyhovuje @nb_plugins@ zásuvný(ch) modul(ov). Vyberte si tie zásuvné moduly, ktoré chcete stiahnuť a aktivovať na svojom serveri.',
