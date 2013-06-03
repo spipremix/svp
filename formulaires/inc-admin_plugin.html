@@ -5,7 +5,7 @@
 [(#SET{erreur_attente,[- <span class="information">(#GET{autoriser_plugins_ajouter}|?{<:svp:info_plugin_attente_dependance:>,<:svp:info_plugin_attente_dependance_interdit:>})</span> ]})]
 [(#SET{erreur_incompatible,- <span class="information"><:svp:info_plugin_incompatible:></span>})]
 <B_plugins>
-[(#GET{imcompatibles})
+[(#GET{incompatibles})
 	[(#ENV{afficher_incompatibles,''}|non)
 	<a id="afficher_incompatibles" href="[(#SELF|parametre_url{afficher_incompatibles,1})]"><:svp:afficher_les_plugins_incompatibles:></a>
 	]
@@ -20,7 +20,7 @@
 		#SET{verrou,#CONSTANTE|=={_DIR_PLUGINS_DIST}|oui}
 		#SET{actif,#ACTIF|=={oui}|oui}
 		#SET{attente,#ATTENTE|=={oui}|oui}
-		[(#GET{incompatible})#SET{imcompatibles,' '}]
+		[(#GET{incompatible})#SET{incompatibles,' '}]
 		[(#GET{incompatible}|non|ou{#ENV{afficher_incompatibles,''}}|ou{#GET{verrou}}|ou{#GET{actif}}|ou{#GET{attente}})
 		#SET{obsolete,#OBSOLETE|=={oui}|oui}
 		#SET{details,#ENV{id_paquet,''}|=={#ID_PAQUET}|oui}
