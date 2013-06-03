@@ -53,6 +53,7 @@ function formulaires_admin_plugin_charger_dist($voir='actif', $verrouille='non',
 	$valeurs['id_paquet'] = $id_paquet;
 	$valeurs['actions'] = array();
 	$valeurs['ids_paquet'] = _request('ids_paquet');
+	$valeurs['afficher_incompatibles'] = _request('afficher_incompatibles');
 	$valeurs['_todo'] = _request('_todo');
 
 	return $valeurs;
@@ -177,19 +178,5 @@ function formulaires_admin_plugin_traiter_dist($voir='actif', $verrouille='non',
 	return $retour;
 }
 
-/**
- * Crée une valeur d'action pour l'attribut 'name' d'une saisie de formulaire
- *
- * @example
- *     [(#ID_PAQUET|svp_nom_action{on})]
- *     écrit : actions[on][24]
- * @param int $id_paquet
- *     Identifiant du paquet
- * @param string $action
- *     Une action possible (on, off, stop, up, on, upon, kill)
-**/
-function filtre_svp_nom_action($id_paquet, $action) {
-	return "actions[$action][$id_paquet]";
-}
 
 ?>

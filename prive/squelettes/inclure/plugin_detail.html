@@ -1,4 +1,4 @@
-<div class="details"><BOUCLE_plugins(PAQUETS plugins){tout}{id_paquet}>
+<div class="details"><BOUCLE_pluginsdetail(PAQUETS plugins){tout}{id_paquet}>
 	<dl class="description">
 		<dd class="desc">
 			[(#DESCRIPTION|extraire_multi|propre)]
@@ -22,4 +22,4 @@
 		[<dt><:plugin_info_necessite:></dt>
 		<dd>(#DEPENDANCES|svp_afficher_dependances{necessite, ', '}|supprimer_tags)</dd>]
 	</dl>]
-</BOUCLE_plugins></div>
+</BOUCLE_pluginsdetail></div>
