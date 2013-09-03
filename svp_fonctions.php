@@ -448,7 +448,7 @@ function svp_compter($entite, $id_depot=0, $categorie='', $compatible_spip=''){
  *     #SVP_CATEGORIES{ordre_alpha}
  *     #SVP_CATEGORIES{ordre_cle,auteur}
  *
- * @balise svp_categories
+ * @balise
  * @see calcul_svp_categories()
  * @param Champ $p
  *     Pile au niveau de la balise
@@ -515,7 +515,7 @@ function calcul_svp_categories($tri='ordre_cle', $categorie='') {
  *     #SVP_BRANCHES_SPIP       : array('1.9', '2.0', '2.1', ....)
  *     #SVP_BRANCHES_SPIP{3.0}  : array('3.0.0', '3.0.99')
  *
- * @balise svp_branches_spip
+ * @balise
  * @see calcul_svp_branches_spip()
  * 
  * @param Champ $p
@@ -604,7 +604,7 @@ function svp_traduire_type_depot($type) {
  *
  * Le ! (NOT) fonctionne sur le critère BRANCHE
  * 
- * @critere compatible_spip
+ * @critere
  * @example
  *   {compatible_spip}
  *   {compatible_spip 2.0.8} ou {compatible_spip 1.9}
@@ -651,7 +651,7 @@ function critere_compatible_spip_dist($idb, &$boucles, $crit) {
 /**
  * Retourne la liste des plugins trouvés par une recherche
  *
- * @filtre construire_recherche_plugins
+ * @filtre
  * @param string $phrase
  *     Texte de la recherche
  * @param string $categorie
