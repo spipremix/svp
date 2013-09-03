@@ -315,7 +315,7 @@ function svp_actualiser_depot($id){
  *     Nombre de paquets réellement inserés dans la base
  * @param int $nb_plugins
  *     Nombre de plugins parmi les paquets inserés
- * @param int &$nb_autres
+ * @param int $nb_autres
  *     Nombre de contributions non issues de plugin parmi les paquets inserés
  * @return bool
  *     false si aucun dépot ou paquets, true sinon

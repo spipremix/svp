@@ -390,7 +390,7 @@ function svp_phraser_traductions($contenu) {
  *     - 'nonvide' : Si la balise n'est pas trouvée dans l'arbre ou si son
  *       contenu est vide, affecte la valeur du tableau initial concernant
  *       cette balise si elle est connue.
- * @param array
+ * @param array $tableau_initial
  *     Tableau initial pouvant contenir des valeurs par défaut à affecter
  *     à chaque balise avec 'x' => 'valeur'
  */
