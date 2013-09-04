@@ -576,7 +576,7 @@ class Actionneur {
 	 * Si un id_auteur est transmis, teste que c'est cet auteur
 	 * précis qui a posé le verrou.
 	 *
-	 * @see Actionneur\verrouiller()
+	 * @see Actionneur::verrouiller()
 	 * 
 	 * @param int|string $id_auteur
 	 *     Identifiant de l'auteur, ou vide
