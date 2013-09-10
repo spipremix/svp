@@ -75,7 +75,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// E
 	'erreur_actions_non_traitees' => 'Manche Aktionen konnten nicht ausgefühert werden. Die Ursache kann entweder ein Ausführungsfehler sein, oder diese Seite wurde neu geladen, währen die Aktionen noch nicht abgeschlossen waren. Die Aktionen wurden von @auteur@ am @date@ ausgelöst.',
-	'erreur_auth_plugins_ajouter_lib' => 'Vous n\'avez pas les droits nécessaires pour ajouter une librairie.', # NEW
 	'erreur_dir_dib_ecriture' => 'In das Verzeichnis für Bibliotheken @dir@ kann nicht geschrieben werden. Bibliotheken können nicht geladen werden!',
 	'erreur_dir_dib_indefini' => 'Das Verzeichnis _DIR_LIB wurde nicht definiert. Bibliotheken können dadurch nicht geladen werden !',
 	'erreur_dir_plugins_auto' => 'Das Verzeichnis « plugins/auto », in das Pakete geladen werden,
@@ -223,7 +222,6 @@ existiert nicht oder hat keinen Schreibrechte.
 	'message_nok_sql_insert_depot' => 'SQL-Fehler beim Hinzufügen des Depots @objet@',
 	'message_nok_url_depot_incorrecte' => 'Die Adresse « @url@ » ist falsch.',
 	'message_nok_xml_non_conforme' => 'Formatfehler der XML-Datei « @fichier@ » zur Beschreibung des Depots.',
-	'message_nok_xml_non_recupere' => 'Le fichier XML « @fichier@ » n\'a pas pu être récupéré', # NEW
 	'message_ok_aucun_plugin_trouve' => 'Diesen Kriterien entsprcht kein Plugin.',
 	'message_ok_depot_ajoute' => 'Das Depot « @url@ » wurde hinzugefügt.',
 	'message_ok_plugins_trouves' => 'Die Plugin(s) @nb_plugins@ entsprechen den Kriterien (@tri@). Bitte wählen sie, welche sie auf ihren Server laden und aktivieren möchten.',

@@ -16,7 +16,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'actions_non_traitees' => 'اقدام‌هاي انجام نشده ',
 	'actions_realises' => 'اقدام‌هاي انجام شده ',
 	'afficher_les_plugins_incompatibles' => 'نمايش پلاگين‌هاي ناسازگار',
-	'alerte_compatibilite' => 'Compatibilité forcée', # NEW
 
 	// B
 	'bouton_activer' => 'فعال سازي ',
@@ -80,7 +79,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// E
 	'erreur_actions_non_traitees' => 'بعضي از اقدام‌ها انجام نشده است. اين مي‌تواند ناشي از بروز خطا،حين پردازش آن اقدام‌ها، يا ناشي از نمايش اين صفحه هنگامي كه آن اقدام‌ها در دست پردازش بوده‌اند، باشد. اقدام‌ها به وسيله‌ي @auteur@در تاريخ @date@شروع شده‌اند. ',
-	'erreur_auth_plugins_ajouter_lib' => 'Vous n\'avez pas les droits nécessaires pour ajouter une librairie.', # NEW
 	'erreur_dir_dib_ecriture' => 'پوشه‌ي آرشيو‌هاي @dir@ قابل نوشتن نيستب. بارگذاري يك آرشيو ممكن نيست.  ',
 	'erreur_dir_dib_indefini' => 'پوشه‌ي  _DIR_LIB تعريف نشده. بارگذاري يك آرشيو ممكن نيست.',
 	'erreur_dir_plugins_auto' => 'پوشه‌ي «plugins/auto»  كه اجازه‌ي بارگذاري پاكت‌ها را مي‌دهد ايجاد نشده يا در دسترس نوشتن نيست. 
@@ -94,7 +92,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'erreur_teleporter_format_archive_non_supporte' => '   فرمت @extension@ توسط انتقال دهنده پشتيباني نمي‌شود',
 	'erreur_teleporter_methode_inconue' => 'روش @methode@ براي انتقال ناشناخته است',
 	'erreur_teleporter_type_fichier_inconnu' => 'نوع پرونده‌‌ي ناشناخته براي منبع @source@',
-	'erreurs_xml' => 'Impossible de lire certaines descriptions XML', # NEW
 	'explication_destination' => 'اگر اين را پر نكنيد مسير با نام آرشيوي محاسبه خواهد شد. ',
 
 	// F
@@ -235,7 +232,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 ',
 	'message_nok_url_depot_incorrecte' => ' نشاني«@url@» درست نيست',
 	'message_nok_xml_non_conforme' => 'پرونده ايكس.ام.ال «@fichier@»در توصيف مخزن تأييد نمي‌شود. ',
-	'message_nok_xml_non_recupere' => 'Le fichier XML « @fichier@ » n\'a pas pu être récupéré', # NEW
 	'message_ok_aucun_plugin_trouve' => 'هيچ پلاگيني با معيار‌هاي منتخب جور نيست.',
 	'message_ok_depot_ajoute' => 'مخزن «@url@» افزوده شده.',
 	'message_ok_plugins_trouves' => '@nb_plugins@.در زير پلاگين‌هايي را كه مي‌خواهيد بارگذاري كرده و در سرور خود فعال كنيد، انتخاب نماييد. پلاگين با معيارهاي منتخب(@tri@) جور است
