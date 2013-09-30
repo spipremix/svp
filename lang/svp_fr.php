@@ -64,8 +64,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'config_activer_runtime_explication' => 'Le mode runtime (oui) ne charge que les plugins compatibles avec la version courante de votre SPIP, ce qui est fortement conseillé pour la plupart des usages. En mode non runtime (non), tous les plugins d’un dépôt sont chargés, quelle que soit la version du SPIP en cours. Cela est uniquement utile pour utiliser SVP afin de présenter tous les plugins existants comme le fait le site Plugins SPIP (plugins.spip.net)',
 	'config_autoriser_activer_paquets_obsoletes' => 'Autoriser l’activation des paquets obsolètes ?',
 	'config_autoriser_activer_paquets_obsoletes_explication' => 'Les paquets obsolètes sont des paquets locaux présents qui sont plus anciens que d’autres paquets locaux. L’obsolescence est établie sur la base de l’état (stable, test, dev) du paquet ainsi que sur la base de sa version. Activez cette option si vous souhaitez malgré tout pouvoir activer ces plugins obsolètes.',
-	'config_depot_editable' => 'Permettre l’édition des dépots ?',
-	'config_depot_editable_explication' => 'Cela rend éditable les informations d’un dépot et permet ainsi de leur joindre éventuellement des mots-clés ou documents. Cette option ne devrait intéresser personne ! Préférez laisser « non » !',
+	'config_depot_editable' => 'Permettre l’édition des dépôts ?',
+	'config_depot_editable_explication' => 'Cela rend éditable les informations d’un dépôt et permet ainsi de leur joindre éventuellement des mots-clés ou documents. Cette option ne devrait intéresser personne ! Préférez laisser « non » !',
 	'confirmer_telecharger_dans' => 'Le plugin sera chargé dans un répertoire (@dir@) qui existe déjà.
 	Cela écrasera le contenu de ce répertoire.
 	Une copie de l’ancien contenu sera sauvegardé dans « @dir_backup@ ».
@@ -73,7 +73,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// E
 	'erreur_actions_non_traitees' => 'Certaines actions n’ont pas été réalisées. Cela peut provenir d’une erreur lors des actions à réaliser, ou d’un affichage de cette page alors que des actions sont encore en cours. Les actions avaient été lancées par @auteur@ le @date@.',
-	'erreur_auth_plugins_ajouter_lib' => 'Vous n’avez pas les droits nécessaires pour ajouter une librairie.',
+	'erreur_auth_plugins_ajouter_lib' => 'Vous n’avez pas les droits nécessaires pour ajouter une bibliothèque.',
 	'erreur_dir_dib_ecriture' => 'Le répertoire des bibliothèques @dir@ n’est pas accessible en écriture. Impossible d’y charger une bibliothèque !',
 	'erreur_dir_dib_indefini' => 'Le répertoire _DIR_LIB n’est pas défini. Impossible d’y charger une bibliothèque !',
 	'erreur_dir_plugins_auto' => 'Le répertoire « plugins/auto » permettant de télécharger des paquets
@@ -192,8 +192,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_action_finale_stop_ok' => 'La désinstallation du plugin « @plugin@ » (version : @version@) s’est correctement déroulée',
 	'message_action_finale_up_fail' => 'La mise à jour du plugin « @plugin@ » (de la version : @version@ à @version_maj@) ne s’est pas correctement déroulée',
 	'message_action_finale_up_ok' => 'La mise à jour du plugin « @plugin@ » (de la version : @version@ à @version_maj@) s’est correctement déroulée',
-	'message_action_finale_upon_fail' => 'La mise à jour et l’activation du plugin « @plugin@ » (de la version : @version@ à @version_maj@) ne se sont pas correctement déroulés',
-	'message_action_finale_upon_ok' => 'La mise à jour et l’activation du plugin « @plugin@ » (de la version : @version@ à @version_maj@) se sont correctement déroulés',
+	'message_action_finale_upon_fail' => 'La mise à jour et l’activation du plugin « @plugin@ » (de la version : @version@ à @version_maj@) ne se sont pas correctement déroulées',
+	'message_action_finale_upon_ok' => 'La mise à jour et l’activation du plugin « @plugin@ » (de la version : @version@ à @version_maj@) se sont correctement déroulées',
 	'message_action_get' => 'Télécharger le plugin « @plugin@ » (version : @version@)',
 	'message_action_getlib' => 'Télécharger la bibliothèque « <a href="@version@" class="spip_out">@plugin@</a> »',
 	'message_action_geton' => 'Télécharger et activer le plugin « @plugin@ » (version : @version@)',
