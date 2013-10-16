@@ -130,7 +130,7 @@ is not created or is not writable.
 	'info_paquets_disponibles' => '@total_paquets@ available package(s)',
 	'info_plugin_attente_dependance' => 'missing dependencies',
 	'info_plugin_incompatible' => 'incompatible version',
-	'info_plugin_installe' => 'allready installed',
+	'info_plugin_installe' => 'already installed',
 	'info_plugin_obsolete' => 'obsolete version',
 	'info_plugins_disponibles' => '@total_plugins@ available plugin(s)',
 	'info_plugins_heberges' => '@total_plugins@ hosted plugin(s)',
