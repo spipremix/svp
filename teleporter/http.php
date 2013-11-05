@@ -160,6 +160,8 @@ function http_deballe_recherche_racine($list){
 			if ($n>$max_n)
 				continue;
 			$sofar = join('/',$p);
+			if (!isset($paths[$n])) $paths[$n] = array(); 
+			if (!isset($paths[$n][$sofar])) $paths[$n][$sofar] = 0; 
 			$paths[$n][$sofar]++;
 			$p[] = $x;
 		}
