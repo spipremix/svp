@@ -32,7 +32,7 @@
 <script type="text/javascript">
     //<![CDATA[
     jQuery(function(){
-		jQuery('#contenu .svp_retour').on('hover',function(){
+		jQuery('#contenu .svp_retour').on('mouseenter',function(){
 			if (jQuery('.box .inner .hd h3 img.close', this).length == 0) {
 				jQuery('.box .inner .hd h3', this)
 					.append("[(#CHEMIN_IMAGE{fermer-16.png}|balise_img|inserer_attribut{class,close})]")
