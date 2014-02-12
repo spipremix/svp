@@ -788,7 +788,7 @@ class Actionneur {
 	function do_on($info) {
 		$i = sql_fetsel('*','spip_paquets','id_paquet='.sql_quote($info['i']));
 		// à télécharger ?
-		if ($i['id_zone'] > 0) {
+		if (isset($i['id_zone']) and $i['id_zone'] > 0) {
 			return $this->do_geton($info);
 		}
 		

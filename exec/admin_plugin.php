@@ -19,7 +19,7 @@
  *
  * @plugin SVP pour SPIP
  * @license GPL
- * @package SPIP\SVP\Actions
+ * @package SPIP\SVP\Exec
  */
 if (!defined('_ECRIRE_INC_VERSION')) return;
 
@@ -27,6 +27,14 @@ include_spip('inc/presentation');
 
 /**
  * Affichage de la page de gestion des plugins
+ *
+ * @use actualise_plugins_actifs()
+ * @use svp_presenter_actions_realisees()
+ * @use plugin_installes_meta()
+ * @use plugin_donne_erreurs()
+ * 
+ * @pipeline_appel affiche_gauche
+ * @pipeline_appel affiche_droite
  */
 function exec_admin_plugin_dist() {
 
