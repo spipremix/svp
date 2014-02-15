@@ -67,7 +67,7 @@ D&eacute;p&ocirc;t de tests
 	<nom>
 		<multi>
 		[en]Compass
-		[fr]Boussole
+		[fr]Boussole &#224; jojo
 		</multi>
 	</nom>
 	<slogan>
@@ -375,6 +375,7 @@ cc by-nc-sa 2.5
 	<chemin path="/" />
 
 </paquet>
-</archive>
 
+
+</archive>
 </archives>
