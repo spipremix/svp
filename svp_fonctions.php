@@ -2,7 +2,7 @@
 
 /**
  * Déclarations de fonctions
- * 
+ *
  * @plugin SVP pour SPIP
  * @license GPL
  * @package SPIP\SVP\Fonctions
@@ -12,7 +12,7 @@
  * Retourne un texte expliquant l'intervalle de compatibilité avec un plugin ou SPIP
  *
  * Retourne par exemple "2.0 <= SPIP < 3.1"
- * 
+ *
  * @param string $intervalle
  *     L'intervalle tel que déclaré dans paquet.xml. Par exemple "[2.1;3.0.*]"
  * @param string $logiciel
@@ -60,11 +60,11 @@ function svp_afficher_etat($etat) {
 }
 
 /**
- * Retourne un texte HTML présentant la liste des dépendances d'un plugin 
+ * Retourne un texte HTML présentant la liste des dépendances d'un plugin
  *
  * Des liens vers les plugins dépendants sont présents lorsque les plugins
  * en dépendance sont connus dans notre base.
- * 
+ *
  * @param string $balise_serialisee
  *     Informations des dépendances (tableau sérialisé) tel que stocké
  *     en base dans la table spip_paquets
@@ -154,11 +154,11 @@ function svp_dependances_existe($balise_serialisee) {
 
 
 /**
- * Retourne un texte HTML présentant les crédits d'un plugin 
+ * Retourne un texte HTML présentant les crédits d'un plugin
  *
  * Des liens vers les crédits sont présents lorsqu'ils sont déclarés
  * dans le paquet.xml.
- * 
+ *
  * @param string $balise_serialisee
  *     Informations des crédits (tableau sérialisé) tel que stocké
  *     en base dans la table spip_paquets
@@ -169,17 +169,17 @@ function svp_dependances_existe($balise_serialisee) {
 **/
 function svp_afficher_credits($balise_serialisee, $sep=', ') {
 	$texte = '';
-	
+
 	$credits = unserialize($balise_serialisee);
 	if (is_array($credits)) {
 		foreach ($credits as $_credit) {
-			if ($texte) 
+			if ($texte)
 				$texte .= $sep;
 			// Si le credit en cours n'est pas un array c'est donc un copyright
-			$texte .= 
-				(!is_array($_credit)) 
+			$texte .=
+				(!is_array($_credit))
 				? PtoBR(propre($_credit)) // propre pour les [lien->url] des auteurs de plugin.xml ...
-				: ($_credit['url'] ? '<a href="' . $_credit['url'] . '">' : '') . 
+				: ($_credit['url'] ? '<a href="' . $_credit['url'] . '">' : '') .
 				  $_credit['nom'] .
 				  ($_credit['url'] ? '</a>' : '');
 		}
@@ -190,10 +190,10 @@ function svp_afficher_credits($balise_serialisee, $sep=', ') {
 
 
 /**
- * Retourne un texte HTML présentant la liste des langues et traducteurs d'un plugin 
+ * Retourne un texte HTML présentant la liste des langues et traducteurs d'un plugin
  *
  * Des liens vers les traducteurs sont présents lorsqu'ils sont connus.
- * 
+ *
  * @param array $langues
  *     Tableau code de langue => traducteurs
  * @param string $sep
@@ -203,10 +203,10 @@ function svp_afficher_credits($balise_serialisee, $sep=', ') {
 **/
 function svp_afficher_langues($langues, $sep=', '){
 	$texte = '';
-	
+
 	if ($langues) {
 		foreach ($langues as $_code => $_traducteurs) {
-			if ($texte) 
+			if ($texte)
 				$texte .= $sep;
 			$traducteurs_langue = array();
 			foreach ($_traducteurs as $_traducteur) {
@@ -229,7 +229,7 @@ function svp_afficher_langues($langues, $sep=', '){
  *
  * Liste le nombre de plugins et de paquets d'un dépot
  * Indique aussi le nombre de dépots si l'on ne demande pas de dépot particulier.
- * 
+ *
  * @param int $id_depot
  *     Identifiant du dépot
  * @return string
@@ -268,7 +268,7 @@ function svp_afficher_statistiques_globales($id_depot=0){
  * tel que l'appartenance à un certain dépot, une certaine catégorie
  * ou une certaine branche de SPIP et retourne une phrase traduite
  * tel que «78 paquets disponibles»
- * 
+ *
  * @param int $id_depot
  *     Identifiant du dépot
  *     Zéro (par défaut) signifie ici : «dans tous les dépots distants»
@@ -293,7 +293,7 @@ function svp_compter_telechargements($id_depot=0, $categorie='', $compatible_spi
  * de ces différents totaux. Les totaux correspondent par défaut aux
  * plugins et paquets, mais l'on peut demander le total des autres contributions
  * avec le second paramètre.
- * 
+ *
  * @param int $id_depot
  *     Identifiant du dépot
  *     Zéro (par défaut) signifie ici : «dans tous les dépots distants»
@@ -336,7 +336,7 @@ function svp_compter_depots($id_depot, $contrib='plugin'){
  * tel que l'appartenance à un certain dépot, une certaine catégorie
  * ou une certaine branche de SPIP et retourne une phrase traduite
  * tel que «64 plugins disponibles»
- * 
+ *
  * @param int $id_depot
  *     Identifiant du dépot
  *     Zéro (par défaut) signifie ici : «dans tous les dépots distants»
@@ -365,11 +365,11 @@ function svp_compter_plugins($id_depot=0, $categorie='', $compatible_spip='') {
  *
  * Lorsque l'entité demandée est un dépot, le tableau des totaux possède,
  * en plus du nombre de dépots, le nombre de plugins et paquets.
- * 
+ *
  * @note
  *     Attention le critère de compatibilite SPIP pris en compte est uniquement
  *     celui d'une branche SPIP
- * 
+ *
  * @param string $entite
  *     De quoi veut-on obtenir des comptes. Peut être 'depot', 'plugin',
  *    'paquet' ou 'categorie'
@@ -418,8 +418,8 @@ function svp_compter($entite, $id_depot=0, $categorie='', $compatible_spip=''){
 		$compteurs['paquet'] = sql_countsel('spip_paquets AS t1', $where);
 	}
 	elseif ($entite == 'depot') {
-		$champs = array('COUNT(t1.id_depot) AS depot', 
-						'SUM(t1.nbr_plugins) AS plugin', 
+		$champs = array('COUNT(t1.id_depot) AS depot',
+						'SUM(t1.nbr_plugins) AS plugin',
 						'SUM(t1.nbr_paquets) AS paquet',
 						'SUM(t1.nbr_autres) AS autre');
 		$compteurs = sql_fetsel($champs, 'spip_depots AS t1', $where);
@@ -441,7 +441,7 @@ function svp_compter($entite, $id_depot=0, $categorie='', $compatible_spip=''){
 			$where[] = "t2.categorie=" . sql_quote($categorie);
 		else
 			$group_by = array('t2.categorie');
-		$compteurs['categorie'] = sql_countsel($from, $where, $group_by); 
+		$compteurs['categorie'] = sql_countsel($from, $where, $group_by);
 	}
 
 	return $compteurs;
@@ -449,7 +449,7 @@ function svp_compter($entite, $id_depot=0, $categorie='', $compatible_spip=''){
 
 
 /**
- * Compile la balise #SVP_CATEGORIES
+ * Compile la balise `#SVP_CATEGORIES`
  *
  * Cette balise retourne un tableau listant chaque type de catégorie
  * en index, associé à sa traduction en valeur.
@@ -513,26 +513,26 @@ function calcul_svp_categories($tri='ordre_cle', $categorie='') {
 				$retour[$_alias] = svp_traduire_categorie($_alias);
 		}
 	}
-	
+
 	return $retour;
 }
 
 
 /**
- * Compile la balise #SVP_BRANCHES_SPIP
+ * Compile la balise `#SVP_BRANCHES_SPIP`
  *
  * Cette balise retourne une liste des branches de SPIP
  *
  * Avec un paramètre indiquant une branche, la balise retourne
  * une liste des bornes mini et maxi de cette branche.
- * 
+ *
  * @example
  *     #SVP_BRANCHES_SPIP       : array('1.9', '2.0', '2.1', ....)
  *     #SVP_BRANCHES_SPIP{3.0}  : array('3.0.0', '3.0.99')
  *
  * @balise
  * @see calcul_svp_branches_spip()
- * 
+ *
  * @param Champ $p
  *     Pile au niveau de la balise
  * @return Champ
@@ -572,12 +572,12 @@ function calcul_svp_branches_spip($branche) {
 			$retour = array_keys($svp_branches);
 		}
 	}
-	
+
 	return $retour;
 }
 
 /**
- * Traduit un type de catégorie de plugin 
+ * Traduit un type de catégorie de plugin
  *
  * @param string $alias
  *     Type de catégorie (auteur, communication, date...)
@@ -593,7 +593,7 @@ function svp_traduire_categorie($alias) {
 }
 
 /**
- * Traduit un type de dépot de plugin 
+ * Traduit un type de dépot de plugin
  *
  * @param string $type
  *     Type de dépot (svn, git, manuel)
@@ -611,21 +611,21 @@ function svp_traduire_type_depot($type) {
 
 /**
  * Critère de compatibilité avec une version précise ou une branche de SPIP.
- * 
+ *
  * Fonctionne sur les tables spip_paquets et spip_plugins
  *
  * Si aucune valeur n'est explicité dans le critère, tous les enregistrements
  * sont retournés.
  *
  * Le ! (NOT) fonctionne sur le critère BRANCHE
- * 
+ *
  * @critere
  * @example
  *   {compatible_spip}
  *   {compatible_spip 2.0.8} ou {compatible_spip 1.9}
  *   {compatible_spip #ENV{vers}} ou {compatible_spip #ENV{vers, 1.9.2}}
  *   {compatible_spip #GET{vers}} ou {compatible_spip #GET{vers, 2.1}}
- * 
+ *
  * @param string $idb     Identifiant de la boucle
  * @param array $boucles  AST du squelette
  * @param Critere $crit   Paramètres du critère dans cette boucle
@@ -725,7 +725,7 @@ function filtre_svp_periode_actualisation_depots() {
 
 /**
  * Retourne 'x.y.z' à partir de '00x.00y.00z'
- * 
+ *
  * Retourne la chaine de la version x.y.z sous sa forme initiale,
  * sans remplissage à gauche avec des 0.
  *
@@ -757,7 +757,7 @@ function denormaliser_version($version_normalisee='') {
  *
  * Ce répertoire permet de télécharger dedans des plugins
  * lorsqu'il est présent.
- * 
+ *
  * @return bool
  *     Le répertoire de chargement des plugins auto est-il présent
  *     et utilisable ?
