@@ -12,6 +12,8 @@
  * Déballer le fichier au format zip dans le répertoire $dest
  * en utilisant le dossier temporaire $tmp si besoin
  *
+ * @uses  teleporter_http_charger_zip()
+ * 
  * @param string $archive
  *     Chemin du fichier zip
  * @param string $dest
@@ -53,6 +55,8 @@ function teleporter_http_deballe_zip_dist($archive, $dest, $tmp){
 /**
  * Charger un zip à partir d'un tableau d'options descriptives
  *
+ * @uses  http_deballe_recherche_racine()
+ * 
  * @param array $quoi
  *     Tableau d'options
  * @return array|bool|int|string

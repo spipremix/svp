@@ -12,6 +12,9 @@
  * 
  * Déployer un repository SVN depuis une source et une révision données
  *
+ * @uses  teleporter_svn_read()
+ * @uses  teleporter_nettoyer_vieille_version()
+ * 
  * @param string $methode
  *     Méthode de téléportation : http|git|svn|...
  * @param string $source

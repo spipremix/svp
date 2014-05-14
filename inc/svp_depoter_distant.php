@@ -25,6 +25,9 @@ include_spip('inc/svp_phraser');
  * Si une erreur survient (syntaxe XML incorrecte, pas de plugin dans le dépot),
  * son texte est placé dans le paramètre $erreur
  * 
+ * @uses  svp_phraser_depot()
+ * @uses  svp_actualiser_paquets()
+ * @uses  svp_base_supprimer_paquets_locaux()
  * @param string $url
  *     URL du fichier XML de description du dépot
  * @param string $erreur
@@ -103,6 +106,10 @@ function svp_ajouter_depot($url, &$erreur='') {
  *
  * Cette suppression entraîne des recalcul comme les versions maximales
  * des plugins téléchargeables qui peuvent changer.
+ * 
+ * @uses  svp_actualiser_url_plugins()
+ * @uses  svp_nettoyer_apres_suppression()
+ * @uses  svp_base_supprimer_paquets_locaux()
  * 
  * @param int $id
  *     Identifiant du dépot
@@ -232,6 +239,9 @@ function svp_nettoyer_apres_suppression($id_depot, $vmax) {
  * Actualise les informations uniquement si la signature du fichier
  * XML de description du dépot a changé
  * 
+ * @uses  svp_actualiser_maj_version()
+ * @uses  svp_actualiser_paquets()
+ * @uses  svp_phraser_depot()
  * @param int $id
  *     Identifiant du dépot
  * @return bool
@@ -302,6 +312,14 @@ function svp_actualiser_depot($id){
  *
  * Enlève de la base les paquets du dépots qui ne sont plus présents
  * dans la description du XML. Ajoute ou met à jour les autres.
+ * 
+ * @uses  svp_supprimer_plugins_orphelins()
+ * @uses  svp_corriger_vmax_plugins()
+ * @uses  svp_completer_plugins()
+ * @uses  eclater_plugin_paquet()
+ * @uses  svp_inserer_multi()
+ * @uses  svp_completer_plugins_depot()
+ * @uses  svp_actualiser_url_plugins()
  * 
  * @param int $id_depot
  *     Identifiant du dépot
@@ -675,6 +693,7 @@ function svp_inserer_multi(&$insert_plugins, &$insert_paquets, &$insert_contribs
  * Complète les informations des plugins contenus dans un depot
  * en compilant certaines informations (compatibilités, dates,  branches)
  *
+ * @uses  svp_completer_plugins()
  * @param int $id_depot
  *     Identifiant du depot à actualiser
 **/
@@ -691,6 +710,7 @@ function svp_completer_plugins_depot($id_depot) {
  * Complète les informations des plugins, d'une liste de plugins donnés,
  * en compilant certaines informations (compatibilités, dates,  branches)
  *
+ * @uses  compiler_branches_spip()
  * @param array $ids_plugin
  *     Liste d'identifiants de plugins
  * @return bool

@@ -10,6 +10,7 @@
 /**
  * Action de suppression en base de données d'un dépot et de ses plugins
  *
+ * @uses  svp_supprimer_depot()
  * @return void
  */
 function action_supprimer_depot_dist(){

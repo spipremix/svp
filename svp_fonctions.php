@@ -65,6 +65,7 @@ function svp_afficher_etat($etat) {
  * Des liens vers les plugins dépendants sont présents lorsque les plugins
  * en dépendance sont connus dans notre base.
  *
+ * @uses svp_afficher_intervalle()
  * @param string $balise_serialisee
  *     Informations des dépendances (tableau sérialisé) tel que stocké
  *     en base dans la table spip_paquets
@@ -230,6 +231,7 @@ function svp_afficher_langues($langues, $sep=', '){
  * Liste le nombre de plugins et de paquets d'un dépot
  * Indique aussi le nombre de dépots si l'on ne demande pas de dépot particulier.
  *
+ * @uses svp_compter()
  * @param int $id_depot
  *     Identifiant du dépot
  * @return string
@@ -269,6 +271,7 @@ function svp_afficher_statistiques_globales($id_depot=0){
  * ou une certaine branche de SPIP et retourne une phrase traduite
  * tel que «78 paquets disponibles»
  *
+ * @uses svp_compter()
  * @param int $id_depot
  *     Identifiant du dépot
  *     Zéro (par défaut) signifie ici : «dans tous les dépots distants»
@@ -294,6 +297,7 @@ function svp_compter_telechargements($id_depot=0, $categorie='', $compatible_spi
  * plugins et paquets, mais l'on peut demander le total des autres contributions
  * avec le second paramètre.
  *
+ * @uses svp_compter()
  * @param int $id_depot
  *     Identifiant du dépot
  *     Zéro (par défaut) signifie ici : «dans tous les dépots distants»
@@ -337,6 +341,7 @@ function svp_compter_depots($id_depot, $contrib='plugin'){
  * ou une certaine branche de SPIP et retourne une phrase traduite
  * tel que «64 plugins disponibles»
  *
+ * @uses svp_compter()
  * @param int $id_depot
  *     Identifiant du dépot
  *     Zéro (par défaut) signifie ici : «dans tous les dépots distants»
@@ -487,6 +492,8 @@ function balise_SVP_CATEGORIES($p) {
  * Retourne un tableau listant chaque type de catégorie
  * en index, associé à sa traduction en valeur.
  *
+ * @uses svp_traduire_categorie()
+ * 
  * @param string $tri
  *     Type de tri (ordre_cle ou ordre_alpha)
  * @param string $categorie

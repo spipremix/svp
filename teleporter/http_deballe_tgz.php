@@ -12,6 +12,7 @@
  * Déballer le fichier au format tgz dans le répertoire $dest
  * en utilisant le dossier temporaire $tmp si besoin
  *
+ * @uses  teleporter_http_charger_tgz()
  * @param string $archive
  *     Chemin du fichier tgz
  * @param string $dest
@@ -55,6 +56,11 @@ function teleporter_http_deballe_tgz_dist($archive, $dest, $tmp){
 /**
  * Charger un tgz à partir d'un tableau d'options descriptives
  *
+ * @uses  PclTarList()
+ * @uses  http_deballe_recherche_racine()
+ * @uses  PclErrorString()
+ * @uses  PclTarExtract()
+ * 
  * @param array $quoi
  *     Tableau d'options
  * @return array|bool|int|string

@@ -24,6 +24,12 @@
  * de toutes les informations locales avec var_mode=vider_paquets_locaux
  * dans l'URL ou en mettant le paramètre $force à true.
  * 
+ * @uses  svp_descriptions_paquets_locaux()
+ * @uses  svp_base_supprimer_paquets_locaux()
+ * @uses  svp_base_inserer_paquets_locaux()
+ * @uses  svp_base_modifier_paquets_locaux()
+ * @uses  svp_base_actualiser_paquets_actifs()
+ * 
  * @param bool $force
  *     - false : n'actualise que les paquets modifiés
  *     - true : efface et recrée la liste de tous les paquets locaux
@@ -115,6 +121,9 @@ function svp_base_supprimer_paquets_locaux() {
  * Actualise les informations en base sur les paquets locaux
  * en ne modifiant que ce qui a changé.
  *
+ * @uses  svp_supprimer_plugins_orphelins()
+ * @uses  svp_base_inserer_paquets_locaux()
+ * 
  * @param array $paquets_locaux
  *     Descriptions des paquets (intégrant un hash), stockés par
  *     constante, puis par chemin.
@@ -180,6 +189,12 @@ function svp_base_modifier_paquets_locaux($paquets_locaux) {
  * @note
  *     On essaie au mieux de faire des requêtes d'insertions multiples,
  *     mieux gérées par les moteurs SQL (particulièrement pour SQLite)
+ * 
+ * @uses  preparer_sql_paquet()
+ * @uses  svp_compiler_multis()
+ * @uses  eclater_plugin_paquet()
+ * @uses  svp_rechercher_maj_version()
+ * @uses  svp_corriger_obsolete_paquets()
  * 
  * @param array $paquets_locaux
  *     Descriptions des paquets (intégrant un hash), stockés par
@@ -668,6 +683,8 @@ function svp_rechercher_maj_version($prefixe, $version, $etatnum) {
 
 /**
  * Actualise l'information 'maj_version' pour tous les paquets locaux
+ * 
+ * @uses  svp_rechercher_maj_version()
 **/
 function svp_actualiser_maj_version() {
 	$update = array();

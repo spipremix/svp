@@ -23,6 +23,9 @@ include_spip('inc/plugin');
  * - ne liste pas ceux étant déjà installés (ces paquets peuvent toutefois être affichés)
  * - est triée par nom ou score
  *
+ * @uses  liste_des_champs()
+ * @uses  recherche_en_base()
+ * 
  * @param string $phrase
  *     Texte de la recherche
  * @param string $categorie
@@ -192,7 +195,8 @@ function svp_rechercher_plugins_spip($phrase, $categorie, $etat, $depot, $versio
 /**
  * Récupère les identifiants des plugins déjà installés
  *
- * @return int[]
+ * @uses  liste_plugin_actifs()
+ * @return array
  *     Liste d'identifiants de plugins
  */
 function svp_lister_plugins_installes(){
@@ -220,6 +224,7 @@ function svp_lister_plugins_installes(){
  * Teste la compatibilité d'un intervalle de compatibilité avec une version
  * donnée de SPIP
  *
+ * @uses  plugin_version_compatible()
  * @param string $intervalle
  *     Intervalle de compatibilité, tel que [2.1;3.0]
  * @param string $version_spip

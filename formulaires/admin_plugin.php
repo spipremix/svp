@@ -13,6 +13,7 @@ if (!defined("_ECRIRE_INC_VERSION")) return;
 /**
  * Chargement du formulaire de gestion des plugins
  *
+ * @uses  svp_actualiser_paquets_locaux()
  * @param string $voir
  *     Statut des plugins que l'on souhaite voir : actif, inactif, tous
  * @param string $verrouille
@@ -72,6 +73,8 @@ function formulaires_admin_plugin_charger_dist($voir='actif', $verrouille='non',
  * de conséquence.
  *
  * Si on reçoit une demande de confirmation, on sort sans lever d'erreur !
+ * 
+ * @uses  svp_decider_verifier_actions_demandees()
  * 
  * @param string $voir
  *     Statut des plugins que l'on souhaite voir : actif, inactif, tous
@@ -144,6 +147,8 @@ function formulaires_admin_plugin_verifier_dist($voir='actif', $verrouille='non'
  *
  * Si une liste d'action est validée, on redirige de formulaire sur
  * l'action 'actionner' qui les traitera une par une.
+ * 
+ * @uses svp_actionner_traiter_actions_demandees()
  * 
  * @param string $voir
  *     Statut des plugins que l'on souhaite voir : actif, inactif, tous

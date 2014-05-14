@@ -18,6 +18,7 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
  * Les données sont parfois sérialisées, parfois transcodées, parfois compilées
  * pour tenir compte des spécificités de cette DTD et du stockage en bdd.
  * 
+ * @uses  compiler_branches_spip()
  * @param array $plugin
  *     Description de plugin
  * @return array
@@ -103,6 +104,8 @@ function plugins_preparer_sql_plugin($plugin)
  *
  * @todo Supprimer cette fonction qui ne sert nulle part ?
  * 
+ * @uses  extraire_trads()
+ * 
  * @param string $nom
  *     Le nom
  * @param string $langue
@@ -169,6 +172,8 @@ function normaliser_lien($url) {
  * - Interprétation des balises BR et LI et de la virgule et du
  *   espace+tiret comme séparateurs
  *
+ * @uses  _RACCOURCI_LIEN
+ * 
  * @param string $texte
  *     Texte de la balise
  * @param string $balise
@@ -257,6 +262,7 @@ function normaliser_auteur_licence($texte, $balise) {
 /**
  * Expanse les multi en un tableau de textes complets, un par langue
  *
+ * @uses  _EXTRAIRE_MULTI
  * @param string $texte
  *     Le texte
  * @return array

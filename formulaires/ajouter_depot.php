@@ -27,6 +27,7 @@ function formulaires_ajouter_depot_charger_dist(){
  * Vérifie qu'une adresse valide est soumise et que ce dépot n'a pas
  * déjà été créé.
  * 
+ * @uses  svp_verifier_adresse_depot()
  * @return array
  *     Tableau des erreurs
 **/
@@ -57,6 +58,7 @@ function formulaires_ajouter_depot_verifier_dist(){
  * Retourne une éventuelle erreur si le dépot a un XML mal formé
  * ou s'il n'a aucun plugin.
  * 
+ * @uses  svp_ajouter_depot()
  * @return array
  *     Retours du traitement
 **/

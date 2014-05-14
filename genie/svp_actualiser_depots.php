@@ -15,6 +15,7 @@ if (!defined("_ECRIRE_INC_VERSION")) return;
  *
  * @genie svp_actualiser_depots
  *
+ * @uses  svp_actualiser_depot()
  * @param int $last
  *     Timestamp de la dernière exécution de cette tâche
  * @return int

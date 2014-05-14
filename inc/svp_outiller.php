@@ -97,6 +97,8 @@ $GLOBALS['licences_plugin'] = array(
  * d'un plugin ayant plusieurs paquets avec des compatibilités différentes.
  * La compatibilité du plugin est le total de toutes les compatibilités.
  * 
+ * @uses  extraire_bornes()
+ * @uses  construire_intervalle()
  * @param string $intervalle_a
  *     Intervalle de compatibilité
  * @param string $intervalle_b
@@ -214,6 +216,7 @@ function construire_intervalle($bornes, $dtd='paquet') {
  * Retourne la liste des branches de SPIP comprises dans un intervalle
  * de compatibilité donné.
  *
+ * @uses  extraire_bornes()
  * @param string $intervalle
  *     Intervalle de compatibilité, tel que [2.0.0;3.0.0]
  * @return string

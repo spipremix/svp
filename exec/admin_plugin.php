@@ -28,10 +28,11 @@ include_spip('inc/presentation');
 /**
  * Affichage de la page de gestion des plugins
  *
- * @use actualise_plugins_actifs()
- * @use svp_presenter_actions_realisees()
- * @use plugin_installes_meta()
- * @use plugin_donne_erreurs()
+ * @uses actualise_plugins_actifs()
+ * @uses svp_presenter_actions_realisees()
+ * @uses plugin_installes_meta()
+ * @uses plugin_donne_erreurs()
+ * @uses svp_vider_tables()
  * 
  * @pipeline_appel affiche_gauche
  * @pipeline_appel affiche_droite

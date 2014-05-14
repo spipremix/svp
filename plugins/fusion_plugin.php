@@ -23,6 +23,10 @@ include_spip('inc/svp_outiller');
  * On limite le traitement a deux balises plugins maximum,
  * ce qui est le cas de tous les plugin.xml actuellement connus
  *
+ * @uses  _SVP_VERSION_SPIP_MIN
+ * @uses  extraire_bornes()
+ * @uses  fusionner_intervalles()
+ * 
  * @param array $plugins
  *     Arbre des balises plugins présents dans un plugin.xml
  * @return array

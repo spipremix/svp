@@ -10,6 +10,9 @@
 /**
  * Téléporter et déballer un composant HTTP
  * 
+ * @uses  teleporter_http_recuperer_source()
+ * @uses  teleporter_nettoyer_vieille_version()
+ * 
  * @param string $methode
  *   Méthode de téléportation : http|git|svn|...
  * @param string $source
@@ -55,6 +58,8 @@ function teleporter_http_dist($methode,$source,$dest,$options=array()){
 /**
  * Récupérer la source et détecter son extension
  *
+ * @uses  teleporter_http_extension()
+ * 
  * @param string $source
  *     URL de la source HTTP
  * @param string $dest_tmp

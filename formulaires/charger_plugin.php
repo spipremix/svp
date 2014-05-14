@@ -43,6 +43,7 @@ function formulaires_charger_plugin_charger_dist(){
  *
  * Si on reçoit une demande de confirmation, on sort sans lever d'erreur !
  * 
+ * @uses svp_decider_verifier_actions_demandees()
  * @return array
  *     Tableau des erreurs
 **/

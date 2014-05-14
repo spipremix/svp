@@ -83,6 +83,8 @@ $GLOBALS['balises_multis'] = array(
  * La fonction met en cache le résultat du phrasage de chaque archive et ne
  * rephrase que les archives ayant changées.
  * 
+ * @uses  svp_aplatir_balises()
+ * @uses  svp_phraser_archives()
  * @param string $fichier_xml
  *     Chemin local du fichier XML de description du dépot
  * @return array|bool
@@ -147,6 +149,10 @@ function svp_phraser_depot($fichier_xml) {
  * - <traductions> : contient la compilation des informations de traduction (facultatif)
  * - <plugin> ou <paquet> suivant la DTD : le contenu du fichier plugin.xml ou paquet.xml (facultatif)
  *
+ * @uses  svp_phraser_zip()
+ * @uses  svp_phraser_traductions()
+ * @uses  svp_phraser_plugin()
+ * @uses  plugin_version_compatible()
  * @param array $archives
  *     Tableau de la liste des archives trouvées dans la description d'un dépot
  * @param array $md5_cache
@@ -241,7 +247,10 @@ function svp_phraser_archives($archives,&$md5_cache=array()) {
  * Elle phrase la balise <multi> dans le cas d'une DTD paquet qui contient
  * les traductions du nom, slogan et description
  *
+ * @uses svp_aplatir_balises()
+ * 
  * @global $balises_multis
+ * @static array $informer
  * 
  * @param string $dtd
  *     Nom du type de dtd : plugin ou paquet (pour phraser un plugin.xml ou un paquet.xml)
@@ -303,6 +312,8 @@ function svp_phraser_plugin($dtd, $contenu) {
  * Phrase le contenu de la balise <zip>
  *
  * Extrait du XML les informations du zip
+ * 
+ * @uses svp_aplatir_balises()
  * 
  * @param string $contenu
  *     Description XML de l'archive
@@ -376,6 +387,8 @@ function svp_phraser_traductions($contenu) {
  * 
  * Effectue un trim() de la valeur trouvée dans l'arbre
  *
+ * @uses  spip_xml_aplatit()
+ * 
  * @param array $balises
  *     Liste de noms de balises XML.
  *     Peut aussi être un tableau indiquant un renommage d'une balise
