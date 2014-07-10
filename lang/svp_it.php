@@ -109,7 +109,7 @@ Devi confermare questa azione.',
 	'info_admin_plugin_verrou_non' => 'La pagina mostra tutti i plugin non bloccati del sito, sia attivi che non.',
 	'info_admin_plugin_verrou_tous' => 'La pagina lista tutti i plugin del sito.',
 	'info_admin_plugin_verrouille' => 'Questa pagina mostra la lista dei plugin attivi e bloccati (posizionati in <code>@dir_plugins_dist@</code>).
-Se vuoi disabilitarla, per favore contatta il webmaster del sito oppure controlla <a href="http://programmer.spip.org/directory_extensions">la documentazione</a>.', # MODIF
+Se vuoi disabilitarla, per favore contatta il webmaster del sito oppure controlla <a href="http://programmer.spip.net/repertoire_plugins-dist">la documentazione</a>.',
 	'info_adresse_spipzone' => 'SPIP-Zone - Plugins',
 	'info_ajouter_depot' => 'Aggiungendo dei repository hai la possibilità di ottenere informazione e cercare su tutti i pacchetti gestiti dai repository aggiunti<br />Un repository è descritto da un file XML contenente le informazioni del deposito e di tutti i suoi pacchetti.',
 	'info_aucun_depot' => 'nessun repository',
