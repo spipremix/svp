@@ -81,7 +81,7 @@ Devi confermare questa azione.',
 	'erreur_dir_plugins_auto' => 'La directory "plugins/auto" che permette il download dei pacchetti non esiste oppure non è scrivibile
 <strong>Dovete crearla per consentire l’installazione di nuovi plugin a partire da questa interfaccia.</strong>',
 	'erreur_dir_plugins_auto_ecriture' => 'La directory dei pacchetti @dir@ non è accessibile e scrivibile. Impossibile caricare un pacchetto!',
-	'erreur_dir_plugins_auto_indefini' => 'La directory _DIR_PLUGIN_AUTO non è definita. Impossibile caricare il pacchetto in essa.',
+	'erreur_dir_plugins_auto_indefini' => 'La directory _DIR_PLUGIN_AUTO non è definita. Impossibile caricarvi il pacchetto.', # MODIF
 	'erreur_dir_plugins_auto_titre' => '"plugins/auto" non è accessibile!',
 	'erreur_teleporter_chargement_source_impossible' => 'Impossibile caricare la sorgente @source@',
 	'erreur_teleporter_destination_erreur' => 'La directory @dir@ non è accessibile',
@@ -220,6 +220,7 @@ Se vuoi disabilitarla, per favore contatta il webmaster del sito oppure controll
 	'message_nok_maj_introuvable' => 'L’aggiornamento del plugin @plugin@ non è stato trovato.',
 	'message_nok_plugin_inexistant' => 'Il plugin richiesto non esiste (@plugin@).',
 	'message_nok_sql_insert_depot' => 'Errore SQL aggiungendo il repository @objet@',
+	'message_nok_url_archive' => 'L’URL dell’archivio non è valido',
 	'message_nok_url_depot_incorrecte' => 'L’indirizzo « @url@ » è sbagliato',
 	'message_nok_xml_non_conforme' => 'Il file XML di descrizione "@fichier@" » del repository non è conforme',
 	'message_nok_xml_non_recupere' => 'Il file XML « @fichier@ » non può essere recuperato',
