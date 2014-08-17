@@ -220,6 +220,7 @@ is not created or is not writable.
 	'message_nok_maj_introuvable' => 'Update of the plugin "@plugin@" not found.',
 	'message_nok_plugin_inexistant' => 'The requested plugin does not exist(@plugin@).',
 	'message_nok_sql_insert_depot' => 'SQL error when adding the repository @objet@',
+	'message_nok_url_archive' => 'The archive’s URL is invalid',
 	'message_nok_url_depot_incorrecte' => 'The address "@url@" is incorrect',
 	'message_nok_xml_non_conforme' => 'The description XML file "@fichier@" of the repository doesn’t conform',
 	'message_nok_xml_non_recupere' => 'The XML file "@fichier@" could not be recovered',
