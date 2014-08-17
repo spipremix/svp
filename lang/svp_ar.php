@@ -221,6 +221,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_nok_maj_introuvable' => 'لم يتم العثور على تحديث الملحق @plugin@.',
 	'message_nok_plugin_inexistant' => 'الملحق المطلوب غير موجود (@plugin@)',
 	'message_nok_sql_insert_depot' => 'خطأ SQL لدى إضافة المستودع @objet@',
+	'message_nok_url_archive' => 'عنوان الأرسيف غير صالح',
 	'message_nok_url_depot_incorrecte' => '@url@» غير صحيح',
 	'message_nok_xml_non_conforme' => 'ملف «@fichier@» لوصف المستودع بتنسيق XML غير ملائم',
 	'message_nok_xml_non_recupere' => 'لم يتم استرجاع ملف « @fichier@ » بتنسيق XML',
