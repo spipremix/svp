@@ -935,7 +935,7 @@ class Actionneur {
 			// - false : pas de procedure d'install/desinstalle
 			// - true : operation deja faite
 			// - tableau : operation faite ce tour ci.
-			$infos = $installer_plugins($dossier, 'uninstall');
+			$infos = $installer_plugins($dossier, 'uninstall',$i['constante']);
 			if (is_bool($infos) OR !$infos['install_test'][0]) {
 				include_spip('inc/plugin');
 				ecrire_plugin_actifs(array($dossier), false, 'enleve');
@@ -1126,7 +1126,6 @@ class Actionneur {
 		if (@is_readable(_CACHE_PLUGINS_FCT)) {include_once(_CACHE_PLUGINS_FCT);}
 		if (@is_readable(_CACHE_PIPELINES))   {include_once(_CACHE_PIPELINES);}
 
-		$dossier = ($constante == '_DIR_PLUGINS')? $dossier : '../'.constant($constante).$dossier;
 		include_spip('inc/plugin');
 		ecrire_plugin_actifs(array($dossier), false, 'ajoute');
 		$installe = $i['version_base'] ? 'oui' : 'non';
