@@ -523,7 +523,20 @@ class Actionneur {
 				if (is_string($i['done'])) {
 					$texte .= " <span class='$ok_texte'>$i[done]</span>";
 				}
-				$done .= "\t<li class='$ok_texte'>$texte</li>\n";
+				// si le plugin a ete active dans le meme lot, on remplace le message 'active' par le message 'installe'
+				if ($i['todo']=='install' AND $ok_texte=='ok'){
+					$cle_t = 'svp:message_action_finale_' . 'on' . '_' . $ok_texte;
+					$texte_on = _T($cle_t, array(
+						'plugin' => $i['n'],
+						'version' => denormaliser_version($i['v']),
+						'version_maj' => denormaliser_version($i['maj'])));
+					if (strpos($done,$texte_on)!==false){
+						$done = str_replace($texte_on,$texte, $done);
+						$texte = "";
+					}
+				}
+				if ($texte)
+					$done .= "\t<li class='$ok_texte'>$texte</li>\n";
 			}
 			$done .= "</ul>";
 			$affiche .= boite_ouvrir(_T('svp:actions_realises'), ($oks ? 'success' : 'notice')) . $done . boite_fermer();
