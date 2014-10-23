@@ -137,7 +137,8 @@ function formulaires_admin_plugin_verifier_dist($voir='actif', $verrouille='non'
 			include_spip('inc/svp_decider');
 			svp_decider_verifier_actions_demandees($a_actionner, $erreurs);
 			// si c'est une action simple sans rien a faire de plus que demande, on y go direct
-			if (!count($erreurs['decideur_propositions'])){
+			if (!count($erreurs['decideur_propositions'])
+			 && !in_array('stop',unserialize(_request('_todo')))){
 				unset($erreurs['decideur_propositions']);
 				unset($erreurs['decideur_demandes']);
 				unset($erreurs['decideur_actions']);
