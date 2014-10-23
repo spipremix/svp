@@ -136,6 +136,13 @@ function formulaires_admin_plugin_verifier_dist($voir='actif', $verrouille='non'
 			// verification des dependances
 			include_spip('inc/svp_decider');
 			svp_decider_verifier_actions_demandees($a_actionner, $erreurs);
+			// si c'est une action simple sans rien a faire de plus que demande, on y go direct
+			if (!count($erreurs['decideur_propositions'])){
+				unset($erreurs['decideur_propositions']);
+				unset($erreurs['decideur_demandes']);
+				unset($erreurs['decideur_actions']);
+				set_request('valider_actions',true); // on fake la validation, non mais ho !
+			}
 		}
 	}
 	
@@ -170,7 +177,7 @@ function formulaires_admin_plugin_traiter_dist($voir='actif', $verrouille='non',
 	$retour = array();
 
 	if (_request('valider_actions')) {
-		#refuser_traiter_formulaire_ajax();
+		refuser_traiter_formulaire_ajax();
 		// Ajout de la liste des actions à l'actionneur
 		// c'est lui qui va effectuer rellement les actions
 		// lors de l'appel de action/actionner 

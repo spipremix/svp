@@ -125,8 +125,18 @@ function exec_admin_plugin_dist() {
 	// cela permet aux scripts d'install de faire des affichages (moches...)
 	plugin_installes_meta();
 
+	$args = $_REQUEST;
+	if (!isset($args['voir'])){
+		$args['voir'] = 'tous';
+		$count = count(liste_plugin_files());
+		if ($count>256)
+			$args['voir'] = 'actif';
+	}
+	if (!isset($args['verrouille'])){
+		$args['verrouille'] = 'tous';
+	}
 
-	echo recuperer_fond('prive/squelettes/contenu/svp_admin_plugin', $_REQUEST, array('ajax' => true));
+	echo recuperer_fond('prive/squelettes/contenu/svp_admin_plugin', $args, array('ajax' => true));
 
 	echo pipeline('affiche_milieu',
 		array(
