@@ -126,11 +126,29 @@ function exec_admin_plugin_dist() {
 	plugin_installes_meta();
 
 	$args = $_REQUEST;
+	// quand on demande un 'voir', on le memorise en session utilisateur
+	if (isset($args['voir'])){
+		session_set('svp_admin_plugin_voir',$args['voir']);
+	}
+	if (!isset($args['voir'])
+	  AND $voir = session_get('svp_admin_plugin_voir')
+	  AND in_array($voir,array('tous','actif','inactif'))){
+		$args['voir'] = $voir;
+	}
 	if (!isset($args['voir'])){
 		$args['voir'] = 'tous';
 		$count = count(liste_plugin_files());
 		if ($count>256)
 			$args['voir'] = 'actif';
+	}
+	
+	if (isset($args['verrouille'])){
+		session_set('svp_admin_plugin_verrouille',$args['verrouille']);
+	}
+	if (!isset($args['verrouille'])
+	  AND $verrouille = session_get('svp_admin_plugin_verrouille')
+	  AND in_array($verrouille,array('tous','oui','non'))){
+		$args['verrouille'] = $verrouille;
 	}
 	if (!isset($args['verrouille'])){
 		$args['verrouille'] = 'tous';

@@ -1,5 +1,8 @@
 [(#AUTORISER{configurer,_plugins}|sinon_interdire_acces)]
-
+<?php
+	if (_request('voir')){		session_set('svp_admin_plugin_voir',_request('voir'));}
+	if (_request('verrouille')){session_set('svp_admin_plugin_verrouille',_request('verrouille'));}
+?>
 [(#REM) <!-- Barre d'onglets de premier niveau --> ]
 [(#VAL{plugins}|barre_onglets{plugins_actifs})]
 
