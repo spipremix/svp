@@ -136,8 +136,9 @@ function formulaires_admin_plugin_verifier_dist($voir='actif', $verrouille='non'
 			// verification des dependances
 			include_spip('inc/svp_decider');
 			svp_decider_verifier_actions_demandees($a_actionner, $erreurs);
+			$todo = _request('_todo') ? unserialize(_request('_todo')) : array();
 			// si c'est une action simple sans rien a faire de plus que demande, on y go direct
-			if (in_array('stop',unserialize(_request('_todo')))){
+			if (in_array('stop',$todo)){
 				$erreurs['decideur_warning'] = _T('svp:confirmer_desinstaller');
 			}
 			elseif (!count($erreurs['decideur_propositions'])){
