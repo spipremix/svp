@@ -70,6 +70,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	Cela écrasera le contenu de ce répertoire.
 	Une copie de l’ancien contenu sera sauvegardé dans « @dir_backup@ ».
 		Vous devez confirmer cette action.',
+	'confirmer_desinstaller' => 'Attention, la désinstallation d\'un plugin <b>efface</b> ses données de la base et est irreversible.<br />Si vous n\'êtes pas certain, désactivez simplement le plugin.',
 
 	// E
 	'erreur_actions_non_traitees' => 'Certaines actions n’ont pas été réalisées. Cela peut provenir d’une erreur lors des actions à réaliser, ou d’un affichage de cette page alors que des actions sont encore en cours. Les actions avaient été lancées par @auteur@ le @date@.',
