@@ -66,11 +66,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'config_autoriser_activer_paquets_obsoletes_explication' => 'Les paquets obsolètes sont des paquets locaux présents qui sont plus anciens que d’autres paquets locaux. L’obsolescence est établie sur la base de l’état (stable, test, dev) du paquet ainsi que sur la base de sa version. Activez cette option si vous souhaitez malgré tout pouvoir activer ces plugins obsolètes.',
 	'config_depot_editable' => 'Permettre l’édition des dépôts ?',
 	'config_depot_editable_explication' => 'Cela rend éditable les informations d’un dépôt et permet ainsi de leur joindre éventuellement des mots-clés ou documents. Cette option ne devrait intéresser personne ! Préférez laisser « non » !',
+	'confirmer_desinstaller' => 'Attention, la désinstallation d’un plugin <b>efface</b> ses données de la base et est irreversible.<br />Si vous n’êtes pas certain, désactivez simplement le plugin.',
 	'confirmer_telecharger_dans' => 'Le plugin sera chargé dans un répertoire (@dir@) qui existe déjà.
 	Cela écrasera le contenu de ce répertoire.
 	Une copie de l’ancien contenu sera sauvegardé dans « @dir_backup@ ».
 		Vous devez confirmer cette action.',
-	'confirmer_desinstaller' => 'Attention, la désinstallation d\'un plugin <b>efface</b> ses données de la base et est irreversible.<br />Si vous n\'êtes pas certain, désactivez simplement le plugin.',
 
 	// E
 	'erreur_actions_non_traitees' => 'Certaines actions n’ont pas été réalisées. Cela peut provenir d’une erreur lors des actions à réaliser, ou d’un affichage de cette page alors que des actions sont encore en cours. Les actions avaient été lancées par @auteur@ le @date@.',
