@@ -37,6 +37,8 @@ function svp_upgrade($nom_meta_base_version, $version_cible){
 	// autant mettre tout a jour pour avoir une base propre apres renommage extensions=> plugins_dist
 	$maj['0.4.0'][] = array('svp_vider_tables', $nom_meta_base_version);
 	$maj['0.4.0'][] = $install;
+	// on force le recalcul des infos des paquets locaux.
+	$maj['0.4.1'][]  = array('svp_actualiser_paquets_locaux', true);
 
 	include_spip('base/upgrade');
 	maj_plugin($nom_meta_base_version, $version_cible, $maj);
