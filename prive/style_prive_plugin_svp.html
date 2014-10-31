@@ -18,8 +18,8 @@
 /* **************** EXEC ADMIN PLUGIN ***************** */
 .box .inner .hd h3 img.close { float: #ENV{right}; }
 .box .inner .hd h3 img.close:hover { cursor: pointer; }
-.onglets_simple.second ul.verrouille li.first {margin-#ENV{left}:30px;}
-.onglets_simple.second ul li span.off {
+.admin_plugin .onglets_simple.second ul.verrouille li.first {margin-#ENV{left}:30px;}
+.admin_plugin .onglets_simple.second ul li span.off {
 	display: block;
 	float: left;
 	padding: 4px 7px;
@@ -32,8 +32,8 @@
 	opacity: 0.6;
 }
 
-.actions_multiples .boutons { }
-.actions_multiples .action { width: 30%; }
+.admin_plugin .actions_multiples .boutons { }
+.admin_plugin .actions_multiples .action { width: 30%; }
 
 .liste-plugins fieldset,
 .liste-plugins .liste.plugins,
@@ -73,15 +73,15 @@
 
 /* Styles des etats provoquant un affichage specifique des plugins */
 /* -- installe (donc actif) */
-.installe { color: #999; background: url(#CHEMIN_IMAGE{fond-installe.png}) repeat fixed 0 0 !important; }
-.installe:hover {	background-color:#F0F0F0 !important; }
+.admin_plugin .installe { color: #999; background: url(#CHEMIN_IMAGE{fond-installe.png}) repeat fixed 0 0 !important; }
+.admin_plugin .installe:hover {	background-color:#F0F0F0 !important; }
 /* -- verrouille (plugins_dist)
-.verrou { background:url(#CHEMIN_IMAGE{fond-verrou.png}) repeat fixed 0 0 #FDFDFD !important;}
-.verrou:hover {	background-color:#F0F0F0 !important; }
+.admin_plugin .verrou { background:url(#CHEMIN_IMAGE{fond-verrou.png}) repeat fixed 0 0 #FDFDFD !important;}
+.admin_plugin .verrou:hover {	background-color:#F0F0F0 !important; }
 */
 /* -- obsolete, incompatible */
-.disabled,.disabled { background:url(#CHEMIN_IMAGE{fond-obsolete.png}) repeat fixed 0 0 #ddd !important;}
-.disabled:hover {	background-color:#ccc !important; }
+.admin_plugin .disabled,.disabled { background:url(#CHEMIN_IMAGE{fond-obsolete.png}) repeat fixed 0 0 #ddd !important;}
+.admin_plugin .disabled:hover {	background-color:#ccc !important; }
 .liste-plugins .liste-items .item.disabled:hover .actions {background:url(#CHEMIN_IMAGE{fond-obsolete.png}) repeat fixed 0 0 #ccc !important}
 
 .liste-plugins .liste-items .item.disabled h3 a { color: #aaa; }
@@ -96,9 +96,9 @@
 }
 
 /* Validation des actions par popin */
-#colorbox #charger_plugin_confirm {font-size:110%; padding-bottom:25px;}
-#colorbox #charger_plugin_confirm .reponse_formulaire {margin-bottom:1em; line-height: 1.4em;}
-#colorbox #charger_plugin_confirm .boutons {
+.admin_plugin #colorbox #charger_plugin_confirm {font-size:110%; padding-bottom:25px;}
+.admin_plugin #colorbox #charger_plugin_confirm .reponse_formulaire {margin-bottom:1em; line-height: 1.4em;}
+.admin_plugin #colorbox #charger_plugin_confirm .boutons {
 	font-size:120%;
 	margin-top:.5em; margin-bottom:0;
 	display:block;
@@ -107,7 +107,7 @@
 	border-radius:3px;
 	position:absolute; bottom:0; width:100%;
 }
-#colorbox #charger_plugin_confirm .boutons .submit {
+.admin_plugin #colorbox #charger_plugin_confirm .boutons .submit {
 	margin-top:.5em;
 	margin-#ENV{right}:.5em;
 	margin-bottom:.5em;
