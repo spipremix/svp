@@ -312,13 +312,16 @@ function compiler_branches_spip($intervalle) {
  *
  * @param string $texte
  *     Texte avec des entités HTML
+ * @param string $charset
  * @return string $texte
  *     Texte dans le charset du site
 **/
-function entite2charset($texte) {
+function entite2charset($texte, $charset=null) {
 	if (!strlen($texte)) return '';
+	if (!$charset)
+		$charset = $GLOBALS['meta']['charset'];
 	include_spip('inc/charsets');
-	return unicode2charset(html_entity_decode(preg_replace('/&([lg]t;)/S', '&amp;\1', $texte), ENT_NOQUOTES, $GLOBALS['meta']['charset']));
+	return unicode2charset(html_entity_decode(preg_replace('/&([lg]t;)/S', '&amp;\1', $texte), ENT_NOQUOTES, $charset));
 }
 
 /**

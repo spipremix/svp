@@ -68,7 +68,7 @@ function plugins_preparer_sql_paquet($plugin)
 		) as $cle_champ => $cle_plugin)
 	{
 		 $champs[$cle_champ] = (isset($plugin[$cle_plugin]) and $plugin[$cle_plugin])
-			? entite2charset($plugin[$cle_plugin])
+			? entite2charset($plugin[$cle_plugin],'utf-8')
 			: '';
 	}
 

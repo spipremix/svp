@@ -8,6 +8,11 @@
  * @package SPIP\SVP\Fonctions
 **/
 
+function svp_importer_charset($texte){
+	if ($GLOBALS['meta']['charset']=='utf-8')
+		return $texte;
+	return importer_charset($texte,'utf-8');
+}
 /**
  * Retourne un texte expliquant l'intervalle de compatibilité avec un plugin ou SPIP
  *

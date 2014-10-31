@@ -1,17 +1,17 @@
 <div class="details"><BOUCLE_pluginsdetail(PAQUETS plugins){tout}{id_paquet}>
 	<dl class="description">
 		<dd class="desc">
-			[(#DESCRIPTION|extraire_multi|propre)]
+			[(#DESCRIPTION*|svp_importer_charset|extraire_multi|propre)]
 			[<em class="site">
 				<a href="(#LIEN_DOC)" class="spip_out" title="<:svp:bulle_aller_documentation:>"><:en_savoir_plus:></a>
 			</em>]
 		</dd>
 		[<dt class="auteurs"><:public:par_auteur:></dt>
-		<dd class="auteurs">(#AUTEUR*|svp_afficher_credits)</dd>]
+		<dd class="auteurs">(#AUTEUR*|svp_afficher_credits|svp_importer_charset)</dd>]
 		[<dt class="credits"><:plugin_info_credit:></dt>
-		<dd class="credits">(#CREDIT*|svp_afficher_credits)</dd>]
+		<dd class="credits">(#CREDIT*|svp_afficher_credits|svp_importer_charset)</dd>]
 		[<dt class="licence"><:intitule_licence:></dt>
-		<dd class="licence">(#LICENCE|svp_afficher_credits{','})</dd>]
+		<dd class="licence">(#LICENCE|svp_afficher_credits{','}|svp_importer_charset)</dd>]
 	</dl>
 	[(#AUTORISER{webmestre}|oui)
 	<dl class="tech">

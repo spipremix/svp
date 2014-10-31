@@ -254,7 +254,7 @@ function svp_base_inserer_paquets_locaux($paquets_locaux) {
 				// Eclater les champs recuperes en deux sous tableaux, un par table (plugin, paquet)
 				$champs = eclater_plugin_paquet($champs);
 				$paquet_plugin = true;
-				
+
 				// On complete les informations du paquet et du plugin
 				$le_paquet = array_merge($le_paquet, $champs['paquet']);
 				$le_plugin = $champs['plugin'];

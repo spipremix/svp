@@ -53,15 +53,15 @@ function plugins_preparer_sql_plugin($plugin)
 	$champs['tags'] = (isset($plugin['tags']) and $plugin['tags']) ? serialize($plugin['tags']) : '';
 	
 	// On passe en utf-8 avec le bon charset les champs pouvant contenir des entites html
-	$champs['description'] = entite2charset($plugin['description']);
+	$champs['description'] = entite2charset($plugin['description'],'utf-8');
 	
 	// Traitement des auteurs, credits, licences et copyright
 	// -- on extrait les auteurs, licences et copyrights sous forme de tableaux
 	// -- depuis le commit 18294 du core la balise auteur est renvoyee sous forme de tableau mais
 	//    contient toujours qu'un seul index
-	$balise_auteur = entite2charset($plugin['auteur'][0]);
+	$balise_auteur = entite2charset($plugin['auteur'][0],'utf-8');
 	$auteurs = normaliser_auteur_licence($balise_auteur, 'auteur');
-	$balise_licence = isset($plugin['licence'][0]) ? entite2charset($plugin['licence'][0]) : '';
+	$balise_licence = isset($plugin['licence'][0]) ? entite2charset($plugin['licence'][0],'utf-8') : '';
 	$licences = normaliser_auteur_licence($balise_licence, 'licence');
 	// -- on merge les tableaux recuperes dans auteur et licence
 	$champs['auteur'] = $champs['licence'] = $champs['copyright'] = '';
@@ -74,11 +74,11 @@ function plugins_preparer_sql_plugin($plugin)
 	
 	// Extrait d'un nom et un slogan normalises
 	// Slogan : si vide on ne fait plus rien de special, on traitera ça a l'affichage
-	$champs['slogan'] = $plugin['slogan'] ? entite2charset($plugin['slogan']) : '';
+	$champs['slogan'] = $plugin['slogan'] ? entite2charset($plugin['slogan'],'utf-8') : '';
 	// Nom :	on repere dans le nom du plugin un chiffre en fin de nom
 	//			et on l'ampute de ce numero pour le normaliser
 	//			et on passe tout en unicode avec le charset du site
-	$champs['nom'] = trim(entite2charset($plugin['nom']));
+	$champs['nom'] = trim(entite2charset($plugin['nom'],'utf-8'));
 
 	// Extraction de la compatibilite SPIP et construction de la liste des branches spip supportees
 	$champs['compatibilite_spip'] = ($plugin['compatibilite']) ? $plugin['compatibilite'] : '';
