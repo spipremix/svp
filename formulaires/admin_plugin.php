@@ -149,6 +149,9 @@ function formulaires_admin_plugin_verifier_dist($voir='actif', $verrouille='non'
 			}
 		}
 	}
+
+	if (count($erreurs) AND !isset($erreurs['message_erreur']))
+		$erreurs['message_erreur'] = '';
 	
 	return $erreurs;
 }
