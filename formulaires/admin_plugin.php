@@ -141,7 +141,7 @@ function formulaires_admin_plugin_verifier_dist($voir='actif', $verrouille='non'
 			if (in_array('stop',$todo)){
 				$erreurs['decideur_warning'] = _T('svp:confirmer_desinstaller');
 			}
-			elseif (!count($erreurs['decideur_propositions'])){
+			elseif (!isset($erreurs['decideur_erreurs']) and !count($erreurs['decideur_propositions'])){
 				unset($erreurs['decideur_propositions']);
 				unset($erreurs['decideur_demandes']);
 				unset($erreurs['decideur_actions']);
