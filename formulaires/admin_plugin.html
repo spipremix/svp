@@ -3,8 +3,8 @@
 	[(#BOITE_OUVRIR{<:svp:actions_en_erreur:>, error})]
 	<:svp:erreurs_xml:>
 	<ul>
-<BOUCLE_erreurs_xml(DATA){source tableau,#ENV{erreurs_xml}}>
-	<li>#VALEUR</li>
+<BOUCLE_erreurs_xml(DATA){source tableau,#ENV{_erreurs_xml}}>
+	<li>#VALEUR*</li>
 </BOUCLE_erreurs_xml>
 	</ul>
 	#BOITE_FERMER
