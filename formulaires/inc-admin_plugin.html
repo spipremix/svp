@@ -2,8 +2,8 @@
 #SET{autoriser_plugins_ajouter,#AUTORISER{plugins_ajouter}}
 #SET{autoriser_webmestre,#AUTORISER{webmestre}}
 [(#SET{image_verrou,[(#CHEMIN_IMAGE{cadenas-16.png}|balise_img{<:svp:plugin_info_verrouille:>,picto_verrou}|inserer_attribut{title,<:svp:plugin_info_verrouille:>})]})]
-[(#SET{erreur_attente,[- <span class="information">(#GET{autoriser_plugins_ajouter}|?{<:svp:info_plugin_attente_dependance:>,<:svp:info_plugin_attente_dependance_interdit:>})</span> ]})]
-[(#SET{erreur_incompatible,- <span class="information"><:svp:info_plugin_incompatible:></span>})]
+[(#SET{erreur_attente,[- <span class="svp_message">(#GET{autoriser_plugins_ajouter}|?{<:svp:info_plugin_attente_dependance:>,<:svp:info_plugin_attente_dependance_interdit:>})</span> ]})]
+[(#SET{erreur_incompatible,- <span class="svp_message"><:svp:info_plugin_incompatible:></span>})]
 <B_plugins>
 [(#GET{incompatibles})
 	[(#ENV{afficher_incompatibles,''}|non)
@@ -48,7 +48,7 @@
 				<h3 class="nom"><a href="[(#SELF|parametre_url{id_paquet,#GET{details}|?{'',#ID_PAQUET}})]" rel="info">[(#NOM|extraire_multi|svp_importer_charset)]</a></h3>
 				<span class="version">[(#VERSION)]</span>
 				<span class="etat">[ - (#ETAT)]</span>
-				[(#SET{erreur,[<span class="information">(#GET{obsolete})<:svp:info_plugin_obsolete:></span> ]})]
+				[(#SET{erreur,[<span class="svp_message">(#GET{obsolete})<:svp:info_plugin_obsolete:></span> ]})]
 				[(#GET{attente}) [(#SET{erreur,#GET{erreur}|concat{#GET{erreur_attente}}})]   ]
 				[(#GET{incompatible})[(#SET{erreur,#GET{erreur}|concat{#GET{erreur_incompatible}}})]]
 				[(#SET{slogan,#GET{erreur}|ltrim{'-'}|trim})]
@@ -89,7 +89,7 @@
 				<input type="submit" name="[(#ID_PAQUET|svp_nom_action{kill})]" class="submit" value="<:svp:bouton_supprimer:>" />
 			]
 			[(#GET{verrou})
-				<span class="information"><:svp:info_verrouille:></span>
+				<span class="svp_message"><:svp:info_verrouille:></span>
 			]
 			</div>
 			[(#GET{actif}|et{#GET{attente}|non}|oui) #SET{prefixe,#PREFIXE|strtolower}
