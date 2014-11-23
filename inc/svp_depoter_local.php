@@ -44,7 +44,9 @@ function svp_actualiser_paquets_locaux($force = false, &$erreurs_xml = array()) 
 	$paquets = svp_descriptions_paquets_locaux($erreurs_xml);
 
 	// un mode pour tout recalculer sans désinstaller le plugin... !
-	if ($force OR _request('var_mode') == 'vider_paquets_locaux') { 
+	if ($force
+		OR _request('var_mode') == 'vider_paquets_locaux'
+		OR _request('var_mode') == 'recalcul' ) {
 		svp_base_supprimer_paquets_locaux();
 		svp_base_inserer_paquets_locaux($paquets);
 	} else {
