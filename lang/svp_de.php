@@ -68,6 +68,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'config_autoriser_activer_paquets_obsoletes_explication' => 'Überflüssige Pakete sind lokal vorhandene, die älter als gleichartige lokal installierte sind. Ob ein Paket überflüssig ist, wird anhand seines Status (stabil, test, dev) und aufgrund seiner Version ermittelt. Aktivieren sie diese Option, falls sie solche veralteten Pakete aktivieren möchten.',
 	'config_depot_editable' => 'Bearbeitung der Depots erlauben?',
 	'config_depot_editable_explication' => 'Hiermit können die Informationen über ein Depot bearbeitet werden und dem Depot z.B. Schlagworte zugeordnet werden. Diese Option sollte in der Regel ohne Nutzen sein! Die Einstellung «non» sollte beibehalten werden!',
+	'confirmer_desinstaller' => 'Achtung, das Deinstallieren eines Plugins <b>löscht</b> alle seine Daten aus der Datenbank und kann nicht rückgängig gemacht werden.<br /> Wenn sie sich nicht sicher sind, wählen sie deaktivieren.',
 	'confirmer_telecharger_dans' => 'Das Plugin wird in das vorhandene Verzeichnis (@dir@) geladen.
 	Der Inhalt dieses Verzeichnis wird dabei überschrieben.
 	Eine Kopie des Verzeichnisinhalts wird in « @dir_backup@ » angelegt.
@@ -75,6 +76,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// E
 	'erreur_actions_non_traitees' => 'Manche Aktionen konnten nicht ausgefühert werden. Die Ursache kann entweder ein Ausführungsfehler sein, oder diese Seite wurde neu geladen, währen die Aktionen noch nicht abgeschlossen waren. Die Aktionen wurden von @auteur@ am @date@ ausgelöst.',
+	'erreur_auth_plugins_ajouter_lib' => 'Sie haben nicht die notwendigen Berechtigungen um eine Bibliothek hinzuzufügen.',
 	'erreur_dir_dib_ecriture' => 'In das Verzeichnis für Bibliotheken @dir@ kann nicht geschrieben werden. Bibliotheken können nicht geladen werden!',
 	'erreur_dir_dib_indefini' => 'Das Verzeichnis _DIR_LIB wurde nicht definiert. Bibliotheken können dadurch nicht geladen werden !',
 	'erreur_dir_plugins_auto' => 'Das Verzeichnis « plugins/auto », in das Pakete geladen werden,
@@ -109,7 +111,7 @@ existiert nicht oder hat keinen Schreibrechte.
 	'info_admin_plugin_verrou_tous' => 'Diese Seite zeigt alle Plugins der Website an.',
 	'info_admin_plugin_verrouille' => 'Diese Seite zeigt alle aktiven und verriegelten  (im Verzeichnis <code>@dir_plugins_dist@</code> gespeicherten) Plugins.
 	Wenn sie sie deaktivieren möchten, wenden sie sich bitte an den Webmaster,
-	oder ziehen sie die Informationen in <a href="http://programmer.spip.org/repertoire_plugins_dist">zu Rate.</a>.', # MODIF
+	oder ziehen sie die Informationen in <a href="http://programmer.spip.net/repertoire_plugins_dist">zu Rate.</a>.',
 	'info_adresse_spipzone' => 'SPIP-Zone - Plugins',
 	'info_ajouter_depot' => 'Wenn sie Depots in ihre Datenbank eintragen, können sie auf die Informationen über alle dort gespeicherten Pakete zugreifen und gezielt in den im Depot vorhandenen Paketen suchen.<br />Ein Depot wird durch eine XML-Datei beschrieben, die Informationen über das Depot selbst und die in ihm gespeicherten Pakete enthält.',
 	'info_aucun_depot' => 'Kein Depot',
@@ -220,8 +222,10 @@ existiert nicht oder hat keinen Schreibrechte.
 	'message_nok_maj_introuvable' => 'Aktualisierung des Plugins @plugin@ nicht auffindbar',
 	'message_nok_plugin_inexistant' => 'Das angeforderte Plugin (@plugin@) existiert nicht.',
 	'message_nok_sql_insert_depot' => 'SQL-Fehler beim Hinzufügen des Depots @objet@',
+	'message_nok_url_archive' => 'Die URL des Archivs ist ungültig',
 	'message_nok_url_depot_incorrecte' => 'Die Adresse « @url@ » ist falsch.',
 	'message_nok_xml_non_conforme' => 'Formatfehler der XML-Datei « @fichier@ » zur Beschreibung des Depots.',
+	'message_nok_xml_non_recupere' => 'Die XML-Datei « @fichier@ » konnte nicht wieder hergestellt werden',
 	'message_ok_aucun_plugin_trouve' => 'Diesen Kriterien entsprcht kein Plugin.',
 	'message_ok_depot_ajoute' => 'Das Depot « @url@ » wurde hinzugefügt.',
 	'message_ok_plugins_trouves' => 'Die Plugin(s) @nb_plugins@ entsprechen den Kriterien (@tri@). Bitte wählen sie, welche sie auf ihren Server laden und aktivieren möchten.',
