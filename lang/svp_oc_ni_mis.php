@@ -42,9 +42,23 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// C
 	'cacher_les_plugins_incompatibles' => 'Escoundre lu plugin incoumpatible',
 	'categorie_aucune' => 'Sensa categourìa',
+	'categorie_auteur' => 'Autenticacioun, autour, autourousacioun',
+	'categorie_communication' => 'Communicacioun, interatività, messagerìa',
+	'categorie_date' => 'Agènda, calendari, data',
+	'categorie_edition' => 'Edicioun, estampa, redacioun',
+	'categorie_maintenance' => 'Counfiguracioun, mantenença',
+	'categorie_multimedia' => 'Image, galerìa, multimedia',
+	'categorie_navigation' => 'Navigacioun, recerca, ourganisacioun',
 	'categorie_outil' => 'Óutis de desfouloupamen',
+	'categorie_performance' => 'Òtimisacioun, proudessa, segurtà',
 	'categorie_squelette' => 'Esquèletrou',
+	'categorie_statistique' => 'Referençamen, estatìstica',
 	'config_depot_editable' => 'Permetre l’edicioun dei depòsiti ?',
+
+	// E
+	'erreur_dir_plugins_auto_titre' => '« plugins/auto » es inachessible !',
+	'erreur_teleporter_chargement_source_impossible' => 'Empoussible de cargà lou sourgent @source@',
+	'erreur_teleporter_echec_deballage_archive' => 'Empoussible d’estraire @fichier@',
 
 	// F
 	'fieldset_debug' => 'Debug',
@@ -73,7 +87,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_type_depot_git' => 'Depòsiti gerat souta GIT',
 	'info_type_depot_manuel' => 'Depòsiti gerat manualamen',
 	'info_type_depot_svn' => 'Depòsiti gerat souta SVN',
-	'info_verrouille' => 'Impoussible de desativà o de desinstalà aqueu plugin.',
+	'info_verrouille' => 'Empoussible de desativà o de desinstalà aqueu plugin.',
 
 	// L
 	'label_1_autre_contribution' => 'autra countributioun',
@@ -85,6 +99,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'label_critere_categorie' => 'Categourìa',
 	'label_critere_depot' => 'Depòsiti',
 	'label_critere_doublon' => 'Coumpatibilità',
+	'label_critere_etat' => 'Estat',
 	'label_critere_phrase' => 'Recercà en lu plugin',
 	'label_modifie_le' => 'Moudificat lou',
 	'label_prefixe' => 'Prefis',
@@ -115,10 +130,16 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_action_stop' => 'Desinstalà lou plugin « @plugin@ » (versioun : @version@)',
 	'message_action_up' => 'Metuda a jou dóu plugin « @plugin@ » (da la versioun @version@ a @version_maj@)',
 	'message_action_upon' => 'Metuda a jou e ativacioun dóu plugin « @plugin@ » (versioun : @version@)',
+	'message_dependance_plugin' => 'Lou plugin @plugin@ depende da @dependance@.',
+	'message_dependance_plugin_version' => 'Lou plugin @plugin@ depende da @dependance@ @version@',
 	'message_erreur_aucun_plugin_selectionne' => 'Mìnga plugin seleciounat.',
 	'message_erreur_maj_inconnu' => 'Metuda a jou impoussibla d’un plugin escounouissut.',
+	'message_erreur_plugin_introuvable' => 'Es empoussible de trouvà lou plugin @plugin@ per @action@.',
 	'message_erreur_plugin_non_actif' => 'Es empoussible de desativà un plugin noun atiéu.',
+	'message_nok_aucun_depot_disponible' => 'Mìnga plugin es dispounible ! Vourguès anà sus la pàgina de gestioun dei depòsiti da ajustà dei lista de plugin.',
+	'message_nok_aucun_plugin_selectionne' => 'Mìnga plugin da instalà. Vourguès selecioun) lu plugin da instalà',
 	'message_nok_champ_obligatoire' => 'Aqueu camp es óubligatori',
+	'message_nok_plugin_inexistant' => 'Lou plugin demandat noun esista (@plugin@).',
 	'message_nok_url_archive' => 'L’URL de l’arquivi es invalide',
 	'message_nok_url_depot_incorrecte' => 'L’adressa « @url@ » es mau couret',
 	'message_ok_depot_ajoute' => 'Lou depòsiti « @url@ » es estat ajustat.',
@@ -129,6 +150,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'option_depot_tout' => 'Toui lu depòsiti',
 	'option_doublon_non' => 'La darrièra versioun',
 	'option_doublon_oui' => 'Touti li versioun coumpatibli',
+	'option_etat_tout' => 'Toui lu estat',
 
 	// P
 	'placeholder_phrase' => 'prefis, noum, eslogan, descritiéu o autour',
