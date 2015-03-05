@@ -8,8 +8,11 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
 $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// A
+	'action_patienter' => 'Li acioun soun en cours de tratamen. Vourguès passientà…',
 	'actions_a_faire' => 'Acioun a tratà',
 	'actions_demandees' => 'Acioun demandadi :',
+	'actions_en_erreur' => 'Errour sourvengudi',
+	'actions_necessaires' => 'Li acioun suplementari seguenti seran efetuadi :',
 	'actions_non_traitees' => 'Acioun noun realisadi',
 	'actions_realises' => 'Acioun realisadi',
 	'afficher_les_plugins_incompatibles' => 'Afichà lu plugin incoumpatible',
@@ -53,12 +56,22 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'categorie_performance' => 'Òtimisacioun, proudessa, segurtà',
 	'categorie_squelette' => 'Esquèletrou',
 	'categorie_statistique' => 'Referençamen, estatìstica',
+	'categorie_theme' => 'Tèma',
+	'config_activer_log_verbeux' => 'Ativà lu log verbous ?',
+	'config_activer_log_verbeux_explication' => 'Aquela oupcioun rende lu log de SVP mai verbous…',
+	'config_activer_pas_a_pas' => 'Ativà lou mòdou pas à pas ?',
+	'config_activer_pas_a_pas_explication' => 'Ativà aqueu mòdou permet d’afichà un bilan après cada acioun realisada, en plaça d’avé soulamen un bilan toutal de touti li acioun efetuadi a la fin dei tratamen.',
+	'config_activer_runtime' => 'Ativà lou mòdou runtime ?',
+	'config_activer_runtime_explication' => 'Lou mòdou runtime (ahì) carga que lu plugin coumpatible embé la versioun courrenta dóu vouòstre SPIP, cen qu’es fouòrça counseiat per la majourença dei usança. En mòdou noun runtime (noun), toui lu plugin d’un depòsiti soun cargat, quauque sìgue la versioun dóu SPIP en cours. Acò es unicamen utile quoura si utilisà SVP per presentà toui lu plugin esistant couma es fach per lou sit Plugins SPIP (plugins.spip.net)',
+	'config_autoriser_activer_paquets_obsoletes' => 'Autourisà l’ativacioun dei paquet perimat ?',
 	'config_depot_editable' => 'Permetre l’edicioun dei depòsiti ?',
 
 	// E
+	'erreur_auth_plugins_ajouter_lib' => 'Noun avès lu drech necessari per ajustà una biblioutèca.',
 	'erreur_dir_plugins_auto_titre' => '« plugins/auto » es inachessible !',
 	'erreur_teleporter_chargement_source_impossible' => 'Empoussible de cargà lou sourgent @source@',
 	'erreur_teleporter_echec_deballage_archive' => 'Empoussible d’estraire @fichier@',
+	'erreurs_xml' => 'Empoussible de legì certeni descricioun XML',
 
 	// F
 	'fieldset_debug' => 'Debug',
@@ -69,6 +82,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_1_depot' => '1 depòsiti',
 	'info_1_paquet' => '1 paquet',
 	'info_1_plugin' => '1 plugin',
+	'info_admin_plugin_actif_non_verrou_non' => 'Aquela pàgina lista lu plugin noun atiéu dóu sit. Aquelu plugin soun sempre noun ferouià.',
+	'info_admin_plugin_actif_non_verrou_tous' => 'Aquela pàgina lista lu plugin noun atiéu dóu sit. Aquelu plugin soun sempre noun ferouià.',
+	'info_admin_plugin_verrou_non' => 'Aquela pàgina lista toui lu plugin noun ferouiat dóu sit, atiéu o noun.',
 	'info_admin_plugin_verrou_tous' => 'Aquela pàgina lista toui lu plugin dóu sit.',
 	'info_adresse_spipzone' => 'SPIP-Zone - Plugin',
 	'info_aucun_depot' => 'mìnga depòsiti',
@@ -105,6 +121,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'label_prefixe' => 'Prefis',
 	'label_selectionner_plugin' => 'Seleciounà aqueu plugin',
 	'label_tags' => 'Tag',
+	'label_type_depot' => 'Tìpou de depòsiti :',
 	'label_type_depot_git' => 'Depòsiti souta GIT',
 	'label_type_depot_manuel' => 'Depòsiti manual',
 	'label_type_depot_svn' => 'Depòsiti souta SVN',
@@ -120,10 +137,19 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// M
 	'message_action_finale_getlib_fail' => 'L’instalacioun de la biblioutéca « @plugin@ » a souhit',
 	'message_action_finale_getlib_ok' => 'La biblioutéca « @plugin@ » es estada instalada',
+	'message_action_finale_geton_fail' => 'Lou telecargamen o l’ativacioun dóu plugin « @plugin@ » (versioun : @version@) noun si soun efetuat courretamen',
 	'message_action_finale_install_fail' => 'L’instalacioun dóu plugin « @plugin@ » (versioun : @version@) a souhit',
+	'message_action_finale_off_fail' => 'La desativacioun dóu plugin « @plugin@ » (versioun : @version@) noun s’es efetuada courretamen',
+	'message_action_finale_stop_fail' => 'La desinstalacioun dóu plugin « @plugin@ » (versioun : @version@) noun s’es efetuada courretamen',
+	'message_action_finale_stop_ok' => 'La desinstalacioun dóu plugin « @plugin@ » (versioun : @version@) s’es efetuada courretamen',
+	'message_action_finale_up_fail' => 'La metuda a jou dóu plugin « @plugin@ » (da la versioun : @version@ a @version_maj@) noun s’es efetuada courretamen',
+	'message_action_finale_up_ok' => 'La metuda a jou dóu plugin « @plugin@ » (da la versioun : @version@ a @version_maj@) s’es efetuada courretamen',
+	'message_action_finale_upon_fail' => 'La metuda a jou e l’ativacioun dóu plugin « @plugin@ » (da la versioun : @version@ a @version_maj@) noun si soun efetuadi courretamen',
+	'message_action_finale_upon_ok' => 'La metuda a jou e l’ativacioun dóu plugin « @plugin@ » (de la versioun : @version@ a @version_maj@) si soun efetuadi courretamen',
 	'message_action_get' => 'Telecargà lou plugin « @plugin@ » (versioun : @version@)',
 	'message_action_getlib' => 'Telecargà la biblioutéca « <a href="@version@" class="spip_out">@plugin@</a> »',
 	'message_action_geton' => 'Telecargà a ativà lou plugin « @plugin@ » (versioun : @version@)',
+	'message_action_install' => 'Lou plugin « @plugin@ » (versioun : @version@) va estre instalat',
 	'message_action_kill' => 'Supressioun dei fichié dóu plugin « @plugin@ » (versioun : @version@)',
 	'message_action_off' => 'Desativà lou plugin « @plugin@ » versioun : @version@)',
 	'message_action_on' => 'Ativà lou plugin « @plugin@ » (versioun : @version@)',
@@ -143,6 +169,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_nok_url_archive' => 'L’URL de l’arquivi es invalide',
 	'message_nok_url_depot_incorrecte' => 'L’adressa « @url@ » es mau couret',
 	'message_ok_depot_ajoute' => 'Lou depòsiti « @url@ » es estat ajustat.',
+	'message_telechargement_archive_effectue' => 'L’arquivi es estada courretamen estracha en @dir@.',
 
 	// O
 	'onglet_depots' => 'Gerà lu depòsiti',
