@@ -48,6 +48,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'categorie_auteur' => 'Autenticacioun, autour, autourousacioun',
 	'categorie_communication' => 'Communicacioun, interatività, messagerìa',
 	'categorie_date' => 'Agènda, calendari, data',
+	'categorie_divers' => 'Ouget nouvèu, servici estèrnou',
 	'categorie_edition' => 'Edicioun, estampa, redacioun',
 	'categorie_maintenance' => 'Counfiguracioun, mantenença',
 	'categorie_multimedia' => 'Image, galerìa, multimedia',
@@ -63,8 +64,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'config_activer_pas_a_pas_explication' => 'Ativà aqueu mòdou permet d’afichà un bilan après cada acioun realisada, en plaça d’avé soulamen un bilan toutal de touti li acioun efetuadi a la fin dei tratamen.',
 	'config_activer_runtime' => 'Ativà lou mòdou runtime ?',
 	'config_activer_runtime_explication' => 'Lou mòdou runtime (ahì) carga que lu plugin coumpatible embé la versioun courrenta dóu vouòstre SPIP, cen qu’es fouòrça counseiat per la majourença dei usança. En mòdou noun runtime (noun), toui lu plugin d’un depòsiti soun cargat, quauque sìgue la versioun dóu SPIP en cours. Acò es unicamen utile quoura si utilisà SVP per presentà toui lu plugin esistant couma es fach per lou sit Plugins SPIP (plugins.spip.net)',
-	'config_autoriser_activer_paquets_obsoletes' => 'Autourisà l’ativacioun dei paquet perimat ?',
+	'config_autoriser_activer_paquets_obsoletes' => 'Autourisà l’ativacioun dei paquet oussoulet ?',
+	'config_autoriser_activer_paquets_obsoletes_explication' => 'Lu paquet oussoulet soun dei paquet loucal present que soun mai viei que d’autre paquet loucal. L’oussoulecència es estabilida soubre la basa de l’estat (stable, test, dev) dóu paquet e finda soubre la basa de la siéu versioun. Ativàs aquela oupcioun s’auguràs maugrà tout d’avé la poussibilità d’ativà aquelu plugin oussoulet.',
 	'config_depot_editable' => 'Permetre l’edicioun dei depòsiti ?',
+	'config_depot_editable_explication' => 'Acò rende li infourmacioun d’un depòsiti editable e permet eventualamen de jougne dei mot clau o dei doucumen. Aquela oupcioun deurìa interessà degun ! Vourguès laissà « noun » !',
+	'confirmer_desinstaller' => 'Mèfi, la desinstalacioun d’un plugin <b>escassa</b> li siéu dounada de la basa e es irreversìbla.<br />Se noun sias certen, desativàs simplamen lou plugin.',
 
 	// E
 	'erreur_auth_plugins_ajouter_lib' => 'Noun avès lu drech necessari per ajustà una biblioutèca.',
@@ -94,15 +98,20 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_aucun_paquet' => 'mìnga paquet',
 	'info_aucun_plugin' => 'mìnga plugin',
 	'info_compatibilite_dependance' => 'Per @compatibilite@ :',
+	'info_contributions_hebergees' => '@total_autres@ autri countribucioun ousteladi',
 	'info_depots_disponibles' => '@total_depots@ depòsiti',
 	'info_nb_depots' => '@nb@ depòsiti',
 	'info_nb_paquets' => '@nb@ paquet',
 	'info_nb_plugins' => '@nb@ plugin',
 	'info_paquets_disponibles' => '@total_paquets@ paquet dispounible',
+	'info_plugin_attente_dependance' => 'dependença manquanti',
 	'info_plugin_incompatible' => 'versioun incoumpatible',
 	'info_plugin_installe' => 'ja instalat',
 	'info_plugin_obsolete' => 'versioun perimada',
 	'info_plugins_disponibles' => '@total_plugins@ plugin dispounible',
+	'info_plugins_heberges' => '@total_plugins@ plugin oustelat',
+	'info_tri_nom' => 'classificat da ordre alfabéticou',
+	'info_tri_score' => 'classificat da pertinença descreissenta',
 	'info_type_depot_git' => 'Depòsiti gerat souta GIT',
 	'info_type_depot_manuel' => 'Depòsiti gerat manualamen',
 	'info_type_depot_svn' => 'Depòsiti gerat souta SVN',
@@ -122,6 +131,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'label_critere_etat' => 'Estat',
 	'label_critere_phrase' => 'Recercà en lu plugin',
 	'label_modifie_le' => 'Moudificat lou',
+	'label_n_autres_contributions' => 'autri countribucioun',
 	'label_prefixe' => 'Prefis',
 	'label_selectionner_plugin' => 'Seleciounà aqueu plugin',
 	'label_tags' => 'Tag',
@@ -187,8 +197,13 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_nok_url_depot_incorrecte' => 'L’adressa « @url@ » es mau couret',
 	'message_nok_xml_non_conforme' => 'Lou fichié XML « @fichier@ » de descricioun dóu depòsiti noun es counforme',
 	'message_nok_xml_non_recupere' => 'Lou fichié XML « @fichier@ » a pas pouscut estre recuperat',
+	'message_ok_aucun_plugin_trouve' => 'Mìnga plugin courrespouònda ai criteri chausit.',
 	'message_ok_depot_ajoute' => 'Lou depòsiti « @url@ » es estat ajustat.',
+	'message_ok_plugins_trouves' => '@nb_plugins@ plugin courrespouòndon ai criteri chausit (@tri@). Seleciounàs aquì souta lu plugin que auguràs de telecargà e ativà soubre lou vouòstre servidour.',
 	'message_telechargement_archive_effectue' => 'L’arquivi es estada courretamen estracha en @dir@.',
+
+	// N
+	'nettoyer_actions' => 'Netejà aqueli acioun ! Acò escasserà la lista dei acioun que reston da tratà.',
 
 	// O
 	'onglet_depots' => 'Gerà lu depòsiti',
@@ -213,6 +228,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'resume_table_plugins' => 'Lista dei plugin @categorie@',
 
 	// T
+	'telecharger_archive_plugin_explication' => 'Poudès telecargà un arquivi que si cargerà
+		en lou vouòstre repertori « plugins/auto », en escrivent l’URL de l’arquivi en lou camp de sesìda.',
 	'titre_depot' => 'Depòsiti',
 	'titre_depots' => 'Depòsiti',
 	'titre_form_ajouter_depot' => 'Ajustà un depòsiti',
