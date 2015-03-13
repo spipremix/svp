@@ -123,7 +123,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_charger_plugin' => 'Per ajustà un plugin o mai, efetuàs en premié una recerca multicriteri sus lu plugin de la galassìa SPIP. La recerca enclude basta lu plugin coumpatible embé la versioun SPIP instalada e signala lu plugin jà atiéu sus lou sit.',
 	'info_compatibilite_dependance' => 'Per @compatibilite@ :',
 	'info_contributions_hebergees' => '@total_autres@ autri countribucioun ousteladi',
-	'info_critere_phrase' => 'Sesissès lu mot clau da cercà en lou prefis, lou noum, l’eslogan, la descricioun e lu autour dei plugin',
+	'info_critere_phrase' => 'Sesissès lu mot clau da cercà en lou prefis, lou noum, l’eslougan, la descricioun e lu autour dei plugin',
 	'info_depots_disponibles' => '@total_depots@ depòsiti',
 	'info_fichier_depot' => 'Sesissès l’url dóu fichié de descricioun dau depòsiti da ajustà.<br />Per ajustà lou depòsiti « SPIP-Zone - Plugins » clicàs soubre aquel estac : ',
 	'info_nb_depots' => '@nb@ depòsiti',
@@ -243,7 +243,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'option_etat_tout' => 'Toui lu estat',
 
 	// P
-	'placeholder_phrase' => 'prefis, noum, eslogan, descritiéu o autour',
+	'placeholder_phrase' => 'prefis, noum, eslougan, descritiéu o autour',
 	'plugin_info_actif' => 'Plugin atiéu',
 	'plugin_info_up' => 'Una metuda a jou dóu plugin es dispounible (versioun @version@)',
 	'plugin_info_verrouille' => 'Plugin ferouiat',
