@@ -68,7 +68,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'config_autoriser_activer_paquets_obsoletes_explication' => 'Pacchetti obsoleti sono pacchetti locali che sono più vecchi rispetto agli altri pacchetti locali. L’obsolescenza di un pacchetto è stabilita sulla base dello stato (stable, testing, dev) del pacchetto e in base della sua versione. Attivare questa opzione se si vuole attivare questi plugin obsoleti.',
 	'config_depot_editable' => 'Consentire la modifica dei repository?',
 	'config_depot_editable_explication' => 'Questo rende modificabili le informazioni di un repository e abilitata eventualmente l’associazione di parole chiave o documenti ad esso. Questa opzione non dovrebbe interessanre nessuno! Quindi lasciate "no"!',
-	'confirmer_desinstaller' => 'Attenzione, la disinstallazione di un plug in ne <b>cancella</b> i dati dal database ed è irreversibile.<br />Se non siete sicuri, disattivate il plug in temporaneamente.', # RELIRE
+	'confirmer_desinstaller' => 'Attenzione, la disinstallazione di un plug-in ne <b>cancella</b> i dati dal database ed è irreversibile.<br />Se non sei sicuro, disattiva semplicemente il plug-in.',
 	'confirmer_telecharger_dans' => 'Il plugin sarà caricato nella directory (@dir@) che esiste già.
 Questo sovrascriverà il contenuto della directory.
 Una copia dei vecchi file saranno salvati in "@dir_backup@".
@@ -82,7 +82,7 @@ Devi confermare questa azione.',
 	'erreur_dir_plugins_auto' => 'La directory "plugins/auto" che permette il download dei pacchetti non esiste oppure non è scrivibile
 <strong>Dovete crearla per consentire l’installazione di nuovi plugin a partire da questa interfaccia.</strong>',
 	'erreur_dir_plugins_auto_ecriture' => 'La directory dei pacchetti @dir@ non è accessibile e scrivibile. Impossibile caricare un pacchetto!',
-	'erreur_dir_plugins_auto_indefini' => 'La directory _DIR_PLUGIN_AUTO non è definita. Impossibile caricarvi il pacchetto.', # MODIF
+	'erreur_dir_plugins_auto_indefini' => 'La directory _DIR_PLUGIN_AUTO non è definita. Impossibile caricarvi un pacchetto !',
 	'erreur_dir_plugins_auto_titre' => '"plugins/auto" non è accessibile!',
 	'erreur_teleporter_chargement_source_impossible' => 'Impossibile caricare la sorgente @source@',
 	'erreur_teleporter_destination_erreur' => 'La directory @dir@ non è accessibile',
