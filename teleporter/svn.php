@@ -6,7 +6,10 @@
  * @license GPL
  * @package SPIP\SVP\Teleporteur
  */
- 
+
+
+if (!defined('_SVN_COMMAND')) define('_SVN_COMMAND',_SVN_COMMAND.""); // Securite : mettre le chemin absolu dans mes_options.php
+
 /**
  * Téléporter et déballer un composant SVN
  * 
@@ -41,7 +44,7 @@ function teleporter_svn_dist($methode,$source,$dest,$options=array()){
 		}
 		elseif (!isset($options['revision'])
 		  OR $options['revision']!=$infos['revision']){
-			$command = "svn up ";
+			$command = _SVN_COMMAND." up ";
 			if (isset($options['revision']))
 				$command .= escapeshellarg("-r".$options['revision'])." ";
 			if (isset($options['ignore-externals']))
@@ -58,7 +61,7 @@ function teleporter_svn_dist($methode,$source,$dest,$options=array()){
 	}
 
 	if (!is_dir($dest)){
-		$command = "svn co ";
+		$command = _SVN_COMMAND." co ";
 		if (isset($options['revision']))
 			$command .= escapeshellarg("-r".$options['revision'])." ";
 		if (isset($options['ignore-externals']))
@@ -97,7 +100,7 @@ function teleporter_svn_read($dest,$options=array()){
 
 	// on veut lire ce qui est actuellement deploye
 	// et reconstituer la ligne de commande pour le deployer
-	exec("svn info ".escapeshellarg($dest),$output);
+	exec(_SVN_COMMAND." info ".escapeshellarg($dest),$output);
 	$output = implode("\n",$output);
 
 	// URL
@@ -130,7 +133,7 @@ function teleporter_svn_read($dest,$options=array()){
 function teleporter_svn_tester() {
 	static $erreurs = null;
 	if (is_null($erreurs)) {
-		exec("svn --version", $output, $erreurs);
+		exec(_SVN_COMMAND." --version", $output, $erreurs);
 	}
 	return !$erreurs;
 }

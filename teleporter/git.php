@@ -7,6 +7,8 @@
  * @package SPIP\SVP\Teleporteur
  */
  
+if (!defined('_GIT_COMMAND')) define('_GIT_COMMAND','git'); // Securite : on peut indiquer le chemin absolu dans mes_options.php
+
 /**
  * Téléporter et déballer un composant GIT
  * 
@@ -40,17 +42,17 @@ function teleporter_git_dist($methode,$source,$dest,$options=array()){
 		}
 		elseif (!isset($options['revision'])
 		  OR $options['revision']!=$infos['revision']){
-			$command = "git checkout ".escapeshellarg($branche);
+			$command = _GIT_COMMAND." checkout ".escapeshellarg($branche);
 			teleporter_git_exec($dest,$command);
-			$command = "git pull --all";
+			$command = _GIT_COMMAND." pull --all";
 			teleporter_git_exec($dest,$command);
 
 			if (isset($options['revision'])){
-				$command = "git checkout ".escapeshellarg($options['revision']);
+				$command = _GIT_COMMAND." checkout ".escapeshellarg($options['revision']);
 				teleporter_git_exec($dest,$command);
 			}
 			else {
-				$command = "git checkout ".escapeshellarg($branche);
+				$command = _GIT_COMMAND." checkout ".escapeshellarg($branche);
 				teleporter_git_exec($dest,$command);
 			}
 		}
@@ -60,11 +62,11 @@ function teleporter_git_dist($methode,$source,$dest,$options=array()){
 	}
 
 	if (!is_dir($dest)){
-		$command = "git clone ";
+		$command = _GIT_COMMAND." clone ";
 		$command .= escapeshellarg($source)." ".escapeshellarg($dest);
 		teleporter_git_exec($dest,$command);
 		if (isset($options['revision'])){
-			$command = "git checkout ".escapeshellarg($options['revision']);
+			$command = _GIT_COMMAND." checkout ".escapeshellarg($options['revision']);
 			teleporter_git_exec($dest,$command);
 		}
 	}
@@ -101,7 +103,7 @@ function teleporter_git_read($dest, $options=array()) {
 	$curdir = getcwd();
 	chdir($dest);
 
-	exec("git remote -v",$output);
+	exec(_GIT_COMMAND." remote -v",$output);
 	$output = implode("\n",$output);
 
 	$source = "";
@@ -117,7 +119,7 @@ function teleporter_git_read($dest, $options=array()) {
 
 	$source = $m[1];
 
-	exec("git log -1",$output);
+	exec(_GIT_COMMAND." log -1",$output);
 	$hash = explode(" ",reset($output));
 	$hash = end($hash);
 
@@ -162,7 +164,7 @@ function teleporter_git_exec($dest,$command) {
 function teleporter_git_tester() {
 	static $erreurs = null;
 	if (is_null($erreurs)) {
-		exec("git --version", $output, $erreurs);
+		exec(_GIT_COMMAND." --version", $output, $erreurs);
 	}
 	return !$erreurs;
 }
