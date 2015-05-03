@@ -5,9 +5,11 @@
 			[<em class="site">
 				<a href="(#LIEN_DOC)" class="spip_out" title="<:svp:bulle_aller_documentation:>"><:svp:lien_documentation:></a>
 			</em>]
-			[ - <em class="site">
-				<a href="(#LIEN_DEMO|svp_calculer_url_demo)" class="spip_out" title="<:svp:bulle_aller_demonstration:>"><:svp:lien_demo:></a>
-			</em>]
+			[(#ACTIF|=={oui}|oui)
+				[ - <em class="site">
+					<a href="(#LIEN_DEMO|svp_calculer_url_demo)" class="spip_out" title="<:svp:bulle_aller_demonstration:>"><:svp:lien_demo:></a>
+				</em>]
+			]
 		</dd>
 		[<dt class="auteurs"><:public:par_auteur:></dt>
 		<dd class="auteurs">(#AUTEUR*|svp_afficher_credits|svp_importer_charset)</dd>]
