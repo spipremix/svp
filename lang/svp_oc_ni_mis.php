@@ -34,6 +34,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'bulle_actualiser_tout_depot' => 'Atualisà lu paquet de toui lu depòsiti',
 	'bulle_afficher_xml_plugin' => 'Countengut dóu fichié XML dau plugin',
 	'bulle_ajouter_spipzone' => 'Ajustà lou depòsiti SPIP-Zone',
+	'bulle_aller_demonstration' => 'Anà sus la pàgina de demounstracioun',
 	'bulle_aller_depot' => 'Anà sus la pàgina d’aqueu depòsiti',
 	'bulle_aller_documentation' => 'Anà sus la pàgina de doucumentacioun',
 	'bulle_aller_plugin' => 'Anà sus la pàgina dóu plugin',
@@ -174,6 +175,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'label_xml_plugin' => 'XML',
 	'legende_installer_plugins' => 'Instalà dei plugin',
 	'legende_rechercher_plugins' => 'Recercà dei plugin',
+	'lien_demo' => 'Demounstracioun',
+	'lien_documentation' => 'Doucumentacioun',
 
 	// M
 	'message_action_finale_get_fail' => 'Lou plugin « @plugin@ » (versioun : @version@) noun es estat recuperat courretamen',
