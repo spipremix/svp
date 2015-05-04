@@ -34,6 +34,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'bulle_actualiser_tout_depot' => 'Refresh packages of all repositories',
 	'bulle_afficher_xml_plugin' => 'Content of the plugin XML file',
 	'bulle_ajouter_spipzone' => 'Add the SPIP-Zone repository',
+	'bulle_aller_demonstration' => 'Go to the demo page',
 	'bulle_aller_depot' => 'Go to the page of the repository',
 	'bulle_aller_documentation' => 'Go to the documentation page',
 	'bulle_aller_plugin' => 'Go to the plugin page',
@@ -173,6 +174,8 @@ is not created or is not writable.
 	'label_xml_plugin' => 'XML',
 	'legende_installer_plugins' => 'Install plugins',
 	'legende_rechercher_plugins' => 'Search plugins',
+	'lien_demo' => 'Demo',
+	'lien_documentation' => 'Documentation',
 
 	// M
 	'message_action_finale_get_fail' => 'The plugin "@plugin@" (Version : @version@) couldn’t be successfully downloaded',
