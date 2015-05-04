@@ -34,6 +34,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'bulle_actualiser_tout_depot' => 'تحديث حزم كل المستودعات',
 	'bulle_afficher_xml_plugin' => 'محتوى ملف XML الخاص بالملحق',
 	'bulle_ajouter_spipzone' => 'إضافة المستودع SPIP-Zone',
+	'bulle_aller_demonstration' => 'الانتقال الى صفحة العرض التوضيحي',
 	'bulle_aller_depot' => 'الانتقال الى صفحة هذا المستودع',
 	'bulle_aller_documentation' => 'الانتقال الى صفحة التوثيق',
 	'bulle_aller_plugin' => 'الانتقال الى صفحة الملحق',
@@ -174,6 +175,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'label_xml_plugin' => 'XML',
 	'legende_installer_plugins' => 'تثبيت ملحقات',
 	'legende_rechercher_plugins' => 'البحث عن ملحقات',
+	'lien_demo' => 'عرض توضيحي',
+	'lien_documentation' => 'توثيق',
 
 	// M
 	'message_action_finale_get_fail' => 'لم يتم جلب الملحق «@plugin@» (الإصدار: @version@) بشكل سليم',
