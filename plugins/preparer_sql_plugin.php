@@ -127,7 +127,7 @@ function normaliser_nom($nom, $langue='', $supprimer_numero=true) {
 	foreach ($noms as $_lang => $_nom) {
 		$_nom = trim($_nom);
 		if (!$_lang)
-			$_lang = 'fr';
+			$_lang = _LANGUE_PAR_DEFAUT;
 		if ($supprimer_numero)
 			$nbr_matches = preg_match(',(.+)(\s+[\d._]*)$,Um', $_nom, $matches);
 		else
@@ -190,7 +190,7 @@ function normaliser_auteur_licence($texte, $balise) {
 	$t = normaliser_multi($texte);
 
 	$res = array('auteur' => array(), 'licence' => array(),'copyright' => array());
-	foreach(preg_split('@(<br */?>)|<li>|,|\s-|\n_*\s*|&amp;| & | et @', $t['fr']) as $v) {
+	foreach(preg_split('@(<br */?>)|<li>|,|\s-|\n_*\s*|&amp;| & | et @', $t[_LANGUE_PAR_DEFAUT]) as $v) {
 		// On detecte d'abord si le bloc texte en cours contient un eventuel copyright
 		// -- cela generera une balise copyright et non auteur
 		$copy = '';
@@ -272,12 +272,12 @@ function normaliser_multi($texte) {
 	include_spip('inc/filtres');
 
 	if (!preg_match_all(_EXTRAIRE_MULTI, $texte, $regs, PREG_SET_ORDER))
-		return array('fr' => $texte);
+		return array(_LANGUE_PAR_DEFAUT => $texte);
 	$trads = array();
 	foreach ($regs as $reg) {
 		foreach (extraire_trads($reg[1]) as $k => $v) {
-			// Si le code de langue n'est pas precise dans le multi c'est donc fr
-			$lang = ($k) ? $k : 'fr';
+			// Si le code de langue n'est pas précisé dans le multi c'est donc la langue par défaut
+			$lang = ($k) ? $k : _LANGUE_PAR_DEFAUT;
 			$trads[$lang]= str_replace($reg[0], $v, isset($trads[$k]) ? $trads[$k] : $texte);
 		}
 	}
