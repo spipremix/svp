@@ -1143,9 +1143,12 @@ function svp_decider_verifier_actions_demandees($a_actionner, &$erreurs) {
 		return false;
 	}
 
-	$erreurs['decideur_propositions'] = $decideur->presenter_actions('changes');
-	$erreurs['decideur_demandes']     = $decideur->presenter_actions('ask');
-	$erreurs['decideur_actions']      = $decideur->presenter_actions('todo');
+	// On construit la liste des libellés d'actions
+	$actions = array();
+	$actions['decideur_propositions'] = $decideur->presenter_actions('changes');
+	$actions['decideur_demandes']     = $decideur->presenter_actions('ask');
+	$actions['decideur_actions']      = $decideur->presenter_actions('todo');
+	set_request('_libelles_actions', $actions);
 
 	// On construit la liste des actions pour la passer au formulaire en hidden
 	$todo = array();

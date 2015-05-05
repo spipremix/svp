@@ -56,6 +56,8 @@ function formulaires_admin_plugin_charger_dist($voir='actif', $verrouille='non',
 	$valeurs['ids_paquet'] = _request('ids_paquet');
 	$valeurs['afficher_incompatibles'] = _request('afficher_incompatibles');
 	$valeurs['_todo'] = _request('_todo');
+	$valeurs['_notices'] = _request('_notices');
+	$valeurs['_libelles_actions'] = _request('_libelles_actions');
 
 	return $valeurs;
 }
@@ -137,14 +139,13 @@ function formulaires_admin_plugin_verifier_dist($voir='actif', $verrouille='non'
 			include_spip('inc/svp_decider');
 			svp_decider_verifier_actions_demandees($a_actionner, $erreurs);
 			$todo = _request('_todo') ? unserialize(_request('_todo')) : array();
+			$actions = _request('_decideur_actions') ? unserialize(_request('_decideur_actions')) : array();
 			// si c'est une action simple sans rien a faire de plus que demande, on y go direct
 			if (in_array('stop',$todo)){
-				$erreurs['decideur_warning'] = _T('svp:confirmer_desinstaller');
+				$notices['decideur_warning'] = _T('svp:confirmer_desinstaller');
+				set_request('_notices', $notices);
 			}
-			elseif (!isset($erreurs['decideur_erreurs']) and !count($erreurs['decideur_propositions'])){
-				unset($erreurs['decideur_propositions']);
-				unset($erreurs['decideur_demandes']);
-				unset($erreurs['decideur_actions']);
+			elseif (!isset($erreurs['decideur_erreurs']) and !count($actions['decideur_propositions'])){
 				set_request('valider_actions',true); // on fake la validation, non mais ho !
 			}
 		}

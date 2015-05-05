@@ -26,7 +26,9 @@ function formulaires_charger_plugin_charger_dist(){
 		'doublon' => _request('doublon'),
 		'exclusion' => _request('exclusion'),
 		'ids_paquet' => _request('ids_paquet'),
-		'_todo' => _request('_todo'));
+		'_todo' => _request('_todo'),
+		'_libelles_actions' => _request('_libelles_actions')
+	);
 }
 
 /**
@@ -85,7 +87,6 @@ function formulaires_charger_plugin_verifier_dist(){
 		if (!$a_installer)
 			$erreurs['message_erreur'] = _T('svp:message_nok_aucun_plugin_selectionne');
 		else {
-			
 			// On fait appel au decideur pour determiner la liste exacte des commandes apres
 			// verification des dependances
 			include_spip('inc/svp_decider');
