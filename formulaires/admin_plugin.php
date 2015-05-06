@@ -145,7 +145,8 @@ function formulaires_admin_plugin_verifier_dist($voir='actif', $verrouille='non'
 				$notices['decideur_warning'] = _T('svp:confirmer_desinstaller');
 				set_request('_notices', $notices);
 			}
-			elseif (!isset($erreurs['decideur_erreurs']) and !count($actions['decideur_propositions'])){
+			elseif (!isset($erreurs['decideur_erreurs'])
+			AND (isset($erreurs['decideur_propositions']) AND !count($actions['decideur_propositions']))){
 				set_request('valider_actions',true); // on fake la validation, non mais ho !
 			}
 		}
