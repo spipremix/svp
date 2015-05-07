@@ -8,7 +8,7 @@
  */
 
 
-if (!defined('_SVN_COMMAND')) define('_SVN_COMMAND',_SVN_COMMAND.""); // Securite : mettre le chemin absolu dans mes_options.php
+if (!defined('_SVN_COMMAND')) define('_SVN_COMMAND',"svn"); // Securite : mettre le chemin absolu dans mes_options.php
 
 /**
  * Téléporter et déballer un composant SVN
