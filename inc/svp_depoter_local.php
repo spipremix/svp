@@ -304,7 +304,7 @@ function svp_base_inserer_paquets_locaux($paquets_locaux) {
 				$le_paquet['constante']   = $const_dir;
 				$le_paquet['src_archive'] = $chemin;
 				$le_paquet['recent']      = isset($recents[$chemin]) ? $recents[$chemin] : 0;
-				$le_paquet['installe']    = in_array($chemin, $installes) ? 'oui': 'non'; // est desinstallable ?
+				$le_paquet['installe']    = is_array($chemin) && in_array($chemin, $installes) ? 'oui': 'non'; // est desinstallable ?
 				$le_paquet['obsolete']    = 'non';
 				$le_paquet['signature']   = $paquet['signature'];
 
