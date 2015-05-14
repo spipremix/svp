@@ -34,6 +34,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'bulle_actualiser_tout_depot' => 'Aktualizovať balíky vo všetkých depozitároch',
 	'bulle_afficher_xml_plugin' => 'Obsah súboru XML zásuvného modulu',
 	'bulle_ajouter_spipzone' => 'Pridať depozitár SPIP-Zone',
+	'bulle_aller_demonstration' => 'Prejdete na stránku s ukážkou',
 	'bulle_aller_depot' => 'Prejsť na stránku tohto depozitára',
 	'bulle_aller_documentation' => 'Prejsť na stránku dokumentácie',
 	'bulle_aller_plugin' => 'Prejsť na stránku zásuvného modulu',
@@ -188,6 +189,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'label_xml_plugin' => 'XML',
 	'legende_installer_plugins' => 'Nainštalovať zásuvné moduly',
 	'legende_rechercher_plugins' => 'Hľadať zásuvné moduly',
+	'lien_demo' => 'Ukážka',
+	'lien_documentation' => 'Dokumentácia',
 
 	// M
 	'message_action_finale_get_fail' => 'Zásuvný modul "@plugin@" (verzia: @version@) sa nepodarilo správne obnoviť',
