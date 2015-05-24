@@ -34,6 +34,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'bulle_actualiser_tout_depot' => 'Actualiser les paquets de tous les dépôts',
 	'bulle_afficher_xml_plugin' => 'Contenu du fichier XML du plugin',
 	'bulle_ajouter_spipzone' => 'Ajouter le dépôt SPIP-Zone',
+	'bulle_aller_demonstration' => 'Se rendre sur la page de démonstration',
 	'bulle_aller_depot' => 'Se rendre sur la page de ce dépôt',
 	'bulle_aller_documentation' => 'Se rendre sur la page de documentation',
 	'bulle_aller_plugin' => 'Se rendre sur la page du plugin',
@@ -175,6 +176,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'label_xml_plugin' => 'XML',
 	'legende_installer_plugins' => 'Installer des plugins',
 	'legende_rechercher_plugins' => 'Rechercher des plugins',
+	'lien_demo' => 'Démonstration',
+	'lien_documentation' => 'Documentation',
 
 	// M
 	'message_action_finale_get_fail' => 'Le plugin « @plugin@ » (version : @version@) n’a pu être correctement récupéré',
