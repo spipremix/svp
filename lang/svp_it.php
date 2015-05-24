@@ -173,6 +173,8 @@ Se vuoi disabilitarla, per favore contatta il webmaster del sito oppure controll
 	'label_xml_plugin' => 'XML',
 	'legende_installer_plugins' => 'Installa plugin',
 	'legende_rechercher_plugins' => 'Cerca plugin',
+	'lien_demo' => 'Dimostrazione',
+	'lien_documentation' => 'Documentazione',
 
 	// M
 	'message_action_finale_get_fail' => 'Il plugin "@plugin@" (versione: @version@) non può essere scaricato con successo',
