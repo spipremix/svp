@@ -22,7 +22,7 @@
 	</langue>
 	<langue code="fr" url="http://trad.spip.net/tradlang_module/svp?lang_cible=fr" total="244" traduits="244" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
 	</langue>
-	<langue code="fr_fem" url="http://trad.spip.net/tradlang_module/svp?lang_cible=fr_fem" total="244" traduits="241" relire="0" modifs="0" nouveaux="3" pourcent="98.77">
+	<langue code="fr_fem" url="http://trad.spip.net/tradlang_module/svp?lang_cible=fr_fem" total="244" traduits="244" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
 		<traducteur nom="b_b" lien="http://trad.spip.net/auteur/b_b" />
 		<traducteur nom="denisb" lien="http://trad.spip.net/auteur/denisb" />
 	</langue>
@@ -30,7 +30,8 @@
 		<traducteur nom="Cerf" lien="http://trad.spip.net/auteur/cerf" />
 		<traducteur nom="RealET" lien="http://trad.spip.net/auteur/realet" />
 	</langue>
-	<langue code="it" url="http://trad.spip.net/tradlang_module/svp?lang_cible=it" total="244" traduits="241" relire="0" modifs="0" nouveaux="3" pourcent="98.77">
+	<langue code="it" url="http://trad.spip.net/tradlang_module/svp?lang_cible=it" total="244" traduits="243" relire="0" modifs="0" nouveaux="1" pourcent="99.59">
+		<traducteur nom="b_b" lien="http://trad.spip.net/auteur/b_b" />
 		<traducteur nom="Julia14" lien="http://trad.spip.net/auteur/julia14" />
 		<traducteur nom="phante" lien="http://trad.spip.net/auteur/phante" />
 	</langue>
