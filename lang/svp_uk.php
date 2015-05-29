@@ -16,7 +16,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'actions_non_traitees' => 'Операцію не виконано',
 	'actions_realises' => 'Операцію виконано',
 	'afficher_les_plugins_incompatibles' => 'Показати несумісні плагіни',
-	'alerte_compatibilite' => 'Принудительная совместимость',
+	'alerte_compatibilite' => 'Примусова сумісність',
 
 	// B
 	'bouton_activer' => 'Увімкнути',
@@ -50,7 +50,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'categorie_communication' => 'Інтерактивність, комунікації',
 	'categorie_date' => 'Розклади, календарі, дата і час',
 	'categorie_divers' => 'Зовнішні сервіси, нові об’єкти',
-	'categorie_edition' => 'Робота з текстом, печать',
+	'categorie_edition' => 'Робота з текстом, друк',
 	'categorie_maintenance' => 'Налаштування і обслуговування',
 	'categorie_multimedia' => 'Файли мультимедіа, галереї, картинки',
 	'categorie_navigation' => 'Навігація, пошук',
