@@ -21,7 +21,11 @@ if (!defined('_SVP_MODE_RUNTIME')) {
  * - En mode non runtime (false) on charge tous les plugins : cas du site Plugins SPIP
  * Runtime est le mode par defaut
  * @var bool */
-	define('_SVP_MODE_RUNTIME', (lire_config('svp/mode_runtime', 'oui') == 'oui' ? true : false));
+	if (defined('_DEV_PLUGINS')) { 
+		define('_SVP_MODE_RUNTIME', false);
+	} else {
+		define('_SVP_MODE_RUNTIME', (lire_config('svp/mode_runtime', 'oui') == 'oui' ? true : false));
+	}
 }
 
 
