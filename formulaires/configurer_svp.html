@@ -8,7 +8,7 @@
 		#ACTION_FORMULAIRE
 		<fieldset>
 			<legend><:svp:fieldset_fonctionnement:></legend>
-			<ul>
+			<ul class="editer-groupe">
 				#SET{name,mode_runtime}#SET{obli,''}#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
 				<li class="editer editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">
 					<label><:svp:config_activer_runtime:></label>
@@ -23,11 +23,11 @@
 						[(#ENV{#GET{name}}|=={non}|oui)checked="checked"] /><label for="#GET{name}_non"><:item_non:></label>
 					</div>
 				</li>
-			<ul>			
+			<ul class="editer-groupe">
 		</fieldset>
 		<fieldset>
 			<legend><:svp:fieldset_debug:></legend>
-			<ul>
+			<ul class="editer-groupe">
 				#SET{name,mode_pas_a_pas}#SET{obli,''}#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
 				<li class="editer editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">
 					<label><:svp:config_activer_pas_a_pas:></label>
@@ -72,11 +72,11 @@
 						[(#ENV{#GET{name}}|=={oui}|non)checked="checked"] /><label for="#GET{name}_non"><:item_non:></label>
 					</div>
 				</li>
-			<ul>			
+			<ul class="editer-groupe">
 		</fieldset>
 		<fieldset>
 			<legend><:svp:fieldset_edition:></legend>
-			<ul>
+			<ul class="editer-groupe">
 				#SET{name,depot_editable}#SET{obli,''}#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
 				<li class="editer editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">
 					<label><:svp:config_depot_editable:></label>
@@ -91,7 +91,7 @@
 						[(#ENV{#GET{name}}|=={oui}|non)checked="checked"] /><label for="#GET{name}_non"><:item_non:></label>
 					</div>
 				</li>
-			<ul>			
+			<ul class="editer-groupe">
 		</fieldset>
 		<p class='boutons'><input class='submit' type="submit" name="_cfg_ok" value="<:bouton_enregistrer:>" /></p>
 	</div></form>

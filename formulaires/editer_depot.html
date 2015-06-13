@@ -7,7 +7,7 @@
 		[(#REM) declarer les hidden qui declencheront le service du formulaire
 		parametre : url d'action ]
 		#ACTION_FORMULAIRE{#ENV{action}}
-		<ul>
+		<ul class="editer-groupe">
 			<li class="editer_titre obligatoire[(#ENV**{erreurs}|table_valeur{titre}|oui) erreur]">
 				<label for="titre"><:info_titre:></label>
 				[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{titre})</span>]
@@ -20,7 +20,7 @@
 				<textarea name='descriptif' id='descriptif'[ lang='(#LANGUE)'] rows='12' cols='40'>[(#ENV**{descriptif})]</textarea>
 		    </li>
 			<li class="fieldset">
-			<fieldset><ul>
+			<fieldset><ul class="editer-groupe">
 			<li class="editer_type[(#ENV**{erreurs}|table_valeur{type}|oui) erreur]">
 				<label><:svp:label_type_depot:></label>
 				<div class="choix">
