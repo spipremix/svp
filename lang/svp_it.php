@@ -265,7 +265,7 @@ Se vuoi disabilitarla, per favore contatta il webmaster del sito oppure controll
 	'titre_form_charger_plugin' => 'Cerca e aggiungi i plugin',
 	'titre_form_charger_plugin_archive' => 'Scarica il plugin usando l’url dell’archivio',
 	'titre_form_configurer_svp' => 'Configurazione del server dei plugin',
-	'titre_liste_autres_contributions' => 'Template, libreria, set di icone',
+	'titre_liste_autres_contributions' => 'Template, libreria, set di icone', # MODIF
 	'titre_liste_autres_depots' => 'Altri repository',
 	'titre_liste_depots' => 'Lista dei repository disponibili',
 	'titre_liste_paquets_plugin' => 'Lista dei pacchetti del plugin',

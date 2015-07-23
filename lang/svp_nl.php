@@ -261,7 +261,7 @@ Je moet deze actie bevestigen.',
 	'titre_form_charger_plugin' => 'Plugins zoeken en toevoegen',
 	'titre_form_charger_plugin_archive' => 'Een plugin downloaden uit zijn archief',
 	'titre_form_configurer_svp' => 'De Plugins-server configureren',
-	'titre_liste_autres_contributions' => 'Skeletten, bibliotheken, icon sets...',
+	'titre_liste_autres_contributions' => 'Skeletten, bibliotheken, icon sets...', # MODIF
 	'titre_liste_autres_depots' => 'Andere depots',
 	'titre_liste_depots' => 'Lijst van beschikbare depots',
 	'titre_liste_paquets_plugin' => 'Lijst van pakketten van de plugin',

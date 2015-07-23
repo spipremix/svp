@@ -266,7 +266,7 @@ is not created or is not writable.
 	'titre_form_charger_plugin' => 'Search and add plugins',
 	'titre_form_charger_plugin_archive' => 'Download plugin from its archive URL',
 	'titre_form_configurer_svp' => 'Setup the plugins server',
-	'titre_liste_autres_contributions' => 'Templates, libraries, icon sets...',
+	'titre_liste_autres_contributions' => 'Templates, libraries, icon sets...', # MODIF
 	'titre_liste_autres_depots' => 'Other repositories',
 	'titre_liste_depots' => 'List of available repositories',
 	'titre_liste_paquets_plugin' => 'List of packages of the plugin',

@@ -264,7 +264,7 @@ existiert nicht oder hat keinen Schreibrechte.
 	'titre_form_charger_plugin' => 'Plugins suchen und hinzufügen',
 	'titre_form_charger_plugin_archive' => 'Plugin aus seinem Archiv herunterladen',
 	'titre_form_configurer_svp' => 'Plugin-Server konfigurieren',
-	'titre_liste_autres_contributions' => 'Skelette, Bibliotheken, Icon-Sammlungen...',
+	'titre_liste_autres_contributions' => 'Skelette, Bibliotheken, Icon-Sammlungen...', # MODIF
 	'titre_liste_autres_depots' => 'Andere Depots',
 	'titre_liste_depots' => 'Liste der verfügbaren Depots',
 	'titre_liste_paquets_plugin' => 'Liste der Pakete des Plugins',
