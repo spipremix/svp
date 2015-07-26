@@ -29,6 +29,7 @@ function action_actionner_dist() {
 	include_spip('inc/headers');
 	$actionneur = new Actionneur();
 	$actionneur->get_actions();
+
 	if ($actionneur->one_action()) {
 		// si SVP a été enlevé des actifs, on redirige sur la fin...
 		// sinon cette page d'action/actionner devient introuvable.
@@ -60,7 +61,16 @@ function action_actionner_dist() {
 
 		redirige_par_entete(str_replace('&amp;','&', $url));
 	}
-	
+
+	foreach($actionneur->done as $done){
+		if ($done['todo']=='on'){
+			if ($voir = session_get('svp_admin_plugin_voir')
+			  AND $voir=='inactif')
+				session_set('svp_admin_plugin_voir','actif');
+			break;
+		}
+	}
+
 	include_spip('inc/svp_depoter_local');
 	svp_actualiser_paquets_locaux();
 
