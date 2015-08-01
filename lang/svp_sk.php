@@ -283,7 +283,7 @@ alebo vytvoriť tento priečinok a nastaviť mu povolenie na zápis.',
 	'titre_form_charger_plugin' => 'Vyhľadať a pridať zásuvné moduly',
 	'titre_form_charger_plugin_archive' => 'Stiahnuť zásuvný modul z archívu',
 	'titre_form_configurer_svp' => 'Nastaviť server zásuvných modulov',
-	'titre_liste_autres_contributions' => 'Šablóny, knižnice, sady ikon, atď.', # MODIF
+	'titre_liste_autres_contributions' => 'Šablóny, knižnice, sady ikon...',
 	'titre_liste_autres_depots' => 'Ostatné depozitáre',
 	'titre_liste_depots' => 'Zoznam dostupných depozitárov',
 	'titre_liste_paquets_plugin' => 'Zoznam balíkov zásuvného modulu',
