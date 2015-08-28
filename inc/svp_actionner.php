@@ -236,8 +236,11 @@ class Actionneur {
 		$this->clear();
 
 		foreach ($this->start as $id=>$action) {
-			$i = $this->decideur->infos_courtes_id($id);
-			$i = $i['i'][$id];
+			$i = array(); // description du paquet. Ne s'applique pas si librairie ($id = md5)
+			if (is_int($id)) {
+				$i = $this->decideur->infos_courtes_id($id);
+				$i = $i['i'][$id];
+			}
 			switch ($action) {
 				case 'getlib':
 					// le plugin en ayant besoin le fera
@@ -516,10 +519,14 @@ class Actionneur {
 				$oks = &$ok;
 				$ok_texte = $ok ? 'ok' : 'fail';
 				$cle_t = 'svp:message_action_finale_' . $i['todo'] . '_' . $ok_texte;
-				$texte = _T($cle_t, array(
-					'plugin' => $i['n'],
+				$trads = array(
+					'plugin'  => $i['n'],
 					'version' => denormaliser_version($i['v']),
-					'version_maj' => denormaliser_version($i['maj'])));
+				);
+				if (isset($i['maj'])) {
+					$trads['version_maj'] = denormaliser_version($i['maj']);
+				}
+				$texte = _T($cle_t, $trads);
 				if (is_string($i['done'])) {
 					$texte .= " <span class='$ok_texte'>$i[done]</span>";
 				}

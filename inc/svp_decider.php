@@ -1117,10 +1117,14 @@ class Decideur {
 	function presenter_actions($quoi) {
 		$res = array();
 		foreach ($this->$quoi as $id=>$info) {
-			$res[] = _T('svp:message_action_'.$info['todo'], array(
-				'plugin'=>$info['n'],
-				'version'=>denormaliser_version($info['v']),
-				'version_maj'=>denormaliser_version($info['maj'])));
+			$trads = array(
+				'plugin'  => $info['n'],
+				'version' => denormaliser_version($info['v']),
+			);
+			if (isset($info['maj'])) {
+				$trads['version_maj'] = denormaliser_version($info['maj']);
+			}
+			$res[] = _T('svp:message_action_'.$info['todo'], $trads);
 		}
 		return $res;
 	}
