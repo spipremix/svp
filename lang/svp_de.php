@@ -8,7 +8,7 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
 $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// A
-	'action_patienter' => 'Die AKtionen werden ausgeführt. Bitte warten …',
+	'action_patienter' => 'Die Aktionen werden ausgeführt. Bitte warten …',
 	'actions_a_faire' => 'Auszuführende Aktionen',
 	'actions_demandees' => 'Angeforderte Aktionen:',
 	'actions_en_erreur' => 'Aufgetretene Fehler',
