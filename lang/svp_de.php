@@ -34,6 +34,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'bulle_actualiser_tout_depot' => 'Pakete aller Softwaredepots aktualisieren',
 	'bulle_afficher_xml_plugin' => 'Inhalt der XML-Date des Plugins',
 	'bulle_ajouter_spipzone' => 'Das Softwaredepot SPIP-Zone hinzufügen',
+	'bulle_aller_demonstration' => 'Demoseite öffnen',
 	'bulle_aller_depot' => 'Seite des Softwaredepots öffnen',
 	'bulle_aller_documentation' => 'Dokumentationsseite öffnen',
 	'bulle_aller_plugin' => 'Seite des Plugins öffnen',
@@ -174,6 +175,8 @@ existiert nicht oder hat keinen Schreibrechte.
 	'label_xml_plugin' => 'XML',
 	'legende_installer_plugins' => 'Plugins installieren',
 	'legende_rechercher_plugins' => 'Plugins suchen',
+	'lien_demo' => 'Demonstration',
+	'lien_documentation' => 'Dokumentation',
 
 	// M
 	'message_action_finale_get_fail' => 'Das Plugin « @plugin@ » (Version: @version@) konnte nicht geladen werden.',
@@ -264,7 +267,7 @@ existiert nicht oder hat keinen Schreibrechte.
 	'titre_form_charger_plugin' => 'Plugins suchen und hinzufügen',
 	'titre_form_charger_plugin_archive' => 'Plugin aus seinem Archiv herunterladen',
 	'titre_form_configurer_svp' => 'Plugin-Server konfigurieren',
-	'titre_liste_autres_contributions' => 'Skelette, Bibliotheken, Icon-Sammlungen...', # MODIF
+	'titre_liste_autres_contributions' => 'Skelette, Bibliotheken, Icon-Sammlungen...',
 	'titre_liste_autres_depots' => 'Andere Depots',
 	'titre_liste_depots' => 'Liste der verfügbaren Depots',
 	'titre_liste_paquets_plugin' => 'Liste der Pakete des Plugins',
