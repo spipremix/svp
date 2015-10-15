@@ -116,7 +116,7 @@ existiert nicht oder hat keinen Schreibrechte.
 	'info_adresse_spipzone' => 'SPIP-Zone - Plugins',
 	'info_ajouter_depot' => 'Wenn sie Depots in ihre Datenbank eintragen, können sie auf die Informationen über alle dort gespeicherten Pakete zugreifen und gezielt in den im Depot vorhandenen Paketen suchen.<br />Ein Depot wird durch eine XML-Datei beschrieben, die Informationen über das Depot selbst und die in ihm gespeicherten Pakete enthält.',
 	'info_aucun_depot' => 'Kein Depot',
-	'info_aucun_depot_ajoute' => 'Kein Depot verfügbar!<br /> Verwenden sie das Formular, um das Depot «SPIP-Zone - Plugins» in die Datenbank einzutragen. Sein URL steht bereits im Formular, sie können aber auch ein anderes Depot ihrer Wahl eintragen.',
+	'info_aucun_depot_ajoute' => 'Kein Depot verfügbar!<br /> Verwenden sie das Formular, um das Depot «SPIP-Zone - Plugins» in die Datenbank einzutragen. Sein URL steht bereits im Formular, sie können aber auch ein anderes Depot ihrer Wahl eintragen. Das Depot wird zunächst analysiert. Bitte warten sie solange.',
 	'info_aucun_paquet' => 'Kein Paket',
 	'info_aucun_plugin' => 'Kein Plugin',
 	'info_boite_charger_plugin' => '<strong>Diese Seite ist nur für den Webmaster der Site zugänglich.</strong><p>Sie ermöglicht ihnen, in den eingetragenen Depots nach Plugins zu suchen und diese auf ihrem Server zu installieren.</p>',
