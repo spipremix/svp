@@ -15,13 +15,13 @@ include_spip('inc/xml');
 include_spip('inc/config');
 
 if (!defined('_SVP_MODE_RUNTIME')) {
-/**
- * Mode d'utilisation de SVP runtime ou pas :
- * - En mode runtime (true), on ne charge que les plugins compatibles avec la version courante
- * - En mode non runtime (false) on charge tous les plugins : cas du site Plugins SPIP
- * Runtime est le mode par defaut
- * @var bool */
-	if (defined('_DEV_PLUGINS')) { 
+	if (defined('_DEV_PLUGINS')) {
+		/**
+		 * Mode d'utilisation de SVP runtime ou pas :
+		 * - En mode runtime (true), on ne charge que les plugins compatibles avec la version courante
+		 * - En mode non runtime (false) on charge tous les plugins : cas du site Plugins SPIP
+		 * Runtime est le mode par defaut
+		 * @var bool */
 		define('_SVP_MODE_RUNTIME', false);
 	} else {
 		define('_SVP_MODE_RUNTIME', (lire_config('svp/mode_runtime', 'oui') == 'oui' ? true : false));
