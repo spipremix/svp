@@ -192,7 +192,7 @@ function svp_base_modifier_paquets_locaux($paquets_locaux) {
  *     On essaie au mieux de faire des requêtes d'insertions multiples,
  *     mieux gérées par les moteurs SQL (particulièrement pour SQLite)
  * 
- * @uses  preparer_sql_paquet()
+ * @uses  plugins_preparer_sql_paquet()
  * @uses  svp_compiler_multis()
  * @uses  eclater_plugin_paquet()
  * @uses  svp_rechercher_maj_version()

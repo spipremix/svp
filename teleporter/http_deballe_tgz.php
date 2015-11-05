@@ -56,10 +56,8 @@ function teleporter_http_deballe_tgz_dist($archive, $dest, $tmp){
 /**
  * Charger un tgz à partir d'un tableau d'options descriptives
  *
- * @uses  PclTarList()
  * @uses  http_deballe_recherche_racine()
- * @uses  PclErrorString()
- * @uses  PclTarExtract()
+ * @link  http://www.phpconcept.net/pcltar Utilise la librairie PclTar
  * 
  * @param array $quoi
  *     Tableau d'options
