@@ -89,6 +89,9 @@ function plugins_preparer_sql_plugin($plugin)
 	$dependances['librairie'] = $plugin['lib'];
 	$dependances['utilise'] = $plugin['utilise'];
 	$champs['dependances'] = serialize($dependances);
+	$champs['procure'] = '';
+	if (isset($plugin['procure']))
+		$champs['procure'] = serialize($plugin['procure']);
 
 	// Champs non supportes par la DTD plugin et ne pouvant etre deduits d'autres balises
 	$champs['lien_demo'] = '';

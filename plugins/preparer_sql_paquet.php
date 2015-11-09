@@ -81,6 +81,7 @@ function plugins_preparer_sql_paquet($plugin)
 		'credit'     => 'credit',
 		'licence'    => 'licence',
 		'copyright'  => 'copyright',
+		'procure'    => 'procure',
 		) as $cle_champ => $cle_plugin)
 	{
 		 $champs[$cle_champ] = (isset($plugin[$cle_plugin]) and $plugin[$cle_plugin])

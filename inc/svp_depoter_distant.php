@@ -841,7 +841,8 @@ function eclater_plugin_paquet($champs_aplat) {
 			'nom' => $champs_aplat['nom'],
 			'slogan' => $champs_aplat['slogan'],
 			'categorie' => $champs_aplat['categorie'],
-			'tags' => $champs_aplat['tags']),
+			'tags' => $champs_aplat['tags'],
+		),
 		'paquet' => array(
 			'logo' => $champs_aplat['logo'],
 			'description' => $champs_aplat['description'],
@@ -858,7 +859,9 @@ function eclater_plugin_paquet($champs_aplat) {
 			'lien_doc' => $champs_aplat['lien_doc'],
 			'lien_demo' => $champs_aplat['lien_demo'],
 			'lien_dev' => $champs_aplat['lien_dev'],
-			'dependances' => $champs_aplat['dependances'])
+			'dependances' => $champs_aplat['dependances'],
+			'procure' => $champs_aplat['procure'],
+		)
 	);
 }
 
