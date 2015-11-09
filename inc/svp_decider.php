@@ -868,7 +868,7 @@ class Decideur {
 		// ajouter les actions
 		if (!$this->actionner($todo)) {
 			$this->log("! Todo en echec !");
-			$this->log($decideur->err);
+			$this->log($this->err);
 			return false;
 		}
 
