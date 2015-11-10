@@ -175,8 +175,10 @@ class Actionneur {
 	 *     Tableau des actions à faire (identifiant de paquet => type d'action)
 	**/
 	function ajouter_actions($todo) {
-		foreach ($todo as $id => $action) {
-			$this->start[$id] = $action;
+		if ($todo){
+			foreach ($todo as $id => $action) {
+				$this->start[$id] = $action;
+			}
 		}
 		$this->ordonner_actions();
 	}
@@ -324,13 +326,20 @@ class Actionneur {
 		$this->log("ON: $p $action");
 
 		// si dependance, il faut le mettre avant !
-		$in = $out = $deps = $deps_all = array();
+		$in = $out = $prov = $deps = $deps_all = array();
 		// raz des cles pour avoir les memes que $out (utile reellement ?)
 		$this->middle['on'] = array_values($this->middle['on']);
 		// ajout des dependance
 		foreach ($info['dn'] as $dep) {
 			$in[]  = $dep['nom'];
 		}
+		// $info fourni ses procure
+		if (isset($info['procure']) AND $info['procure']){
+			$prov = array_keys($info['procure']);
+		}
+		// et se fournit lui meme evidemment
+		array_unshift($prov,$p);
+
 		// ajout des librairies
 		foreach ($info['dl'] as $lib) {
 			// il faudrait gerer un retour d'erreur eventuel !
@@ -342,8 +351,15 @@ class Actionneur {
 		//
 		// ainsi que les dependences de ces plugins (deps)
 		// ie. ces plugins peuvent dependre de ce nouveau a activer.
-		foreach ($this->middle['on'] as $inf) {
-			$out[] = $inf['p'];
+		foreach ($this->middle['on'] as $k=>$inf) {
+			$out["$k:0"] = $inf['p'];
+			if (isset($inf['procure']) AND $inf['procure']){
+				$i = 1;
+				foreach($inf['procure'] as $procure=>$v){
+					$out["$k:$i"] = $inf['p'];
+					$i++;
+				}
+			}
 			foreach ($inf['dn'] as $dep) {
 				$deps[$inf['p']][] = $dep['nom'];
 				$deps_all[] = $dep['nom'];
@@ -363,7 +379,7 @@ class Actionneur {
 			// on place notre action juste apres la derniere dependance
 			if ($diff = array_intersect($in, $out)) {
 				$key = array();
-				foreach($diff as $d) {$key[] = array_search($d, $out);}
+				foreach($diff as $d) {$k = array_search($d, $out); $k = explode(":",$k); $key[] = reset($k);}
 				$key = max($key);
 				$this->log("- placer $p apres " . $this->middle['on'][$key]['p']);
 				if ($key == count($this->middle['on'])) {
@@ -374,10 +390,11 @@ class Actionneur {
 
 			// intersection = plugin dependant de celui-ci
 			// on place notre plugin juste avant la premiere dependance a lui trouvee
-			} elseif (in_array($p, $deps_all)) {
+			} elseif (array_intersect($prov, $deps_all)) {
 				foreach ($deps as $prefix=>$dep) {
-					if (in_array($p, $dep)) {
-						$key = array_search($prefix, $out);
+					if ($diff = array_intersect($prov, $deps_all)) {
+						foreach($diff as $d) {$k = array_search($d, $out); $k = explode(":",$k); $key[] = reset($k);}
+						$key = min($key);
 						$this->log("- placer $p avant $prefix qui en depend ($key)");
 						if ($key == 0) {
 							array_unshift($this->middle['on'], $info);

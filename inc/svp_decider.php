@@ -282,6 +282,7 @@ class Decideur {
 			'pa.etatnum AS e',
 			'pa.compatibilite_spip',
 			'pa.dependances',
+			'pa.procure',
 			'pa.id_depot',
 			'pa.maj_version AS maj',
 			'pa.actif AS a'), $from, $where, '', $orderby);
@@ -298,6 +299,10 @@ class Decideur {
 			if (!$d) $d = $deps;
 			
 			unset($r['dependances']);
+			if (!$r['procure'] OR !$proc = unserialize($r['procure'])){
+				$proc = array();
+			}
+			$r['procure'] = $proc;
 
 			/*
 			 * On extrait les multi sur le nom du plugin
@@ -422,13 +427,13 @@ class Decideur {
 	function chercher_plugin_compatible($prefixe, $version) {
 		$plugin = array();
 
+		$v = '000.000.000';
 		// on choisit en priorite dans les paquets locaux !
 		$locaux = $this->infos_courtes(array(
 			'pl.prefixe=' . sql_quote($prefixe),
 			'pa.obsolete=' . sql_quote('non'),
 			'pa.id_depot='.sql_quote(0)), true);
 		if ($locaux and isset($locaux['p'][$prefixe]) and count($locaux['p'][$prefixe]) > 0) {
-			$v = '000.000.000';
 			foreach ($locaux['p'][$prefixe] as $new) {
 				if (plugin_version_compatible($version, $new['v'])
 				and svp_verifier_compatibilite_spip($new['compatibilite_spip'])
@@ -439,14 +444,29 @@ class Decideur {
 			}
 		}
 
+		// qu'on ait trouve ou non, on verifie si un plugin local ne procure pas le prefixe
+		// dans une version plus recente
+		$locaux_procure = $this->infos_courtes(array(
+			'pa.procure LIKE ' . sql_quote('%'.$prefixe.'%'),
+			'pa.obsolete=' . sql_quote('non'),
+			'pa.id_depot='.sql_quote(0)), true);
+		foreach ($locaux_procure['i'] as $new) {
+			if (isset($new['procure'][$prefixe])
+			  AND plugin_version_compatible($version,$new['procure'][$prefixe])
+			  AND svp_verifier_compatibilite_spip($new['compatibilite_spip'])
+				AND spip_version_compare($new['procure'][$prefixe],$v,">")){
+				$plugin = $new;
+				$v = $new['v'];
+			}
+		}
+
+		// sinon dans les paquets distants (mais on ne sait pas encore y trouver les procure)
 		if (!$plugin) {
-			// sinon dans les paquets distants
 			$distants = $this->infos_courtes(array(
 				'pl.prefixe=' . sql_quote($prefixe),
 				'pa.obsolete=' . sql_quote('non'),
 				'pa.id_depot>'.sql_quote(0)), true);
 			if ($distants and isset($distants['p'][$prefixe]) and count($distants['p'][$prefixe]) > 0) {
-				$v = '000.000.000';
 				foreach ($distants['p'][$prefixe] as $new) {
 					if (plugin_version_compatible($version, $new['v'])
 					and svp_verifier_compatibilite_spip($new['compatibilite_spip'])
@@ -531,7 +551,8 @@ class Decideur {
 	}
 
 	/**
-	 * Teste qu'un paquet (via son préfixe) sera actif
+	 * Teste qu'un paquet (via son préfixe) sera actif directement
+	 * ou par l'intermediaire d'un procure
 	 *
 	 * @param string $prefixe
 	 *     Préfixe du paquet
@@ -539,7 +560,20 @@ class Decideur {
 	 *     Le paquet sera t'il actif ?
 	**/
 	function sera_actif($prefixe) {
-		return isset($this->end['p'][$prefixe]) ? $this->end['p'][$prefixe] : false;
+		if (isset($this->end['p'][$prefixe])) return $this->end['p'][$prefixe];
+		// sinon regarder les procure
+		$v = "0.0.0";
+		$plugin = false;
+		foreach($this->end['p'] as $prefixe=>$end){
+			if (isset($end['procure'])
+				AND $end['procure']
+			  AND isset($end['procure'][$prefixe])
+			  AND spip_version_compare($end['procure'][$prefixe],$v,">")){
+				$v = $end['procure'][$prefixe];
+				$plugin = $this->end['p'][$prefixe];
+			}
+		}
+		return $plugin;
 	}
 
 	/**

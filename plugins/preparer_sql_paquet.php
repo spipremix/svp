@@ -81,7 +81,6 @@ function plugins_preparer_sql_paquet($plugin)
 		'credit'     => 'credit',
 		'licence'    => 'licence',
 		'copyright'  => 'copyright',
-		'procure'    => 'procure',
 		) as $cle_champ => $cle_plugin)
 	{
 		 $champs[$cle_champ] = (isset($plugin[$cle_plugin]) and $plugin[$cle_plugin])
@@ -102,6 +101,19 @@ function plugins_preparer_sql_paquet($plugin)
 	$dependances['librairie'] = $plugin['lib'];
 	$dependances['utilise']   = $plugin['utilise'];
 	$champs['dependances']    = serialize($dependances);
+
+	$champs['procure'] = '';
+	if (isset($plugin['procure']) AND $plugin['procure']){
+		$champs['procure'] = array();
+		foreach($plugin['procure'] as $procure){
+			$p = strtoupper($procure['nom']);
+			if (!isset($champs['procure'][$p])
+			  OR spip_version_compare($procure['version'],$champs['procure'][$p],'>')){
+				$champs['procure'][$p] = $procure['version'];
+			}
+		}
+		$champs['procure'] = serialize($champs['procure']);
+	}
 
 	return $champs;
 }

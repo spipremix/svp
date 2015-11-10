@@ -41,7 +41,7 @@ function svp_upgrade($nom_meta_base_version, $version_cible){
 	$maj['0.4.1'][]  = array('svp_actualiser_paquets_locaux', true);
 	// on force le recalcul des infos des paquets locaux.
 	$maj['0.5.0'][]  = array('maj_tables', 'spip_paquets');
-	$maj['0.5.0'][]  = array('svp_actualiser_paquets_locaux', true);
+	$maj['0.5.1'][]  = array('svp_actualiser_paquets_locaux', true);
 
 	include_spip('base/upgrade');
 	maj_plugin($nom_meta_base_version, $version_cible, $maj);
