@@ -89,7 +89,7 @@ function svp_afficher_etat($etat) {
  * @return string
  *     Texte informant des dépendances
 **/
-function svp_afficher_dependances($balise_serialisee, $dependance='necessite', $sep='<br />', $lien='local') {
+function svp_afficher_dependances($balise_serialisee, $dependance = 'necessite', $sep = '<br />', $lien = 'local') {
 	$texte = '';
 
 	$t = unserialize($balise_serialisee);
@@ -173,7 +173,7 @@ function svp_dependances_existe($balise_serialisee) {
  * @return string
  *     Texte informant des crédits
 **/
-function svp_afficher_credits($balise_serialisee, $sep=', ') {
+function svp_afficher_credits($balise_serialisee, $sep = ', ') {
 	$texte = '';
 
 	$credits = unserialize($balise_serialisee);
@@ -207,7 +207,7 @@ function svp_afficher_credits($balise_serialisee, $sep=', ') {
  * @return string
  *     Texte informant des langues et traducteurs
 **/
-function svp_afficher_langues($langues, $sep=', '){
+function svp_afficher_langues($langues, $sep = ', '){
 	$texte = '';
 
 	if ($langues) {
@@ -242,7 +242,7 @@ function svp_afficher_langues($langues, $sep=', '){
  * @return string
  *     Code HTML présentant les statistiques du dépot
 **/
-function svp_afficher_statistiques_globales($id_depot=0){
+function svp_afficher_statistiques_globales($id_depot = 0){
 	$info = '';
 
 	$total = svp_compter('depot', $id_depot);
@@ -288,7 +288,7 @@ function svp_afficher_statistiques_globales($id_depot=0){
  * @return string
  *     Texte indiquant un nombre total de paquets
 **/
-function svp_compter_telechargements($id_depot=0, $categorie='', $compatible_spip=''){
+function svp_compter_telechargements($id_depot = 0, $categorie = '', $compatible_spip = ''){
 	$total = svp_compter('paquet', $id_depot, $categorie, $compatible_spip);
 	$info = _T('svp:info_paquets_disponibles', array('total_paquets'=>$total['paquet']));
 	return $info;
@@ -316,7 +316,7 @@ function svp_compter_telechargements($id_depot=0, $categorie='', $compatible_spi
  * @return string
  *     Texte indiquant certains totaux tel que nombre de plugins, nombre de paquets...
 **/
-function svp_compter_depots($id_depot, $contrib='plugin'){
+function svp_compter_depots($id_depot, $contrib = 'plugin'){
 	$info = '';
 
 	$total = svp_compter('depot', $id_depot);
@@ -358,7 +358,7 @@ function svp_compter_depots($id_depot, $contrib='plugin'){
  * @return string
  *     Texte indiquant un nombre total de paquets
 **/
-function svp_compter_plugins($id_depot=0, $categorie='', $compatible_spip='') {
+function svp_compter_plugins($id_depot = 0, $categorie = '', $compatible_spip = '') {
 	$total = svp_compter('plugin', $id_depot, $categorie, $compatible_spip);
 	$info = _T('svp:info_plugins_disponibles', array('total_plugins'=>$total['plugin']));
 	return $info;
@@ -394,7 +394,7 @@ function svp_compter_plugins($id_depot=0, $categorie='', $compatible_spip='') {
  * @return array
  *     Couples (entite => nombre).
 **/
-function svp_compter($entite, $id_depot=0, $categorie='', $compatible_spip=''){
+function svp_compter($entite, $id_depot = 0, $categorie = '', $compatible_spip = ''){
 	$compteurs = array();
 
 	$group_by = array();
@@ -506,7 +506,7 @@ function balise_SVP_CATEGORIES($p) {
  * @return array
  *     Couples (type de catégorie => Texte de la catégorie)
 **/
-function calcul_svp_categories($tri='ordre_cle', $categorie='') {
+function calcul_svp_categories($tri = 'ordre_cle', $categorie = '') {
 
 	$retour = array();
 	include_spip('inc/svp_phraser'); // pour $GLOBALS['categories_plugin']
@@ -632,7 +632,7 @@ function svp_traduire_type_depot($type) {
  * @return string
  *     URL calculée en fonction de l'URL d'entrée
 **/
-function svp_calculer_url_demo($url_demo, $url_absolue=false) {
+function svp_calculer_url_demo($url_demo, $url_absolue = false) {
 
 	$url_calculee = '';
     $url_demo = trim($url_demo);
@@ -744,7 +744,7 @@ function critere_compatible_spip_dist($idb, &$boucles, $crit) {
  *     - 'prefixe' => tableau de description du paquet (si pas de doublons demandé)
  *     - n => tableau de descriptions du paquet (si doublons autorisés)
 **/
-function filtre_construire_recherche_plugins($phrase='', $categorie='', $etat='', $depot='', $afficher_exclusions=true, $afficher_doublons=false) {
+function filtre_construire_recherche_plugins($phrase = '', $categorie = '', $etat = '', $depot = '', $afficher_exclusions = true, $afficher_doublons = false) {
 
 	// On traite les paramètres d'affichage
 	$afficher_exclusions = ($afficher_exclusions == 'oui') ? true : false;
@@ -793,7 +793,7 @@ function filtre_svp_periode_actualisation_depots() {
  * @return string
  *     Numéro de version dénormalisée
 **/
-function denormaliser_version($version_normalisee='') {
+function denormaliser_version($version_normalisee = '') {
 
 	$version = '';
 	if ($version_normalisee) {

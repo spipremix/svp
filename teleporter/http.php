@@ -28,7 +28,7 @@
  *     Texte d'erreur si erreur,
  *     True si l'opération réussie.
  */
-function teleporter_http_dist($methode,$source,$dest,$options=array()){
+function teleporter_http_dist($methode, $source, $dest, $options = array()){
 
 	$tmp = $options['dir_tmp'];
 	# on ne se contente pas du basename qui peut etre un simple v1
@@ -68,7 +68,7 @@ function teleporter_http_dist($methode,$source,$dest,$options=array()){
  *     - Texte d'erreur si une erreur survient,
  *     - Liste sinon (répertoire de destination temporaire, extension du fichier source)
  */
-function teleporter_http_recuperer_source($source,$dest_tmp){
+function teleporter_http_recuperer_source($source, $dest_tmp){
 
 	# securite : ici on repart toujours d'une source neuve
 	if (file_exists($dest_tmp))

@@ -128,7 +128,7 @@ function plugins_preparer_sql_plugin($plugin)
  * @return string
  *     Le nom
 **/
-function normaliser_nom($nom, $langue='', $supprimer_numero=true) {
+function normaliser_nom($nom, $langue = '', $supprimer_numero = true) {
 	include_spip('inc/texte');
 
 	// On extrait les traductions de l'eventuel multi

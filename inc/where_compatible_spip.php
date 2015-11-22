@@ -28,7 +28,7 @@ if (!defined("_ECRIRE_INC_VERSION")) return;
  * @return string
  *     Expression where de la requête SQL
  */
-function inc_where_compatible_spip($version='', $table, $op) {
+function inc_where_compatible_spip($version = '', $table, $op) {
 
 	// le critere s'applique a une VERSION (1.9.2, 2.0.8, ...)
 	if (count(explode('.', $version)) == 3) {

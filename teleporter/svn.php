@@ -31,7 +31,7 @@ if (!defined('_SVN_COMMAND')) define('_SVN_COMMAND',"svn"); // Securite : mettre
  * @return bool
  *     True si l'opération réussie, false sinon.
  */
-function teleporter_svn_dist($methode,$source,$dest,$options=array()){
+function teleporter_svn_dist($methode, $source, $dest, $options = array()){
 	if (is_dir($dest)){
 		$infos = teleporter_svn_read($dest);
 		if (!$infos){
@@ -93,7 +93,7 @@ function teleporter_svn_dist($methode,$source,$dest,$options=array()){
  *     - revision : numéro de la révision SVN
  *     - dest : Chemin du répertoire
  */
-function teleporter_svn_read($dest,$options=array()){
+function teleporter_svn_read($dest, $options = array()){
 
 	if (!is_dir("$dest/.svn"))
 		return "";

@@ -24,7 +24,7 @@
  *   String : texte d'une erreur
  *   true si l'opération est correctement réalisée
  */
-function action_teleporter_composant_dist($methode,$source,$dest,$options=array()){
+function action_teleporter_composant_dist($methode, $source, $dest, $options = array()){
 
 	# Si definie a '', le chargeur est interdit ; mais on n'aurait de toutes
 	# facons jamais pu venir ici avec toutes les securisations faites :^)

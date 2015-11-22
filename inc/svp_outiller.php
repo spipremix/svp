@@ -165,7 +165,7 @@ function fusionner_intervalles($intervalle_a, $intervalle_b) {
  *     - max : la borne  supérieure, qui contient les index 'valeur' et 'incluse'
  *     Le sous index 'incluse' vaut true si cette borne est incluse dans l'intervalle.
 **/
-function extraire_bornes($intervalle, $initialiser=false) {
+function extraire_bornes($intervalle, $initialiser = false) {
 	static $borne_vide = array('valeur' => '', 'incluse' => false);
 	static $borne_inf_init = array('valeur' => _SVP_VERSION_SPIP_MIN, 'incluse' => true);
 	static $borne_sup_init = array('valeur' => _SVP_VERSION_SPIP_MAX, 'incluse' => true);
@@ -205,7 +205,7 @@ function extraire_bornes($intervalle, $initialiser=false) {
  * @return string
  *     Intervalle de compatibilité tel que '[2.1;3.0]'
 **/
-function construire_intervalle($bornes, $dtd='paquet') {
+function construire_intervalle($bornes, $dtd = 'paquet') {
 	return ($bornes['min']['incluse'] ? '[' : ($dtd=='paquet' ? ']' : '('))
 			. $bornes['min']['valeur'] . ';' . $bornes['max']['valeur']
 			. ($bornes['max']['incluse'] ? ']' : ($dtd=='paquet' ? '[' : ')'));
@@ -316,7 +316,7 @@ function compiler_branches_spip($intervalle) {
  * @return string $texte
  *     Texte dans le charset du site
 **/
-function entite2charset($texte, $charset=null) {
+function entite2charset($texte, $charset = null) {
 	if (!strlen($texte)) return '';
 	if (!$charset)
 		$charset = $GLOBALS['meta']['charset'];
@@ -447,7 +447,7 @@ function svp_lister_librairies() {
  * @return string
  *     Numéro de version normalisée
 **/
-function normaliser_version($version='') {
+function normaliser_version($version = '') {
 
 	$version_normalisee = '';
 

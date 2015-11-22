@@ -27,7 +27,7 @@ if (!defined('_GIT_COMMAND')) define('_GIT_COMMAND','git'); // Securite : on peu
  * @return bool
  *     True si l'opération réussie, false sinon.
  */
-function teleporter_git_dist($methode,$source,$dest,$options=array()){
+function teleporter_git_dist($methode, $source, $dest, $options = array()){
 
 	$branche = (isset($options['branche'])?$options['branche']:'master');
 	if (is_dir($dest)){
@@ -95,7 +95,7 @@ function teleporter_git_dist($methode,$source,$dest,$options=array()){
  *     -- revision : Révision du dépot
  *     -- dest : Répertoire du dépot.
  */
-function teleporter_git_read($dest, $options=array()) {
+function teleporter_git_read($dest, $options = array()) {
 
 	if (!is_dir("$dest/.git"))
 		return "";
@@ -146,7 +146,7 @@ function teleporter_git_read($dest, $options=array()) {
  *     Commande à exécuter
  * @return void
  */
-function teleporter_git_exec($dest,$command) {
+function teleporter_git_exec($dest, $command) {
 	spip_log("{$dest}:{$command}","teleport");
 	$curdir = getcwd();
 	chdir($dest);

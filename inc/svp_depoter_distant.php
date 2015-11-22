@@ -35,7 +35,7 @@ include_spip('inc/svp_phraser');
  * @return bool
  *     true si le dépot est ajouté correctement, false sinon
  */
-function svp_ajouter_depot($url, &$erreur='') {
+function svp_ajouter_depot($url, &$erreur = '') {
 	include_spip('inc/distant');
 
 	// On considere que l'url a deja ete validee (correcte et nouveau depot)

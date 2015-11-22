@@ -96,7 +96,7 @@ if (!defined("PCL_TAR"))
   // Return Values :
   //   1 on success, or an error code (see table at the beginning).
   // --------------------------------------------------------------------------------
-  function PclTarCreate($p_tarname, $p_filelist="", $p_mode="", $p_add_dir="", $p_remove_dir="")
+  function PclTarCreate($p_tarname, $p_filelist = "", $p_mode = "", $p_add_dir = "", $p_remove_dir = "")
   {
     TrFctStart(__FILE__, __LINE__, "PclTarCreate", "tar=$p_tarname, file='$p_filelist', mode=$p_mode, add_dir='$p_add_dir', remove_dir='$p_remove_dir'");
     $v_result=1;
@@ -236,7 +236,7 @@ if (!defined("PCL_TAR"))
   //   1 on success,
   //   Or an error code (see list on top).
   // --------------------------------------------------------------------------------
-  function PclTarAddList($p_tarname, $p_filelist, $p_add_dir="", $p_remove_dir="", $p_mode="")
+  function PclTarAddList($p_tarname, $p_filelist, $p_add_dir = "", $p_remove_dir = "", $p_mode = "")
   {
     TrFctStart(__FILE__, __LINE__, "PclTarAddList", "tar=$p_tarname, file=$p_filelist, p_add_dir='$p_add_dir', p_remove_dir='$p_remove_dir', mode=$p_mode");
     $v_result=1;
@@ -310,7 +310,7 @@ if (!defined("PCL_TAR"))
   //            for ($i=0; $i<sizeof($v_list); $i++)
   //              echo "Filename :'".$v_list[$i][filename]."'<br>";
   // --------------------------------------------------------------------------------
-  function PclTarList($p_tarname, $p_mode="")
+  function PclTarList($p_tarname, $p_mode = "")
   {
     TrFctStart(__FILE__, __LINE__, "PclTarList", "tar=$p_tarname, mode='$p_mode'");
     $v_result=1;
@@ -364,7 +364,7 @@ if (!defined("PCL_TAR"))
   // Return Values :
   //   Same as PclTarList()
   // --------------------------------------------------------------------------------
-  function PclTarExtract($p_tarname, $p_path="./", $p_remove_path="", $p_mode="")
+  function PclTarExtract($p_tarname, $p_path = "./", $p_remove_path = "", $p_mode = "")
   {
     TrFctStart(__FILE__, __LINE__, "PclTarExtract", "tar='$p_tarname', path='$p_path', remove_path='$p_remove_path', mode='$p_mode'");
     $v_result=1;
@@ -423,7 +423,7 @@ if (!defined("PCL_TAR"))
   // Return Values :
   //   Same as PclTarList()
   // --------------------------------------------------------------------------------
-  function PclTarExtractList($p_tarname, $p_filelist, $p_path="./", $p_remove_path="", $p_mode="")
+  function PclTarExtractList($p_tarname, $p_filelist, $p_path = "./", $p_remove_path = "", $p_mode = "")
   {
     TrFctStart(__FILE__, __LINE__, "PclTarExtractList", "tar=$p_tarname, list, path=$p_path, remove_path='$p_remove_path', mode='$p_mode'");
     $v_result=1;
@@ -512,7 +512,7 @@ if (!defined("PCL_TAR"))
   // Return Values :
   //   Same as PclTarList()
   // --------------------------------------------------------------------------------
-  function PclTarExtractIndex($p_tarname, $p_index, $p_path="./", $p_remove_path="", $p_mode="")
+  function PclTarExtractIndex($p_tarname, $p_index, $p_path = "./", $p_remove_path = "", $p_mode = "")
   {
     TrFctStart(__FILE__, __LINE__, "PclTarExtractIndex", "tar=$p_tarname, index='$p_index', path=$p_path, remove_path='$p_remove_path', mode='$p_mode'");
     $v_result=1;
@@ -581,7 +581,7 @@ if (!defined("PCL_TAR"))
   // Return Values :
   //   List of the files which are kept in the archive (same format as PclTarList())
   // --------------------------------------------------------------------------------
-  function PclTarDelete($p_tarname, $p_filelist, $p_mode="")
+  function PclTarDelete($p_tarname, $p_filelist, $p_mode = "")
   {
     TrFctStart(__FILE__, __LINE__, "PclTarDelete", "tar='$p_tarname', list='$p_filelist', mode='$p_mode'");
     $v_result=1;
@@ -654,7 +654,7 @@ if (!defined("PCL_TAR"))
   //   List of the files contained in the archive. The field status contains
   //   "updated", "not_updated", "added" or "ok" for the files not concerned.
   // --------------------------------------------------------------------------------
-  function PclTarUpdate($p_tarname, $p_filelist, $p_mode="", $p_add_dir="", $p_remove_dir="")
+  function PclTarUpdate($p_tarname, $p_filelist, $p_mode = "", $p_add_dir = "", $p_remove_dir = "")
   {
     TrFctStart(__FILE__, __LINE__, "PclTarUpdate", "tar='$p_tarname', list='$p_filelist', mode='$p_mode'");
     $v_result=1;
@@ -728,7 +728,7 @@ if (!defined("PCL_TAR"))
   //   List of the files contained in the archive. The field status contains
   //   "updated", "not_updated", "added" or "ok" for the files not concerned.
   // --------------------------------------------------------------------------------
-  function PclTarMerge($p_tarname, $p_tarname_add, $p_mode="", $p_mode_add="")
+  function PclTarMerge($p_tarname, $p_tarname_add, $p_mode = "", $p_mode_add = "")
   {
     TrFctStart(__FILE__, __LINE__, "PclTarMerge", "tar='$p_tarname', tar_add='$p_tarname_add', mode='$p_mode', mode_add='$p_mode_add'");
     $v_result=1;
@@ -1043,7 +1043,7 @@ if (!defined("PCL_TAR"))
   //   $p_mode : "tar" for normal tar archive, "tgz" for gzipped tar archive
   // Return Values :
   // --------------------------------------------------------------------------------
-  function PclTarHandleCreate($p_tarname, $p_list, $p_mode, $p_add_dir="", $p_remove_dir="")
+  function PclTarHandleCreate($p_tarname, $p_list, $p_mode, $p_add_dir = "", $p_remove_dir = "")
   {
     TrFctStart(__FILE__, __LINE__, "PclTarHandleCreate", "tar=$p_tarname, list, mode=$p_mode, add_dir='$p_add_dir', remove_dir='$p_remove_dir'");
     $v_result=1;

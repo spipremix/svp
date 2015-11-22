@@ -166,7 +166,7 @@ function svp_phraser_depot($fichier_xml) {
  *     Tableau décrivant chaque archive, avec en index l'url de l'archive.
  *     Tableau (url => Tableau de description de l'archive)
  */
-function svp_phraser_archives($archives,&$md5_cache=array()) {
+function svp_phraser_archives($archives, &$md5_cache = array()) {
 	include_spip('inc/plugin');
 	$seen = array();
 
@@ -411,7 +411,7 @@ function svp_phraser_traductions($contenu) {
  *     Tableau initial pouvant contenir des valeurs par défaut à affecter
  *     à chaque balise avec 'x' => 'valeur'
  */
-function svp_aplatir_balises($balises, $arbre_xml, $mode='vide_et_nonvide', $tableau_initial=array()) {
+function svp_aplatir_balises($balises, $arbre_xml, $mode = 'vide_et_nonvide', $tableau_initial = array()) {
 	$tableau_aplati = array();
 
 	if (!$balises)

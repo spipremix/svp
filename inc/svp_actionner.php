@@ -1150,7 +1150,7 @@ class Actionneur {
 	 *     Constante indiquant le chemin de base du plugin (_DIR_PLUGINS, _DIR_PLUGINS_SUPPL, _DIR_PLUGINS_DIST)
 	 * @return void
 	**/
-	function activer_plugin_dossier($dossier, $i, $constante='_DIR_PLUGINS') {
+	function activer_plugin_dossier($dossier, $i, $constante = '_DIR_PLUGINS') {
 		include_spip('inc/plugin');
 		$this->log("Demande d'activation de : " . $dossier);
 		
@@ -1312,7 +1312,7 @@ class Actionneur {
 	 *     - dir : Chemin du paquet téléchargé depuis la racine
 	 *     - dossier : Chemin du paquet téléchargé, depuis _DIR_PLUGINS
 	 */
-	function get_paquet_id($id_or_row, $dest_ancien="") {
+	function get_paquet_id($id_or_row, $dest_ancien = "") {
 		// on peut passer direct le row sql...
 		if (!is_array($id_or_row)) {
 			$i = sql_fetsel('*','spip_paquets','id_paquet='.sql_quote($id_or_row));
@@ -1501,7 +1501,7 @@ class Actionneur {
  *     URL de retour
  * @return void
 **/
-function svp_actionner_traiter_actions_demandees($actions, &$retour,$redirect=null) {
+function svp_actionner_traiter_actions_demandees($actions, &$retour, $redirect = null) {
 		$actionneur = new Actionneur();
 		$actionneur->ajouter_actions($actions);
 		$actionneur->verrouiller();

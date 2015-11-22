@@ -52,7 +52,7 @@ include_spip('inc/plugin');
  *     - 'prefixe' => tableau de description du paquet (si pas de doublons demandé)
  *     - n => tableau de descriptions du paquet (si doublons autorisés)
 **/
-function svp_rechercher_plugins_spip($phrase, $categorie, $etat, $depot, $version_spip='',
+function svp_rechercher_plugins_spip($phrase, $categorie, $etat, $depot, $version_spip = '', 
 	$exclusions=array(), $afficher_exclusions=false, $doublon=false, $tri='nom')
 {
 

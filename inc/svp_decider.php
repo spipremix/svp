@@ -259,7 +259,7 @@ class Decideur {
 	 *     Index 'p' : plugins triés par prefixe de plugin [p][MOTS] = tableau de description
 	 *                 ou, avec $multiple=true : [p][MOTS][] = tableau de description
 	 */
-	function infos_courtes($condition, $multiple=false) {
+	function infos_courtes($condition, $multiple = false) {
 		$plugs = array(
 			'i'=>array(),
 			'p'=>array()
@@ -949,7 +949,7 @@ class Decideur {
 	 * @return bool
 	 *     false si erreur (dépendance non résolue, incompatibilité...), true sinon
 	**/
-	function verifier_dependances_plugin($info, $prof=0) {
+	function verifier_dependances_plugin($info, $prof = 0) {
 		$this->log("- [$prof] verifier dependances " . $info['p']);
 		$id = $info['i'];
 		$err = false; // variable receptionnant parfois des erreurs

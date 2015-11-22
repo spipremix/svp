@@ -29,7 +29,7 @@ if (!defined("_ECRIRE_INC_VERSION")) return;
  * @return array
  *     Environnement du formulaire
 **/
-function formulaires_admin_plugin_charger_dist($voir='actif', $verrouille='non', $id_paquet='',$redirect=''){
+function formulaires_admin_plugin_charger_dist($voir = 'actif', $verrouille = 'non', $id_paquet = '', $redirect = ''){
 	$valeurs = array();
 
 	// actualiser la liste des paquets locaux systematiquement
@@ -93,7 +93,7 @@ function formulaires_admin_plugin_charger_dist($voir='actif', $verrouille='non',
  * @return array
  *     Tableau des erreurs
 **/
-function formulaires_admin_plugin_verifier_dist($voir='actif', $verrouille='non', $id_paquet='',$redirect=''){
+function formulaires_admin_plugin_verifier_dist($voir = 'actif', $verrouille = 'non', $id_paquet = '', $redirect = ''){
 
 	$erreurs = array();
 
@@ -181,7 +181,7 @@ function formulaires_admin_plugin_verifier_dist($voir='actif', $verrouille='non'
  * @return array
  *     Retours du traitement
 **/
-function formulaires_admin_plugin_traiter_dist($voir='actif', $verrouille='non', $id_paquet='',$redirect=''){
+function formulaires_admin_plugin_traiter_dist($voir = 'actif', $verrouille = 'non', $id_paquet = '', $redirect = ''){
 	
 	$retour = array();
 
