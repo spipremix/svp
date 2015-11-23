@@ -131,7 +131,7 @@ class Decideur {
 	 * 
 	 * Initialise la propriété $log en fonction de la configuration
 	 */
-	function Decideur () {
+	function __construct() {
 		include_spip('inc/config');
 		$this->log = (lire_config('svp/mode_log_verbeux') == 'oui');
 	}

@@ -111,7 +111,7 @@ class Actionneur {
 	 *
 	 * Détermine si les logs sont activés et instancie un décideur.
 	 */
-	function Actionneur(){
+	function __construct(){
 		include_spip('inc/config');
 		$this->log = (lire_config('svp/mode_log_verbeux') == 'oui');
 
