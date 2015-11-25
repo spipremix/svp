@@ -563,15 +563,16 @@ class Decideur {
 	 *     Le paquet sera t'il actif ?
 	**/
 	function sera_actif($prefixe) {
-		if (isset($this->end['p'][$prefixe])) return $this->end['p'][$prefixe];
+		if (isset($this->end['p'][$prefixe])) {
+			return $this->end['p'][$prefixe];
+		}
 		// sinon regarder les procure
 		$v = "0.0.0";
 		$plugin = false;
-		foreach($this->end['p'] as $prefixe=>$end){
-			if (isset($end['procure'])
-				AND $end['procure']
-			  AND isset($end['procure'][$prefixe])
-			  AND spip_version_compare($end['procure'][$prefixe],$v,">")){
+		foreach($this->end['p'] as $prefixe => $end){
+			if (isset($end['procure'][$prefixe])
+				AND spip_version_compare($end['procure'][$prefixe], $v, ">"))
+			{
 				$v = $end['procure'][$prefixe];
 				$plugin = $this->end['p'][$prefixe];
 			}
