@@ -1040,7 +1040,7 @@ class Decideur {
 						// absent ou erreur ou pas compatible
 						$etat = $err ? 'erreur' : ($ninfo ? 'conflit' : 'absent');
 						// conflit signifie qu'il existe le prefixe actif, mais pas a la version demandee
-						$this->log("Dedendance " . $p . " a resoudre ! ($etat)");
+						$this->log("Dependance " . $p . " a resoudre ! ($etat)");
 
 						switch ($etat) {
 							// commencons par le plus simple :
