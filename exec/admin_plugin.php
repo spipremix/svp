@@ -136,9 +136,9 @@ function exec_admin_plugin_dist() {
 		$args['voir'] = $voir;
 	}
 	if (!isset($args['voir'])){
-		$args['voir'] = 'tous';
+		/*$args['voir'] = 'tous';
 		$count = count(liste_plugin_files());
-		if ($count>256)
+		if ($count>256) */
 			$args['voir'] = 'actif';
 	}
 	
@@ -151,7 +151,7 @@ function exec_admin_plugin_dist() {
 		$args['verrouille'] = $verrouille;
 	}
 	if (!isset($args['verrouille'])){
-		$args['verrouille'] = 'tous';
+		$args['verrouille'] = 'non'; //'tous';
 	}
 
 	echo recuperer_fond('prive/squelettes/contenu/svp_admin_plugin', $args, array('ajax' => true));
