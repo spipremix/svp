@@ -243,6 +243,7 @@ class Decideur {
 	 * - du = dépendances utilise
 	 * - dn = dépendances nécessite
 	 * - dl = dépendances librairie
+	 * - procure = prefixes procurés
 	 * - maj = mise à jour
 	 * 
 	 * 
@@ -349,7 +350,7 @@ class Decideur {
 			} else {
 				$plugs['p'][$r['p']] = &$plugs['i'][$r['i']]; // alias
 			}
-			
+
 		}
 		return $plugs;
 	}
@@ -452,9 +453,10 @@ class Decideur {
 			'pa.id_depot='.sql_quote(0)), true);
 		foreach ($locaux_procure['i'] as $new) {
 			if (isset($new['procure'][$prefixe])
-			  AND plugin_version_compatible($version,$new['procure'][$prefixe])
-			  AND svp_verifier_compatibilite_spip($new['compatibilite_spip'])
-				AND spip_version_compare($new['procure'][$prefixe],$v,">")){
+				AND plugin_version_compatible($version, $new['procure'][$prefixe])
+				AND svp_verifier_compatibilite_spip($new['compatibilite_spip'])
+				AND spip_version_compare($new['procure'][$prefixe], $v, ">"))
+			{
 				$plugin = $new;
 				$v = $new['v'];
 			}
@@ -508,10 +510,11 @@ class Decideur {
 
 		// si recursif, on stoppe aussi les plugins dependants
 		if ($recur) {
+			$prefixes = array_merge(array($info['p']), array_keys($info['procure']));
 			foreach ($this->end['i'] as $id => $plug) {
 				if (is_array($plug['dn']) and $plug['dn']) {
 					foreach ($plug['dn'] as $n) {
-						if ($info['p'] == $n['nom']) {
+						if (in_array($n['nom'], $prefixes)) {
 							$this->change($plug, 'off');
 							$this->off($plug, true);
 						}
@@ -823,7 +826,7 @@ class Decideur {
 						// (il l'est peut etre deja)
 						if ($info = $this->sera_actif_id($id)
 						or  $info_off = $this->sera_off_id($id)
-						// un plugin en attente (desactive parce sa dependance a disparu certainement par ftp)
+						// un plugin en attente (desactive parce que sa dependance a disparu certainement par ftp)
 						// peut etre desactive
 						or $info = $this->est_attente_id($id)) {
 							// annuler le signalement en "proposition" (due a une mise a 'off' recursive)
