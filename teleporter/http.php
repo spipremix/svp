@@ -113,8 +113,9 @@ function teleporter_http_recuperer_source($source, $dest_tmp){
 
 	$dest_tmp = preg_replace(";\.[\w]{2,3}$;i","",$dest_tmp).".$extension";
 
+	if (!defined('_SVP_PAQUET_MAX_SIZE')) define('_SVP_PAQUET_MAX_SIZE', 67108864); // 64Mo
 	include_spip('inc/distant');
-	$dest_tmp = copie_locale($source,'force',$dest_tmp);
+	$dest_tmp = copie_locale($source,'force',$dest_tmp,_SVP_PAQUET_MAX_SIZE);
 	if (!$dest_tmp
 	  OR !file_exists($dest_tmp = _DIR_RACINE . $dest_tmp)) {
 		spip_log("Chargement impossible de la source $source","teleport"._LOG_ERREUR);
