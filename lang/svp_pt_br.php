@@ -68,7 +68,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'config_autoriser_activer_paquets_obsoletes_explication' => 'Os pacotes obsoletos são pacotes locais atuais que são mais antigos do que outros pacotes locais. A obsolescência é estabelecida na base do status (estável, teste, dev) do pacote bem como na base de sua versão. Ative esta opção se você deseja, apesar de tudo, ativar estes plugins obsoletos.',
 	'config_depot_editable' => 'Permitir a edição dos repositórios?',
 	'config_depot_editable_explication' => 'Isto torna editáveis as informações de um repositório, permitindo eventualmente vincular palavras-chave ou documentos. Esta opção não deverá interessar a ninguém! É melhor deixar como «não»!',
-	'confirmer_desinstaller' => 'Atenção, a desinstalação de um plugin <b>exclui<b> os seus dados da base e é irreversível.<br />Se voce não está seguro, simplesmente desative o plugin.',
+	'confirmer_desinstaller' => 'Atenção, a desinstalação de um plugin <b>exclui<b> os seus dados da base e é irreversível.<br />Se voce não está seguro, simplesmente desative o plugin.', # MODIF
 	'confirmer_telecharger_dans' => 'O plugin será carregado num diretório (@dir@) que já existe.
 Isso irá sobrepor o conteúdo desse diretório.
 Uma cópia do conteúdo anterior será gravada em «@dir_backup@».

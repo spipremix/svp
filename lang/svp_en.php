@@ -69,7 +69,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'config_autoriser_activer_paquets_obsoletes_explication' => 'Obsolete packages are local packages that are older than other local packages. Obsolescence is established on the basis of the status (stable, testing, dev) of the package and on the basis of its version. Enable this option if you still want to activate these outdatedplugins.',
 	'config_depot_editable' => 'Allow repository edition?',
 	'config_depot_editable_explication' => 'This makes editable the informations of a repository and enable eventually to associate keywords or documents to it. This option shouldn’t interest anyone! Rather leave "no"!',
-	'confirmer_desinstaller' => 'Beware, uninstalling a plugin <b>wipes out</b> its data from the database and it is irreversible.<br />If you sure not absolutely sure, just disable the plugin.',
+	'confirmer_desinstaller' => 'Beware, uninstalling a plugin <b>wipes out</b> its data from the database and it is irreversible.<br />If you sure not absolutely sure, just disable the plugin.', # MODIF
 	'confirmer_telecharger_dans' => 'The plugin will be loaded into a directory (@dir@) which already exists.
 This will overwrite the content of this directory.
 A copy of the old files will be saved in "@dir_backup@".
