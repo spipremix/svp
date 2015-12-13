@@ -96,12 +96,12 @@ function plugins_preparer_sql_plugin($plugin) {
 	$champs['dependances'] = serialize($dependances);
 
 	$champs['procure'] = '';
-	if (isset($plugin['procure']) AND $plugin['procure']) {
+	if (isset($plugin['procure']) and $plugin['procure']) {
 		$champs['procure'] = array();
 		foreach ($plugin['procure'] as $procure) {
 			$p = strtoupper($procure['nom']);
 			if (!isset($champs['procure'][$p])
-				OR spip_version_compare($procure['version'], $champs['procure'][$p], '>')
+				or spip_version_compare($procure['version'], $champs['procure'][$p], '>')
 			) {
 				$champs['procure'][$p] = $procure['version'];
 			}
@@ -140,7 +140,7 @@ function normaliser_nom($nom, $langue = '', $supprimer_numero = true) {
 	// On extrait les traductions de l'eventuel multi
 	// Si le nom n'est pas un multi alors le tableau renvoye est de la forme '' => 'nom'
 	$noms = extraire_trads(str_replace(array('<multi>', '</multi>'), array(), $nom, $nbr_replace));
-	$multi = ($nbr_replace > 0 AND !$langue) ? true : false;
+	$multi = ($nbr_replace > 0 and !$langue) ? true : false;
 
 	$nouveau_nom = '';
 	foreach ($noms as $_lang => $_nom) {
@@ -153,7 +153,7 @@ function normaliser_nom($nom, $langue = '', $supprimer_numero = true) {
 		} else {
 			$nbr_matches = 0;
 		}
-		if (!$langue OR $langue == $_lang OR count($noms) == 1) {
+		if (!$langue or $langue == $_lang or count($noms) == 1) {
 			$nouveau_nom .= (($multi) ? '[' . $_lang . ']' : '') .
 				(($nbr_matches > 0) ? trim($matches[1]) : $_nom);
 		}
@@ -246,7 +246,7 @@ function normaliser_auteur_licence($texte, $balise) {
 		}
 
 		// On detecte ensuite un mail eventuel
-		if (!$mail AND preg_match('/([^\w\d._-]*)(([\w\d._-]+)@([\w\d.-]+))/', $v, $r)) {
+		if (!$mail and preg_match('/([^\w\d._-]*)(([\w\d._-]+)@([\w\d.-]+))/', $v, $r)) {
 			$mail = $r[2];
 			$v = str_replace($r[2], '', $v);
 			if (!$v) {
@@ -275,7 +275,7 @@ function normaliser_auteur_licence($texte, $balise) {
 			$href = !preg_match(',https?://,', $href, $matches) ? "http://" . $href : $href;
 		}
 		$v = trim(textebrut($v));
-		if ((strlen($v) > 2) AND !$licence) {
+		if ((strlen($v) > 2) and !$licence) {
 			if ($balise == 'auteur') {
 				$res['auteur'][] = array('nom' => $v, 'url' => $href, 'mail' => $mail);
 			} else {
@@ -314,5 +314,3 @@ function normaliser_multi($texte) {
 
 	return $trads;
 }
-
-?>

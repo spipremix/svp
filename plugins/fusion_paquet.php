@@ -60,7 +60,7 @@ function plugins_fusion_paquet($plugins) {
 			// On merge les balises techniques existantes en les rangeant dans un sous tableau indexe par
 			// la compatibilite et ce pour chaque balise
 			foreach ($_paquet_spip as $_index => $_balise) {
-				if ($_index AND $_index != 'balise') {
+				if ($_index and $_index != 'balise') {
 					$fusion[$_index][$_compatibilite] = $_balise;
 					if (!isset($fusion[$_index][0])) {
 						$fusion[$_index][0] = array();
@@ -72,5 +72,3 @@ function plugins_fusion_paquet($plugins) {
 
 	return $fusion;
 }
-
-?>

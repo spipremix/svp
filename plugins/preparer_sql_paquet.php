@@ -48,7 +48,7 @@ function plugins_preparer_sql_paquet($plugin) {
 	}
 
 	// on normalise la version 1.3.12 => 001.003.012
-	$champs['version'] = (isset($plugin['version']) AND $plugin['version'])
+	$champs['version'] = (isset($plugin['version']) and $plugin['version'])
 		? normaliser_version($plugin['version'])
 		: '';
 
@@ -88,10 +88,10 @@ function plugins_preparer_sql_paquet($plugin) {
 	}
 
 	// Extraction de la compatibilite SPIP et construction de la liste des branches spip supportees
-	$champs['compatibilite_spip'] = (isset($plugin['compatibilite']) AND $plugin['compatibilite'])
+	$champs['compatibilite_spip'] = (isset($plugin['compatibilite']) and $plugin['compatibilite'])
 		? $plugin['compatibilite']
 		: '';
-	$champs['branches_spip'] = (isset($plugin['compatibilite']) AND $plugin['compatibilite'])
+	$champs['branches_spip'] = (isset($plugin['compatibilite']) and $plugin['compatibilite'])
 		? compiler_branches_spip($plugin['compatibilite'])
 		: '';
 
@@ -102,12 +102,12 @@ function plugins_preparer_sql_paquet($plugin) {
 	$champs['dependances'] = serialize($dependances);
 
 	$champs['procure'] = '';
-	if (isset($plugin['procure']) AND $plugin['procure']) {
+	if (isset($plugin['procure']) and $plugin['procure']) {
 		$champs['procure'] = array();
 		foreach ($plugin['procure'] as $procure) {
 			$p = strtoupper($procure['nom']);
 			if (!isset($champs['procure'][$p])
-				OR spip_version_compare($procure['version'], $champs['procure'][$p], '>')
+				or spip_version_compare($procure['version'], $champs['procure'][$p], '>')
 			) {
 				$champs['procure'][$p] = $procure['version'];
 			}
@@ -117,5 +117,3 @@ function plugins_preparer_sql_paquet($plugin) {
 
 	return $champs;
 }
-
-?>
