@@ -1,14 +1,16 @@
 <?php
 
 /**
- * Gestion du formulaire de gestion des plugins 
+ * Gestion du formulaire de gestion des plugins
  *
  * @plugin SVP pour SPIP
  * @license GPL
  * @package SPIP\SVP\Formulaires
  */
- 
-if (!defined("_ECRIRE_INC_VERSION")) return;
+
+if (!defined("_ECRIRE_INC_VERSION")) {
+	return;
+}
 
 /**
  * Chargement du formulaire de gestion des plugins
@@ -28,8 +30,8 @@ if (!defined("_ECRIRE_INC_VERSION")) return;
  *     URL de redirection après les traitements
  * @return array
  *     Environnement du formulaire
-**/
-function formulaires_admin_plugin_charger_dist($voir = 'actif', $verrouille = 'non', $id_paquet = '', $redirect = ''){
+ **/
+function formulaires_admin_plugin_charger_dist($voir = 'actif', $verrouille = 'non', $id_paquet = '', $redirect = '') {
 	$valeurs = array();
 
 	// actualiser la liste des paquets locaux systematiquement
@@ -39,16 +41,20 @@ function formulaires_admin_plugin_charger_dist($voir = 'actif', $verrouille = 'n
 	svp_actualiser_paquets_locaux(false, $valeurs['_erreurs_xml']);
 
 	$valeurs['actif'] = 'oui';
-	if ($voir == 'inactif')
+	if ($voir == 'inactif') {
 		$valeurs['actif'] = 'non';
-	if ($voir == 'tous')
+	}
+	if ($voir == 'tous') {
 		$valeurs['actif'] = '';
+	}
 
-	$valeurs['constante'] = array('_DIR_PLUGINS','_DIR_PLUGINS_SUPPL');
-	if ($verrouille == 'oui')
+	$valeurs['constante'] = array('_DIR_PLUGINS', '_DIR_PLUGINS_SUPPL');
+	if ($verrouille == 'oui') {
 		$valeurs['constante'] = array('_DIR_PLUGINS_DIST');
-	if ($verrouille == 'tous')
+	}
+	if ($verrouille == 'tous') {
 		$valeurs['constante'] = array();
+	}
 
 	$valeurs['verrouille'] = $verrouille;
 	$valeurs['id_paquet'] = $id_paquet;
@@ -75,9 +81,9 @@ function formulaires_admin_plugin_charger_dist($voir = 'actif', $verrouille = 'n
  * de conséquence.
  *
  * Si on reçoit une demande de confirmation, on sort sans lever d'erreur !
- * 
+ *
  * @uses  svp_decider_verifier_actions_demandees()
- * 
+ *
  * @param string $voir
  *     Statut des plugins que l'on souhaite voir : actif, inactif, tous
  * @param string $verrouille
@@ -92,8 +98,8 @@ function formulaires_admin_plugin_charger_dist($voir = 'actif', $verrouille = 'n
  *     URL de redirection après les traitements
  * @return array
  *     Tableau des erreurs
-**/
-function formulaires_admin_plugin_verifier_dist($voir = 'actif', $verrouille = 'non', $id_paquet = '', $redirect = ''){
+ **/
+function formulaires_admin_plugin_verifier_dist($voir = 'actif', $verrouille = 'non', $id_paquet = '', $redirect = '') {
 
 	$erreurs = array();
 
@@ -107,7 +113,7 @@ function formulaires_admin_plugin_verifier_dist($voir = 'actif', $verrouille = '
 		// ... 
 	} else {
 		$a_actionner = array();
-		
+
 		// actions globales...
 		if ($action_globale = _request('action_globale') AND _request('appliquer')) {
 			$ids_paquet = _request('ids_paquet');
@@ -118,7 +124,7 @@ function formulaires_admin_plugin_verifier_dist($voir = 'actif', $verrouille = '
 					$a_actionner[$i] = $action_globale;
 				}
 			}
-		// action unitaire
+			// action unitaire
 		} else {
 			$actions = _request('actions');
 			// $actions[type][id] = Texte
@@ -130,10 +136,10 @@ function formulaires_admin_plugin_verifier_dist($voir = 'actif', $verrouille = '
 			}
 		}
 		// lancer les verifications
-		if (!$a_actionner)
+		if (!$a_actionner) {
 			$erreurs['message_erreur'] = _T('svp:message_erreur_aucun_plugin_selectionne');
-		else {
-			
+		} else {
+
 			// On fait appel au decideur pour determiner la liste exacte des commandes apres
 			// verification des dependances
 			include_spip('inc/svp_decider');
@@ -141,20 +147,21 @@ function formulaires_admin_plugin_verifier_dist($voir = 'actif', $verrouille = '
 			$todo = _request('_todo') ? unserialize(_request('_todo')) : array();
 			$actions = _request('_decideur_actions') ? unserialize(_request('_decideur_actions')) : array();
 			// si c'est une action simple sans rien a faire de plus que demande, on y go direct
-			if (in_array('stop',$todo)){
+			if (in_array('stop', $todo)) {
 				$notices['decideur_warning'] = _T('svp:confirmer_desinstaller');
 				set_request('_notices', $notices);
-			}
-			elseif (!isset($erreurs['decideur_erreurs'])
-			AND (!isset($erreurs['decideur_propositions']) OR !count($actions['decideur_propositions']))){
-				set_request('valider_actions',true); // on fake la validation, non mais ho !
+			} elseif (!isset($erreurs['decideur_erreurs'])
+				AND (!isset($erreurs['decideur_propositions']) OR !count($actions['decideur_propositions']))
+			) {
+				set_request('valider_actions', true); // on fake la validation, non mais ho !
 			}
 		}
 	}
 
-	if (count($erreurs) AND !isset($erreurs['message_erreur']))
+	if (count($erreurs) AND !isset($erreurs['message_erreur'])) {
 		$erreurs['message_erreur'] = '';
-	
+	}
+
 	return $erreurs;
 }
 
@@ -163,9 +170,9 @@ function formulaires_admin_plugin_verifier_dist($voir = 'actif', $verrouille = '
  *
  * Si une liste d'action est validée, on redirige de formulaire sur
  * l'action 'actionner' qui les traitera une par une.
- * 
+ *
  * @uses svp_actionner_traiter_actions_demandees()
- * 
+ *
  * @param string $voir
  *     Statut des plugins que l'on souhaite voir : actif, inactif, tous
  * @param string $verrouille
@@ -180,9 +187,9 @@ function formulaires_admin_plugin_verifier_dist($voir = 'actif', $verrouille = '
  *     URL de redirection après les traitements
  * @return array
  *     Retours du traitement
-**/
-function formulaires_admin_plugin_traiter_dist($voir = 'actif', $verrouille = 'non', $id_paquet = '', $redirect = ''){
-	
+ **/
+function formulaires_admin_plugin_traiter_dist($voir = 'actif', $verrouille = 'non', $id_paquet = '', $redirect = '') {
+
 	$retour = array();
 
 	if (_request('valider_actions')) {
@@ -192,10 +199,11 @@ function formulaires_admin_plugin_traiter_dist($voir = 'actif', $verrouille = 'n
 		// lors de l'appel de action/actionner 
 		$actions = unserialize(_request('_todo'));
 		include_spip('inc/svp_actionner');
-		svp_actionner_traiter_actions_demandees($actions, $retour,$redirect);
+		svp_actionner_traiter_actions_demandees($actions, $retour, $redirect);
 	}
 
 	$retour['editable'] = true;
+
 	return $retour;
 }
 

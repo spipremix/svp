@@ -8,7 +8,9 @@
  * @package SPIP\SVP\Genie
  */
 
-if (!defined("_ECRIRE_INC_VERSION")) return;
+if (!defined("_ECRIRE_INC_VERSION")) {
+	return;
+}
 
 /**
  * Actualise tous les dépots
@@ -21,7 +23,7 @@ if (!defined("_ECRIRE_INC_VERSION")) return;
  * @return int
  *     Positif : la tâche a été effectuée
  */
-function genie_svp_actualiser_depots_dist ($last) {
+function genie_svp_actualiser_depots_dist($last) {
 
 	include_spip('inc/svp_depoter_distant');
 
@@ -29,7 +31,7 @@ function genie_svp_actualiser_depots_dist ($last) {
 	if ($resultats = sql_allfetsel('id_depot', 'spip_depots')) {
 		foreach ($resultats as $depot) {
 			svp_actualiser_depot($depot['id_depot']);
-			spip_log("ACTION ACTUALISER DEPOT (automatique) : id_depot = ". $depot['id_depot'], 'svp_actions.' . _LOG_INFO);
+			spip_log("ACTION ACTUALISER DEPOT (automatique) : id_depot = " . $depot['id_depot'], 'svp_actions.' . _LOG_INFO);
 		}
 	}
 
