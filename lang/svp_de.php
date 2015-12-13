@@ -69,7 +69,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'config_autoriser_activer_paquets_obsoletes_explication' => 'Veraltete Pakete sind lokal vorhandene, die älter als gleichartige lokal installierte sind. Ob ein Paket veraltet ist, wird anhand seines Status (stabil, test, dev) und aufgrund seiner Version ermittelt. Aktivieren sie diese Option, falls sie solche veralteten Pakete aktivieren möchten.',
 	'config_depot_editable' => 'Bearbeitung der Depots erlauben?',
 	'config_depot_editable_explication' => 'Hiermit können die Informationen über ein Depot bearbeitet werden und dem Depot z.B. Schlagworte zugeordnet werden. Diese Option sollte in der Regel ohne Nutzen sein! Die Einstellung «non» sollte beibehalten werden!',
-	'confirmer_desinstaller' => 'Achtung, das Deinstallieren eines Plugins <b>löscht</b> alle seine Daten aus der Datenbank und kann nicht rückgängig gemacht werden.<br /> Wenn sie sich nicht sicher sind, wählen sie deaktivieren.', # MODIF
+	'confirmer_desinstaller' => 'Achtung, das Entfernen eines Plugins <b>löscht</b> alle seine Daten aus der Datenbank und kann nicht rückgängig gemacht werden.<br /> Wenn sie sich nicht sicher sind, wählen sie <i>Deaktivieren</i>.',
 	'confirmer_telecharger_dans' => 'Das Plugin wird in das vorhandene Verzeichnis (@dir@) geladen.
 	Der Inhalt dieses Verzeichnis wird dabei überschrieben.
 	Eine Kopie des Verzeichnisinhalts wird in « @dir_backup@ » angelegt.
