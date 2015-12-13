@@ -118,7 +118,7 @@ function svp_afficher_dependances($balise_serialisee, $dependance = 'necessite',
 				if ($texte) {
 					$texte .= $sep;
 				}
-				if (($dependance == 'necessite') OR ($dependance == 'utilise')) {
+				if (($dependance == 'necessite') or ($dependance == 'utilise')) {
 					if ($plugin = sql_fetsel('id_plugin, nom', 'spip_plugins', 'prefixe=' . sql_quote($_plugin['nom']))) {
 						$nom = extraire_multi($plugin['nom']);
 						if ($lien == 'non') {
@@ -344,7 +344,7 @@ function svp_compter_depots($id_depot, $contrib = 'plugin') {
 	} else {
 		if ($contrib == 'plugin') {
 			$info = _T('svp:info_plugins_heberges', array('total_plugins' => $total['plugin'])) . ', ' .
-				_T('svp:info_paquets_disponibles', array('total_paquets' => $total['paquet']-$total['autre']));
+				_T('svp:info_paquets_disponibles', array('total_paquets' => $total['paquet'] - $total['autre']));
 		} else {
 			$info = _T('svp:info_contributions_hebergees', array('total_autres' => $total['autre']));
 		}
@@ -533,7 +533,7 @@ function calcul_svp_categories($tri = 'ordre_cle', $categorie = '') {
 	$svp_categories = $GLOBALS['categories_plugin'];
 
 	if (is_array($svp_categories)) {
-		if (($categorie) AND in_array($categorie, $svp_categories)) {
+		if (($categorie) and in_array($categorie, $svp_categories)) {
 			$retour[$categorie] = _T('svp:categorie_' . strtolower($categorie));
 		} else {
 			if ($tri == 'ordre_alpha') {
@@ -598,7 +598,7 @@ function calcul_svp_branches_spip($branche) {
 	$svp_branches = $GLOBALS['infos_branches_spip'];
 
 	if (is_array($svp_branches)) {
-		if (($branche) AND in_array($branche, $svp_branches)) // On renvoie les bornes inf et sup de la branche specifiee
+		if (($branche) and in_array($branche, $svp_branches)) // On renvoie les bornes inf et sup de la branche specifiee
 		{
 			$retour = $svp_branches[$branche];
 		} else {
@@ -662,22 +662,22 @@ function svp_calculer_url_demo($url_demo, $url_absolue = false) {
 	$url_demo = trim($url_demo);
 	if (strlen($url_demo) > 0) {
 		$url_elements = @parse_url($url_demo);
-		if (isset($url_elements['scheme']) AND $url_elements['scheme']) {
+		if (isset($url_elements['scheme']) and $url_elements['scheme']) {
 			// Cas 1 : http://xxxx. C'est donc une url absolue que l'on conserve telle qu'elle.
 			$url_calculee = $url_demo;
 		} else {
 			if (!$url_absolue) {
-				if (isset($url_elements['query']) AND $url_elements['query']) {
+				if (isset($url_elements['query']) and $url_elements['query']) {
 					// Cas 2 : ?exec=xxx ou ?page=yyy. C'est donc une url relative que l'on transforme
 					// en url absolue privée ou publique en fonction de la query.
 					$egal = strpos($url_elements['query'], '=');
-					$page = substr($url_elements['query'], $egal+1, strlen($url_elements['query'])-$egal-1);
+					$page = substr($url_elements['query'], $egal + 1, strlen($url_elements['query']) - $egal - 1);
 					if (strpos($url_elements['query'], 'exec=') !== false) {
 						$url_calculee = generer_url_ecrire($page);
 					} else {
 						$url_calculee = generer_url_public($page);
 					}
-				} elseif (isset($url_elements['path']) AND $url_elements['path']) {
+				} elseif (isset($url_elements['path']) and $url_elements['path']) {
 					// Cas 3 : xxx/yyy. C'est donc une url relative que l'on transforme
 					$url_calculee = generer_url_public($url_demo);
 				}
@@ -832,7 +832,7 @@ function denormaliser_version($version_normalisee = '') {
 			// On traite les cas du type 001.002.000-dev qui doivent etre transformes en 1.2.0-dev.
 			// Etant donne que la denormalisation est toujours effectuee sur une version normalisee on sait
 			// que le suffixe commence toujours pas '-'
-			$vn[] = ((strlen($n) > 0) AND substr($n, 0, 1) != '-') ? $n : "0$n";
+			$vn[] = ((strlen($n) > 0) and substr($n, 0, 1) != '-') ? $n : "0$n";
 		}
 		$version = implode('.', $vn);
 	}
@@ -859,5 +859,3 @@ function test_plugins_auto() {
 
 	return $test;
 }
-
-?>

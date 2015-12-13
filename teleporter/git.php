@@ -41,7 +41,7 @@ function teleporter_git_dist($methode, $source, $dest, $options = array()) {
 			spip_log("Suppression de $dest qui n'est pas sur le bon repository GIT", "teleport");
 			$old = teleporter_nettoyer_vieille_version($dest);
 		} elseif (!isset($options['revision'])
-			OR $options['revision'] != $infos['revision']
+			or $options['revision'] != $infos['revision']
 		) {
 			$command = _GIT_COMMAND . " checkout " . escapeshellarg($branche);
 			teleporter_git_exec($dest, $command);

@@ -26,7 +26,7 @@ class Actionneur {
 	 *
 	 * @var Decideur
 	 */
-	var $decideur;
+	public $decideur;
 
 	/**
 	 * Loguer les différents éléments
@@ -35,7 +35,7 @@ class Actionneur {
 	 *
 	 * @var bool
 	 */
-	var $log = false;
+	public $log = false;
 
 	/**
 	 * Liste des actions à faire
@@ -43,7 +43,7 @@ class Actionneur {
 	 * @var array
 	 *     Tableau identifiant du paquet => type d'action
 	 */
-	var $start = array();
+	public $start = array();
 
 	/**
 	 * Actions en cours d'analyse
@@ -60,7 +60,7 @@ class Actionneur {
 	 *     Index 'on' : les paquets à activer (ordre des dépendances)
 	 *     Index 'neutre' : autres actions dont l'ordre a peu d'importance.
 	 */
-	var $middle = array(
+	public $middle = array(
 		'off' => array(),
 		'lib' => array(),
 		'on' => array(),
@@ -76,7 +76,7 @@ class Actionneur {
 	 *
 	 * @var array
 	 */
-	var $end = array();
+	public $end = array();
 
 	/**
 	 * Liste des actions faites
@@ -84,7 +84,7 @@ class Actionneur {
 	 *
 	 * @var array
 	 */
-	var $done = array(); // faites
+	public $done = array(); // faites
 
 	/**
 	 * Actions en cours
@@ -92,14 +92,14 @@ class Actionneur {
 	 *
 	 * @var array
 	 */
-	var $work = array();
+	public $work = array();
 
 	/**
 	 * Liste des erreurs
 	 *
 	 * @var array Liste des erreurs
 	 */
-	var $err = array();
+	public $err = array();
 
 	/**
 	 * Verrou.
@@ -108,7 +108,7 @@ class Actionneur {
 	 * @var array
 	 *     Index 'id_auteur' : Identifiant de l'auteur ayant déclenché des actions
 	 *     Indix 'time' : timestamp de l'heure de déclenchement de l'action */
-	var $lock = array('id_auteur' => 0, 'time' => '');
+	public $lock = array('id_auteur' => 0, 'time' => '');
 
 	/**
 	 * SVP (ce plugin) est-il à désactiver dans une des actions ?
@@ -118,14 +118,14 @@ class Actionneur {
 	 *
 	 * @var bool
 	 *     false si SVP n'est pas à désactiver, true sinon */
-	var $svp_off = false;
+	public $svp_off = false;
 
 	/**
 	 * Constructeur
 	 *
 	 * Détermine si les logs sont activés et instancie un décideur.
 	 */
-	function __construct() {
+	public function __construct() {
 		include_spip('inc/config');
 		$this->log = (lire_config('svp/mode_log_verbeux') == 'oui');
 
@@ -146,7 +146,7 @@ class Actionneur {
 	 * @param mixed $quoi
 	 *     La chose à logguer (souvent un texte)
 	 **/
-	function log($quoi) {
+	public function log($quoi) {
 		if ($this->log) {
 			spip_log($quoi, 'actionneur');
 		}
@@ -161,7 +161,7 @@ class Actionneur {
 	 * @param string $erreur
 	 *     Le texte de l'erreur
 	 **/
-	function err($erreur) {
+	public function err($erreur) {
 		if ($erreur) {
 			$this->err[] = $erreur;
 		}
@@ -170,7 +170,7 @@ class Actionneur {
 	/**
 	 * Remet à zéro les tableaux d'actions
 	 */
-	function clear() {
+	public function clear() {
 		$this->middle = array(
 			'off' => array(),
 			'lib' => array(),
@@ -188,7 +188,7 @@ class Actionneur {
 	 * @param array $todo
 	 *     Tableau des actions à faire (identifiant de paquet => type d'action)
 	 **/
-	function ajouter_actions($todo) {
+	public function ajouter_actions($todo) {
 		if ($todo) {
 			foreach ($todo as $id => $action) {
 				$this->start[$id] = $action;
@@ -208,7 +208,7 @@ class Actionneur {
 	 * @param string $nom Nom de la librairie
 	 * @param string $source URL pour obtenir la librairie
 	 */
-	function add_lib($nom, $source) {
+	public function add_lib($nom, $source) {
 		if (!$this->decideur->est_presente_lib($nom)) {
 			if (is_writable(_DIR_LIB)) {
 				$this->middle['lib'][$nom] = array(
@@ -248,7 +248,7 @@ class Actionneur {
 	 * - puis ce qui est a installer (à commencer par les librairies, puis paquets),
 	 * - puis les actions neutres
 	 */
-	function ordonner_actions() {
+	public function ordonner_actions() {
 		// nettoyer le terrain
 		$this->clear();
 
@@ -335,7 +335,7 @@ class Actionneur {
 	 *     Action à réaliser (on, upon)
 	 * @return void
 	 **/
-	function on($info, $action) {
+	public function on($info, $action) {
 		$info['todo'] = $action;
 		$p = $info['p'];
 		$this->log("ON: $p $action");
@@ -349,7 +349,7 @@ class Actionneur {
 			$in[] = $dep['nom'];
 		}
 		// $info fourni ses procure
-		if (isset($info['procure']) AND $info['procure']) {
+		if (isset($info['procure']) and $info['procure']) {
 			$prov = array_keys($info['procure']);
 		}
 		// et se fournit lui meme evidemment
@@ -368,7 +368,7 @@ class Actionneur {
 		// ie. ces plugins peuvent dependre de ce nouveau a activer.
 		foreach ($this->middle['on'] as $k => $inf) {
 			$out["$k:0"] = $inf['p'];
-			if (isset($inf['procure']) AND $inf['procure']) {
+			if (isset($inf['procure']) and $inf['procure']) {
 				$i = 1;
 				foreach ($inf['procure'] as $procure => $v) {
 					$out["$k:$i"] = $inf['p'];
@@ -404,7 +404,7 @@ class Actionneur {
 				if ($key == count($this->middle['on'])) {
 					$this->middle['on'][] = $info;
 				} else {
-					array_splice($this->middle['on'], $key+1, 0, array($info));
+					array_splice($this->middle['on'], $key + 1, 0, array($info));
 				}
 
 				// intersection = plugin dependant de celui-ci
@@ -452,7 +452,7 @@ class Actionneur {
 	 *     Action à réaliser (kill, get, up (sur plugin inactif))
 	 * @return void
 	 **/
-	function neutre($info, $action) {
+	public function neutre($info, $action) {
 		$info['todo'] = $action;
 		$this->log("NEUTRE:  $info[p] $action");
 		$this->middle['neutre'][] = $info;
@@ -476,7 +476,7 @@ class Actionneur {
 	 *     Action à réaliser (kill, get, up (sur plugin inactif))
 	 * @return void
 	 **/
-	function off($info, $action) {
+	public function off($info, $action) {
 		$info['todo'] = $action;
 		$p = $info['p'];
 		$this->log("OFF: $p $action");
@@ -539,7 +539,7 @@ class Actionneur {
 	 * @return string
 	 *     Bilan des actions au format HTML
 	 **/
-	function presenter_actions($fin = false) {
+	public function presenter_actions($fin = false) {
 		$affiche = "";
 
 		include_spip('inc/filtres_boites');
@@ -573,7 +573,7 @@ class Actionneur {
 					$texte .= " <span class='$ok_texte'>$i[done]</span>";
 				}
 				// si le plugin a ete active dans le meme lot, on remplace le message 'active' par le message 'installe'
-				if ($i['todo'] == 'install' AND $ok_texte == 'ok') {
+				if ($i['todo'] == 'install' and $ok_texte == 'ok') {
 					$cle_t = 'svp:message_action_finale_' . 'on' . '_' . $ok_texte;
 					$texte_on = _T($cle_t, array(
 						'plugin' => $i['n'],
@@ -649,7 +649,7 @@ class Actionneur {
 	 * @return bool
 	 *     true si un verrou est là, false sinon
 	 **/
-	function est_verrouille($id_auteur = '') {
+	public function est_verrouille($id_auteur = '') {
 		if ($id_auteur == '') {
 			return ($this->lock['id_auteur'] ? true : false);
 		}
@@ -671,7 +671,7 @@ class Actionneur {
 	 *
 	 * @see Actionneur::sauver_actions()
 	 **/
-	function verrouiller() {
+	public function verrouiller() {
 		$this->lock = array(
 			'id_auteur' => $GLOBALS['visiteur_session']['id_auteur'],
 			'time' => time(),
@@ -681,7 +681,7 @@ class Actionneur {
 	/**
 	 * Enlève le verrou
 	 **/
-	function deverrouiller() {
+	public function deverrouiller() {
 		$this->lock = array(
 			'id_auteur' => 0,
 			'time' => '',
@@ -699,7 +699,7 @@ class Actionneur {
 	 *
 	 * @see Actionneur::get_actions()
 	 **/
-	function sauver_actions() {
+	public function sauver_actions() {
 		$contenu = serialize(array(
 			'todo' => $this->end,
 			'done' => $this->done,
@@ -718,7 +718,7 @@ class Actionneur {
 	 *
 	 * @see Actionneur::sauver_actions()
 	 **/
-	function get_actions() {
+	public function get_actions() {
 		lire_fichier(_DIR_TMP . 'stp_actions.txt', $contenu);
 		$infos = unserialize($contenu);
 		$this->end = $infos['todo'];
@@ -733,7 +733,7 @@ class Actionneur {
 	 *
 	 * Remet tout à zéro pour pouvoir repartir d'un bon pied.
 	 **/
-	function nettoyer_actions() {
+	public function nettoyer_actions() {
 		$this->todo = array();
 		$this->done = array();
 		$this->work = array();
@@ -753,11 +753,11 @@ class Actionneur {
 	 *     False si aucune action à faire,
 	 *     sinon tableau de description courte du paquet + index 'todo' indiquant l'action
 	 **/
-	function one_action() {
+	public function one_action() {
 		// s'il reste des actions, on en prend une, et on la fait
 		// de meme si une action est en cours mais pas terminee (timeout)
 		// on tente de la refaire...
-		if (count($this->end) OR $this->work) {
+		if (count($this->end) or $this->work) {
 			// on verrouille avec l'auteur en cours pour
 			// que seul lui puisse effectuer des actions a ce moment la
 			if (!$this->est_verrouille()) {
@@ -809,7 +809,7 @@ class Actionneur {
 	 * le résultat de l'action (un booléen indiquant si elle s'est bien
 	 * déroulée).
 	 **/
-	function do_action() {
+	public function do_action() {
 		if ($do = $this->work) {
 			$todo = 'do_' . $do['todo'];
 			lire_metas(); // avoir les metas a jour
@@ -830,7 +830,7 @@ class Actionneur {
 	 * @return bool
 	 *     false si erreur, true sinon.
 	 */
-	function do_geton($info) {
+	public function do_geton($info) {
 		if (!$this->tester_repertoire_plugins_auto()) {
 			return false;
 		}
@@ -856,7 +856,7 @@ class Actionneur {
 	 * @return bool
 	 *     false si erreur, true sinon.
 	 */
-	function do_on($info) {
+	public function do_on($info) {
 		$i = sql_fetsel('*', 'spip_paquets', 'id_paquet=' . sql_quote($info['i']));
 		// à télécharger ?
 		if (isset($i['id_zone']) and $i['id_zone'] > 0) {
@@ -885,7 +885,7 @@ class Actionneur {
 	 *     false si erreur,
 	 *     description courte du nouveau plugin sinon.
 	 */
-	function do_up($info) {
+	public function do_up($info) {
 		// ecriture du nouveau
 		// suppression de l'ancien (si dans auto, et pas au meme endroit)
 		// OU suppression des anciens fichiers
@@ -955,7 +955,7 @@ class Actionneur {
 	 * @return bool
 	 *     false si erreur, true sinon
 	 */
-	function do_upon($info) {
+	public function do_upon($info) {
 		$i = sql_fetsel('*', 'spip_paquets', 'id_paquet=' . sql_quote($info['i']));
 		if ($dirs = $this->do_up($info)) {
 			$this->activer_plugin_dossier($dirs['dossier'], $i, $i['constante']);
@@ -975,7 +975,7 @@ class Actionneur {
 	 * @return bool
 	 *     false si erreur, true sinon
 	 */
-	function do_off($info) {
+	public function do_off($info) {
 		$i = sql_fetsel('*', 'spip_paquets', 'id_paquet=' . sql_quote($info['i']));
 		// il faudra prendre en compte les autres _DIR_xx
 		if (in_array($i['constante'], array('_DIR_PLUGINS', '_DIR_PLUGINS_SUPPL'))) {
@@ -1002,7 +1002,7 @@ class Actionneur {
 	 * @return bool
 	 *     false si erreur, true sinon
 	 */
-	function do_stop($info) {
+	public function do_stop($info) {
 		$i = sql_fetsel('*', 'spip_paquets', 'id_paquet=' . sql_quote($info['i']));
 		// il faudra prendre en compte les autres _DIR_xx
 		if (in_array($i['constante'], array('_DIR_PLUGINS', '_DIR_PLUGINS_SUPPL'))) {
@@ -1015,7 +1015,7 @@ class Actionneur {
 			// - true : operation deja faite
 			// - tableau : operation faite ce tour ci.
 			$infos = $installer_plugins($dossier, 'uninstall', $i['constante']);
-			if (is_bool($infos) OR !$infos['install_test'][0]) {
+			if (is_bool($infos) or !$infos['install_test'][0]) {
 				include_spip('inc/plugin');
 				ecrire_plugin_actifs(array($dossier), false, 'enleve');
 				sql_updateq('spip_paquets', array('actif' => 'non', 'installe' => 'non'), 'id_paquet=' . sql_quote($info['i']));
@@ -1040,7 +1040,7 @@ class Actionneur {
 	 * @return bool
 	 *     false si erreur, true sinon
 	 */
-	function do_kill($info) {
+	public function do_kill($info) {
 		// on reverifie que c'est bien un plugin auto !
 		// il faudrait aussi faire tres attention sur un site mutualise
 		// cette option est encore plus delicate que les autres...
@@ -1115,7 +1115,7 @@ class Actionneur {
 	 * @return bool
 	 *     false si erreur, true sinon
 	 */
-	function do_getlib($info) {
+	public function do_getlib($info) {
 		if (!defined('_DIR_LIB') or !_DIR_LIB) {
 			$this->err(_T('svp:erreur_dir_dib_indefini'));
 			$this->log("/!\ Pas de _DIR_LIB defini !");
@@ -1160,7 +1160,7 @@ class Actionneur {
 	 * @return bool
 	 *     false si erreur, true sinon
 	 */
-	function do_get($info) {
+	public function do_get($info) {
 		if (!$this->tester_repertoire_plugins_auto()) {
 			return false;
 		}
@@ -1185,7 +1185,7 @@ class Actionneur {
 	 * @return bool
 	 *     false si erreur, true sinon
 	 */
-	function do_install($info) {
+	public function do_install($info) {
 		return $this->installer_plugin($info);
 	}
 
@@ -1201,7 +1201,7 @@ class Actionneur {
 	 *     Constante indiquant le chemin de base du plugin (_DIR_PLUGINS, _DIR_PLUGINS_SUPPL, _DIR_PLUGINS_DIST)
 	 * @return void
 	 **/
-	function activer_plugin_dossier($dossier, $i, $constante = '_DIR_PLUGINS') {
+	public function activer_plugin_dossier($dossier, $i, $constante = '_DIR_PLUGINS') {
 		include_spip('inc/plugin');
 		$this->log("Demande d'activation de : " . $dossier);
 
@@ -1253,7 +1253,7 @@ class Actionneur {
 	 *
 	 * Les plugins atteignant un score de zéro sont évacués ce la liste.
 	 */
-	function actualiser_plugin_interessants() {
+	public function actualiser_plugin_interessants() {
 		// Chaque fois que l'on valide des plugins,
 		// on memorise la liste de ces plugins comme etant "interessants",
 		// avec un score initial, qui sera decremente a chaque tour :
@@ -1303,7 +1303,7 @@ class Actionneur {
 	 * @param string $dir
 	 *     Chemin du répertoire du plugin
 	 */
-	function ajouter_plugin_interessants_meta($dir) {
+	public function ajouter_plugin_interessants_meta($dir) {
 		$plugins_interessants = @unserialize($GLOBALS['meta']['plugins_interessants']);
 		if (!is_array($plugins_interessants)) {
 			$plugins_interessants = array();
@@ -1320,14 +1320,14 @@ class Actionneur {
 	 * @return bool
 	 *     false si erreur, true sinon
 	 */
-	function installer_plugin($info) {
+	public function installer_plugin($info) {
 		// il faut info['dossier'] et info['constante'] pour installer
 		if ($plug = $info['dossier']) {
 			$installer_plugins = charger_fonction('installer', 'plugins');
 			$infos = $installer_plugins($plug, 'install', $info['constante']);
 			if ($infos) {
 				// en absence d'erreur, on met a jour la liste des plugins installes...
-				if (!is_array($infos) OR $infos['install_test'][0]) {
+				if (!is_array($infos) or $infos['install_test'][0]) {
 					$meta_plug_installes = @unserialize($GLOBALS['meta']['plugin_installes']);
 					if (!$meta_plug_installes) {
 						$meta_plug_installes = array();
@@ -1371,7 +1371,7 @@ class Actionneur {
 	 *     - dir : Chemin du paquet téléchargé depuis la racine
 	 *     - dossier : Chemin du paquet téléchargé, depuis _DIR_PLUGINS
 	 */
-	function get_paquet_id($id_or_row, $dest_ancien = "") {
+	public function get_paquet_id($id_or_row, $dest_ancien = "") {
 		// on peut passer direct le row sql...
 		if (!is_array($id_or_row)) {
 			$i = sql_fetsel('*', 'spip_paquets', 'id_paquet=' . sql_quote($id_or_row));
@@ -1448,7 +1448,7 @@ class Actionneur {
 	 * @return bool
 	 *     True si on peut écrire dedans, false sinon
 	 **/
-	function tester_repertoire_plugins_auto() {
+	public function tester_repertoire_plugins_auto() {
 		include_spip('inc/plugin'); // pour _DIR_PLUGINS_AUTO
 		if (!defined('_DIR_PLUGINS_AUTO') or !_DIR_PLUGINS_AUTO) {
 			$this->err(_T('svp:erreur_dir_plugins_auto_indefini'));
@@ -1480,7 +1480,7 @@ class Actionneur {
 	 * @return bool
 	 *      true si le répertoire est dans un ancien format
 	 */
-	function tester_repertoire_destination_ancien_format($dir_dans_auto) {
+	public function tester_repertoire_destination_ancien_format($dir_dans_auto) {
 		// si on tombe sur un auto/X ayant des fichiers (et pas uniquement des dossiers)
 		// ou un dossier qui ne commence pas par 'v'
 		// c'est que auto/X n'était pas chargé avec SVP
@@ -1492,7 +1492,7 @@ class Actionneur {
 				$base_files = array_diff($base_files, array('.', '..'));
 				foreach ($base_files as $f) {
 					if (($f[0] != '.' and $f[0] != 'v') // commence pas par v
-						OR ($f[0] != '.' and !is_dir($dir_dans_auto . '/' . $f))
+						or ($f[0] != '.' and !is_dir($dir_dans_auto . '/' . $f))
 					) { // commence par v mais pas repertoire
 						return true;
 					}
@@ -1513,7 +1513,7 @@ class Actionneur {
 	 *
 	 * @return string Nom du téléporteur à utiliser
 	 **/
-	function choisir_teleporteur($teleporteur, $defaut = 'http') {
+	public function choisir_teleporteur($teleporteur, $defaut = 'http') {
 		// Utiliser un teleporteur vcs si possible si demandé
 		if (defined('SVP_PREFERER_TELECHARGEMENT_PAR_VCS') and SVP_PREFERER_TELECHARGEMENT_PAR_VCS) {
 			if ($teleporteur) {
@@ -1543,11 +1543,11 @@ class Actionneur {
 	 * @return bool
 	 *     true si SVP a été désactivé, false sinon
 	 **/
-	function tester_si_svp_desactive() {
+	public function tester_si_svp_desactive() {
 		foreach ($this->done as $d) {
 			if ($d['p'] == 'SVP'
-				AND $d['done'] == true
-				AND in_array($d['todo'], array('off', 'stop'))
+				and $d['done'] == true
+				and in_array($d['todo'], array('off', 'stop'))
 			) {
 				return true;
 			}
@@ -1581,5 +1581,3 @@ function svp_actionner_traiter_actions_demandees($actions, &$retour, $redirect =
 	set_request('_todo', '');
 	$retour['message_ok'] = _T("svp:action_patienter");
 }
-
-?>

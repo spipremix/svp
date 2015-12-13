@@ -151,7 +151,7 @@ function svp_phraser_depot($fichier_xml) {
 	$fichier_xml_md5 = $fichier_xml . ".md5.txt";
 	lire_fichier($fichier_xml_md5, $cache_md5);
 	if (!$cache_md5
-		OR !$cache_md5 = unserialize($cache_md5)
+		or !$cache_md5 = unserialize($cache_md5)
 	) {
 		$cache_md5 = array();
 	}
@@ -230,7 +230,7 @@ function svp_phraser_archives($archives, &$md5_cache = array()) {
 				// Sinon, c'est la DTD plugin qui est utilisee
 				list($tag, $attributs) = spip_xml_decompose_tag($_archive);
 				// -- On stocke la DTD d'extraction des infos du plugin
-				$dtd = (isset($attributs['dtd']) AND $attributs['dtd']) ? $attributs['dtd'] : _SVP_DTD_PLUGIN;
+				$dtd = (isset($attributs['dtd']) and $attributs['dtd']) ? $attributs['dtd'] : _SVP_DTD_PLUGIN;
 
 				// Extraction *des balises* plugin ou *de la balise* paquet suivant la DTD et la version SPIP
 				// -- DTD : si on utilise plugin.xml on extrait la balise <plugin> sinon la balise <paquet>
@@ -240,7 +240,7 @@ function svp_phraser_archives($archives, &$md5_cache = array()) {
 				// la version courant de SPIP. On ne stocke donc pas les autres plugins.
 				// Si on est pas en mode runtime on prend tout !
 				if (!_SVP_MODE_RUNTIME
-					OR (_SVP_MODE_RUNTIME AND isset($xml['compatibilite']) AND plugin_version_compatible($xml['compatibilite'],
+					or (_SVP_MODE_RUNTIME and isset($xml['compatibilite']) and plugin_version_compatible($xml['compatibilite'],
 							$version_spip, 'spip'))
 				) {
 					$paquets[$zip['file']] = $zip;
@@ -321,7 +321,7 @@ function svp_phraser_plugin($dtd, $contenu) {
 
 		// Pour la DTD paquet, les traductions du nom, slogan et description sont compilees dans une balise
 		// du fichier archives.xml. Il faut donc completer les informations precedentes avec cette balise
-		if (($dtd == _SVP_DTD_PAQUET) AND (preg_match(_SVP_REGEXP_BALISE_MULTIS, $contenu, $matches))) {
+		if (($dtd == _SVP_DTD_PAQUET) and (preg_match(_SVP_REGEXP_BALISE_MULTIS, $contenu, $matches))) {
 			$multis = array();
 			if (is_array($arbre = spip_xml_parse($matches[1]))) {
 				$multis = svp_aplatir_balises($balises_multis, $arbre);
@@ -454,7 +454,7 @@ function svp_aplatir_balises($balises, $arbre_xml, $mode = 'vide_et_nonvide', $t
 			$valeur_aplatie = trim(spip_xml_aplatit($arbre_xml[$tag]));
 		}
 		if (($mode == 'vide_et_nonvide')
-			OR (($mode == 'nonvide') AND $valeur_aplatie)
+			or (($mode == 'nonvide') and $valeur_aplatie)
 		) {
 			$tableau_aplati[$_valeur] = $valeur_aplatie;
 		} else {
@@ -464,5 +464,3 @@ function svp_aplatir_balises($balises, $arbre_xml, $mode = 'vide_et_nonvide', $t
 
 	return $tableau_aplati;
 }
-
-?>

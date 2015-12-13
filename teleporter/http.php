@@ -89,7 +89,7 @@ function teleporter_http_recuperer_source($source, $dest_tmp) {
 	$head = recuperer_page($source, false, true, 0);
 
 	if (preg_match(",^Content-Type:\s*?(.*)$,Uims", $head, $m)
-		AND include_spip('base/typedoc')
+		and include_spip('base/typedoc')
 	) {
 		$mime = $m[1];
 		// passer du mime a l'extension !
@@ -100,10 +100,10 @@ function teleporter_http_recuperer_source($source, $dest_tmp) {
 
 	if (!$extension
 		// cas des extensions incertaines car mime-type ambigu
-		OR in_array($extension, array('bin', 'gz'))
+		or in_array($extension, array('bin', 'gz'))
 	) {
 		if (preg_match(",^Content-Disposition:\s*attachment;\s*filename=(.*)['\"]?$,Uims", $head, $m)
-			AND $e = teleporter_http_extension($m[1])
+			and $e = teleporter_http_extension($m[1])
 		) {
 			$extension = $e;
 		}
@@ -129,7 +129,7 @@ function teleporter_http_recuperer_source($source, $dest_tmp) {
 	include_spip('inc/distant');
 	$dest_tmp = copie_locale($source, 'force', $dest_tmp, _SVP_PAQUET_MAX_SIZE);
 	if (!$dest_tmp
-		OR !file_exists($dest_tmp = _DIR_RACINE . $dest_tmp)
+		or !file_exists($dest_tmp = _DIR_RACINE . $dest_tmp)
 	) {
 		spip_log("Chargement impossible de la source $source", "teleport" . _LOG_ERREUR);
 
@@ -155,7 +155,7 @@ function teleporter_http_extension($file) {
 
 	// cas particuliers : redresser .tar.gz
 	if ($e == 'gz'
-		AND preg_match(',tar\.gz,i', $file)
+		and preg_match(',tar\.gz,i', $file)
 	) {
 		$e = 'tgz';
 	}
@@ -198,14 +198,14 @@ function http_deballe_recherche_racine($list) {
 	$total = $paths[0][''];
 	$i = 0;
 	while (isset($paths[$i])
-		AND count($paths[$i]) <= 1
-		AND array_values($paths[$i]) == array($total)) {
+		and count($paths[$i]) <= 1
+		and array_values($paths[$i]) == array($total)) {
 		$i++;
 	}
 
 	$racine = '';
 	if ($i) {
-		$racine = array_keys($paths[$i-1]);
+		$racine = array_keys($paths[$i - 1]);
 		$racine = array_pop($racine) . '/';
 	}
 

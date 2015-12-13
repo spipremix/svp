@@ -93,7 +93,7 @@ function svp_ajouter_depot($url, &$erreur = '') {
 
 	// Ajout des paquets dans spip_paquets et actualisation des plugins dans spip_plugins
 	$ok = svp_actualiser_paquets($id_depot, $infos['paquets'], $nb_paquets, $nb_plugins, $nb_autres);
-	if (!$ok OR ($nb_paquets == 0)) {
+	if (!$ok or ($nb_paquets == 0)) {
 		// Si une erreur s'est produite, on supprime le depot deja insere
 		sql_delete('spip_depots', 'id_depot=' . sql_quote($id_depot));
 		if (!$ok) {
@@ -148,7 +148,7 @@ function svp_supprimer_depot($id) {
 		foreach ($resultats as $paquet) {
 			$id_plugin = $paquet['id_plugin'];
 			if (!isset($vmax[$id_plugin])
-				OR (spip_version_compare($vmax[$id_plugin], $paquet['version'], '<'))
+				or (spip_version_compare($vmax[$id_plugin], $paquet['version'], '<'))
 			) {
 				$vmax[$id_plugin] = $paquet['version'];
 			}
@@ -371,7 +371,7 @@ function svp_actualiser_paquets($id_depot, $paquets, &$nb_paquets, &$nb_plugins,
 	$nb_autres = 0;
 
 	// Si aucun depot ou aucun paquet on renvoie une erreur
-	if ((!$id_depot) OR (!is_array($paquets))) {
+	if ((!$id_depot) or (!is_array($paquets))) {
 		return false;
 	}
 
@@ -548,7 +548,7 @@ function svp_actualiser_paquets($id_depot, $paquets, &$nb_paquets, &$nb_plugins,
 
 					$plugin = sql_fetsel('id_plugin, vmax', 'spip_plugins',
 						array('prefixe=' . sql_quote($insert_plugin['prefixe'])));
-					if (!$plugin AND !array_key_exists($insert_plugin['prefixe'], $insert_plugins)) {
+					if (!$plugin and !array_key_exists($insert_plugin['prefixe'], $insert_plugins)) {
 						$insert_plugins[$insert_plugin['prefixe']] = array_merge($insert_plugin,
 							array('vmax' => $insert_paquet['version']));
 					} else {
@@ -557,7 +557,7 @@ function svp_actualiser_paquets($id_depot, $paquets, &$nb_paquets, &$nb_plugins,
 							$prefixes[$insert_plugin['prefixe']] = $id_plugin;
 						}
 						if (array_key_exists($insert_plugin['prefixe'], $insert_plugins)
-							AND (spip_version_compare($insert_plugins[$insert_plugin['prefixe']]['vmax'], $insert_paquet['version'],
+							and (spip_version_compare($insert_plugins[$insert_plugin['prefixe']]['vmax'], $insert_paquet['version'],
 								'<='))
 						) {
 							// attribuer au plugin le nom et le slogan du paquet le plus à jour
@@ -794,7 +794,7 @@ function svp_completer_plugins($ids_plugin) {
 				$complements['date_modif'] = $paquet['date_modif'];
 			}
 			if (($complements['date_crea'] === 0)
-				OR ($paquet['date_crea'] < $complements['date_crea'])
+				or ($paquet['date_crea'] < $complements['date_crea'])
 			) {
 				$complements['date_crea'] = $paquet['date_crea'];
 			}
@@ -946,6 +946,3 @@ function svp_corriger_vmax_plugins($plugins) {
 		}
 	}
 }
-
-
-?>

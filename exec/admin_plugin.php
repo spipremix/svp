@@ -52,8 +52,8 @@ function exec_admin_plugin_dist() {
 	// pour etre sur que les bons fichiers seront charges lors de l'install
 	include_spip('inc/plugin');
 	$new = actualise_plugins_actifs();
-	if ($new AND _request('actualise') < 2) {
-		$url = parametre_url(self(), 'actualise', _request('actualise')+1, '&');
+	if ($new and _request('actualise') < 2) {
+		$url = parametre_url(self(), 'actualise', _request('actualise') + 1, '&');
 		include_spip('inc/headers');
 		echo redirige_formulaire($url);
 		exit;
@@ -134,8 +134,8 @@ function exec_admin_plugin_dist() {
 		session_set('svp_admin_plugin_voir', $args['voir']);
 	}
 	if (!isset($args['voir'])
-		AND $voir = session_get('svp_admin_plugin_voir')
-		AND in_array($voir, array('tous', 'actif', 'inactif'))
+		and $voir = session_get('svp_admin_plugin_voir')
+		and in_array($voir, array('tous', 'actif', 'inactif'))
 	) {
 		$args['voir'] = $voir;
 	}
@@ -150,8 +150,8 @@ function exec_admin_plugin_dist() {
 		session_set('svp_admin_plugin_verrouille', $args['verrouille']);
 	}
 	if (!isset($args['verrouille'])
-		AND $verrouille = session_get('svp_admin_plugin_verrouille')
-		AND in_array($verrouille, array('tous', 'oui', 'non'))
+		and $verrouille = session_get('svp_admin_plugin_verrouille')
+		and in_array($verrouille, array('tous', 'oui', 'non'))
 	) {
 		$args['verrouille'] = $verrouille;
 	}
@@ -202,7 +202,7 @@ function svp_presenter_actions_realisees() {
 	$pres = $actionneur->presenter_actions($fin = true);
 
 	// s'il ne reste aucune action a faire
-	if (!$actionneur->est_verrouille() OR !count($actionneur->end)) {
+	if (!$actionneur->est_verrouille() or !count($actionneur->end)) {
 		$actionneur->nettoyer_actions();
 	}
 

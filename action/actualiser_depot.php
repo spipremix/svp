@@ -46,5 +46,3 @@ function action_actualiser_depot_dist() {
 		}
 	}
 }
-
-?>

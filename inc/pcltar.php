@@ -750,7 +750,7 @@ if (!defined("PCL_TAR")) {
 
 		// ----- Check the file size
 		if ((!is_file($p_tarname)) ||
-			(((($v_size = filesize($p_tarname))%512) != 0) && ($p_mode == "tar"))
+			(((($v_size = filesize($p_tarname)) % 512) != 0) && ($p_mode == "tar"))
 		) {
 			// ----- Error log
 			if (!is_file($p_tarname)) {
@@ -765,7 +765,7 @@ if (!defined("PCL_TAR")) {
 			return PclErrorCode();
 		}
 		if ((!is_file($p_tarname_add)) ||
-			(((($v_size_add = filesize($p_tarname_add))%512) != 0) && ($p_mode_add == "tar"))
+			(((($v_size_add = filesize($p_tarname_add)) % 512) != 0) && ($p_mode_add == "tar"))
 		) {
 			// ----- Error log
 			if (!is_file($p_tarname_add)) {
@@ -850,7 +850,7 @@ if (!defined("PCL_TAR")) {
 
 				// ----- Go to the beginning of last block
 				TrFctMessage(__FILE__, __LINE__, 4, "Position before :" . ($p_mode == "tar" ? ftell($p_tar) : gztell($p_tar)));
-				fseek($p_tar, $v_size-512);
+				fseek($p_tar, $v_size - 512);
 				TrFctMessage(__FILE__, __LINE__, 4, "Position after :" . ($p_mode == "tar" ? ftell($p_tar) : gztell($p_tar)));
 			} // ----- Look for unknown type
 			else {
@@ -1122,7 +1122,7 @@ if (!defined("PCL_TAR")) {
 
 		// ----- Check the file size
 		if ((!is_file($p_tarname)) ||
-			(((($v_size = filesize($p_tarname))%512) != 0) && ($p_mode == "tar"))
+			(((($v_size = filesize($p_tarname)) % 512) != 0) && ($p_mode == "tar"))
 		) {
 			// ----- Error log
 			if (!is_file($p_tarname)) {
@@ -1240,7 +1240,7 @@ if (!defined("PCL_TAR")) {
 
 				// ----- Go to the beginning of last block
 				TrFctMessage(__FILE__, __LINE__, 4, "Position before :" . ($p_mode == "tar" ? ftell($p_tar) : gztell($p_tar)));
-				fseek($p_tar, $v_size-512);
+				fseek($p_tar, $v_size - 512);
 				TrFctMessage(__FILE__, __LINE__, 4, "Position after :" . ($p_mode == "tar" ? ftell($p_tar) : gztell($p_tar)));
 
 				// ----- Call the adding fct inside the tar
@@ -1849,7 +1849,7 @@ if (!defined("PCL_TAR")) {
 		}
 
 		// ----- Read the blocks
-		While (!($v_end_of_file = ($p_tar_mode == "tar" ? feof($v_tar) : gzeof($v_tar)))) {
+		while (!($v_end_of_file = ($p_tar_mode == "tar" ? feof($v_tar) : gzeof($v_tar)))) {
 			TrFctMessage(__FILE__, __LINE__, 3, "Looking for next header ...");
 
 			// ----- Clear cache of file infos
@@ -1956,7 +1956,7 @@ if (!defined("PCL_TAR")) {
 					// ----- Look for the path end '/'
 					while (substr($p_path, -1) == "/") {
 						TrFctMessage(__FILE__, __LINE__, 3, "Destination path [$p_path] ends by '/'");
-						$p_path = substr($p_path, 0, strlen($p_path)-1);
+						$p_path = substr($p_path, 0, strlen($p_path) - 1);
 						TrFctMessage(__FILE__, __LINE__, 3, "Modified to [$p_path]");
 					}
 
@@ -2050,17 +2050,17 @@ if (!defined("PCL_TAR")) {
 						// ----- Jump to next file
 						TrFctMessage(__FILE__, __LINE__, 2, "Jump to next file");
 						if ($p_tar_mode == "tar") {
-							fseek($v_tar, ftell($v_tar)+(ceil(($v_header[size]/512))*512));
+							fseek($v_tar, ftell($v_tar) + (ceil(($v_header[size] / 512)) * 512));
 						} else {
-							gzseek($v_tar, gztell($v_tar)+(ceil(($v_header[size]/512))*512));
+							gzseek($v_tar, gztell($v_tar) + (ceil(($v_header[size] / 512)) * 512));
 						}
 					} else {
 						TrFctMessage(__FILE__, __LINE__, 2, "Start extraction of '$v_header[filename]'");
 
 						// ----- Read data
-						$n = floor($v_header[size]/512);
+						$n = floor($v_header[size] / 512);
 						for ($i = 0; $i < $n; $i++) {
-							TrFctMessage(__FILE__, __LINE__, 3, "Read complete 512 bytes block number " . ($i+1));
+							TrFctMessage(__FILE__, __LINE__, 3, "Read complete 512 bytes block number " . ($i + 1));
 							if ($p_tar_mode == "tar") {
 								$v_content = fread($v_tar, 512);
 							} else {
@@ -2068,14 +2068,14 @@ if (!defined("PCL_TAR")) {
 							}
 							fwrite($v_dest_file, $v_content, 512);
 						}
-						if (($v_header[size]%512) != 0) {
-							TrFctMessage(__FILE__, __LINE__, 3, "Read last " . ($v_header[size]%512) . " bytes in a 512 block");
+						if (($v_header[size] % 512) != 0) {
+							TrFctMessage(__FILE__, __LINE__, 3, "Read last " . ($v_header[size] % 512) . " bytes in a 512 block");
 							if ($p_tar_mode == "tar") {
 								$v_content = fread($v_tar, 512);
 							} else {
 								$v_content = gzread($v_tar, 512);
 							}
-							fwrite($v_dest_file, $v_content, ($v_header[size]%512));
+							fwrite($v_dest_file, $v_content, ($v_header[size] % 512));
 						}
 
 						// ----- Close the destination file
@@ -2114,9 +2114,9 @@ if (!defined("PCL_TAR")) {
 					// ----- Jump to next file
 					TrFctMessage(__FILE__, __LINE__, 2, "Jump to next file");
 					if ($p_tar_mode == "tar") {
-						fseek($v_tar, ftell($v_tar)+(ceil(($v_header[size]/512))*512));
+						fseek($v_tar, ftell($v_tar) + (ceil(($v_header[size] / 512)) * 512));
 					} else {
-						gzseek($v_tar, gztell($v_tar)+(ceil(($v_header[size]/512))*512));
+						gzseek($v_tar, gztell($v_tar) + (ceil(($v_header[size] / 512)) * 512));
 					}
 				}
 			} // ----- Look for file that is not to be unzipped
@@ -2128,9 +2128,9 @@ if (!defined("PCL_TAR")) {
 
 				// ----- Jump to next file
 				if ($p_tar_mode == "tar") {
-					fseek($v_tar, ($p_tar_mode == "tar" ? ftell($v_tar) : gztell($v_tar))+(ceil(($v_header[size]/512))*512));
+					fseek($v_tar, ($p_tar_mode == "tar" ? ftell($v_tar) : gztell($v_tar)) + (ceil(($v_header[size] / 512)) * 512));
 				} else {
-					gzseek($v_tar, gztell($v_tar)+(ceil(($v_header[size]/512))*512));
+					gzseek($v_tar, gztell($v_tar) + (ceil(($v_header[size] / 512)) * 512));
 				}
 
 				TrFctMessage(__FILE__, __LINE__, 4,
@@ -2311,7 +2311,7 @@ if (!defined("PCL_TAR")) {
 		$v_nb = sizeof($p_list_detail);
 
 		// ----- Read the blocks
-		While (!($v_end_of_file = ($p_tar_mode == "tar" ? feof($v_tar) : gzeof($v_tar)))) {
+		while (!($v_end_of_file = ($p_tar_mode == "tar" ? feof($v_tar) : gzeof($v_tar)))) {
 			TrFctMessage(__FILE__, __LINE__, 3, "Looking for next file ...");
 			TrFctMessage(__FILE__, __LINE__, 3, "Index current=$p_index_current, range=[$p_index_start, $p_index_stop])");
 
@@ -2376,9 +2376,9 @@ if (!defined("PCL_TAR")) {
 
 				// ----- Jump to next file
 				if ($p_tar_mode == "tar") {
-					fseek($v_tar, ($p_tar_mode == "tar" ? ftell($v_tar) : gztell($v_tar))+(ceil(($v_header[size]/512))*512));
+					fseek($v_tar, ($p_tar_mode == "tar" ? ftell($v_tar) : gztell($v_tar)) + (ceil(($v_header[size] / 512)) * 512));
 				} else {
-					gzseek($v_tar, gztell($v_tar)+(ceil(($v_header[size]/512))*512));
+					gzseek($v_tar, gztell($v_tar) + (ceil(($v_header[size] / 512)) * 512));
 				}
 
 				TrFctMessage(__FILE__, __LINE__, 4,
@@ -2454,7 +2454,7 @@ if (!defined("PCL_TAR")) {
 			// ----- Look for the path end '/'
 			while (substr($p_path, -1) == "/") {
 				TrFctMessage(__FILE__, __LINE__, 3, "Destination path [$p_path] ends by '/'");
-				$p_path = substr($p_path, 0, strlen($p_path)-1);
+				$p_path = substr($p_path, 0, strlen($p_path) - 1);
 				TrFctMessage(__FILE__, __LINE__, 3, "Modified to [$p_path]");
 			}
 
@@ -2547,17 +2547,17 @@ if (!defined("PCL_TAR")) {
 				// ----- Jump to next file
 				TrFctMessage(__FILE__, __LINE__, 2, "Jump to next file");
 				if ($p_tar_mode == "tar") {
-					fseek($v_tar, ftell($v_tar)+(ceil(($v_header[size]/512))*512));
+					fseek($v_tar, ftell($v_tar) + (ceil(($v_header[size] / 512)) * 512));
 				} else {
-					gzseek($v_tar, gztell($v_tar)+(ceil(($v_header[size]/512))*512));
+					gzseek($v_tar, gztell($v_tar) + (ceil(($v_header[size] / 512)) * 512));
 				}
 			} else {
 				TrFctMessage(__FILE__, __LINE__, 2, "Start extraction of '$v_header[filename]'");
 
 				// ----- Read data
-				$n = floor($v_header[size]/512);
+				$n = floor($v_header[size] / 512);
 				for ($i = 0; $i < $n; $i++) {
-					TrFctMessage(__FILE__, __LINE__, 3, "Read complete 512 bytes block number " . ($i+1));
+					TrFctMessage(__FILE__, __LINE__, 3, "Read complete 512 bytes block number " . ($i + 1));
 					if ($p_tar_mode == "tar") {
 						$v_content = fread($v_tar, 512);
 					} else {
@@ -2565,14 +2565,14 @@ if (!defined("PCL_TAR")) {
 					}
 					fwrite($v_dest_file, $v_content, 512);
 				}
-				if (($v_header[size]%512) != 0) {
-					TrFctMessage(__FILE__, __LINE__, 3, "Read last " . ($v_header[size]%512) . " bytes in a 512 block");
+				if (($v_header[size] % 512) != 0) {
+					TrFctMessage(__FILE__, __LINE__, 3, "Read last " . ($v_header[size] % 512) . " bytes in a 512 block");
 					if ($p_tar_mode == "tar") {
 						$v_content = fread($v_tar, 512);
 					} else {
 						$v_content = gzread($v_tar, 512);
 					}
-					fwrite($v_dest_file, $v_content, ($v_header[size]%512));
+					fwrite($v_dest_file, $v_content, ($v_header[size] % 512));
 				}
 
 				// ----- Close the destination file
@@ -2604,9 +2604,9 @@ if (!defined("PCL_TAR")) {
 			// ----- Jump to next file
 			TrFctMessage(__FILE__, __LINE__, 2, "Jump to next file");
 			if ($p_tar_mode == "tar") {
-				fseek($v_tar, ftell($v_tar)+(ceil(($v_header[size]/512))*512));
+				fseek($v_tar, ftell($v_tar) + (ceil(($v_header[size] / 512)) * 512));
 			} else {
-				gzseek($v_tar, gztell($v_tar)+(ceil(($v_header[size]/512))*512));
+				gzseek($v_tar, gztell($v_tar) + (ceil(($v_header[size] / 512)) * 512));
 			}
 		}
 
@@ -2690,7 +2690,7 @@ if (!defined("PCL_TAR")) {
 		}
 
 		// ----- Read the blocks
-		While (!($v_end_of_file = ($p_tar_mode == "tar" ? feof($v_tar) : gzeof($v_tar)))) {
+		while (!($v_end_of_file = ($p_tar_mode == "tar" ? feof($v_tar) : gzeof($v_tar)))) {
 			TrFctMessage(__FILE__, __LINE__, 3, "Looking for next header ...");
 
 			// ----- Clear cache of file infos
@@ -2762,9 +2762,9 @@ if (!defined("PCL_TAR")) {
 				}
 
 				// ----- Write the file data
-				$n = ceil($v_header[size]/512);
+				$n = ceil($v_header[size] / 512);
 				for ($i = 0; $i < $n; $i++) {
-					TrFctMessage(__FILE__, __LINE__, 3, "Read complete 512 bytes block number " . ($i+1));
+					TrFctMessage(__FILE__, __LINE__, 3, "Read complete 512 bytes block number " . ($i + 1));
 					if ($p_tar_mode == "tar") {
 						$v_content = fread($v_tar, 512);
 						fwrite($v_temp_tar, $v_content, 512);
@@ -2792,9 +2792,9 @@ if (!defined("PCL_TAR")) {
 
 				// ----- Jump to next file
 				if ($p_tar_mode == "tar") {
-					fseek($v_tar, ftell($v_tar)+(ceil(($v_header[size]/512))*512));
+					fseek($v_tar, ftell($v_tar) + (ceil(($v_header[size] / 512)) * 512));
 				} else {
-					gzseek($v_tar, gztell($v_tar)+(ceil(($v_header[size]/512))*512));
+					gzseek($v_tar, gztell($v_tar) + (ceil(($v_header[size] / 512)) * 512));
 				}
 
 				TrFctMessage(__FILE__, __LINE__, 4,
@@ -2954,7 +2954,7 @@ if (!defined("PCL_TAR")) {
 		clearstatcache();
 
 		// ----- Read the blocks
-		While (!($v_end_of_file = ($p_tar_mode == "tar" ? feof($v_tar) : gzeof($v_tar)))) {
+		while (!($v_end_of_file = ($p_tar_mode == "tar" ? feof($v_tar) : gzeof($v_tar)))) {
 			TrFctMessage(__FILE__, __LINE__, 3, "Looking for next header ...");
 
 			// ----- Clear cache of file infos
@@ -3044,9 +3044,9 @@ if (!defined("PCL_TAR")) {
 				}
 
 				// ----- Write the file data
-				$n = ceil($v_header[size]/512);
+				$n = ceil($v_header[size] / 512);
 				for ($j = 0; $j < $n; $j++) {
-					TrFctMessage(__FILE__, __LINE__, 3, "Read complete 512 bytes block number " . ($j+1));
+					TrFctMessage(__FILE__, __LINE__, 3, "Read complete 512 bytes block number " . ($j + 1));
 					if ($p_tar_mode == "tar") {
 						$v_content = fread($v_tar, 512);
 						fwrite($v_temp_tar, $v_content, 512);
@@ -3098,9 +3098,9 @@ if (!defined("PCL_TAR")) {
 
 				// ----- Jump to next file
 				if ($p_tar_mode == "tar") {
-					fseek($v_tar, ftell($v_tar)+(ceil(($v_old_size/512))*512));
+					fseek($v_tar, ftell($v_tar) + (ceil(($v_old_size / 512)) * 512));
 				} else {
-					gzseek($v_tar, gztell($v_tar)+(ceil(($v_old_size/512))*512));
+					gzseek($v_tar, gztell($v_tar) + (ceil(($v_old_size / 512)) * 512));
 				}
 
 				// ----- Add the array describing the file into the list
@@ -3454,7 +3454,7 @@ if (!defined("PCL_TAR")) {
 			$v_list = explode("/", $p_dir);
 
 			// ----- Study directories from last to first
-			for ($i = sizeof($v_list)-1; $i >= 0; $i--) {
+			for ($i = sizeof($v_list) - 1; $i >= 0; $i--) {
 				// ----- Look for current path
 				if ($v_list[$i] == ".") {
 					// ----- Ignore this directory
@@ -3464,11 +3464,11 @@ if (!defined("PCL_TAR")) {
 						// ----- Ignore it and ignore the $i-1
 						$i--;
 					} else {
-						if (($v_list[$i] == "") && ($i != (sizeof($v_list)-1)) && ($i != 0)) {
+						if (($v_list[$i] == "") && ($i != (sizeof($v_list) - 1)) && ($i != 0)) {
 							// ----- Ignore only the double '//' in path,
 							// but not the first and last '/'
 						} else {
-							$v_result = $v_list[$i] . ($i != (sizeof($v_list)-1) ? "/" . $v_result : "");
+							$v_result = $v_list[$i] . ($i != (sizeof($v_list) - 1) ? "/" . $v_result : "");
 						}
 					}
 				}
@@ -3486,4 +3486,3 @@ if (!defined("PCL_TAR")) {
 
 // ----- End of double include look
 }
-?>

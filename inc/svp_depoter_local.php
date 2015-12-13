@@ -45,8 +45,8 @@ function svp_actualiser_paquets_locaux($force = false, &$erreurs_xml = array()) 
 
 	// un mode pour tout recalculer sans désinstaller le plugin... !
 	if ($force
-		OR _request('var_mode') == 'vider_paquets_locaux'
-		OR _request('var_mode') == 'recalcul'
+		or _request('var_mode') == 'vider_paquets_locaux'
+		or _request('var_mode') == 'recalcul'
 	) {
 		svp_base_supprimer_paquets_locaux();
 		svp_base_inserer_paquets_locaux($paquets);
@@ -488,7 +488,7 @@ function svp_compiler_multis($prefixe, $dir_source) {
 		$nom = $slogan = $description = '';
 		foreach ($fichiers_langue as $_fichier_langue) {
 			$nom_fichier = basename($_fichier_langue, '.php');
-			$langue = substr($nom_fichier, strlen($module)+1-strlen($nom_fichier));
+			$langue = substr($nom_fichier, strlen($module) + 1 - strlen($nom_fichier));
 			// Si la langue est reconnue, on traite la liste des items de langue
 			if (isset($GLOBALS['codes_langues'][$langue])) {
 				$GLOBALS['idx_lang'] = $langue;
@@ -748,5 +748,3 @@ function svp_actualiser_maj_version() {
 		}
 	}
 }
-
-?>

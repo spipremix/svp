@@ -67,7 +67,7 @@ function action_actionner_dist() {
 	foreach ($actionneur->done as $done) {
 		if ($done['todo'] == 'on') {
 			if ($voir = session_get('svp_admin_plugin_voir')
-				AND $voir == 'inactif'
+				and $voir == 'inactif'
 			) {
 				session_set('svp_admin_plugin_voir', 'actif');
 			}
@@ -85,5 +85,3 @@ function action_actionner_dist() {
 	}
 
 }
-
-?>

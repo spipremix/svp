@@ -97,5 +97,3 @@ function svp_synchroniser_prefixe() {
 		}
 	}
 }
-
-?>

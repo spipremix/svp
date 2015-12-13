@@ -99,5 +99,3 @@ function depots_set($id_depot) {
 
 	return $err;
 }
-
-?>

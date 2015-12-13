@@ -115,7 +115,7 @@ function formulaires_admin_plugin_verifier_dist($voir = 'actif', $verrouille = '
 		$a_actionner = array();
 
 		// actions globales...
-		if ($action_globale = _request('action_globale') AND _request('appliquer')) {
+		if ($action_globale = _request('action_globale') and _request('appliquer')) {
 			$ids_paquet = _request('ids_paquet');
 			if (!is_array($ids_paquet)) {
 				$erreurs['message_erreur'] = _T('svp:message_erreur_aucun_plugin_selectionne');
@@ -151,14 +151,14 @@ function formulaires_admin_plugin_verifier_dist($voir = 'actif', $verrouille = '
 				$notices['decideur_warning'] = _T('svp:confirmer_desinstaller');
 				set_request('_notices', $notices);
 			} elseif (!isset($erreurs['decideur_erreurs'])
-				AND (!isset($erreurs['decideur_propositions']) OR !count($actions['decideur_propositions']))
+				and (!isset($erreurs['decideur_propositions']) or !count($actions['decideur_propositions']))
 			) {
 				set_request('valider_actions', true); // on fake la validation, non mais ho !
 			}
 		}
 	}
 
-	if (count($erreurs) AND !isset($erreurs['message_erreur'])) {
+	if (count($erreurs) and !isset($erreurs['message_erreur'])) {
 		$erreurs['message_erreur'] = '';
 	}
 
@@ -206,6 +206,3 @@ function formulaires_admin_plugin_traiter_dist($voir = 'actif', $verrouille = 'n
 
 	return $retour;
 }
-
-
-?>

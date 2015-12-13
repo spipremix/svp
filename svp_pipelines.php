@@ -43,7 +43,7 @@ function autoriser_plugins_ajouter_dist($faire, $type, $id, $qui, $opt) {
 		define('_AUTORISER_TELECHARGER_PLUGINS', true);
 	}
 
-	return _AUTORISER_TELECHARGER_PLUGINS AND autoriser('webmestre');
+	return _AUTORISER_TELECHARGER_PLUGINS and autoriser('webmestre');
 }
 
 
@@ -59,7 +59,7 @@ function autoriser_plugins_ajouter_dist($faire, $type, $id, $qui, $opt) {
  */
 function svp_ajouter_onglets($flux) {
 	if (($flux['args'] == 'plugins')
-		AND (autoriser('ajouter', '_plugins'))
+		and (autoriser('ajouter', '_plugins'))
 	) {
 		$compteurs = svp_compter('depot');
 		$page = ($compteurs['depot'] == 0) ? 'depots' : 'charger_plugin';
@@ -136,5 +136,3 @@ function svp_pre_boucle($boucle) {
 	return $boucle;
 
 }
-
-?>

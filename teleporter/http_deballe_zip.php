@@ -36,7 +36,7 @@ function teleporter_http_deballe_zip_dist($archive, $dest, $tmp) {
 	);
 	// le fichier .zip est la et bien forme
 	if (is_array($status)
-		AND is_dir($status['target'])
+		and is_dir($status['target'])
 	) {
 		return $status['target'];
 	} // fichier absent
@@ -123,8 +123,7 @@ function teleporter_http_charger_zip($quoi = array()) {
 	// et enfin on extrait
 	$ok = $zip->extract(
 		PCLZIP_OPT_PATH,
-		$target
-		,
+		$target,
 		PCLZIP_OPT_SET_CHMOD, _SPIP_CHMOD,
 		PCLZIP_OPT_REPLACE_NEWER,
 		PCLZIP_OPT_REMOVE_PATH, $quoi['remove']

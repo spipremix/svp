@@ -43,7 +43,7 @@ function teleporter_svn_dist($methode, $source, $dest, $options = array()) {
 			spip_log("Suppression de $dest qui n'est pas sur le bon repository SVN", "teleport");
 			$old = teleporter_nettoyer_vieille_version($dest);
 		} elseif (!isset($options['revision'])
-			OR $options['revision'] != $infos['revision']
+			or $options['revision'] != $infos['revision']
 		) {
 			$command = _SVN_COMMAND . " up ";
 			if (isset($options['revision'])) {

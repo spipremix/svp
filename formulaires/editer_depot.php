@@ -78,5 +78,3 @@ function depots_edit_config($row) {
 
 	return $config;
 }
-
-?>

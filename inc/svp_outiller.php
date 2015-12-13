@@ -191,7 +191,7 @@ function extraire_bornes($intervalle, $initialiser = false) {
 	}
 
 	if ($intervalle
-		AND preg_match(',^[\[\(\]]([0-9.a-zRC\s\-]*)[;]([0-9.a-zRC\s\-\*]*)[\]\)\[]$,Uis', $intervalle, $matches)
+		and preg_match(',^[\[\(\]]([0-9.a-zRC\s\-]*)[;]([0-9.a-zRC\s\-\*]*)[\]\)\[]$,Uis', $intervalle, $matches)
 	) {
 		if ($matches[1]) {
 			$bornes['min']['valeur'] = trim($matches[1]);
@@ -249,7 +249,7 @@ function compiler_branches_spip($intervalle) {
 	// - vide 
 	// - non vide mais avec les deux bornes vides
 	// Dans ces cas la compatibilite est totale, on renvoie toutes les branches
-	if (!$intervalle OR (!$bornes['min']['valeur'] AND !$bornes['max']['valeur'])) {
+	if (!$intervalle or (!$bornes['min']['valeur'] and !$bornes['max']['valeur'])) {
 		return implode(',', $liste_branches_spip);
 	}
 
@@ -284,7 +284,7 @@ function compiler_branches_spip($intervalle) {
 		if ($bornes['min']['incluse']) {
 			$borne_inf = $infos_branches_spip[$branche_inf][0];
 		} else {
-			$branche_inf = $liste_branches_spip[array_search($branche_inf, $liste_branches_spip)+1];
+			$branche_inf = $liste_branches_spip[array_search($branche_inf, $liste_branches_spip) + 1];
 			$borne_inf = $infos_branches_spip[$branche_inf][0];
 		}
 	}
@@ -304,7 +304,7 @@ function compiler_branches_spip($intervalle) {
 		if ($bornes['max']['incluse']) {
 			$borne_sup = $infos_branches_spip[$branche_sup][1];
 		} else {
-			$branche_sup = $liste_branches_spip[array_search($branche_sup, $liste_branches_spip)-1];
+			$branche_sup = $liste_branches_spip[array_search($branche_sup, $liste_branches_spip) - 1];
 			$borne_sup = $infos_branches_spip[$branche_sup][1];
 		}
 	}
@@ -403,8 +403,8 @@ function definir_licence($prefixe, $nom, $suffixe, $version) {
 	$nom = strtolower($nom);
 	$suffixe = strtolower($suffixe);
 
-	if (((trim($prefixe) == 'creative common') AND ($nom == 'attribution'))
-		OR (($prefixe == 'cc') AND ($nom == 'by'))
+	if (((trim($prefixe) == 'creative common') and ($nom == 'attribution'))
+		or (($prefixe == 'cc') and ($nom == 'by'))
 	) {
 		$nom = 'ccby';
 	}
@@ -416,7 +416,7 @@ function definir_licence($prefixe, $nom, $suffixe, $version) {
 			$licence['url'] = $licences_plugin[$nom]['url'];
 		} else {
 			// Si la version est pas bonne on prend la plus recente
-			if (!$version OR !in_array($version, $licences_plugin[$nom]['versions'], true)) {
+			if (!$version or !in_array($version, $licences_plugin[$nom]['versions'], true)) {
 				$version = $licences_plugin[$nom]['versions'][0];
 			}
 			if (is_array($licences_plugin[$nom]['nom'])) {
@@ -430,7 +430,7 @@ function definir_licence($prefixe, $nom, $suffixe, $version) {
 				if ($suffixe == '-sharealike') {
 					$suffixe = '-sa';
 				}
-				if (!$suffixe OR !in_array($suffixe, $licences_plugin[$nom]['suffixes'], true)) {
+				if (!$suffixe or !in_array($suffixe, $licences_plugin[$nom]['suffixes'], true)) {
 					$suffixe = '';
 				}
 				$licence['nom'] = str_replace('@suffixe@', strtoupper($suffixe), $licence['nom']);
@@ -456,9 +456,9 @@ function definir_licence($prefixe, $nom, $suffixe, $version) {
 function svp_lister_librairies() {
 	$libs = array();
 	foreach (array_reverse(creer_chemin()) as $d) {
-		if (is_dir($dir = $d . 'lib/') AND $t = @opendir($dir)) {
+		if (is_dir($dir = $d . 'lib/') and $t = @opendir($dir)) {
 			while (($f = readdir($t)) !== false) {
-				if ($f[0] != '.' AND is_dir("$dir/$f")) {
+				if ($f[0] != '.' and is_dir("$dir/$f")) {
 					$libs[$f] = $dir;
 				}
 			}
@@ -501,5 +501,3 @@ function normaliser_version($version = '') {
 
 	return $version_normalisee;
 }
-
-?>

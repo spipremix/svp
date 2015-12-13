@@ -29,5 +29,3 @@ function svp_ieconfig_metas($table) {
 
 	return $table;
 }
-
-?>

@@ -33,7 +33,7 @@ class Decideur {
 	 *     Index 'i' : plugins triés par identifiant en base [i][32] = tableau de description
 	 *     Index 'p' : plugins triés par prefixe de plugin [p][MOTS] = tableau de description
 	 */
-	var $start = array(
+	public $start = array(
 		'i' => array(),
 		'p' => array(),
 	);
@@ -45,7 +45,7 @@ class Decideur {
 	 *     Index 'i' : plugins triés par identifiant en base [i][32] = tableau de description
 	 *     Index 'p' : plugins triés par prefixe de plugin [p][MOTS] = tableau de description
 	 */
-	var $end = array(
+	public $end = array(
 		'i' => array(),
 		'p' => array(),
 	);
@@ -56,7 +56,7 @@ class Decideur {
 	 * @var array
 	 *     Tableau ('PREFIXE' => numéro de version)
 	 */
-	var $procure = array();
+	public $procure = array();
 
 	/**
 	 * Toutes les actions à faire demandées
@@ -65,7 +65,7 @@ class Decideur {
 	 * @var array
 	 *     Tableau ('identifiant' => tableau de description)
 	 */
-	var $ask = array();
+	public $ask = array();
 
 	/**
 	 * Toutes les actions à faire demandées et consécutives aux dépendances
@@ -73,7 +73,7 @@ class Decideur {
 	 * @var array
 	 *     Tableau ('identifiant' => tableau de description)
 	 */
-	var $todo = array();
+	public $todo = array();
 
 	/**
 	 * Toutes les actions à faire consécutives aux dépendances
@@ -83,7 +83,7 @@ class Decideur {
 	 * @var array
 	 *     Tableau ('identifiant' => tableau de description)
 	 */
-	var $changes = array();
+	public $changes = array();
 
 	/**
 	 * Tous les plugins à arrêter (désactiver ou désinstaller)
@@ -91,7 +91,7 @@ class Decideur {
 	 * @var array
 	 *     Tableau ('PREFIXE' => tableau de description)
 	 */
-	var $off = array();
+	public $off = array();
 
 	/**
 	 * Tous les plugins invalidés (suite a des dependances introuvables, mauvaise version de SPIP...)
@@ -99,7 +99,7 @@ class Decideur {
 	 * @var array
 	 *     Tableau ('PREFIXE' => tableau de description)
 	 */
-	var $invalides = array();
+	public $invalides = array();
 
 	/**
 	 * Liste des erreurs
@@ -107,7 +107,7 @@ class Decideur {
 	 * @var array
 	 *     Tableau ('identifiant' => liste des erreurs)
 	 */
-	var $err = array();
+	public $err = array();
 
 	/**
 	 * État de santé (absence d'erreur)
@@ -117,7 +117,7 @@ class Decideur {
 	 *
 	 * @var bool
 	 */
-	var $ok = true;
+	public $ok = true;
 
 	/**
 	 * Loguer les différents éléments
@@ -126,7 +126,7 @@ class Decideur {
 	 *
 	 * @var bool
 	 */
-	var $log = false;
+	public $log = false;
 
 	/**
 	 * Générer une erreur si on demande une mise à jour d'un plugin
@@ -134,14 +134,14 @@ class Decideur {
 	 *
 	 * @var bool
 	 */
-	var $erreur_sur_maj_introuvable = true;
+	public $erreur_sur_maj_introuvable = true;
 
 	/**
 	 * Constructeur
 	 *
 	 * Initialise la propriété $log en fonction de la configuration
 	 */
-	function __construct() {
+	public function __construct() {
 		include_spip('inc/config');
 		$this->log = (lire_config('svp/mode_log_verbeux') == 'oui');
 	}
@@ -154,7 +154,7 @@ class Decideur {
 	 *     Index 'i' : plugins triés par identifiant en base [i][32] = tableau de description
 	 *     Index 'p' : plugins triés par prefixe de plugin [p][MOTS] = tableau de description
 	 */
-	function liste_plugins_actifs() {
+	public function liste_plugins_actifs() {
 		return $this->infos_courtes(array('pa.actif=' . sql_quote('oui'), 'pa.attente=' . sql_quote('non')));
 	}
 
@@ -175,7 +175,7 @@ class Decideur {
 	 * @return bool
 	 *     Le plugin est-il en attente ?
 	 */
-	function est_attente_id($id) {
+	public function est_attente_id($id) {
 		static $attente = null;
 		if (is_null($attente)) {
 			$attente = $this->infos_courtes('pa.attente=' . sql_quote('oui'));
@@ -192,7 +192,7 @@ class Decideur {
 	 * @return array
 	 *     Tableau ('PREFIXE' => version)
 	 */
-	function liste_plugins_procure() {
+	public function liste_plugins_procure() {
 		$procure = array();
 		$get_infos = charger_fonction('get_infos', 'plugins');
 		$infos['_DIR_RESTREINT'][''] = $get_infos('./', false, _DIR_RESTREINT);
@@ -213,7 +213,7 @@ class Decideur {
 	 * @param mixed $quoi
 	 *     La chose à logguer (souvent un texte)
 	 **/
-	function log($quoi) {
+	public function log($quoi) {
 		if ($this->log) {
 			spip_log($quoi, 'decideur');
 		}
@@ -231,7 +231,7 @@ class Decideur {
 	 *     Index 'i' : plugins triés par identifiant en base [i][32] = tableau de description
 	 *     Index 'p' : plugins triés par prefixe de plugin [p][MOTS] = tableau de description
 	 **/
-	function infos_courtes_id($id) {
+	public function infos_courtes_id($id) {
 		// on cache ceux la
 		static $plug = array();
 		if (!isset($plug[$id])) {
@@ -272,7 +272,7 @@ class Decideur {
 	 *     Index 'p' : plugins triés par prefixe de plugin [p][MOTS] = tableau de description
 	 *                 ou, avec $multiple=true : [p][MOTS][] = tableau de description
 	 */
-	function infos_courtes($condition, $multiple = false) {
+	public function infos_courtes($condition, $multiple = false) {
 		$plugs = array(
 			'i' => array(),
 			'p' => array()
@@ -316,7 +316,7 @@ class Decideur {
 			}
 
 			unset($r['dependances']);
-			if (!$r['procure'] OR !$proc = unserialize($r['procure'])) {
+			if (!$r['procure'] or !$proc = unserialize($r['procure'])) {
 				$proc = array();
 			}
 			$r['procure'] = $proc;
@@ -340,7 +340,7 @@ class Decideur {
 
 				// gerer les dependences autres que dans 0 (communs ou local) !!!!
 				// il peut exister des cles info[dn]["[version_spip_min;version_spip_max]"] de dependences
-				if (!isset($d[$cle][0]) OR count($d[$cle]) > 1) {
+				if (!isset($d[$cle][0]) or count($d[$cle]) > 1) {
 					$dep = array();
 					$dep[0] = isset($d[$cle][0]) ? $d[$cle][0] : array();
 					unset($d[$cle][0]);
@@ -383,9 +383,9 @@ class Decideur {
 	 * @param string $texte
 	 *     Texte de l'erreur
 	 */
-	function erreur($id, $texte = '') {
+	public function erreur($id, $texte = '') {
 		$this->log("erreur: $id -> $texte");
-		if (!isset($this->err[$id]) OR !is_array($this->err[$id])) {
+		if (!isset($this->err[$id]) or !is_array($this->err[$id])) {
 			$this->err[$id] = array();
 		}
 		$this->err[$id][] = $texte;
@@ -400,7 +400,7 @@ class Decideur {
 	 * @return bool|array
 	 *     false si pas d'erreur, tableau des erreurs sinon.
 	 */
-	function en_erreur($id) {
+	public function en_erreur($id) {
 		return isset($this->err[$id]) ? $this->err[$id] : false;
 	}
 
@@ -416,7 +416,7 @@ class Decideur {
 	 *     false si pas de plugin plus récent trouvé
 	 *     tableau de description du paquet le plus récent sinon
 	 */
-	function chercher_plugin_recent($prefixe, $version) {
+	public function chercher_plugin_recent($prefixe, $version) {
 		$news = $this->infos_courtes(array(
 			'pl.prefixe=' . sql_quote($prefixe),
 			'pa.obsolete=' . sql_quote('non'),
@@ -447,7 +447,7 @@ class Decideur {
 	 *     false si pas de plugin plus récent trouvé
 	 *     tableau de description du paquet le plus récent sinon
 	 */
-	function chercher_plugin_compatible($prefixe, $version) {
+	public function chercher_plugin_compatible($prefixe, $version) {
 		$plugin = array();
 
 		$v = '000.000.000';
@@ -478,9 +478,9 @@ class Decideur {
 		), true);
 		foreach ($locaux_procure['i'] as $new) {
 			if (isset($new['procure'][$prefixe])
-				AND plugin_version_compatible($version, $new['procure'][$prefixe])
-				AND svp_verifier_compatibilite_spip($new['compatibilite_spip'])
-				AND spip_version_compare($new['procure'][$prefixe], $v, ">")
+				and plugin_version_compatible($version, $new['procure'][$prefixe])
+				and svp_verifier_compatibilite_spip($new['compatibilite_spip'])
+				and spip_version_compare($new['procure'][$prefixe], $v, ">")
 			) {
 				$plugin = $new;
 				$v = $new['v'];
@@ -517,7 +517,7 @@ class Decideur {
 	 * @param array $info
 	 *     Description du paquet
 	 **/
-	function add($info) {
+	public function add($info) {
 		$this->end['i'][$info['i']] = $info;
 		$this->end['p'][$info['p']] = &$this->end['i'][$info['i']];
 	}
@@ -530,7 +530,7 @@ class Decideur {
 	 * @param bool $recur
 	 *     Passer à off les plugins qui en dépendent, de façon récursive ?
 	 **/
-	function off($info, $recur = false) {
+	public function off($info, $recur = false) {
 		$this->log('- stopper ' . $info['p']);
 		$this->remove($info);
 		$this->off[$info['p']] = $info;
@@ -559,7 +559,7 @@ class Decideur {
 	 * @return bool
 	 *     Le paquet sera t'il off ?
 	 **/
-	function sera_off($prefixe) {
+	public function sera_off($prefixe) {
 		return isset($this->off[$prefixe]) ? $this->off[$prefixe] : false;
 	}
 
@@ -571,7 +571,7 @@ class Decideur {
 	 * @return bool
 	 *     Le paquet sera t'il off ?
 	 **/
-	function sera_off_id($id) {
+	public function sera_off_id($id) {
 		foreach ($this->off as $info) {
 			if ($info['i'] == $id) {
 				return $info;
@@ -590,7 +590,7 @@ class Decideur {
 	 * @return bool
 	 *     Le paquet sera t'il actif ?
 	 **/
-	function sera_actif($prefixe) {
+	public function sera_actif($prefixe) {
 		if (isset($this->end['p'][$prefixe])) {
 			return $this->end['p'][$prefixe];
 		}
@@ -599,7 +599,7 @@ class Decideur {
 		$plugin = false;
 		foreach ($this->end['p'] as $prefixe => $end) {
 			if (isset($end['procure'][$prefixe])
-				AND spip_version_compare($end['procure'][$prefixe], $v, ">")
+				and spip_version_compare($end['procure'][$prefixe], $v, ">")
 			) {
 				$v = $end['procure'][$prefixe];
 				$plugin = $this->end['p'][$prefixe];
@@ -617,7 +617,7 @@ class Decideur {
 	 * @return bool
 	 *     Le paquet sera t'il actif ?
 	 **/
-	function sera_actif_id($id) {
+	public function sera_actif_id($id) {
 		return isset($this->end['i'][$id]) ? $this->end['i'][$id] : false;
 	}
 
@@ -631,7 +631,7 @@ class Decideur {
 	 * @param string $quoi
 	 *     Type d'action (on, off, kill, upon...)
 	 */
-	function ask($info, $quoi) {
+	public function ask($info, $quoi) {
 		$this->ask[$info['i']] = $info;
 		$this->ask[$info['i']]['todo'] = $quoi;
 		$this->todo($info, $quoi);
@@ -648,7 +648,7 @@ class Decideur {
 	 * @param string $quoi
 	 *     Type d'action (on, off, kill, upon...)
 	 */
-	function change($info, $quoi) {
+	public function change($info, $quoi) {
 		$this->changes[$info['i']] = $info;
 		$this->changes[$info['i']]['todo'] = $quoi;
 		$this->todo($info, $quoi);
@@ -665,7 +665,7 @@ class Decideur {
 	 * @param array $info
 	 *     Description du paquet concerné
 	 */
-	function annule_change($info) {
+	public function annule_change($info) {
 		unset($this->changes[$info['i']]);
 	}
 
@@ -677,7 +677,7 @@ class Decideur {
 	 * @param string $quoi
 	 *     Type d'action (on, off, kill, upon...)
 	 */
-	function todo($info, $quoi) {
+	public function todo($info, $quoi) {
 		$this->todo[$info['i']] = $info;
 		$this->todo[$info['i']]['todo'] = $quoi;
 	}
@@ -688,7 +688,7 @@ class Decideur {
 	 * @param array $info
 	 *     Description du paquet concerné
 	 */
-	function remove($info) {
+	public function remove($info) {
 		// aucazou ce ne soit pas les memes ids entre la demande et la bdd,
 		// on efface aussi avec l'id donne par le prefixe.
 		// Lorsqu'on desactive un plugin en "attente", il n'est pas actif !
@@ -713,7 +713,7 @@ class Decideur {
 	 * @param array $info
 	 *     Description du paquet concerné
 	 */
-	function invalider($info) {
+	public function invalider($info) {
 		$this->log("-> invalider $info[p]");
 		$this->remove($info); // suffisant ?
 		$this->invalides[$info['p']] = $info;
@@ -729,7 +729,7 @@ class Decideur {
 	 * @return bool
 	 *     Le paquet est t'il invalide ?
 	 **/
-	function sera_invalide($p) {
+	public function sera_invalide($p) {
 		return isset($this->invalides[$p]) ? $this->invalides[$p] : false;
 	}
 
@@ -741,7 +741,7 @@ class Decideur {
 	 * @return bool
 	 *     La librairie est-elle présente ?
 	 **/
-	function est_presente_lib($lib) {
+	public function est_presente_lib($lib) {
 		static $libs = false;
 		if ($libs === false) {
 			include_spip('inc/svp_outiller');
@@ -773,7 +773,7 @@ class Decideur {
 	 * @return bool
 	 *     False en cas d'erreur, true sinon
 	 */
-	function actionner($todo = null) {
+	public function actionner($todo = null) {
 		if (is_array($todo)) {
 			foreach ($todo as $id => $t) {
 				// plusieurs choses nous interessent... Sauf... le simple telechargement
@@ -904,7 +904,7 @@ class Decideur {
 	 * Les propriété $start et $end reçoivent la liste des plugins actifs
 	 * $procure celle des plugins procurés par le Core
 	 */
-	function start() {
+	public function start() {
 		$this->start = $this->end = $this->liste_plugins_actifs();
 		$this->procure = $this->liste_plugins_procure();
 	}
@@ -931,7 +931,7 @@ class Decideur {
 	 * @return bool
 	 *     False en cas d'erreur, true sinon
 	 */
-	function verifier_dependances($todo = null) {
+	public function verifier_dependances($todo = null) {
 
 		$this->start();
 
@@ -987,7 +987,7 @@ class Decideur {
 	 * @return bool
 	 *     false si erreur (dépendance non résolue, incompatibilité...), true sinon
 	 **/
-	function verifier_dependances_plugin($info, $prof = 0) {
+	public function verifier_dependances_plugin($info, $prof = 0) {
 		$this->log("- [$prof] verifier dependances " . $info['p']);
 		$id = $info['i'];
 		$err = false; // variable receptionnant parfois des erreurs
@@ -1197,7 +1197,7 @@ class Decideur {
 	 * @return array
 	 *     Liste des actions (joliement traduites et expliquées)
 	 **/
-	function presenter_actions($quoi) {
+	public function presenter_actions($quoi) {
 		$res = array();
 		foreach ($this->$quoi as $id => $info) {
 			$trads = array(
@@ -1257,5 +1257,3 @@ function svp_decider_verifier_actions_demandees($a_actionner, &$erreurs) {
 
 	return true;
 }
-
-?>

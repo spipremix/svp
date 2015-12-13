@@ -96,6 +96,3 @@ function formulaires_charger_plugin_archive_traiter_dist() {
 
 	return $retour;
 }
-
-
-?>

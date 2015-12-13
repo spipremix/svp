@@ -114,7 +114,7 @@ function formulaires_charger_plugin_traiter_dist() {
 
 	$retour = array();
 
-	if (_request('rechercher') OR _request('annuler_actions')) {
+	if (_request('rechercher') or _request('annuler_actions')) {
 
 	} elseif (_request('valider_actions')) {
 		#refuser_traiter_formulaire_ajax();
@@ -130,6 +130,3 @@ function formulaires_charger_plugin_traiter_dist() {
 
 	return $retour;
 }
-
-
-?>

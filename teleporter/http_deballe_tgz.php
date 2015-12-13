@@ -36,7 +36,7 @@ function teleporter_http_deballe_tgz_dist($archive, $dest, $tmp) {
 	);
 	// le fichier .zip est la et bien forme
 	if (is_array($status)
-		AND is_dir($status['target'])
+		and is_dir($status['target'])
 	) {
 		return $status['target'];
 	} // fichier absent

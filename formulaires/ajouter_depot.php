@@ -107,5 +107,3 @@ function svp_verifier_adresse_depot($url) {
 	return (copie_locale($url) ? true : false);
 	#return (!$xml = recuperer_page($url)) ? false : true;
 }
-
-?>

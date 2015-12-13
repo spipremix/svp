@@ -37,5 +37,3 @@ function genie_svp_actualiser_depots_dist($last) {
 
 	return 1;
 }
-
-?>

@@ -109,7 +109,7 @@ function svp_rechercher_plugins_spip(
 					$scores[$id_paquet] = intval($resultats['plugin'][$id_plugin]['score']);
 				} else {
 					$scores[$id_paquet] = intval($resultats['paquet'][$id_paquet]['score'])
-						+intval($resultats['plugin'][$id_plugin]['score']);
+						+ intval($resultats['plugin'][$id_plugin]['score']);
 				}
 			}
 		}
@@ -149,16 +149,16 @@ function svp_rechercher_plugins_spip(
 		if ($ids_paquets) {
 			$where[] = sql_in('t2.id_paquet', $ids_paquets);
 		}
-		if (($categorie) AND ($categorie != 'toute_categorie')) {
+		if (($categorie) and ($categorie != 'toute_categorie')) {
 			$where[] = 't1.categorie=' . sql_quote($categorie);
 		}
-		if (($etat) AND ($etat != 'tout_etat')) {
+		if (($etat) and ($etat != 'tout_etat')) {
 			$where[] = 't2.etat=' . sql_quote($etat);
 		}
-		if (($depot) AND ($depot != 'tout_depot')) {
+		if (($depot) and ($depot != 'tout_depot')) {
 			$where[] = 't2.id_depot=' . sql_quote($depot);
 		}
-		if ($exclusions AND !$afficher_exclusions) {
+		if ($exclusions and !$afficher_exclusions) {
 			$where[] = sql_in('t2.id_plugin', $exclusions, 'NOT');
 		}
 
@@ -184,7 +184,7 @@ function svp_rechercher_plugins_spip(
 					// -- on construit l'url de l'archive
 					$paquets['url_archive'] = $paquets['url_archives'] . '/' . $paquets['nom_archive'];
 					// -- on gere les exclusions si elle doivent etre affichees
-					if ($afficher_exclusions AND in_array($paquets['id_plugin'], $exclusions)) {
+					if ($afficher_exclusions and in_array($paquets['id_plugin'], $exclusions)) {
 						$paquets['installe'] = true;
 					} else {
 						$paquets['installe'] = false;
@@ -198,8 +198,8 @@ function svp_rechercher_plugins_spip(
 						// - si pas encore trouve 
 						// - ou si sa version est inferieure (on garde que la derniere version)
 						if (!isset($plugins[$prefixe])
-							OR !$plugins[$prefixe]
-							OR ($plugins[$prefixe] AND spip_version_compare($plugins[$prefixe]['version'], $version, '<'))
+							or !$plugins[$prefixe]
+							or ($plugins[$prefixe] and spip_version_compare($plugins[$prefixe]['version'], $version, '<'))
 						) {
 							$plugins[$prefixe] = $paquets;
 						}
@@ -315,5 +315,3 @@ function svp_trier_par_nom($p1, $p2) {
 
 	return $retour;
 }
-
-?>

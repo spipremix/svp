@@ -33,5 +33,3 @@ function action_supprimer_depot_dist() {
 		spip_log("ACTION SUPPRIMER DEPOT (manuel) : id_depot = " . $id_depot, 'svp_actions.' . _LOG_INFO);
 	}
 }
-
-?>
