@@ -71,7 +71,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'config_autoriser_activer_paquets_obsoletes_explication' => 'Lu paquet oussoulet soun dei paquet loucal present que soun mai viei que d’autre paquet loucal. L’oussoulecència es estabilida soubre la basa de l’estat (stable, test, dev) dóu paquet e finda soubre la basa de la siéu versioun. Ativàs aquela oupcioun s’auguràs maugrà tout d’avé la poussibilità d’ativà aquelu plugin oussoulet.',
 	'config_depot_editable' => 'Permetre l’edicioun dei depòsiti ?',
 	'config_depot_editable_explication' => 'Acò rende li infourmacioun d’un depòsiti editable e permet eventualamen de jougne dei mot clau o dei doucumen. Aquela oupcioun deurìa interessà degun ! Vourguès laissà « noun » !',
-	'confirmer_desinstaller' => 'Mèfi, la desinstalacioun d’un plugin <b>escassa</b> li siéu dounada de la basa e es irreversìbla.<br />Se noun sias certen, desativàs simplamen lou plugin.', # MODIF
+	'confirmer_desinstaller' => 'Mèfi, la desinstalacioun d’un plugin <b>escassa</b> li siéu dounada de la basa e es irreversibla.<br />Se noun sias certen, desativàs simplamen lou plugin.',
 	'confirmer_telecharger_dans' => 'Lou plugin serà cargat en un repertori (@dir@) qu’esista jà.
 	Acò esquisserà lou countengut d’aqueu repertori.
 	Una còpia dóu viei countengut serà sauvagardada en « @dir_backup@ ».
