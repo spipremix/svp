@@ -597,12 +597,12 @@ class Decideur {
 		// sinon regarder les procure
 		$v = "0.0.0";
 		$plugin = false;
-		foreach ($this->end['p'] as $prefixe => $end) {
+		foreach ($this->end['p'] as $endp => $end) {
 			if (isset($end['procure'][$prefixe])
 				and spip_version_compare($end['procure'][$prefixe], $v, ">")
 			) {
 				$v = $end['procure'][$prefixe];
-				$plugin = $this->end['p'][$prefixe];
+				$plugin = $this->end['p'][$endp];
 			}
 		}
 
