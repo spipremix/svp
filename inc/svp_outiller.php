@@ -26,7 +26,7 @@ if (!defined('_SVP_VERSION_SPIP_MAX')) {
 	 * Version SPIP maximale
 	 *
 	 * Pour l'instant on ne connait pas la borne sup exacte */
-	define('_SVP_VERSION_SPIP_MAX', '3.1.99');
+	define('_SVP_VERSION_SPIP_MAX', '3.2.99');
 }
 
 /**
@@ -41,7 +41,8 @@ $GLOBALS['infos_branches_spip'] = array(
 	'2.0' => array('2.0.0', '2.0.99'),
 	'2.1' => array('2.1.0', '2.1.99'),
 	'3.0' => array('3.0.0', '3.0.99'),
-	'3.1' => array('3.1.0', _SVP_VERSION_SPIP_MAX)
+	'3.1' => array('3.1.0', '3.1.99'),
+	'3.2' => array('3.2.0', _SVP_VERSION_SPIP_MAX)
 );
 # define('_INFOS_BRANCHES_SPIP', serialize($infos_branches_spip));
 
@@ -489,6 +490,7 @@ function normaliser_version($version = '') {
 	if (preg_match(',([0-9.]+)[\s-.]?(dev|alpha|a|beta|b|rc|pl|p)?,i', $version, $matches)) {
 		if (isset($matches[1]) and $matches[1]) {
 			$v = explode('.', $matches[1]);
+			$vn = array();
 			foreach ($v as $_nombre) {
 				$vn[] = str_pad($_nombre, 3, '0', STR_PAD_LEFT);
 			}
