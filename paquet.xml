@@ -1,9 +1,9 @@
 <paquet
 	prefix="svp"
 	categorie="maintenance"
-	version="1.0.2"
+	version="1.1.0"
 	etat="stable"
-	compatibilite="[3.1.0;3.1.*]"
+	compatibilite="[3.2.0-dev;]"
 	logo="svp-64.png"
 	schema="0.5.1"
 	documentation="http://blog.smellup.net/spip.php?rubrique1"
@@ -26,4 +26,5 @@
 	<pipeline nom="ajouter_onglets" inclure="svp_pipelines.php" />
 	<pipeline nom="ieconfig_metas" inclure="svp_ieconfig.php" />
 
+	<necessite nom="archives" compatibilite="[0.1.0;[" />
 </paquet>
