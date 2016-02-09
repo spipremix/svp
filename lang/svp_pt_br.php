@@ -36,6 +36,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'bulle_actualiser_tout_depot' => 'Atualizar os pacotes de todos os repositórios',
 	'bulle_afficher_xml_plugin' => 'Conteúdo do arquivo XML do plugin',
 	'bulle_ajouter_spipzone' => 'Incluir o repositório SPIP-Zone',
+	'bulle_aller_demonstration' => 'Ir para a página de demonstração',
 	'bulle_aller_depot' => 'Ir para a página deste repositório',
 	'bulle_aller_documentation' => 'Ir para a página da documentação',
 	'bulle_aller_plugin' => 'Ir para a página do plugin',
@@ -70,7 +71,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'config_autoriser_activer_paquets_obsoletes_explication' => 'Os pacotes obsoletos são pacotes locais atuais que são mais antigos do que outros pacotes locais. A obsolescência é estabelecida na base do status (estável, teste, dev) do pacote bem como na base de sua versão. Ative esta opção se você deseja, apesar de tudo, ativar estes plugins obsoletos.',
 	'config_depot_editable' => 'Permitir a edição dos repositórios?',
 	'config_depot_editable_explication' => 'Isto torna editáveis as informações de um repositório, permitindo eventualmente vincular palavras-chave ou documentos. Esta opção não deverá interessar a ninguém! É melhor deixar como «não»!',
-	'confirmer_desinstaller' => 'Atenção, a desinstalação de um plugin <b>exclui<b> os seus dados da base e é irreversível.<br />Se voce não está seguro, simplesmente desative o plugin.', # MODIF
+	'confirmer_desinstaller' => 'Atenção, a desinstalação de um plugin <b>exclui<b> os seus dados da base e é irreversível.<br />Se voce não está seguro, simplesmente desative o plugin.',
 	'confirmer_telecharger_dans' => 'O plugin será carregado num diretório (@dir@) que já existe.
 Isso irá sobrepor o conteúdo desse diretório.
 Uma cópia do conteúdo anterior será gravada em «@dir_backup@».
@@ -173,6 +174,8 @@ Se você deseja desativá-los, contate o webmaster do site, ou consulte <a href=
 	'label_xml_plugin' => 'XML',
 	'legende_installer_plugins' => 'Instalar plugins',
 	'legende_rechercher_plugins' => 'Buscar plugins',
+	'lien_demo' => 'Démonstração',
+	'lien_documentation' => 'Documentação',
 
 	// M
 	'message_action_finale_get_fail' => 'O plugin «@plugin@» (versão: @version@) não pode ser recuperado corretamente',
@@ -263,7 +266,7 @@ Se você deseja desativá-los, contate o webmaster do site, ou consulte <a href=
 	'titre_form_charger_plugin' => 'Buscar e incluir plugins',
 	'titre_form_charger_plugin_archive' => 'Transferir um plugin a partir do seu arquivo',
 	'titre_form_configurer_svp' => 'Configurar o Servidor de Plugins',
-	'titre_liste_autres_contributions' => 'Templates, bibliotecas, conjuntos de ícones...', # MODIF
+	'titre_liste_autres_contributions' => 'Templates, bibliotecas, conjuntos de ícones...',
 	'titre_liste_autres_depots' => 'Outros repositórios',
 	'titre_liste_depots' => 'Lista dos repositórios disponíveis',
 	'titre_liste_paquets_plugin' => 'Lista dos pacotes do plugin',
