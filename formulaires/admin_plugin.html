@@ -49,18 +49,18 @@
 			//<![CDATA[
 				(function($){
 					$("#select_tous").click(function(){
-						jQuery("input.select_plugin").attr("checked",true);
+						jQuery("input.select_plugin").prop("checked",true);
 						return false;
 					});
 					$("#select_aucun").click(function(){
-						$("input.select_plugin").attr("checked",false);
+						$("input.select_plugin").prop("checked",false);
 						return false;
 					});
 					var cocher_plugins_up = function(){
 						if ($(".plugins li.item.up").length != 0) {
 							$("#select_up").click(function(){
-								$(".plugins li.item.up input.select_plugin").attr("checked",true);
-								$("select#action_globale>option#option_up").attr("selected","selected");
+								$(".plugins li.item.up input.select_plugin").prop("checked",true);
+								$("select#action_globale>option#option_up").prop("selected",true);
 								return false;
 							});
 						} else {
