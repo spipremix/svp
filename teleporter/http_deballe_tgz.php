@@ -141,7 +141,7 @@ function teleporter_http_charger_tgz($quoi = array()) {
 	$removex = ',^' . preg_quote($quoi['remove'], ',') . ',';
 	foreach ($list as $a => $f) {
 		$size += $f['size'];
-		$compressed_size += $f['compressed_size'];
+		# $compressed_size += $f['compressed_size'];
 		$list[$a] = preg_replace($removex, '', $f['filename']);
 	}
 
