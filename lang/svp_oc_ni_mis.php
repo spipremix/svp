@@ -68,10 +68,10 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'config_activer_runtime' => 'Ativà lou mòdou runtime ?',
 	'config_activer_runtime_explication' => 'Lou mòdou runtime (ahì) carga que lu plugin coumpatible embé la versioun courrenta dóu vouòstre SPIP, cen qu’es fouòrça counseiat per la majourença dei usança. En mòdou noun runtime (noun), toui lu plugin d’un depòsiti soun cargat, quauque sìgue la versioun dóu SPIP en cours. Acò es basta utile quoura si utilisà SVP per presentà toui lu plugin esistant couma es fach per lou sit Plugins SPIP (plugins.spip.net)',
 	'config_autoriser_activer_paquets_obsoletes' => 'Autourisà l’ativacioun dei paquet oussoulet ?',
-	'config_autoriser_activer_paquets_obsoletes_explication' => 'Lu paquet oussoulet soun dei paquet loucal present que soun mai viei que d’autre paquet loucal. L’oussoulecència es estabilida soubre la basa de l’estat (stable, test, dev) dóu paquet e finda soubre la basa de la siéu versioun. Ativàs aquela oupcioun s’auguràs maugrà tout d’avé la poussibilità d’ativà aquelu plugin oussoulet.',
+	'config_autoriser_activer_paquets_obsoletes_explication' => 'Lu paquet oussoulet soun dei paquet loucal present que soun mai viei que d’autre paquet loucal. L’oussoulecència es estabilida soubre la basa de l’estat (stable, test, dev) dóu paquet e finda soubre la basa de la siéu versioun. Ativas aquela oupcioun se vourìas maugrà tout d’avé la poussibilità d’ativà aquelu plugin oussoulet.',
 	'config_depot_editable' => 'Permetre l’edicioun dei depòsiti ?',
 	'config_depot_editable_explication' => 'Acò rende li infourmacioun d’un depòsiti editable e permet eventualamen de jougne dei mot clau o dei doucumen. Aquela oupcioun deurìa interessà degun ! Vourguès laissà « noun » !',
-	'confirmer_desinstaller' => 'Mèfi, la desinstalacioun d’un plugin <b>escassa</b> li siéu dounada de la basa e es irreversibla.<br />Se noun sias certen, desativàs simplamen lou plugin.',
+	'confirmer_desinstaller' => 'Mèfi, la desinstalacioun d’un plugin <b>escassa</b> li siéu dounada de la basa e es irreversibla.<br />Se noun sias certen, desativas simplamen lou plugin.',
 	'confirmer_telecharger_dans' => 'Lou plugin serà cargat en un repertori (@dir@) qu’esista jà.
 	Acò esquisserà lou countengut d’aqueu repertori.
 	Una còpia dóu viei countengut serà sauvagardada en « @dir_backup@ ».
@@ -113,22 +113,22 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_admin_plugin_verrou_non' => 'Aquela pàgina lista toui lu plugin noun ferouiat dóu sit, atiéu o noun.',
 	'info_admin_plugin_verrou_tous' => 'Aquela pàgina lista toui lu plugin dóu sit.',
 	'info_admin_plugin_verrouille' => 'Aquela pàgina lista lu plugin atiéu e ferouiat (situat en lou repertori <code>@dir_plugins_dist@</code>).
-	Se lu auguràs desativà, vourguès countatà lou webmestre dóu sit,
+	Se lu vourìas desativà, vourguès countatà lou webmestre dóu sit,
 	o vi repourtà <a href="http://programmer.spip.net/repertoire_plugins-dist">a la doucumentacioun</a>.',
 	'info_adresse_spipzone' => 'SPIP-Zone - Plugin',
 	'info_ajouter_depot' => 'En ajustant dei depòsiti a vouòstra basa, aurès la poussibilità d’outenì dei infourmacioun e d’efetuà dei recerca soubre toui lu paquet oustelat dai depòsiti ajustat.<br />Un depòsiti es descrich da un fichié XML countenent li infourmacioun soubre lu depòsiti e soubre toui lu siéu paquet.',
 	'info_aucun_depot' => 'mìnga depòsiti',
-	'info_aucun_depot_ajoute' => 'Mìnga depòsiti dispounible !<br /> Utilisàs lou fourmulari aquì souta da ajustà lou depòsiti « SPIP-Zone - Plugins » que l’url es jà preclafida o un autre depòsiti de la vouòstra chausida.',
+	'info_aucun_depot_ajoute' => 'Mìnga depòsiti dispounible !<br /> Utilisas lou fourmulari aquì souta da ajustà lou depòsiti « SPIP-Zone - Plugins » que l’url es jà preclafida o un autre depòsiti de la vouòstra chausida.',
 	'info_aucun_paquet' => 'mìnga paquet',
 	'info_aucun_plugin' => 'mìnga plugin',
 	'info_boite_charger_plugin' => '<strong>Aquela pàgina es basta achessible ai webmestre dóu sit.</strong><p>Vi permete de recercà dei plugin mes da dispousicioun dai depòsiti registrat en la vouòstra counfiguracioun e lu instalà fisicamen sus lou vouòstre servidou</p>',
 	'info_boite_depot_gerer' => '<strong>Aquela pàgina es basta achessible ai webmestre dóu sit.</strong><p>Permet l’ajountamen et l’atualisacioun dei depòsiti de plugin.</p>',
-	'info_charger_plugin' => 'Per ajustà un plugin o mai, efetuàs en premié una recerca multicriteri sus lu plugin de la galassìa SPIP. La recerca enclude basta lu plugin coumpatible embé la versioun SPIP instalada e signala lu plugin jà atiéu sus lou sit.',
+	'info_charger_plugin' => 'Per ajustà un plugin o mai, efetuas en premié una recerca multicriteri sus lu plugin de la galassìa SPIP. La recerca enclude basta lu plugin coumpatible embé la versioun SPIP instalada e signala lu plugin jà atiéu sus lou sit.',
 	'info_compatibilite_dependance' => 'Per @compatibilite@ :',
 	'info_contributions_hebergees' => '@total_autres@ autri countribucioun ousteladi',
 	'info_critere_phrase' => 'Sesissès lu mot clau da cercà en lou prefis, lou noum, l’eslougan, la descricioun e lu autour dei plugin',
 	'info_depots_disponibles' => '@total_depots@ depòsiti',
-	'info_fichier_depot' => 'Sesissès l’url dóu fichié de descricioun dau depòsiti da ajustà.<br />Per ajustà lou depòsiti « SPIP-Zone - Plugins » clicàs soubre aquel estac : ',
+	'info_fichier_depot' => 'Sesissès l’url dóu fichié de descricioun dau depòsiti da ajustà.<br />Per ajustà lou depòsiti « SPIP-Zone - Plugins » clicas soubre aquel estac : ',
 	'info_nb_depots' => '@nb@ depòsiti',
 	'info_nb_paquets' => '@nb@ paquet',
 	'info_nb_plugins' => '@nb@ plugin',
@@ -233,7 +233,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_nok_xml_non_recupere' => 'Lou fichié XML « @fichier@ » a pas pouscut estre recuperat',
 	'message_ok_aucun_plugin_trouve' => 'Mìnga plugin courrespouònde ai critèri chausit.',
 	'message_ok_depot_ajoute' => 'Lou depòsiti « @url@ » es estat ajustat.',
-	'message_ok_plugins_trouves' => '@nb_plugins@ plugin courrespouòndon ai critèri chausit (@tri@). Seleciounàs aquì souta lu plugin que auguràs de telecargà e ativà soubre lou vouòstre servidou.',
+	'message_ok_plugins_trouves' => '@nb_plugins@ plugin courrespouòndon ai critèri chausit (@tri@). Seleciounas aquì souta lu plugin que vourguès de telecargà e ativà soubre lou vouòstre servidou.',
 	'message_telechargement_archive_effectue' => 'L’arquivi es estada courretamen estracha en @dir@.',
 
 	// N
