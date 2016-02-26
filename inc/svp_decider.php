@@ -1047,7 +1047,7 @@ class Decideur {
 			foreach ($info['dn'] as $n) {
 
 				$p = $n['nom'];
-				$v = $n['compatibilite'];
+				$v = isset($n['compatibilite']) ? $n['compatibilite'] : '';
 
 				if ($p == 'SPIP') {
 					// c'est pas la que ça se fait !
