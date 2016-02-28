@@ -45,7 +45,7 @@ function action_teleporter_composant_dist($methode, $source, $dest, $options = a
 
 		return _T('svp:erreur_teleporter_destination_erreur', array('dir' => $d));
 		#$texte = "<p>"._T('plugin_erreur_droit1',array('dest'=>$dest))."</p>"
-		#  . "<p>"._T('plugin_erreur_droit2').aide('install0')."</p>";
+		#  . "<p>"._T('plugin_erreur_droit2').aider('install0')."</p>";
 	}
 
 	# destination temporaire des fichiers si besoin
