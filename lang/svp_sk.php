@@ -83,7 +83,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'config_depot_editable' => 'Umožniť upravovanie depozitárov?',
 	'config_depot_editable_explication' => 'Umožňuje upravovať údaje v depozitári a priradiť k ním kľúčové slová alebo dokumenty.
 		Táto možnosť by mala zaujať každého! Radšej preto nenechajte možnosť "nie"!',
-	'confirmer_desinstaller' => 'Pozor, odinštalovanie zásuvného modulu – <b>vymazanie</b> jeho údajov z databázy sa nedá vrátiť späť.<br />Ak si týmto krokom nie ste istý, zásuvný modul len deaktivujte.', # MODIF
+	'confirmer_desinstaller' => 'Pozor, odinštalovanie zásuvného modulu <b>vymaže</b> jeho údaje z databázy a nedá sa vrátiť späť.<br />Ak teda s istotou neviete, či to chcete určite urobiť, zásuvný modul len deaktivujte.',
 	'confirmer_telecharger_dans' => 'Zásuvný modul, ktorý bude nahraný do priečonka (@dir@), už existuje.
 	Prepíšete tak obsah tohto priečinka.
 	Kópia starého obsahu bude uložená v priečinku "@dir_backup@".
