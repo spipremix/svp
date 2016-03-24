@@ -146,9 +146,11 @@ function formulaires_admin_plugin_verifier_dist($voir = 'actif', $verrouille = '
 			svp_decider_verifier_actions_demandees($a_actionner, $erreurs);
 			$todo = _request('_todo') ? unserialize(_request('_todo')) : array();
 			$actions = _request('_decideur_actions') ? unserialize(_request('_decideur_actions')) : array();
-			// si c'est une action simple sans rien a faire de plus que demande, on y go direct
-			if (in_array('stop', $todo)) {
-				$notices['decideur_warning'] = _T('svp:confirmer_desinstaller');
+			// si c'est une action simple (hors suppression) sans rien a faire de plus que demande, on y go direct
+			if (in_array('stop', $todo) or in_array('kill', $todo)) {
+				if (in_array('stop', $todo)) {
+					$notices['decideur_warning'] = _T('svp:confirmer_desinstaller');
+				}
 				set_request('_notices', $notices);
 			} elseif (!isset($erreurs['decideur_erreurs'])
 				and (!isset($erreurs['decideur_propositions']) or !count($actions['decideur_propositions']))
