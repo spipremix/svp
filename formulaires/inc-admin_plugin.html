@@ -120,7 +120,6 @@
 /*<![CDATA[*/
 	(function($){
 		$('#liste_plugins').on('click','li.item a[rel=info]',function(){
-			console.log(this);
 			var li = $(this).parents('li').eq(0);
 			var id_paquet = li.data('id_paquet');
 			// premier clic, on charge le contenu du bloc details en ajax
