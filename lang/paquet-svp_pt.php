@@ -13,4 +13,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'svp_description' => 'Por um lado, este plugin fornece um API que permite efectuar pesquisar multi-critério, recolher e apresentar informação sobre plugins SPIP (módulos funcionais, temas e modelos). Por outro lado, propõe uma nova interface de administração, para gerir as dependências entre plugins.',
 	'svp_slogan' => 'Servidor de informação e download de Plugins'
 );
-

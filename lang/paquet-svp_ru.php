@@ -13,4 +13,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'svp_description' => 'Этот модуль предоставляет API и интерфейс для управления плагинами SPIP.',
 	'svp_slogan' => 'Управление плагинами'
 );
-

@@ -13,4 +13,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'svp_description' => 'Tento zásuvný modul poskytuje, po prvé, aplikáciu umožňujúcu vykonávať vyhľadávania na základe viacerých kritérií, vyhľadať a zobraziť informácie o zásuvných moduloch SPIPu (funkčných moduloch, farebných motívoch i šablónach) a po druhé, nové rozhranie nastavení zásuvných modulov riadi závislosti medzi zásuvnými modulmi.',
 	'svp_slogan' => 'Server na zisťovanie informácií o zásuvných moduloch a ich sťahovanie'
 );
-

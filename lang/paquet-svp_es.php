@@ -13,4 +13,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'svp_description' => 'Este plugin proporciona, por un lado, una API que permite efectuar búsquedas multi-criterio, recopilar y presentar información sobre los plugins (módulos funcionales, temas y esqueletos) y, por otro lado, una nueva interfaz de administración de los plugins que gestiona las dependencias entre ellos.',
 	'svp_slogan' => 'Servidor de información y descarga de plugins'
 );
-

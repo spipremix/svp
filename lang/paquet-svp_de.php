@@ -13,4 +13,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'svp_description' => 'SVP stellt ein API bereit, mit dem SPIP-Plugins (Zusatzfunktionen, Themen und  Skelette) nach mehreren Kriterien gesucht  und ausgewählt werden können und bietet eine Oberfläche zur Verwaltung der  Plugins sowie ihrer Abhängigkeiten.',
 	'svp_slogan' => 'Informations- und Download-Server für Plugins'
 );
-
