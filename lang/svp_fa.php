@@ -291,4 +291,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'tout_cocher_up' => 'علامت زدن به‌ هنگام‌سازي‌ها',
 	'tout_decocher' => 'رها كردن همه'
 );
-

@@ -285,4 +285,3 @@ is not created or is not writable.
 	'tout_cocher_up' => 'Check the updates',
 	'tout_decocher' => 'Uncheck all'
 );
-

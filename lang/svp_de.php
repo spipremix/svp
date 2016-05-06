@@ -286,4 +286,3 @@ existiert nicht oder hat keinen Schreibrechte.
 	'tout_cocher_up' => 'Aktualisierungen markieren',
 	'tout_decocher' => 'Alle Markierungen entfernen'
 );
-

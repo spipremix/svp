@@ -279,4 +279,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'tout_cocher_up' => 'Seleccionar las actualizaciones',
 	'tout_decocher' => 'Desmarcar todo'
 );
-

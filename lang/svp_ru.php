@@ -284,4 +284,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'tout_cocher_up' => 'Проверить обновления',
 	'tout_decocher' => 'Убрать выделение'
 );
-

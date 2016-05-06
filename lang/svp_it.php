@@ -284,4 +284,3 @@ Se vuoi disabilitarla, per favore contatta il webmaster del sito oppure controll
 	'tout_cocher_up' => 'Controlla per aggiornamenti',
 	'tout_decocher' => 'Deseleziona tutto'
 );
-

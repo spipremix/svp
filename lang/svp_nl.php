@@ -283,4 +283,3 @@ Je moet deze actie bevestigen.',
 	'tout_cocher_up' => 'De updates selecteren',
 	'tout_decocher' => 'Alles deselecteren'
 );
-

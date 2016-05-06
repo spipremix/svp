@@ -288,4 +288,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'tout_cocher_up' => 'Cocher les mises à jour',
 	'tout_decocher' => 'Tout décocher'
 );
-

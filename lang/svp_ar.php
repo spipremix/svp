@@ -286,4 +286,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'tout_cocher_up' => 'تحديد التحديثات',
 	'tout_decocher' => 'إزالة تحديد الكل'
 );
-

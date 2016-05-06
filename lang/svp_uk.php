@@ -280,4 +280,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'tout_cocher_up' => 'Перевірити оновлення',
 	'tout_decocher' => 'Зняти відмітки'
 );
-

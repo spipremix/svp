@@ -283,4 +283,3 @@ Se você deseja desativá-los, contate o webmaster do site, ou consulte <a href=
 	'tout_cocher_up' => 'Marcar as atualizações',
 	'tout_decocher' => 'Desmarcar todos'
 );
-

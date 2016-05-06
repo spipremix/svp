@@ -302,4 +302,3 @@ alebo vytvoriť tento priečinok a nastaviť mu povolenie na zápis.',
 	'tout_cocher_up' => 'Vyhľadať aktualizácie',
 	'tout_decocher' => 'Odznačiť všetky'
 );
-

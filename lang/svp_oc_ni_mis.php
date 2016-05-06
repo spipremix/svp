@@ -287,4 +287,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'tout_cocher_up' => 'Entacà li metudi a jou',
 	'tout_decocher' => 'Destacà tout'
 );
-
