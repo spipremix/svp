@@ -285,4 +285,3 @@ Se vuoi disabilitarla, per favore contatta il webmaster del sito oppure controll
 	'tout_decocher' => 'Deseleziona tutto'
 );
 
-?>

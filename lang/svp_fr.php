@@ -287,4 +287,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'tout_decocher' => 'Tout décocher'
 );
 
-?>

@@ -284,4 +284,3 @@ Je moet deze actie bevestigen.',
 	'tout_decocher' => 'Alles deselecteren'
 );
 
-?>

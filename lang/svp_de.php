@@ -287,4 +287,3 @@ existiert nicht oder hat keinen Schreibrechte.
 	'tout_decocher' => 'Alle Markierungen entfernen'
 );
 
-?>

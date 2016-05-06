@@ -303,4 +303,3 @@ alebo vytvoriť tento priečinok a nastaviť mu povolenie na zápis.',
 	'tout_decocher' => 'Odznačiť všetky'
 );
 
-?>

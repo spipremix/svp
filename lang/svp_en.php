@@ -286,4 +286,3 @@ is not created or is not writable.
 	'tout_decocher' => 'Uncheck all'
 );
 
-?>

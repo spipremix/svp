@@ -280,4 +280,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'tout_decocher' => 'Desmarcar todo'
 );
 
-?>
