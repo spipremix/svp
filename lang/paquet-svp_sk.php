@@ -14,4 +14,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'svp_slogan' => 'Server na zisťovanie informácií o zásuvných moduloch a ich sťahovanie'
 );
 
-?>

@@ -14,4 +14,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'svp_slogan' => 'Informations- und Download-Server für Plugins'
 );
 
-?>

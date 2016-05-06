@@ -15,4 +15,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'svp_slogan' => 'سرور اطلاعات و بارگذاري پلاگين‌ها'
 );
 
-?>
