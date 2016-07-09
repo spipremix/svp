@@ -29,7 +29,7 @@
 		<traducteur nom="denisb" lien="http://trad.spip.net/auteur/denisb" />
 		<traducteur nom="Teddy" lien="http://trad.spip.net/auteur/teddy" />
 	</langue>
-	<langue code="fr_tu" url="http://trad.spip.net/tradlang_module/svp?lang_cible=fr_tu" total="244" traduits="242" relire="0" modifs="2" nouveaux="0" pourcent="99.18">
+	<langue code="fr_tu" url="http://trad.spip.net/tradlang_module/svp?lang_cible=fr_tu" total="244" traduits="244" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
 		<traducteur nom="Cerf" lien="http://trad.spip.net/auteur/cerf" />
 		<traducteur nom="RealET" lien="http://trad.spip.net/auteur/realet" />
 	</langue>

@@ -71,7 +71,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'config_autoriser_activer_paquets_obsoletes_explication' => 'Les paquets obsolètes sont des paquets locaux présents qui sont plus anciens que d’autres paquets locaux. L’obsolescence est établie sur la base de l’état (stable, test, dev) du paquet ainsi que sur la base de sa version. Active cette option si tu souhaites malgré tout pouvoir activer ces plugins obsolètes.',
 	'config_depot_editable' => 'Permettre l’édition des dépôts ?',
 	'config_depot_editable_explication' => 'Cela rend éditable les informations d’un dépôt et permet ainsi de leur joindre éventuellement des mots-clés ou documents. Cette option ne devrait intéresser personne ! Préférez laisser « non » !',
-	'confirmer_desinstaller' => 'Attention, la désinstallation d’un plugin <b>efface</b> ses données de la base et est irréversible.<br />Si tu n’es pas certain, désactives simplement le plugin.', # MODIF
+	'confirmer_desinstaller' => 'Attention, la désinstallation d’un plugin <b>efface</b> ses données de la base et est irréversible.<br />Si tu n’es pas certain, désactives simplement le plugin.',
 	'confirmer_telecharger_dans' => 'Le plugin sera chargé dans un répertoire (@dir@) qui existe déjà.
 	Cela écrasera le contenu de ce répertoire.
 	Une copie de l’ancien contenu sera sauvegardé dans « @dir_backup@ ».
@@ -271,7 +271,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'titre_form_charger_plugin' => 'Rechercher et ajouter des plugins',
 	'titre_form_charger_plugin_archive' => 'Télécharger un plugin depuis son archive',
 	'titre_form_configurer_svp' => 'Configurer le Serveur de Plugins',
-	'titre_liste_autres_contributions' => 'Squelettes, bibliothèques, jeux d’icônes...', # MODIF
+	'titre_liste_autres_contributions' => 'Squelettes, bibliothèques, jeux d’icones...',
 	'titre_liste_autres_depots' => 'Autres dépôts',
 	'titre_liste_depots' => 'Liste des dépôts disponibles',
 	'titre_liste_paquets_plugin' => 'Liste des paquets du plugin',
