@@ -384,7 +384,8 @@ function svp_base_inserer_paquets_locaux($paquets_locaux) {
  * 
  * @note
  *     Cette clé 0 indique la description principale du paquet.xml 
- *     mais d'autres clés semblent pouvoir si la balise `<spip>` est présente dedans
+ *     mais d'autres clés semblent pouvoir exister 
+ *     si la balise `<spip>` est présente dedans
  * 
  * @see svp_phraser_plugin() côté SVP
  * @see plugins_fusion_paquet() côté SVP
