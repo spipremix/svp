@@ -95,12 +95,14 @@ function plugins_preparer_sql_plugin($plugin) {
 	$dependances['utilise'] = $plugin['utilise'];
 	$champs['dependances'] = serialize($dependances);
 
+	// Calculer le champ 'procure' (tableau sérialisé prefixe => version)
 	$champs['procure'] = '';
-	if (isset($plugin['procure']) and $plugin['procure']) {
+	if (!empty($plugin['procure'][0])) {
 		$champs['procure'] = array();
-		foreach ($plugin['procure'] as $procure) {
+		foreach ($plugin['procure'][0] as $procure) {
 			$p = strtoupper($procure['nom']);
-			if (!isset($champs['procure'][$p])
+			if (
+				!isset($champs['procure'][$p])
 				or spip_version_compare($procure['version'], $champs['procure'][$p], '>')
 			) {
 				$champs['procure'][$p] = $procure['version'];
