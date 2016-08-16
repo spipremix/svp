@@ -249,15 +249,30 @@ class Actionneur {
 	 * - puis les actions neutres
 	 */
 	public function ordonner_actions() {
+		$this->log("Ordonner les actions à réaliser");
 		// nettoyer le terrain
 		$this->clear();
 
+		// récupérer les descriptions de chaque paquet
+		$this->log("> Récupérer les descriptions des paquets concernés");
+		$infos = array();
 		foreach ($this->start as $id => $action) {
-			$i = array(); // description du paquet. Ne s'applique pas si librairie ($id = md5)
+			// seulement les identifiants de paquets (pas les librairies)
 			if (is_int($id)) {
-				$i = $this->decideur->infos_courtes_id($id);
-				$i = $i['i'][$id];
+				$info = $this->decideur->infos_courtes_id($id);
+				$infos[$id] = $info['i'][$id];
 			}
+		}
+
+		// Calculer les dépendances (nécessite) profondes pour chaque paquet, 
+		// si les plugins en questions sont parmis ceux actionnés
+		// (ie A dépend de B qui dépend de C => a dépend de B et C).
+		$infos = $this->calculer_necessites_complets($infos);
+
+		foreach ($this->start as $id => $action) {
+			// infos du paquet. Ne s'applique pas sur librairie ($id = md5)
+			$i = is_int($id) ? $infos[$id] : array(); 
+
 			switch ($action) {
 				case 'getlib':
 					// le plugin en ayant besoin le fera
@@ -315,6 +330,103 @@ class Actionneur {
 
 
 	/**
+	 * Complète les infos des paquets actionnés pour qu'ils contiennent
+	 * en plus de leurs 'necessite' directs, tous les nécessite des
+	 * plugins dont ils dépendent, si ceux ci sont aussi actionnés.
+	 * 
+	 * Ie: si A indique dépendre de B, et B de C, la clé 
+	 * 'dp' (dépendances prefixes). indiquera les préfixes
+	 * des plugins B et C 
+	 * 
+	 * On ne s'occupe pas des versions de compatibilité ici
+	 *
+	 * @param array $infos (identifiant => description courte du plugin)
+	 * @return array $infos
+	**/
+	public function calculer_necessites_complets($infos) {
+		$this->log("> Calculer les dépendances nécessités sur paquets concernés");
+
+		// prefixe => array(prefixes)
+		$necessites = array();
+
+		// 1) déjà les préfixes directement nécessités
+		foreach ($infos as $i => $info) {
+			if (!empty($info['dn'])) {
+				$necessites[$info['p']] = array_map('strtoupper', array_keys($info['dn']));
+			}
+			// préparer la clé dp (dépendances préfixes) et 'dmp' (dépendent de moi) vide
+			$infos[$i]['dp'] = array();
+			$infos[$i]['dmp'] = array();
+		}
+
+		if ($nb = count($necessites)) {
+			$this->log(">- $nb plugins ont des nécessités");
+			// 2) ensuite leurs dépendances, récursivement
+			$necessites = $this->calculer_necessites_complets_rec($necessites);
+
+			// 3) intégrer le résultat
+			foreach ($infos as $i => $info) {
+				if (!empty($necessites[$info['p']])) {
+					$infos[$i]['dp'] = $necessites[$info['p']];
+				}
+			}
+
+			// 4) calculer une clé 'dmp' : liste des paquets actionnés qui dépendent de moi
+			foreach ($infos as $i => $info) {
+				$dmp = array();
+				foreach ($necessites as $prefixe => $liste) {
+					if (in_array($info['p'], $liste)) {
+						$dmp[] = $prefixe;
+					}
+				}
+				$infos[$i]['dmp'] = $dmp;
+			}
+		}
+
+		return $infos;
+	}
+
+	/**
+	 * Fonction récursive pour calculer la liste de tous les préfixes
+	 * de plugins nécessités par un autre. 
+	 * 
+	 * Avec une liste fermée connue d'avance des possibilités de plugins
+	 * (ceux qui seront actionnés)
+	 *
+	 * @param array prefixe => liste de prefixe dont il dépend
+	 * @param bool $profondeur
+	 * @return array prefixe => liste de prefixe dont il dépend
+	**/
+	public function calculer_necessites_complets_rec($necessites, $profondeur = 0) {
+		$changement = false;
+		foreach ($necessites as $prefixe => $liste) {
+			$n = count($liste);
+			foreach ($liste as $prefixe_necessite) {
+				// si un des plugins dépendants fait partie des plugins actionnés,
+				// il faut aussi lui ajouter ses dépendances…
+				if (isset($necessites[$prefixe_necessite])) {
+					$liste = array_unique(array_merge($liste, $necessites[$prefixe_necessite]));
+				}
+			}
+			$necessites[$prefixe] = $liste;
+			if ($n !== count($liste)) {
+				$changement = true;
+			}
+		}
+
+		// limiter à 10 les successions de dépendances !
+		if ($changement and $profondeur <= 10) {
+			$necessites = $this->calculer_necessites_complets_rec($necessites, $profondeur++);
+		}
+
+		if ($changement and $profondeur > 10) {
+			$this->log("! Problème de calcul de dépendances complètes : récursion probable. On stoppe.");
+		}
+
+		return $necessites;
+	}
+
+	/**
 	 * Ajoute un paquet à activer
 	 *
 	 * À chaque fois qu'un nouveau paquet arrive ici, on le compare
@@ -344,10 +456,8 @@ class Actionneur {
 		$in = $out = $prov = $deps = $deps_all = array();
 		// raz des cles pour avoir les memes que $out (utile reellement ?)
 		$this->middle['on'] = array_values($this->middle['on']);
-		// ajout des dependance
-		foreach ($info['dn'] as $dep) {
-			$in[] = $dep['nom'];
-		}
+		// ajout des dependances
+		$in = $info['dp'];
 		// $info fourni ses procure
 		if (isset($info['procure']) and $info['procure']) {
 			$prov = array_keys($info['procure']);
@@ -375,10 +485,9 @@ class Actionneur {
 					$i++;
 				}
 			}
-			foreach ($inf['dn'] as $dep) {
-				$deps[$inf['p']][] = $dep['nom'];
-				$deps_all[] = $dep['nom'];
-			}
+
+			$deps[$inf['p']] = $inf['dp'];
+			$deps_all = array_merge($deps_all, $inf['dp']);
 		}
 
 
@@ -490,14 +599,14 @@ class Actionneur {
 		$in = $out = array();
 		// raz des cles pour avoir les memes que $out (utile reellement ?)
 		$this->middle['off'] = array_values($this->middle['off']);
-		foreach ($info['dn'] as $dep) {
-			$in[] = $dep['nom'];
-		}
+		// in : si un plugin en dépend, il faudra désactiver celui là avant.
+		$in = $info['dp'];
+
 		foreach ($this->middle['off'] as $inf) {
 			$out[] = $inf['p'];
 		}
 
-		if (!$in) {
+		if (!$info['dn']) {
 			// ce plugin n'a pas de dependance, on le met en dernier !
 			$this->log("- placer $p tout en bas");
 			$this->middle['off'][] = $info;
@@ -515,12 +624,26 @@ class Actionneur {
 				$key = min($key);
 				$this->log("- placer $p avant " . $this->middle['off'][$key]['p']);
 				array_splice($this->middle['off'], $key, 0, array($info));
+			// inversement des plugins dépendants de ce plugin sont présents…
+			// on le met juste après le dernier
+			} elseif ($diff = array_intersect($info['dmp'], $out)) {
+				$key = array();
+				foreach ($diff as $d) {
+					$key[] = array_search($d, $out);
+				}
+				$key = max($key);
+				$this->log("- placer $p apres " . $this->middle['off'][$key]['p']);
+				if ($key == count($this->middle['off'])) {
+					$this->middle['off'][] = $info;
+				} else {
+					array_splice($this->middle['off'], $key + 1, 0, array($info));
+				}
 			} else {
 				// aucune des dependances n'est a desactiver
 				// (du moins à ce tour ci),
 				// on le met en premier !
 				$this->log("- placer $p tout en haut");
-				array_unshift($this->middle['off'], $info); // etait ->middle['on'] ?? ...
+				array_unshift($this->middle['off'], $info); 
 			}
 		}
 		unset($diff, $in, $out);
