@@ -136,7 +136,7 @@ function svp_base_modifier_paquets_locaux($paquets_locaux) {
 	include_spip('inc/svp_depoter_distant');
 
 	// On ne va modifier QUE les paquets locaux qui ont change
-	// Et cela en comparant les md5 des informations fouries.
+	// Et cela en comparant les md5 des informations fournies.
 	$signatures = array();
 
 	// recuperer toutes les signatures 
@@ -252,6 +252,12 @@ function svp_base_inserer_paquets_locaux($paquets_locaux) {
 				$paquet['description'] = (isset($multis['description'])) ? $multis['description'] : '';
 			}
 
+			// On met les neccesite, utilise, procure, dans la clé 0
+			// pour être homogène avec le résultat d'une extraction de paquet xml 
+			// dans une source d'archives. cf svp_phraser_plugin()
+			$paquet = svp_adapter_structure_dependances($paquet);
+
+
 			$le_paquet = $paquet_base;
 			#$le_paquet['traductions'] = serialize($paquet['traductions']);
 
@@ -361,23 +367,6 @@ function svp_base_inserer_paquets_locaux($paquets_locaux) {
 		foreach ($insert_paquets as $c => $p) {
 			$insert_paquets[$c]['id_plugin'] = $cle_plugins[$p['prefixe']];
 			$id_plugin_concernes[$insert_paquets[$c]['id_plugin']] = true;
-
-			// remettre les necessite, utilise, librairie dans la cle 0
-			// comme SVP
-			if ($dep = unserialize($insert_paquets[$c]['dependances']) and is_array($dep)) {
-				foreach ($dep as $d => $contenu) {
-					if ($contenu) {
-						$new = array();
-						foreach ($contenu as $n) {
-							unset($n['id']);
-							$new[strtolower($n['nom'])] = $n;
-						}
-						$dep[$d] = array($new);
-					}
-				}
-				$insert_paquets[$c]['dependances'] = serialize($dep);
-			}
-
 		}
 
 		sql_insertq_multi('spip_paquets', $insert_paquets);
@@ -386,6 +375,35 @@ function svp_base_inserer_paquets_locaux($paquets_locaux) {
 	}
 }
 
+
+/**
+ * Adapte la structure des dépendances d'un paquet xml lu par SPIP
+ * à une structure attendue par SVP.
+ * 
+ * C'est à dire, met les necessite, utilises, lib, procure dans une sous clé 0
+ * 
+ * @note
+ *     Cette clé 0 indique la description principale du paquet.xml 
+ *     mais d'autres clés semblent pouvoir exister 
+ *     si la balise `<spip>` est présente dedans
+ * 
+ * @see svp_phraser_plugin() côté SVP
+ * @see plugins_fusion_paquet() côté SVP
+ * 
+ * @see plugins_get_infos_dist() côté SPIP (extractions de tous les paquets d'un dossier)
+ *
+ * @param array $paquet Description d'un paquet
+ * @return array Description d'un paquet adaptée
+**/
+function svp_adapter_structure_dependances($paquet) {
+	// mettre les necessite, utilise, librairie dans la cle 0
+	foreach (array('necessite', 'utilise', 'lib', 'procure') as $dep) {
+		if (!empty($paquet[$dep])) {
+			$paquet[$dep] = array($paquet[$dep]);
+		}
+	}
+	return $paquet;
+}
 
 /**
  * Fait correspondre l'état des métas des plugins actifs & installés
