@@ -352,7 +352,11 @@ class Actionneur {
 		// 1) déjà les préfixes directement nécessités
 		foreach ($infos as $i => $info) {
 			if (!empty($info['dn'])) {
-				$necessites[$info['p']] = array_map('strtoupper', array_keys($info['dn']));
+				# à remplacer par array_column($info['dn'], 'nom') un jour
+				$necessites[$info['p']] = array();
+				foreach ($info['dn'] as $n) { 
+					$necessites[$info['p']][] = $n['nom'];
+				}
 			}
 			// préparer la clé dp (dépendances préfixes) et 'dmp' (dépendent de moi) vide
 			$infos[$i]['dp'] = array();
@@ -382,6 +386,8 @@ class Actionneur {
 				$infos[$i]['dmp'] = $dmp;
 			}
 		}
+
+		# $this->log($infos);
 
 		return $infos;
 	}
