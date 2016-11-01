@@ -17,7 +17,7 @@ include_spip('inc/xml');
 include_spip('inc/config');
 
 if (!defined('_SVP_MODE_RUNTIME')) {
-	if (defined('_DEV_PLUGINS')) {
+	if (defined('_DEV_VERSION_SPIP_COMPAT')) {
 		/**
 		 * Mode d'utilisation de SVP runtime ou pas :
 		 * - En mode runtime (true), on ne charge que les plugins compatibles avec la version courante
