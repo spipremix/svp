@@ -107,11 +107,15 @@ function exec_admin_plugin_dist() {
 
 	echo debut_droite('plugin', true);
 
-	//  alerte si mode de compatibilité forcée
-	$mode_compat = defined('_DEV_VERSION_SPIP_COMPAT') ?
-		'<span class="notice">' . _T('svp:alerte_compatibilite') . '</span>' : '';
+	echo gros_titre(_T('icone_admin_plugin'), '', false);
 
-	echo gros_titre(_T('icone_admin_plugin') . $mode_compat, '', false);
+	//  alerte si mode de compatibilité forcée
+	if (defined('_DEV_VERSION_SPIP_COMPAT')) {
+		echo '<div class="notice">'
+				. '<strong>' .  _T('svp:alerte_compatibilite') . '</strong><br />'
+				. _T('svp:alerte_compatibilite_version_autorisee', array('version' => _DEV_VERSION_SPIP_COMPAT))
+			. '</div>';
+	}
 
 	// message d'erreur au retour d'une operation
 	if ($erreur_activation) {
