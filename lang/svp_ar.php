@@ -19,6 +19,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'actions_realises' => 'العمليات المنفذة',
 	'afficher_les_plugins_incompatibles' => 'عرض الملحقات غير المتوافقة',
 	'alerte_compatibilite' => 'توافق قصري',
+	'alerte_compatibilite_version_autorisee' => 'يمكن تفعيل الملحقات المتوافقة مع SPIP <code>@version@</code>',
 
 	// B
 	'bouton_activer' => 'تفعيل',
