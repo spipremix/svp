@@ -1,6 +1,6 @@
 <?php
 // This is a SPIP language file  --  Ceci est un fichier langue de SPIP
-// extrait automatiquement de http://trad.spip.net/tradlang_module/svp?lang_cible=fr_fem
+// extrait automatiquement de https://trad.spip.net/tradlang_module/svp?lang_cible=fr_fem
 // ** ne pas modifier le fichier **
 
 if (!defined('_ECRIRE_INC_VERSION')) {
@@ -19,6 +19,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'actions_realises' => 'Actions réalisées',
 	'afficher_les_plugins_incompatibles' => 'Afficher les plugins incompatibles',
 	'alerte_compatibilite' => 'Compatibilité forcée',
+	'alerte_compatibilite_version_autorisee' => 'Les plugins compatibles avec SPIP <code>@version@</code> peuvent être activés.',
 
 	// B
 	'bouton_activer' => 'Activer',
