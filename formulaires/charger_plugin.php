@@ -70,12 +70,13 @@ function formulaires_charger_plugin_verifier_dist() {
 	} else {
 		// Requete : Installation d'un ou de plusieurs plugins
 		// -- On construit le tableau des ids de paquets conformement a l'interface du decideur
-		if (_request('installer')) {
+		if (_request('installer') or _request('telecharger')) {
+			$action = _request('installer') ? 'geton' : 'get';
 			// L'utilisateur a demande une installation multiple de paquets
 			// -- on verifie la liste des id_paquets uniquement
 			if ($id_paquets = _request('ids_paquet')) {
 				foreach ($id_paquets as $_id_paquet) {
-					$a_installer[$_id_paquet] = 'geton';
+					$a_installer[$_id_paquet] = $action;
 				}
 			}
 		} else {

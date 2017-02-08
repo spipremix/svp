@@ -65,7 +65,10 @@
 				<legend><:svp:legende_installer_plugins:></legend>
 				<INCLURE{fond=formulaires/inc-plugins_trouves, plugins=#ENV*{message_ok}|table_valeur{plugins}, env} />
 			</fieldset>
-			<p class="boutons actions"[(#ENV{ids_paquet}|non) style="display:none"]><input type="submit" name="installer" class="submit" value="<:svp:bouton_installer:>" /></p>
+			<p class="boutons actions"[(#ENV{ids_paquet}|non) style="display:none"]>
+				<input type="submit" name="telecharger" class="submit" value="<:bouton_telecharger:>" />
+				<input type="submit" name="installer" class="submit" value="<:svp:bouton_installer:>" />
+			</p>
 		</div>]
 	</form>
 </BOUCLE_depot_existe>
