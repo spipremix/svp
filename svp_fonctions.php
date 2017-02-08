@@ -47,15 +47,15 @@ function svp_afficher_intervalle($intervalle, $logiciel) {
 		if (!strlen($majeure)) {
 			$version = _T('svp:info_logiciel_version', array(
 				'logiciel' => $logiciel,
-				'signe' => ($mineure_inc ? ' &ge; ' : ' &gt; '),
+				'signe' => ($mineure_inc ? '&ge;' : '&gt;'),
 				'version' =>  $mineure,
 			));
 		} else {
 			$version = _T('svp:info_logiciel_version_intervalle', array(
 				'logiciel' => $logiciel,
-				'signe_min' => ($mineure_inc ? ' &ge; ' : ' &gt; '),
+				'signe_min' => ($mineure_inc ? '&ge;' : '&gt;'),
 				'version_min' => $mineure,
-				'signe_max' => ($majeure_inc ? ' &le; ' : ' &lt; '),
+				'signe_max' => ($majeure_inc ? '&le;' : '&lt;'),
 				'version_max' => $majeure,
 			));
 		}
@@ -65,7 +65,7 @@ function svp_afficher_intervalle($intervalle, $logiciel) {
 		} else {
 			$version = _T('svp:info_logiciel_version', array(
 				'logiciel' => $logiciel,
-				'signe' => ($majeure_inc ? ' &le; ' : ' &lt; '),
+				'signe' => ($majeure_inc ? '&le;' : '&lt;'),
 				'version' => $majeure,
 			));
 		}
