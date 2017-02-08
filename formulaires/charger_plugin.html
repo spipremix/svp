@@ -3,6 +3,8 @@
 
 	[<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
 	[<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
+	[(#ENV*{_actions_realisees})]
+
 <BOUCLE_depot_existe(DEPOTS) {0,1}>
 	<form method="post" action="#ENV{action}">
 
