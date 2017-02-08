@@ -32,24 +32,42 @@ function svp_afficher_intervalle($intervalle, $logiciel) {
 	if (!strlen($intervalle)) {
 		return '';
 	}
-	if (!preg_match(',^[\[\(\]]([0-9.a-zRC\s\-]*)[;]([0-9.a-zRC\s\-\*]*)[\]\)\[]$,Uis', $intervalle, $regs)) {
+	if (!defined('_EXTRAIRE_INTERVALLE')) {
+		include_spip('inc/plugin');
+	}
+	if (!preg_match(_EXTRAIRE_INTERVALLE . 'Uis', $intervalle, $regs)) {
 		return false;
 	}
+
 	$mineure = $regs[1];
 	$majeure = preg_replace(',\.99$,', '.*', $regs[2]);
 	$mineure_inc = $intervalle{0} == "[";
 	$majeure_inc = substr($intervalle, -1) == "]";
 	if (strlen($mineure)) {
 		if (!strlen($majeure)) {
-			$version = $logiciel . ($mineure_inc ? ' &ge; ' : ' &gt; ') . $mineure;
+			$version = _T('svp:info_logiciel_version', array(
+				'logiciel' => $logiciel,
+				'signe' => ($mineure_inc ? ' &ge; ' : ' &gt; '),
+				'version' =>  $mineure,
+			));
 		} else {
-			$version = $mineure . ($mineure_inc ? ' &le; ' : ' &lt; ') . $logiciel . ($majeure_inc ? ' &le; ' : ' &lt; ') . $majeure;
+			$version = _T('svp:info_logiciel_version_intervalle', array(
+				'logiciel' => $logiciel,
+				'signe_min' => ($mineure_inc ? ' &ge; ' : ' &gt; '),
+				'version_min' => $mineure,
+				'signe_max' => ($majeure_inc ? ' &le; ' : ' &lt; '),
+				'version_max' => $majeure,
+			));
 		}
 	} else {
 		if (!strlen($majeure)) {
 			$version = $logiciel;
 		} else {
-			$version = $logiciel . ($majeure_inc ? ' &le; ' : ' &lt; ') . $majeure;
+			$version = _T('svp:info_logiciel_version', array(
+				'logiciel' => $logiciel,
+				'signe' => ($majeure_inc ? ' &le; ' : ' &lt; '),
+				'version' => $majeure,
+			));
 		}
 	}
 

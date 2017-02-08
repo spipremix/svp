@@ -1194,42 +1194,16 @@ class Decideur {
 			list(,$dependance) = explode(':', $dependance, 2);
 		}
 
-		$version_min = $version_max = '';
-
-		if (preg_match(_EXTRAIRE_INTERVALLE, $intervalle, $regs)) {
-			$minimum = $regs[1];
-			$maximum = $regs[2];
-
-			$minimum_inclus = $intervalle{0} == "[";
-			$maximum_inclus = substr($intervalle, -1) == "]";
-
-			if (strlen($minimum)) {
-				$version_min = ($minimum_inclus ? ' &ge; ' : '&gt') . $minimum;
-			}
-			if (strlen($maximum)) {
-				$version_max = ($maximum_inclus ? ' &le; ' : '&lt') . $maximum;
-			}
-		}
-
-		if ($version_min xor $version_max) {
-			$err = _T('svp:message_dependance_' . $type . '_version', array(
-				'plugin' => $info['n'],
-				'dependance' => $dependance,
-				'version' => ($version_min ? $version_min : $version_max)
-			));
-		} elseif ($version_min and $version_max) {
-			$err = _T('svp:message_dependance_' . $type . '_versions_min_max', array(
-				'plugin' => $info['n'],
-				'dependance' => $dependance,
-				'version_min' => $version_min,
-				'version_max' => $version_max,
-			));
+		if ($intervalle) {
+			$info_dependance = svp_afficher_intervalle($intervalle, $dependance);
 		} else {
-			$err = _T('svp:message_dependance_' . $type, array(
-				'plugin' => $info['n'],
-				'dependance' => $dependance,
-			));
+			$info_dependance = $dependance;
 		}
+
+		$err = _T('svp:message_dependance_' . $type, array(
+			'plugin' => $info['n'],
+			'dependance' => $info_dependance,
+		));
 
 		return $err;
 	}
