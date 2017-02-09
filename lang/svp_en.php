@@ -211,8 +211,7 @@ is not created or is not writable.
 	'message_action_stop' => 'Uninstall the plugin "@plugin@" (version: @version@)',
 	'message_action_up' => 'Updating the plugin "@plugin@" (from version @version@ to @version_maj@)',
 	'message_action_upon' => 'Updating and activating the plugin "@plugin@" (Version : @version@)',
-	'message_dependance_plugin' => 'The plugin @plugin@ depends on @dependance@.',
-	'message_dependance_plugin_version' => 'The plugin @plugin@ depends on @dependance@ @version@',
+	'message_dependance_plugin' => 'The plugin @plugin@ depends on @dependance@.', # MODIF
 	'message_erreur_aucun_plugin_selectionne' => 'No plugin selected.',
 	'message_erreur_ecriture_lib' => '@plugin@ requires the library <a href="@lib_url@">@lib@</a> stored in the <var>lib/</var> at the root of your site. However, this directory doesn’t exist or doesn’t have write permission. You must manually install the library or create this directory with write permission.',
 	'message_erreur_maj_inconnu' => 'Impossible update of an unknown plugin.',

@@ -212,8 +212,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_action_stop' => 'إزالة تثبيت الملحق «@plugin@» (الإصدار: @version@)',
 	'message_action_up' => 'تحديث الملحق «@plugin@» (من الإصدار @version@ الى الإصدار @version_maj@)',
 	'message_action_upon' => 'تحديث الملحق «@plugin@» (الإصدار: @version@) وتفعيله',
-	'message_dependance_plugin' => 'الملحق @plugin@ يعتمد على @dependance@.',
-	'message_dependance_plugin_version' => 'الملحق @plugin@ يعتمد على @dependance@ @version@.',
+	'message_dependance_plugin' => 'الملحق @plugin@ يعتمد على @dependance@.', # MODIF
 	'message_erreur_aucun_plugin_selectionne' => 'لا يوجد اي ملحق محدد',
 	'message_erreur_ecriture_lib' => 'يتطلب @plugin@ مكتبة <a href="@lib_url@">@lib@</a> الموجودة في مجلد <var>lib/</var> في أصل الموقع. الا ان هذا المجلد غير موجود او ممنوع عن الكتابة. بالتالي يجب تثبيت الملحق يدوياً او انشاء المجلد وإعطائه اذن الكتابة.',
 	'message_erreur_maj_inconnu' => 'ترقية غير ممكنة لملحق غير معروف.',

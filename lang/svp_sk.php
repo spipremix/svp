@@ -225,8 +225,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_action_stop' => 'Odinštalovať zásuvný modul "@plugin@" (verzia: @version@)',
 	'message_action_up' => 'Aktualizácia zásuvného modulu "@plugin@" (verzie @version@ na  @version_maj@)',
 	'message_action_upon' => 'Aktualizácia a aktivácia zásuvného modulu "@plugin@" (verzia: @version@)',
-	'message_dependance_plugin' => 'Zásuvný modul @plugin@ si vyžaduje @dependance@.',
-	'message_dependance_plugin_version' => 'Zásuvný modul @plugin@ si vyžaduje @dependance@ @version@',
+	'message_dependance_plugin' => 'Zásuvný modul @plugin@ si vyžaduje @dependance@.', # MODIF
 	'message_erreur_aucun_plugin_selectionne' => 'Nevybrali ste žiaden zásuvný modul.',
 	'message_erreur_ecriture_lib' => '@plugin@ potrebuje knižnicu <a href="@lib_url@">@lib@</a>  umiestnenú v priečinku <var>lib/</var> koreňového adresára vašej stránky. Tento priečinok však neexistuje, alebo sa doň nedá zapisovať. Musíte manuálne nainštalovať knižnicu
 alebo vytvoriť tento priečinok a nastaviť mu povolenie na zápis.',

@@ -209,8 +209,7 @@ Se você deseja desativá-los, contate o webmaster do site, ou consulte <a href=
 	'message_action_stop' => 'Desinstalar o plugin «@plugin@» (versão: @version@)',
 	'message_action_up' => 'Atualização do plugin «@plugin@» (da versão @version@ para @version_maj@)',
 	'message_action_upon' => 'Atualização e ativação do plugin «@plugin@» (versão: @version@)',
-	'message_dependance_plugin' => 'O plugin @plugin@ depende de @dependance@.',
-	'message_dependance_plugin_version' => 'O plugin @plugin@ depende de @dependance@ @version@',
+	'message_dependance_plugin' => 'O plugin @plugin@ depende de @dependance@.', # MODIF
 	'message_erreur_aucun_plugin_selectionne' => 'Nenhum plugin selecionado.',
 	'message_erreur_ecriture_lib' => '@plugin@ precisa da biblioteca <a href="@lib_url@">@lib@</a> localizada no diretório <var>lib/</var> na raíz do seu site. No entanto, este diretório não existe ou não está acessível para escrita. Você precisa instalar manualmente esta biblioteca ou criar o diretório com permissão de escrita.',
 	'message_erreur_maj_inconnu' => 'Atualização impossível de um plugin desconhecido.',

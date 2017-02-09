@@ -212,8 +212,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_action_stop' => 'نصب زدايي پلاگين «@plugin@» (نسخه: @version@)',
 	'message_action_up' => 'به هنگام سازي پلاگين «@plugin@» (از نسخه @version@ تا @version_maj@)',
 	'message_action_upon' => 'به هنگام سازي و فعال سازي پلاگين «@plugin@»(نسخه:@version@)',
-	'message_dependance_plugin' => 'اين پلاگثن  @plugin@ بستگي دارد به @dependance@.',
-	'message_dependance_plugin_version' => 'پلاگين  @plugin@ بستگي به  @dependance@ @version@دارد ',
+	'message_dependance_plugin' => 'اين پلاگثن  @plugin@ بستگي دارد به @dependance@.', # MODIF
 	'message_erreur_aucun_plugin_selectionne' => 'هيچ پلاگيني انتخاب نشده.',
 	'message_erreur_ecriture_lib' => '@plugin@ مستلزم آن است كه آرشيو  <a href="@lib_url@">@lib@</a> در پرونده‌ي  <var>lib/</var> در ريشه‌ي سايت شما قرار بگيرد. با اين حال، اين پوشه غيرقابل نگارش است. شما بايد آن را به صورت دستي نصب كنيد يا مجوز نوشتن در آن پوشه را بدهيد. 
 ', # MODIF

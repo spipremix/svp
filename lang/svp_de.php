@@ -211,8 +211,7 @@ existiert nicht oder hat keinen Schreibrechte.
 	'message_action_stop' => 'Plugin « @plugin@ » (Version: @version@) deinstallieren',
 	'message_action_up' => 'Plugin « @plugin@ » von Version @version@ auf @version_maj@ aktualisieren',
 	'message_action_upon' => 'Plugin « @plugin@ » (Version: @version@) aktualisieren und aktivieren',
-	'message_dependance_plugin' => 'Das Plugin @plugin@ benötigt @dependance@.',
-	'message_dependance_plugin_version' => 'Das Plugin @plugin@ benötigt @dependance@ @version@',
+	'message_dependance_plugin' => 'Das Plugin @plugin@ benötigt @dependance@.', # MODIF
 	'message_erreur_aucun_plugin_selectionne' => 'Kein Plugin gewählt',
 	'message_erreur_ecriture_lib' => '@plugin@ benötigt die Bibliothek <a href="@lib_url@">@lib@</a> im Verzeichnis <var>lib/</var> des Wurzelverzeichnis Ihrer Website. In dieses Verzeichnis kann nicht geschrieben werden. Sie müssen @plugin@ manuell installieren oder dem Verzeichnis die erforderlichen Schreibrechte zuweisen.',
 	'message_erreur_maj_inconnu' => 'Ein unbekanntes Plugin kann nicht aktualisiert werden.',

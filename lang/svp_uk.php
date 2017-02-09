@@ -205,8 +205,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_action_stop' => 'Видалити плагін „@plugin@” (версія: @version@)',
 	'message_action_up' => 'Поновити плагін „@plugin@” (з @version@ до @version_maj@)',
 	'message_action_upon' => 'Поновлення і активація плагіну „@plugin@” (версія: @version@)',
-	'message_dependance_plugin' => 'Для @plugin@ необхідно @dependance@.',
-	'message_dependance_plugin_version' => 'Для встановлення @plugin@ необхідно @dependance@ @version@',
+	'message_dependance_plugin' => 'Для @plugin@ необхідно @dependance@.', # MODIF
 	'message_erreur_aucun_plugin_selectionne' => 'Жодного плагіну не обрано.',
 	'message_erreur_ecriture_lib' => 'Для встановлення плагіну @plugin@ необхідна бібліотека <a href="@lib_url@">@lib@</a>. Бібліотеки повинні знаходитися в папці <var>lib/</var> в корені сайту. Але або цієї папки не існує, або не вистачає прав на запис. Необхідно або створити папку, або встановити права на запис (зазвичай 777).',
 	'message_erreur_maj_inconnu' => 'Неможливо поновити невідомий плагін (@id@).',

@@ -211,8 +211,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_action_stop' => 'Desinstalà lou plugin « @plugin@ » (versioun : @version@)',
 	'message_action_up' => 'Messa a jou dóu plugin « @plugin@ » (da la versioun @version@ a @version_maj@)',
 	'message_action_upon' => 'Messa a jou e ativacioun dóu plugin « @plugin@ » (versioun : @version@)',
-	'message_dependance_plugin' => 'Lou plugin @plugin@ depende da @dependance@.',
-	'message_dependance_plugin_version' => 'Lou plugin @plugin@ depende da @dependance@ @version@',
+	'message_dependance_plugin' => 'Lou plugin @plugin@ depende da @dependance@.', # MODIF
 	'message_erreur_aucun_plugin_selectionne' => 'Mìnga plugin seleciounat.',
 	'message_erreur_ecriture_lib' => '@plugin@ a da besoun de la biblioutèca <a href="@lib_url@">@lib@</a> situada en lou repertori <var>lib/</var> en la raïs dóu vouòstre sit. Pùra, aqueu repertori noun esista o noun es achessible en escritura. Devès instalà manualamen aquela biblioutèca o creà aqueu repertori en lì dounant dei permissioun d’escritura.',
 	'message_erreur_maj_inconnu' => 'Messa a jou impoussibla d’un plugin escounouissut.',

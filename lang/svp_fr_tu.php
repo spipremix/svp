@@ -212,8 +212,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_action_stop' => 'Désinstaller le plugin « @plugin@ » (version : @version@)',
 	'message_action_up' => 'Mise à jour du plugin « @plugin@ » (de la version @version@ à @version_maj@)',
 	'message_action_upon' => 'Mise à jour et activation du plugin « @plugin@ » (version : @version@)',
-	'message_dependance_plugin' => 'Le plugin @plugin@ dépend de @dependance@.',
-	'message_dependance_plugin_version' => 'Le plugin @plugin@ dépend de @dependance@ @version@',
+	'message_dependance_plugin' => 'Le plugin @plugin@ dépend de @dependance@.', # MODIF
 	'message_erreur_aucun_plugin_selectionne' => 'Aucun plugin sélectionné.',
 	'message_erreur_ecriture_lib' => '@plugin@ a besoin de la bibliothèque <a href="@lib_url@">@lib@</a> placée dans le répertoire <var>lib/</var> à la racine de votre site. Cependant, ce répertoire n’existe pas ou n’est pas accessible en écriture. Tu dois installer manuellement cette bibliothèque ou créer ce répertoire en lui donnant des permissions d’écriture.',
 	'message_erreur_maj_inconnu' => 'Mise à jour impossible d’un plugin inconnu.',
