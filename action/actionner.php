@@ -61,12 +61,16 @@ function action_actionner_dist() {
 			die();
 		}
 
+		// s'il n'y avait en tout est pour tout qu'une seule action, rediriger directement
+		if ($actionneur->progression() === 1 and count($actionneur->done) === 1) {
+			redirige_par_entete(str_replace('&amp;', '&', $url));
+		}
+		// sinon bel affichage de la progression
 		svp_redirige_boucle(
 			str_replace('&amp;', '&', $url),
 			$actionneur->presenter_derniere_action(),
 			$actionneur->progression()
 		);
-		#redirige_par_entete(str_replace('&amp;', '&', $url));
 	}
 
 	foreach ($actionneur->done as $done) {
