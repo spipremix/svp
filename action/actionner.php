@@ -117,6 +117,17 @@ function svp_redirige_boucle($url, $texte, $progres){
 	$styles = "
 		<style type='text/css'>
 		#minipres .derniere_action { font-weight:bold; }
+		#minipres div {
+			line-height:140%;
+		}
+		#minipres div.progression {
+			margin-top:2em;
+			font-weight:bold;
+			font-size:1.4em;
+			text-align:center;
+		}
+		#minipres .bar {border:1px solid #aaa;}
+		#minipres .bar div {background:#aaa;height:1em;}
 		</style>";
 
 	echo minipres(_T('svp:installation_en_cours'), $pres . $styles);
