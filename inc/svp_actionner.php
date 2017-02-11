@@ -655,6 +655,34 @@ class Actionneur {
 		unset($diff, $in, $out);
 	}
 
+	/**
+	 * Retourne le texte qui présente la dernière action qui vient d'être réalisée
+	 *
+	 * @return string
+	 **/
+	public function presenter_derniere_action() {
+		$i = end($this->done);
+		reset($this->done);
+		$texte = '';
+		if ($i) {
+			$ok = ($i['done'] ? true : false);
+			$oks = &$ok;
+			$ok_texte = $ok ? 'ok' : 'fail';
+			$cle_t = 'svp:message_action_finale_' . $i['todo'] . '_' . $ok_texte;
+			$trads = array(
+				'plugin' => $i['n'],
+				'version' => denormaliser_version($i['v']),
+			);
+			if (isset($i['maj'])) {
+				$trads['version_maj'] = denormaliser_version($i['maj']);
+			}
+			$texte = _T($cle_t, $trads);
+			if (is_string($i['done'])) {
+				$texte .= " <span class='$ok_texte'>$i[done]</span>";
+			}
+		}
+		return $texte;
+	}
 
 	/**
 	 * Retourne un bilan, texte HTML, des actions qui ont été faites
@@ -763,6 +791,17 @@ class Actionneur {
 		}
 
 		return $affiche;
+	}
+
+	/**
+	 * Retourne le pourcentage de progression des actions
+	 * @return int|float
+	 */
+	public function progression() {
+		if (count($this->done)) {
+			return count($this->done) / (count($this->done) + count($this->end));
+		}
+		return 0;
 	}
 
 	/**
