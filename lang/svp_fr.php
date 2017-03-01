@@ -99,7 +99,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'fieldset_debug' => 'Débug',
 	'fieldset_edition' => 'Édition',
 	'fieldset_fonctionnement' => 'Fonctionnement',
-	'filtrer' => 'Filtrer',
 
 	// I
 	'info_1_depot' => '1 dépôt',
@@ -255,8 +254,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'plugins_inactifs_liste' => 'Inactifs',
 	'plugins_non_verrouilles_liste' => 'Non verrouillés',
 	'plugins_verrouilles_liste' => 'Verrouillés',
-	'plugin' => 'plugin',
-	'plugins' => 'plugins',
 
 	// R
 	'resume_table_depots' => 'Liste des dépôts ajoutés',
