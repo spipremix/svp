@@ -42,7 +42,7 @@
 		<traducteur nom="Hanjo" lien="https://trad.spip.net/auteur/hanjo" />
 		<traducteur nom="Suske" lien="https://trad.spip.net/auteur/suske" />
 	</langue>
-	<langue code="oc_ni_mis" url="https://trad.spip.net/tradlang_module/svp?lang_cible=oc_ni_mis" total="248" traduits="242" relire="0" modifs="1" nouveaux="5" pourcent="97.58">
+	<langue code="oc_ni_mis" url="https://trad.spip.net/tradlang_module/svp?lang_cible=oc_ni_mis" total="248" traduits="246" relire="0" modifs="0" nouveaux="2" pourcent="99.19">
 		<traducteur nom="sylvain" lien="https://trad.spip.net/auteur/sylvain" />
 	</langue>
 	<langue code="pt_br" url="https://trad.spip.net/tradlang_module/svp?lang_cible=pt_br" total="248" traduits="248" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
