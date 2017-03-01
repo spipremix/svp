@@ -58,6 +58,7 @@
 					// on filtre les plugins
 					$('input#filtrer').keyup(function(){
 						var that = this;
+						jQuery('h1.grostitre').attr('data',$(this).val());
 						var elements_trouves = tous_les_elements.filter(function(i, li){
 							var listItemText = $(li).text().toUpperCase()
 							searchText       = that.value.toUpperCase();
@@ -101,21 +102,35 @@
 					cocher_plugins_up();
 					onAjaxLoad(cocher_plugins_up);
 					onAjaxLoad(remonter_sur_erreurs);
+					onAjaxLoad(refiltrer);
+
+					// On rechargement de la page, quand on visualise de descriptif d'un plugin
+					// on recupere et on rejoue le filtrage
+					function refiltrer(){
+						var elements_trouves = tous_les_elements.filter(function(i, li){
+							var listItemText = $(li).text().toUpperCase()
+							var searchText = jQuery('h1.grostitre').attr('data');
+							jQuery('input#filtrer').val(searchText);
+							return ~listItemText.indexOf(searchText.toUpperCase());
+						});
+						tous_les_elements.hide();
+						elements_trouves.show();
+					}
+
+					function calculer_nbr_plugin(liste_plugins){
+						var nbr_plugin = liste_plugins.length;
+						if (nbr_plugin > 1){
+							var texte = '<:svp:info_nb_plugins|attribut_html:>';
+							texte = texte.replace('@nb@', nbr_plugin);
+							jQuery('span#nbr_plugin').text(texte);
+						} else if (nbr_plugin === 1){
+							jQuery('span#nbr_plugin').text('<:svp:info_1_plugin|attribut_html:>');
+						} else {
+							jQuery('span#nbr_plugin').text('<:svp:info_0_plugin|attribut_html:>');
+						}
+					}
 				})(jQuery);
 
-				function calculer_nbr_plugin(liste_plugins){
-					var nbr_plugin = liste_plugins.length;
-					console.log(nbr_plugin);
-					if (nbr_plugin > 1){
-						var texte = '<:svp:info_nb_plugins|attribut_html:>';
-						texte = texte.replace('@nb@', nbr_plugin);
-						jQuery('span#nbr_plugin').text(texte);
-					} else if (nbr_plugin === 1){
-						jQuery('span#nbr_plugin').text('<:svp:info_1_plugin|attribut_html:>');
-					} else {
-						jQuery('span#nbr_plugin').text('<:svp:info_0_plugin|attribut_html:>');
-					}
-				}
 			/*]]>*/
 			</script>
 		</div>
