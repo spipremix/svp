@@ -11,7 +11,7 @@
 </div>
 </B_erreurs_xml>
 <div class="formulaire_spip formulaire_admin_plugin" id="formulaire_admin_plugin">
-	<h3 class="titrem">[(#CHEMIN_IMAGE{plugin-24.png}|balise_img{icone plugin-24,cadre-icone})]<:plugins_liste:></h3>
+	<h3 class="titrem">[(#CHEMIN_IMAGE{plugin-24.png}|balise_img{icone plugin-24,cadre-icone})]<span id="nbr_plugin"><:plugins_liste:></span></h3>
 	[<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
 	[<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
 	<form method="post" action="#ENV{action}">
@@ -27,6 +27,7 @@
 					[(#VAL{svp:info_admin_plugin}|concat{[_actif_(#ENV{actif, oui})], [_verrou_(#ENV{verrouille, non})]}|_T)]
 				]
 				</p>
+				<input type="input" id="filtrer" placeholder="<:svp:filtrer|attribut_html:>">
 				<INCLURE{fond=formulaires/inc-admin_plugin,env} />
 			</fieldset>
 		</div>
@@ -48,6 +49,27 @@
 			<script type="text/javascript">
 			/*<![CDATA[*/
 				(function($){
+
+					var tous_les_elements = $('div#liste_plugins ul > li');
+
+					// afficher le nombre de plugin au chargement de la page
+					calculer_nbr_plugin(tous_les_elements);
+
+					// on filtre les plugins
+					$('input#filtrer').keyup(function(){
+						var that = this;
+						var elements_trouves = tous_les_elements.filter(function(i, li){
+							var listItemText = $(li).text().toUpperCase()
+							searchText       = that.value.toUpperCase();
+							return ~listItemText.indexOf(searchText);
+						});
+						tous_les_elements.hide();
+						elements_trouves.show();
+
+						// recalculer le nombre de plugin
+						calculer_nbr_plugin(elements_trouves);
+					});
+
 					$("#select_tous").click(function(){
 						jQuery("input.select_plugin").prop("checked",true);
 						return false;
@@ -80,6 +102,20 @@
 					onAjaxLoad(cocher_plugins_up);
 					onAjaxLoad(remonter_sur_erreurs);
 				})(jQuery);
+
+				function calculer_nbr_plugin(liste_plugins){
+					var nbr_plugin = liste_plugins.length;
+					console.log(nbr_plugin);
+					if (nbr_plugin > 1){
+						var texte = '<:svp:info_nb_plugins:>';
+						texte = texte.replace('@nb@', nbr_plugin);
+						jQuery('span#nbr_plugin').text(texte);
+					} else if (nbr_plugin === 1){
+						jQuery('span#nbr_plugin').text('<:svp:info_1_plugin:>');
+					} else {
+						jQuery('span#nbr_plugin').text('<:svp:info_0_plugin:>');
+					}
+				}
 			/*]]>*/
 			</script>
 		</div>

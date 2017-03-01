@@ -100,11 +100,13 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'fieldset_debug' => 'Débug',
 	'fieldset_edition' => 'Édition',
 	'fieldset_fonctionnement' => 'Fonctionnement',
+	'filtrer' => 'Filtrer',
 
 	// I
 	'info_1_depot' => '1 dépôt',
 	'info_1_paquet' => '1 paquet',
 	'info_1_plugin' => '1 plugin',
+	'info_0_plugin' => 'Aucun plugin',
 	'info_admin_plugin_actif_non_verrou_non' => 'Cette page liste les plugins non actifs du site. Ces plugins sont forcément non verrouillés.',
 	'info_admin_plugin_actif_non_verrou_tous' => 'Cette page liste les plugins non actifs du site. Ces plugins sont forcément non verrouillés.',
 	'info_admin_plugin_actif_oui_verrou_non' => 'Cette page liste les plugins actifs et non verrouillés du site.',
