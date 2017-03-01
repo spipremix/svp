@@ -107,13 +107,13 @@
 					var nbr_plugin = liste_plugins.length;
 					console.log(nbr_plugin);
 					if (nbr_plugin > 1){
-						var texte = '<:svp:info_nb_plugins:>';
+						var texte = '<:svp:info_nb_plugins|attribut_html:>';
 						texte = texte.replace('@nb@', nbr_plugin);
 						jQuery('span#nbr_plugin').text(texte);
 					} else if (nbr_plugin === 1){
-						jQuery('span#nbr_plugin').text('<:svp:info_1_plugin:>');
+						jQuery('span#nbr_plugin').text('<:svp:info_1_plugin|attribut_html:>');
 					} else {
-						jQuery('span#nbr_plugin').text('<:svp:info_0_plugin:>');
+						jQuery('span#nbr_plugin').text('<:svp:info_0_plugin|attribut_html:>');
 					}
 				}
 			/*]]>*/
