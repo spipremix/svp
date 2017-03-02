@@ -126,4 +126,20 @@
 .svp_retour li {list-style-type:square; margin-#ENV{left}: 0.5em;}
 
 /*Filtre*/
-input#filtrer {position: absolute; z-index:1 ; top:0; right: 4px; width: 150px}
+input#filtrer {
+	position: absolute;
+	z-index:1;
+	top:4px;
+	right: 4px;
+	width: 150px;
+	background-color: #777;
+	border: 1px solid #777;
+	border-radius: 4px;
+	color: #FFF;
+	font-size: 90%;
+	padding: 3px;
+}
+input#filtrer::-webkit-input-placeholder { color:#FFF; opacity:1; }
+input#filtrer::-moz-placeholder { color:#FFF; opacity:1;}
+input#filtrer:-ms-input-placeholder { color:#FFF; opacity:1; }
+input#filtrer:-moz-placeholder { color:#FFF; opacity:1; }
