@@ -103,6 +103,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'fieldset_fonctionnement' => 'Founciounamen',
 
 	// I
+	'info_0_plugin' => 'mìnga plugin',
 	'info_1_depot' => '1 depòsiti',
 	'info_1_paquet' => '1 paquet',
 	'info_1_plugin' => '1 plugin',

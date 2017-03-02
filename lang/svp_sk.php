@@ -116,6 +116,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'fieldset_fonctionnement' => 'Fungovanie',
 
 	// I
+	'info_0_plugin' => 'žiaden zásuvný modul',
 	'info_1_depot' => '1 depozitár',
 	'info_1_paquet' => '1 balík',
 	'info_1_plugin' => '1 zásuvný modul',

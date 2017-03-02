@@ -99,6 +99,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'fieldset_fonctionnement' => 'Функціонування',
 
 	// I
+	'info_0_plugin' => 'Нема плагінів',
 	'info_1_depot' => '1 репозиторій',
 	'info_1_paquet' => '1 пакет',
 	'info_1_plugin' => '1 плагін',

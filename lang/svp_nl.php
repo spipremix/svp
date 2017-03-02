@@ -103,6 +103,7 @@ Je moet deze actie bevestigen.',
 	'fieldset_fonctionnement' => 'Werking',
 
 	// I
+	'info_0_plugin' => 'geen enkele plugin',
 	'info_1_depot' => '1 depot',
 	'info_1_paquet' => '1 pakket',
 	'info_1_plugin' => '1 plugin',

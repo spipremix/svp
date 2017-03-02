@@ -102,6 +102,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'fieldset_fonctionnement' => 'روش كار',
 
 	// I
+	'info_0_plugin' => 'هيچ پلاگين',
 	'info_1_depot' => '1 مخزن',
 	'info_1_paquet' => '1 پاكت (بسته)',
 	'info_1_plugin' => '1 پلاگين',

@@ -103,6 +103,7 @@ existiert nicht oder hat keinen Schreibrechte.
 	'fieldset_fonctionnement' => 'Funktionsweise',
 
 	// I
+	'info_0_plugin' => 'Kein Plugin',
 	'info_1_depot' => '1 Depot',
 	'info_1_paquet' => '1 Paket',
 	'info_1_plugin' => '1 Plugin',

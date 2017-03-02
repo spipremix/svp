@@ -104,6 +104,7 @@ is not created or is not writable.
 	'fieldset_fonctionnement' => 'Way it works',
 
 	// I
+	'info_0_plugin' => 'No plugin',
 	'info_1_depot' => '1 repository',
 	'info_1_paquet' => '1 package',
 	'info_1_plugin' => '1 plugin',

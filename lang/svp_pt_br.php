@@ -102,6 +102,7 @@ Você precisa confirmar esta ação.',
 	'fieldset_fonctionnement' => 'Funcionamento',
 
 	// I
+	'info_0_plugin' => 'nenhum plugin',
 	'info_1_depot' => '1 repositório',
 	'info_1_paquet' => '1 pacote',
 	'info_1_plugin' => '1 plugin',
