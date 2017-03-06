@@ -102,6 +102,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'fieldset_debug' => 'كشف الأخطاء',
 	'fieldset_edition' => 'تحرير',
 	'fieldset_fonctionnement' => 'كيفية العمل',
+	'filtrer' => 'ترشيح',
 
 	// I
 	'info_0_plugin' => 'لا وجود لأي ملحق',
