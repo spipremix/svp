@@ -102,6 +102,7 @@ is not created or is not writable.
 	'fieldset_debug' => 'Debug',
 	'fieldset_edition' => 'Editing',
 	'fieldset_fonctionnement' => 'Way it works',
+	'filtrer' => 'Filter',
 
 	// I
 	'info_0_plugin' => 'No plugin',
