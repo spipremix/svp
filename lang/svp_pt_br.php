@@ -100,6 +100,7 @@ Você precisa confirmar esta ação.',
 	'fieldset_debug' => 'Depuração',
 	'fieldset_edition' => 'Edição',
 	'fieldset_fonctionnement' => 'Funcionamento',
+	'filtrer' => 'Filtrar',
 
 	// I
 	'info_0_plugin' => 'nenhum plugin',
