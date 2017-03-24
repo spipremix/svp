@@ -120,13 +120,13 @@
 					function calculer_nbr_plugin(liste_plugins){
 						var nbr_plugin = liste_plugins.length;
 						if (nbr_plugin > 1){
-							var texte = '<:svp:info_nb_plugins|attribut_html:>';
+							var texte = '<:svp:info_nb_plugins:>';
 							texte = texte.replace('@nb@', nbr_plugin);
 							jQuery('span#nbr_plugin').text(texte);
 						} else if (nbr_plugin === 1){
-							jQuery('span#nbr_plugin').text('<:svp:info_1_plugin|attribut_html:>');
+							jQuery('span#nbr_plugin').text('<:svp:info_1_plugin:>');
 						} else {
-							jQuery('span#nbr_plugin').text('<:svp:info_0_plugin|attribut_html:>');
+							jQuery('span#nbr_plugin').text('<:svp:info_0_plugin:>');
 						}
 					}
 				})(jQuery);
