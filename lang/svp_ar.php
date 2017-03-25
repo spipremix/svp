@@ -106,7 +106,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// I
 	'info_0_plugin' => 'لا وجود لأي ملحق',
-	'info_1_depot' => 'وستودع واحد',
+	'info_1_depot' => 'مستودع واحد',
 	'info_1_paquet' => 'حزمة واحدة',
 	'info_1_plugin' => 'ملحق واحد',
 	'info_admin_plugin_actif_non_verrou_non' => 'تعرض هذه الصفحة الملحقات غير النشطة في الموقع. بالطبع هذه الملحقات غير مقفلة.',
