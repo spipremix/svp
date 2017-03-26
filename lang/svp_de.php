@@ -19,6 +19,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'actions_realises' => 'Ausgeführte Aktionen',
 	'afficher_les_plugins_incompatibles' => 'Inkompatible Plugins anzeigen',
 	'alerte_compatibilite' => 'Kompatibilität erzwungen',
+	'alerte_compatibilite_version_autorisee' => 'Mit SPIP <code>@version@</code> kompatible Plugins können aktiviert werden.', # RELIRE
 
 	// B
 	'bouton_activer' => 'Aktivieren',
@@ -101,6 +102,7 @@ existiert nicht oder hat keinen Schreibrechte.
 	'fieldset_debug' => 'Debug',
 	'fieldset_edition' => 'Bearbeiten',
 	'fieldset_fonctionnement' => 'Funktionsweise',
+	'filtrer' => 'nach Begriff filtern', # RELIRE
 
 	// I
 	'info_0_plugin' => 'Kein Plugin',
@@ -124,12 +126,14 @@ existiert nicht oder hat keinen Schreibrechte.
 	'info_aucun_plugin' => 'Kein Plugin',
 	'info_boite_charger_plugin' => '<strong>Diese Seite ist nur für den Webmaster der Site zugänglich.</strong><p>Sie ermöglicht ihnen, in den eingetragenen Depots nach Plugins zu suchen und diese auf ihrem Server zu installieren.</p>',
 	'info_boite_depot_gerer' => '<strong>Diese Seite ist nur für den Webmaster der Site zugänglich.</strong><p>Sie ermöglich das Aktualisieren und Hinzufügen von Depots für Plugins.</p>',
-	'info_charger_plugin' => 'Sie können ihrer Website ein oder mehrere Plugins hinzufügen, indem sie eine Auswahl nach ihren Kriterien treffen. Die SPIP-Galaxis wird mit ihren Kriterien nach den mit Ihrer SPIP-Version kompatiblen Plugins durchsucht und zeigt ebenfalls bereits in ihrer Website aktive Plugins an.',
+	'info_charger_plugin' => ' Sie können ihrer Website Plugins hinzufügen, indem sie Ihre Anforderungen in Form von Schlagworten eingeben. Die SPIP-Galaxie wird dann nach mit ihren Kriterien und mit Ihrer SPIP-Version kompatiblen Plugins durchsucht. Bereits in ihrer Website aktive Plugins, die zu Ihren Schlagworten passen, werden ebenfalls aufgelistet.',
 	'info_compatibilite_dependance' => 'Für @compatibilite@ :',
 	'info_contributions_hebergees' => '@total_autres@ weitere Kontributionen beherbergt',
 	'info_critere_phrase' => 'Geben sie die Schlagworte ein, nach denen in Präfix, Name, Slogan, Beschreibung und Autoren der Plugins gesucht werden soll.',
 	'info_depots_disponibles' => '@total_depots@ Depot/s',
 	'info_fichier_depot' => 'Bitte geben sie den URL der Datei ein, die den Inhalt des Depots beschreibt.<br />Um «SPIP-Zone - Plugins» hinzuzufügen, klicken sie bitte auf den Link: ',
+	'info_logiciel_version' => '@logiciel@ @signe@ @version@',
+	'info_logiciel_version_intervalle' => '@logiciel@ @signe_min@ @version_min@ und @signe_max@ @version_max@', # RELIRE
 	'info_nb_depots' => '@nb@ Depots',
 	'info_nb_paquets' => '@nb@ Pakete',
 	'info_nb_plugins' => '@nb@ Plugins',
@@ -212,7 +216,9 @@ existiert nicht oder hat keinen Schreibrechte.
 	'message_action_stop' => 'Plugin « @plugin@ » (Version: @version@) deinstallieren',
 	'message_action_up' => 'Plugin « @plugin@ » von Version @version@ auf @version_maj@ aktualisieren',
 	'message_action_upon' => 'Plugin « @plugin@ » (Version: @version@) aktualisieren und aktivieren',
-	'message_dependance_plugin' => 'Das Plugin @plugin@ benötigt @dependance@.', # MODIF
+	'message_dependance_extension_php' => 'Das Plugin @plugin@ benötigt PHP-Extension @dependance@.', # RELIRE
+	'message_dependance_php' => 'Das Plugin @plugin@ benötigt @dependance@.', # RELIRE
+	'message_dependance_plugin' => 'Das Plugin @plugin@ benötigt @dependance@.', # RELIRE
 	'message_erreur_aucun_plugin_selectionne' => 'Kein Plugin gewählt',
 	'message_erreur_ecriture_lib' => '@plugin@ benötigt die Bibliothek <a href="@lib_url@">@lib@</a> im Verzeichnis <var>lib/</var> des Wurzelverzeichnis Ihrer Website. In dieses Verzeichnis kann nicht geschrieben werden. Sie müssen @plugin@ manuell installieren oder dem Verzeichnis die erforderlichen Schreibrechte zuweisen.',
 	'message_erreur_maj_inconnu' => 'Ein unbekanntes Plugin kann nicht aktualisiert werden.',
