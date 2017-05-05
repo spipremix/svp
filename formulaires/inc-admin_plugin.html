@@ -75,6 +75,8 @@
 					[(#GET{actif}|non|ou{#GET{attente}|et{#GET{autoriser_plugins_ajouter}|oui}}|oui)
 					<input type="submit" name="[(#ID_PAQUET|svp_nom_action{on})]" class="submit" value="<:svp:bouton_activer:>" />]
 				]
+			]
+			[(#GET{obsolete}|non|et{#GET{verrou}|non}|oui)
 				[(#MAJ_VERSION|oui|et{#GET{autoriser_plugins_ajouter}|oui}|oui)
 					<input type="submit" name="[(#ID_PAQUET|svp_nom_action{up})]" class="submit" value="<:svp:bouton_up:>" />
 				]
