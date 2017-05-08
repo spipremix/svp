@@ -108,7 +108,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_admin_plugin_actif_oui_verrou_tous' => 'Esta página lista todos los plugins activos del sitio, bloqueados o no.',
 	'info_admin_plugin_verrou_non' => 'Esta página lista todos los plugins no bloqueados del sitio, activos o no.',
 	'info_admin_plugin_verrou_tous' => 'Esta página muestra todos los plugins del sitio.',
-	'info_admin_plugin_verrouille' => 'Esta página lista los plugins activos y bloqueados (situados en la carpeta <code>@dir_plugins_dist@</code>). Si quiere desactivarlos, contacte al administrador del sitio, o consulte <a href="http://programmer.spip.net/repertoire_plugins-dist">la documentación</a>.',
+	'info_admin_plugin_verrouille' => 'Esta página lista los plugins activos y bloqueados (situados en la carpeta <code>@dir_plugins_dist@</code>). Si quiere desactivarlos, contacte al administrador del sitio, o consulte <a href="https://programmer.spip.net/repertoire_plugins-dist">la documentación</a>.',
 	'info_adresse_spipzone' => 'SPIP-Zone - Plugins',
 	'info_ajouter_depot' => 'Agregando repositorios a su base, tendrá la posibilidad de obtener información y realizar búsquedas sobre todos los paquetes alojados en los repositorios agregados.<br />Un repositorio se describe por un archivo XML que contiene informaciones sobre el repositorio y todos sus paquetes.',
 	'info_aucun_depot' => 'ningún repositorio',
