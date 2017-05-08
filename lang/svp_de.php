@@ -114,7 +114,7 @@ existiert nicht oder hat keinen Schreibrechte.
 	'info_admin_plugin_verrou_tous' => 'Diese Seite zeigt alle Plugins der Website an.',
 	'info_admin_plugin_verrouille' => 'Diese Seite zeigt alle aktiven und verriegelten  (im Verzeichnis <code>@dir_plugins_dist@</code> gespeicherten) Plugins.
 	Wenn sie sie deaktivieren möchten, wenden sie sich bitte an den Webmaster,
-	oder ziehen sie die Informationen in <a href="http://programmer.spip.net/repertoire_plugins_dist">zu Rate.</a>.',
+	oder ziehen sie die Informationen in <a href="https://programmer.spip.net/repertoire_plugins_dist">zu Rate.</a>.',
 	'info_adresse_spipzone' => 'SPIP-Zone - Plugins',
 	'info_ajouter_depot' => 'Wenn sie Depots in ihre Datenbank eintragen, können sie auf die Informationen über alle dort gespeicherten Pakete zugreifen und gezielt in den im Depot vorhandenen Paketen suchen.<br />Ein Depot wird durch eine XML-Datei beschrieben, die Informationen über das Depot selbst und die in ihm gespeicherten Pakete enthält.',
 	'info_aucun_depot' => 'Kein Depot',
