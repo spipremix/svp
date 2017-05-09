@@ -117,7 +117,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_admin_plugin_verrou_tous' => 'تعرض هذه الصفحة كل الملحقات في الموقع.',
 	'info_admin_plugin_verrouille' => 'تعرض هذه الصفحة الملحقات النشطة والمقفلة (الموجودة في مجلد <code>@dir_plugins_dist@</code>). 
 في حال أردتم إيقافها، الرجاء الاتصال بالمشرفين على الموقع،
-او العودة الى <a href="https://programmer.spip.net/repertoire_plugins-dist">التوثيق</a>.',
+او العودة الى <a href="http://programmer.spip.net/repertoire_plugins-dist">التوثيق</a>.', # MODIF
 	'info_adresse_spipzone' => 'SPIP-Zone - ملحقات',
 	'info_ajouter_depot' => 'بإضافة مستودعات الى قاعدة بياناتك، يمكنك الحصول على معلومات والبحث في كل الحزم التي تشملها المستودعات المضافة.<br />ويتم وصف اي مستودع بواسطة ملف XML يحتوي معلومات المستودع وكل حزمه.',
 	'info_aucun_depot' => 'لا وجود لأي مستودع',
