@@ -56,7 +56,7 @@
 				[(#GET{slogan}|non)[(#SET{slogan,#DESCRIPTION|extraire_multi|propre|PtoBR|explode{'<br />'}|reset})]]
 				<div class="short">[(#GET{slogan}|couper{80}|svp_importer_charset)]</div>
 				[(#LOGO|et{#GET{incompatible}|non})<div class="icon">
-					[(#CONSTANTE|constant|concat{#SRC_ARCHIVE/#LOGO}|balise_img)]
+					[(#CONST{#CONSTANTE}|concat{#SRC_ARCHIVE/#LOGO}|balise_img)]
 				</div>]
 			</div>
 

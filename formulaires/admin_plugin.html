@@ -22,7 +22,7 @@
 			<fieldset>
 				<p class="explication">
 				[(#ENV{verrouille}|=={oui}|oui)
-					#SET{dir_plugins_dist,#EVAL{_DIR_PLUGINS_DIST}|joli_repertoire}
+					#SET{dir_plugins_dist,#CONST{_DIR_PLUGINS_DIST}|joli_repertoire}
 					<:svp:info_admin_plugin_verrouille{dir_plugins_dist=#GET{dir_plugins_dist}}:>
 				][(#ENV{verrouille}|=={oui}|non)
 					[(#VAL{svp:info_admin_plugin}|concat{[_actif_(#ENV{actif, oui})], [_verrou_(#ENV{verrouille, non})]}|_T)]
@@ -32,7 +32,7 @@
 			</fieldset>
 		</div>
 		<div class="actions_multiples">
-			[<fieldset class="boutons">(#VAL{'_DIR_PLUGINS_DIST'}|in_array{#ENV{constante,#ARRAY}}|non)
+			[<fieldset class="boutons">(#CONST{_DIR_PLUGINS_DIST}|in_array{#ENV{constante,#ARRAY}}|non)
 				<p class="cocher">
 					<a href="#" id="select_tous"><:svp:tout_cocher:></a><span class="sep"> | </span>
 					<a href="#" id="select_aucun"><:svp:tout_decocher:></a><span class="sep"> | </span>
