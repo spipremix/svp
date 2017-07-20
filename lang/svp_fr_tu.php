@@ -19,6 +19,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'actions_realises' => 'Actions réalisées',
 	'afficher_les_plugins_incompatibles' => 'Afficher les plugins incompatibles',
 	'alerte_compatibilite' => 'Compatibilité forcée',
+	'alerte_compatibilite_version_autorisee' => 'Les plugins compatibles avec SPIP <code>@version@</code> peuvent être activés.',
 
 	// B
 	'bouton_activer' => 'Activer',
@@ -101,6 +102,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'fieldset_debug' => 'Débug',
 	'fieldset_edition' => 'Édition',
 	'fieldset_fonctionnement' => 'Fonctionnement',
+	'filtrer' => 'Filtrer',
 
 	// I
 	'info_0_plugin' => 'aucun plugin',
@@ -116,7 +118,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_admin_plugin_verrouille' => 'Cette page liste les plugins actifs et verrouillés (placés dans le répertoire <code>@dir_plugins_dist@</code>).
 	Si tu souhaites les désactiver,
 	contacte le webmestre du site,
-	ou reporte-toi <a href="http://programmer.spip.net/repertoire_plugins-dist">à la documentation</a>.', # MODIF
+	ou reporte-toi <a href="https://programmer.spip.net/repertoire_plugins-dist">à la documentation</a>.',
 	'info_adresse_spipzone' => 'SPIP-Zone - Plugins',
 	'info_ajouter_depot' => 'En ajoutant des dépôts à votre base, tu auras la possiblité d’obtenir des informations et d’effectuer des recherches sur tous les paquets hébergés par les dépôts ajoutés.<br />Un dépôt est décrit par un fichier XML contenant les informations sur le dépôt et sur tous ses paquets.',
 	'info_aucun_depot' => 'aucun dépôt',
@@ -131,6 +133,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_critere_phrase' => 'Saisis les mots-clés à chercher dans le préfixe, le nom, le slogan, la description et les auteurs des plugins',
 	'info_depots_disponibles' => '@total_depots@ dépôt(s)',
 	'info_fichier_depot' => 'Saisis l’url du fichier de description du dépôt à ajouter.<br />Pour ajouter le dépôt « SPIP-Zone - Plugins » clique sur ce lien : ',
+	'info_logiciel_version' => '@logiciel@ @signe@ @version@',
+	'info_logiciel_version_intervalle' => '@logiciel@ @signe_min@ @version_min@ et @signe_max@ @version_max@',
 	'info_nb_depots' => '@nb@ dépôts',
 	'info_nb_paquets' => '@nb@ paquets',
 	'info_nb_plugins' => '@nb@ plugins',
@@ -213,7 +217,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_action_stop' => 'Désinstaller le plugin « @plugin@ » (version : @version@)',
 	'message_action_up' => 'Mise à jour du plugin « @plugin@ » (de la version @version@ à @version_maj@)',
 	'message_action_upon' => 'Mise à jour et activation du plugin « @plugin@ » (version : @version@)',
-	'message_dependance_plugin' => 'Le plugin @plugin@ dépend de @dependance@.', # MODIF
+	'message_dependance_extension_php' => 'Le plugin @plugin@ nécessite l’extension PHP @dependance@.',
+	'message_dependance_php' => 'Le plugin @plugin@ nécessite @dependance@',
+	'message_dependance_plugin' => 'Le plugin @plugin@ dépend de @dependance@.',
 	'message_erreur_aucun_plugin_selectionne' => 'Aucun plugin sélectionné.',
 	'message_erreur_ecriture_lib' => '@plugin@ a besoin de la bibliothèque <a href="@lib_url@">@lib@</a> placée dans le répertoire <var>lib/</var> à la racine de votre site. Cependant, ce répertoire n’existe pas ou n’est pas accessible en écriture. Tu dois installer manuellement cette bibliothèque ou créer ce répertoire en lui donnant des permissions d’écriture.',
 	'message_erreur_maj_inconnu' => 'Mise à jour impossible d’un plugin inconnu.',
