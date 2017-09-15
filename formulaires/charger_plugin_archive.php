@@ -59,8 +59,8 @@ function formulaires_charger_plugin_archive_verifier_dist() {
 				$nom = basename($dir);
 				$backup = "$base/.$nom.bck";
 				$erreurs['confirmer'] = _T("svp:confirmer_telecharger_dans", array(
-					'dir' => joli_repertoire($dir),
-					'dir_backup' => joli_repertoire($backup)
+					'dir' => entites_html(joli_repertoire($dir)),
+					'dir_backup' => entites_html(joli_repertoire($backup))
 				));
 			}
 		}
@@ -90,7 +90,7 @@ function formulaires_charger_plugin_archive_traiter_dist() {
 		$retour['message_erreur'] = $ok;
 	} else {
 		$retour['message_ok'] = _T('svp:message_telechargement_archive_effectue',
-			array('dir' => joli_repertoire(_DIR_PLUGINS_AUTO . $dest)));
+			array('dir' => entites_html(joli_repertoire(_DIR_PLUGINS_AUTO . $dest))));
 	}
 	$retour['editable'] = true;
 
