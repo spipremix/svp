@@ -48,7 +48,7 @@ function svp_ajouter_depot($url, &$erreur = '') {
 	// on recupère le XML
 	$fichier_xml = copie_locale($url, 'modif');
 	if (!$fichier_xml) {
-		$erreur = _T('svp:message_nok_xml_non_recupere', array('fichier' => entites_html($url)));
+		$erreur = _T('svp:message_nok_xml_non_recupere', array('fichier' => $url));
 
 		return false;
 	}
@@ -58,7 +58,7 @@ function svp_ajouter_depot($url, &$erreur = '') {
 	// Lire les donnees d'un depot de paquets
 	$infos = svp_phraser_depot($fichier_xml);
 	if (!$infos) {
-		$erreur = _T('svp:message_nok_xml_non_conforme', array('fichier' => entites_html($url)));
+		$erreur = _T('svp:message_nok_xml_non_conforme', array('fichier' => $url));
 
 		return false;
 	}
@@ -82,11 +82,11 @@ function svp_ajouter_depot($url, &$erreur = '') {
 	// verifier avant l'insertion que le depot n'existe pas deja
 	// car la recuperation pouvant etre longue on risque le probleme en cas de concurrence
 	if (sql_countsel('spip_depots', 'xml_paquets=' . sql_quote($url))) {
-		$erreur = _T('svp:message_nok_depot_deja_ajoute', array('url' => entites_html($url)));
+		$erreur = _T('svp:message_nok_depot_deja_ajoute', array('url' => $url));
 
 		return false;
 	} elseif (!$id_depot = sql_insertq('spip_depots', $champs)) {
-		$erreur = _T('svp:message_nok_sql_insert_depot', array('objet' => entites_html("$titre ($url)")));
+		$erreur = _T('svp:message_nok_sql_insert_depot', array('objet' => "$titre ($url)"));
 
 		return false;
 	}
@@ -97,9 +97,9 @@ function svp_ajouter_depot($url, &$erreur = '') {
 		// Si une erreur s'est produite, on supprime le depot deja insere
 		sql_delete('spip_depots', 'id_depot=' . sql_quote($id_depot));
 		if (!$ok) {
-			$erreur = _T('svp:message_nok_xml_non_conforme', array('fichier' => entites_html($url)));
+			$erreur = _T('svp:message_nok_xml_non_conforme', array('fichier' => $url));
 		} else {
-			$erreur = _T('svp:message_nok_aucun_paquet_ajoute', array('url' => entites_html($url)));
+			$erreur = _T('svp:message_nok_aucun_paquet_ajoute', array('url' => $url));
 		}
 
 		return false;

@@ -53,7 +53,7 @@ function teleporter_http_dist($methode, $source, $dest, $options = array()) {
 			rename($old, $dest);
 		}
 
-		return _T('svp:erreur_teleporter_echec_deballage_archive', array('fichier' => entites_html($fichier)));
+		return _T('svp:erreur_teleporter_echec_deballage_archive', array('fichier' => $fichier));
 	}
 
 	return true;
@@ -118,7 +118,7 @@ function teleporter_http_recuperer_source($source, $dest_tmp) {
 	if (!$extension) {
 		spip_log("Type de fichier inconnu pour la source $source", "teleport" . _LOG_ERREUR);
 
-		return _T('svp:erreur_teleporter_type_fichier_inconnu', array('source' => entites_html($source)));
+		return _T('svp:erreur_teleporter_type_fichier_inconnu', array('source' => $source));
 	}
 
 	$dest_tmp = preg_replace(";\.[\w]{2,3}$;i", "", $dest_tmp) . ".$extension";
@@ -133,7 +133,7 @@ function teleporter_http_recuperer_source($source, $dest_tmp) {
 	) {
 		spip_log("Chargement impossible de la source $source", "teleport" . _LOG_ERREUR);
 
-		return _T('svp:erreur_teleporter_chargement_source_impossible', array('source' => entites_html($source)));
+		return _T('svp:erreur_teleporter_chargement_source_impossible', array('source' => $source));
 	}
 
 	return array($dest_tmp, $extension);

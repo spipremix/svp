@@ -43,10 +43,10 @@ function formulaires_ajouter_depot_verifier_dist() {
 		$erreurs['xml_paquets'] = _T('svp:message_nok_champ_obligatoire');
 	} elseif (!svp_verifier_adresse_depot($xml)) {
 		// L'url n'est pas correcte, le fichier xml n'a pas ete trouve
-		$erreurs['xml_paquets'] = _T('svp:message_nok_url_depot_incorrecte', array('url' => entites_html($xml)));
+		$erreurs['xml_paquets'] = _T('svp:message_nok_url_depot_incorrecte', array('url' => $xml));
 	} elseif (sql_countsel('spip_depots', 'xml_paquets=' . sql_quote($xml))) {
 		// L'url est deja ajoutee
-		$erreurs['xml_paquets'] = _T('svp:message_nok_depot_deja_ajoute', array('url' => entites_html($xml)));
+		$erreurs['xml_paquets'] = _T('svp:message_nok_depot_deja_ajoute', array('url' => $xml));
 	}
 
 	return $erreurs;
@@ -79,7 +79,7 @@ function formulaires_ajouter_depot_traiter_dist() {
 	if (!$ok) {
 		$retour['message_erreur'] = $erreur;
 	} else {
-		$retour['message_ok'] = _T('svp:message_ok_depot_ajoute', array('url' => entites_html($xml)));
+		$retour['message_ok'] = _T('svp:message_ok_depot_ajoute', array('url' => $xml));
 		spip_log("ACTION AJOUTER DEPOT (manuel) : url = " . $xml, 'svp_actions.' . _LOG_INFO);
 	}
 	$retour['editable'] = true;
