@@ -104,17 +104,19 @@
 					onAjaxLoad(remonter_sur_erreurs);
 					onAjaxLoad(refiltrer);
 
-					// On rechargement de la page, quand on visualise de descriptif d'un plugin
-					// on recupere et on rejoue le filtrage
+					// Au rechargement de la page et lors du chargement du descriptif d'un plugin
+					// on recupere l'éventuel filtre et on l'applique si présent
 					function refiltrer(){
-						var elements_trouves = tous_les_elements.filter(function(i, li){
-							var listItemText = $(li).text().toUpperCase()
-							var searchText = jQuery('h1.grostitre').attr('data');
-							jQuery('input#filtrer').val(searchText);
-							return ~listItemText.indexOf(searchText.toUpperCase());
-						});
-						tous_les_elements.hide();
-						elements_trouves.show();
+						if (jQuery('h1.grostitre').attr('data')) {
+							var elements_trouves = tous_les_elements.filter(function(i, li){
+								var listItemText = $(li).text().toUpperCase()
+								var searchText = jQuery('h1.grostitre').attr('data');
+								jQuery('input#filtrer').val(searchText);
+								return ~listItemText.indexOf(searchText.toUpperCase());
+							});
+							tous_les_elements.hide();
+							elements_trouves.show();
+						}
 					}
 
 					function calculer_nbr_plugin(liste_plugins){
