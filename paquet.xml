@@ -26,5 +26,5 @@
 	<pipeline nom="ajouter_onglets" inclure="svp_pipelines.php" />
 	<pipeline nom="ieconfig_metas" inclure="svp_ieconfig.php" />
 
-	<necessite nom="archiviste" compatibilite="[0.2.1;]" />
+	<necessite nom="archiviste" compatibilite="[0.3.0;]" />
 </paquet>
