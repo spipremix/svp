@@ -87,7 +87,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 غير موجود او ممنوع من الكتابة.
 <strong>يجب إنشاؤه للتمكن من تثبيت ملحقات جديدة من هذه الواجهة.</strong>',
 	'erreur_dir_plugins_auto_ecriture' => 'مجلد الحزم @dir@ غير متاح للكتابة. لا يمكن تغيير اي حزمة داخله!',
-	'erreur_dir_plugins_auto_indefini' => 'المجلد _DIR_PLUGIN_AUTO غير محدد. لا يمكن تغيير اي حزمة داخله!',
+	'erreur_dir_plugins_auto_indefini' => 'المجلد _DIR_PLUGIN_AUTO غير محدد. لا يمكن تغيير اي حزمة داخله!', # MODIF
 	'erreur_dir_plugins_auto_titre' => 'لا يمكن الوصول الى «plugins/auto»!',
 	'erreur_teleporter_chargement_source_impossible' => 'لا يمكن تحميل المصدر @source@',
 	'erreur_teleporter_destination_erreur' => 'لا يمكن الوصول الى مجلد @dir@ للنقل البعيد',

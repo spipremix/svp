@@ -86,7 +86,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'erreur_dir_plugins_auto' => 'پوشه‌ي «plugins/auto»  كه اجازه‌ي بارگذاري پاكت‌ها را مي‌دهد ايجاد نشده يا در دسترس نوشتن نيست. 
 		<strong>براي آنكه بتوانيد پلاگين‌هاي جديد را از طريق اين واسطه بارگذاري كنيد بايد آن پوشه را بسازيد.</strong>',
 	'erreur_dir_plugins_auto_ecriture' => 'پوشه‌ي پاكت‌هاي  @dir@ قابل نوشتن نيست. بارگذاري يك پاكت مقدور نيست.',
-	'erreur_dir_plugins_auto_indefini' => 'پوشيه‌ي _DIR_PLUGIN_AUTO تعريف نشده. جستجوي يك پاكت ممكن نيست. ',
+	'erreur_dir_plugins_auto_indefini' => 'پوشيه‌ي _DIR_PLUGIN_AUTO تعريف نشده. جستجوي يك پاكت ممكن نيست. ', # MODIF
 	'erreur_dir_plugins_auto_titre' => '« plugins/auto »غيرقابل دسترس !',
 	'erreur_teleporter_chargement_source_impossible' => 'بارگذاري اين منبع @source@ ممكن نيست',
 	'erreur_teleporter_destination_erreur' => 'پوشه‌ي @dir@ براي انتقال دردسترس نيست',

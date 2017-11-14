@@ -86,7 +86,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 		noun es creà o noun es achessible en escritura.
 		<strong>Lou devès creà per poudé instalà de nouvèu plugin despì aquela interfaça.</strong>',
 	'erreur_dir_plugins_auto_ecriture' => 'Lou repertori dei paquet @dir@ noun es achessible en escritura. Empoussible de lì cargà un paquet !',
-	'erreur_dir_plugins_auto_indefini' => 'Lou repertori _DIR_PLUGIN_AUTO noun es definit. Empoussible de lì cargà un paquet !',
+	'erreur_dir_plugins_auto_indefini' => 'Lou repertori _DIR_PLUGIN_AUTO noun es definit. Empoussible de lì cargà un paquet !', # MODIF
 	'erreur_dir_plugins_auto_titre' => '« plugins/auto » es inachessible !',
 	'erreur_teleporter_chargement_source_impossible' => 'Empoussible de cargà lou sourgent @source@',
 	'erreur_teleporter_destination_erreur' => 'Repertori @dir@ noun achessible da telepourtà',

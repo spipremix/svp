@@ -87,7 +87,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 existiert nicht oder hat keinen Schreibrechte.
 		<strong>Sie müssen es anlegen, um mit diesem Interface neue Plugins zu installieren.</strong>',
 	'erreur_dir_plugins_auto_ecriture' => 'Das Verzeichnis für Pakete @dir@ hat keine Schreibrechte. Es ist so nicht möglich, Pakte zu laden!',
-	'erreur_dir_plugins_auto_indefini' => 'Das Verzeichnis _DIR_PLUGIN_AUTO wurde nicht definiert. Das ist erforderlich, um dort Pakete zu laden!',
+	'erreur_dir_plugins_auto_indefini' => 'Das Verzeichnis _DIR_PLUGIN_AUTO wurde nicht definiert. Das ist erforderlich, um dort Pakete zu laden!', # MODIF
 	'erreur_dir_plugins_auto_titre' => 'auf « plugins/auto » kann nicht zugegriffen werden!',
 	'erreur_teleporter_chargement_source_impossible' => 'Die Quelle source @source@ kann nicht geladen werden.',
 	'erreur_teleporter_destination_erreur' => 'Das Verzeichnis @dir@ ist für Datenübertragungen nicht zugänglich.',
@@ -115,9 +115,9 @@ existiert nicht oder hat keinen Schreibrechte.
 	'info_admin_plugin_actif_oui_verrou_tous' => 'Diese Seite zeigt alle aktiven Plugins der Website, auch die verriegelten.',
 	'info_admin_plugin_verrou_non' => 'Diese Seite zeigt alle nicht gesperrten, aktiven und deaktivierten Plugins der Seite an.',
 	'info_admin_plugin_verrou_tous' => 'Diese Seite zeigt alle Plugins der Website an.',
-	'info_admin_plugin_verrouille' => 'Diese Seite zeigt alle aktiven und verriegelten  (im Verzeichnis <code>@dir_plugins_dist@</code> gespeicherten) Plugins.
+	'info_admin_plugin_verrouille' => 'Diese Seite zeigt alle aktiven und verriegelten Plugins im Verzeichnis <code>@dir_plugins_dist@</code>.
 	Wenn sie sie deaktivieren möchten, wenden sie sich bitte an den Webmaster,
-	oder ziehen sie die Informationen in <a href="http://programmer.spip.net/repertoire_plugins_dist">zu Rate.</a>.', # MODIF
+	oder ziehen sie die Informationen in <a href="https://programmer.spip.net/repertoire_plugins-dist">zu Rate.</a>.',
 	'info_adresse_spipzone' => 'SPIP-Zone - Plugins',
 	'info_ajouter_depot' => 'Wenn sie Depots in ihre Datenbank eintragen, können sie auf die Informationen über alle dort gespeicherten Pakete zugreifen und gezielt in den im Depot vorhandenen Paketen suchen.<br />Ein Depot wird durch eine XML-Datei beschrieben, die Informationen über das Depot selbst und die in ihm gespeicherten Pakete enthält.',
 	'info_aucun_depot' => 'Kein Depot',

@@ -87,7 +87,7 @@ You must confirm this action.',
 is not created or is not writable.
 <strong> You must create it in order to install new plugins from that interface. </ strong>',
 	'erreur_dir_plugins_auto_ecriture' => 'The package directory @dir@ is not writable. Unable to load a package!',
-	'erreur_dir_plugins_auto_indefini' => 'The folder _DIR_PLUGIN_AUTO is not defined. Impossible to load a package in it!',
+	'erreur_dir_plugins_auto_indefini' => 'The folder _DIR_PLUGIN_AUTO is not defined. Impossible to load a package in it!', # MODIF
 	'erreur_dir_plugins_auto_titre' => '"plugins/auto" is inaccessible!',
 	'erreur_teleporter_chargement_source_impossible' => 'Impossible to load the source @source@',
 	'erreur_teleporter_destination_erreur' => 'Directory "@dir@" is not accessible to teleport',

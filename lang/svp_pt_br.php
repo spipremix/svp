@@ -85,7 +85,7 @@ Você precisa confirmar esta ação.',
 	'erreur_dir_dib_indefini' => 'O diretório _DIR_LIB não foi definido. Não foi possível carregar uma biblioteca!',
 	'erreur_dir_plugins_auto' => 'O diretório «plugins/auto», que permite transferir os pacotes, não foi criado ou não está acessível para escrita. <strong>Você precisa criá-lo para instalar novos plugins a partir desta interface.</strong>',
 	'erreur_dir_plugins_auto_ecriture' => 'O diretório de pacotes @dir@ não está acessível para escrita. Não é possível carregar um pacote!',
-	'erreur_dir_plugins_auto_indefini' => 'O diretório _DIR_PLUGIN_AUTO não foi definido. Não foi possível carregar um pacote!',
+	'erreur_dir_plugins_auto_indefini' => 'O diretório _DIR_PLUGIN_AUTO não foi definido. Não foi possível carregar um pacote!', # MODIF
 	'erreur_dir_plugins_auto_titre' => '«plugins/auto» está inacessível!',
 	'erreur_teleporter_chargement_source_impossible' => 'Impossível fazer o carregamento da fonte @source@',
 	'erreur_teleporter_destination_erreur' => 'Diretório @dir@ inacessível para teleportar',

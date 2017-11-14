@@ -100,7 +100,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 		nebol vytvorený alebo sa doň nedá zapisovať.
 		<strong>Musíte ho vytvoriť, aby ste si pomocou tohto rozhrania mohli nainštalovať nové zásuvné moduly.</strong>',
 	'erreur_dir_plugins_auto_ecriture' => 'Do priečinka s balíkmi @dir@ sa nedá zapisovať. Balík sa nedá spustiť!',
-	'erreur_dir_plugins_auto_indefini' => 'Priečinok _DIR_PLUGIN_AUTO nie je definovaný. Balík sa nedá spustiť!',
+	'erreur_dir_plugins_auto_indefini' => 'Priečinok _DIR_PLUGIN_AUTO nie je definovaný. Balík sa nedá spustiť!', # MODIF
 	'erreur_dir_plugins_auto_titre' => 'K umiestneniu "plugins/auto" sa nedá dostať!',
 	'erreur_teleporter_chargement_source_impossible' => 'Zdroj @source@ sa nedá nahrať',
 	'erreur_teleporter_destination_erreur' => 'Program na premiestňovanie nemá prístup k priečinku @dir@',
