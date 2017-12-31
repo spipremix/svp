@@ -87,7 +87,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 existiert nicht oder hat keinen Schreibrechte.
 		<strong>Sie müssen es anlegen, um mit diesem Interface neue Plugins zu installieren.</strong>',
 	'erreur_dir_plugins_auto_ecriture' => 'Das Verzeichnis für Pakete @dir@ hat keine Schreibrechte. Es ist so nicht möglich, Pakte zu laden!',
-	'erreur_dir_plugins_auto_indefini' => 'Das Verzeichnis _DIR_PLUGIN_AUTO wurde nicht definiert. Das ist erforderlich, um dort Pakete zu laden!', # MODIF
+	'erreur_dir_plugins_auto_indefini' => 'Das Verzeichnis _DIR_PLUGIN_AUTO ist nicht definiert. Es wird benötigt, um Plugin-Pakete zu laden!',
 	'erreur_dir_plugins_auto_titre' => 'auf « plugins/auto » kann nicht zugegriffen werden!',
 	'erreur_teleporter_chargement_source_impossible' => 'Die Quelle source @source@ kann nicht geladen werden.',
 	'erreur_teleporter_destination_erreur' => 'Das Verzeichnis @dir@ ist für Datenübertragungen nicht zugänglich.',
