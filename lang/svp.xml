@@ -2,6 +2,10 @@
 	<langue code="ar" url="https://trad.spip.net/tradlang_module/svp?lang_cible=ar" total="250" traduits="250" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
 		<traducteur nom="George" lien="https://trad.spip.net/auteur/جورج-قندلفت" />
 	</langue>
+	<langue code="br" url="https://trad.spip.net/tradlang_module/svp?lang_cible=br" total="250" traduits="146" relire="0" modifs="0" nouveaux="104" pourcent="58.40">
+		<traducteur nom="kerivo" lien="https://trad.spip.net/auteur/kerivo" />
+		<traducteur nom="nonobreizh" lien="https://trad.spip.net/auteur/nonobreizh" />
+	</langue>
 	<langue code="de" url="https://trad.spip.net/tradlang_module/svp?lang_cible=de" total="250" traduits="250" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
 		<traducteur nom="klaus++" lien="https://trad.spip.net/auteur/klaus" />
 		<traducteur nom="Torsten Willmann" lien="https://trad.spip.net/auteur/torsten-willmann" />
@@ -46,7 +50,7 @@
 	<langue code="oc_ni_mis" url="https://trad.spip.net/tradlang_module/svp?lang_cible=oc_ni_mis" total="250" traduits="245" relire="0" modifs="2" nouveaux="3" pourcent="98.00">
 		<traducteur nom="sylvain" lien="https://trad.spip.net/auteur/sylvain" />
 	</langue>
-	<langue code="pt_br" url="https://trad.spip.net/tradlang_module/svp?lang_cible=pt_br" total="250" traduits="248" relire="0" modifs="2" nouveaux="0" pourcent="99.20">
+	<langue code="pt_br" url="https://trad.spip.net/tradlang_module/svp?lang_cible=pt_br" total="250" traduits="250" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
 		<traducteur nom="Ricardo Porto" lien="https://trad.spip.net/auteur/ricardo-porto" />
 	</langue>
 	<langue code="ru" url="https://trad.spip.net/tradlang_module/svp?lang_cible=ru" total="250" traduits="241" relire="0" modifs="3" nouveaux="6" pourcent="96.40">
