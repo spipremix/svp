@@ -10,6 +10,12 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// C
+	'categorie_navigation' => 'Navigado, serĉo, aranĝo',
+	'categorie_outil' => 'Programada ilo',
+	'categorie_performance' => 'Optimumigo, rendimento, sekureco',
+	'categorie_squelette' => 'Skeleto',
+	'categorie_statistique' => 'Optimumigo de serĉilo, statistikoj',
+	'categorie_theme' => 'Etoso',
 	'config_activer_log_verbeux' => 'Aktivigi malkoncizan protokolon ?',
 	'config_activer_log_verbeux_explication' => 'Tiu opcio igas la protokolon multe pli malkonciza...',
 	'config_activer_pas_a_pas' => 'Aktivi la popaŝan reĝimon ?',

@@ -18,7 +18,7 @@
 		<traducteur nom="kent1" lien="https://trad.spip.net/auteur/kent1" />
 		<traducteur nom="Paolo" lien="https://trad.spip.net/auteur/paolo" />
 	</langue>
-	<langue code="eo" url="https://trad.spip.net/tradlang_module/svp?lang_cible=eo" total="250" traduits="173" relire="0" modifs="0" nouveaux="77" pourcent="69.20">
+	<langue code="eo" url="https://trad.spip.net/tradlang_module/svp?lang_cible=eo" total="250" traduits="179" relire="0" modifs="0" nouveaux="71" pourcent="71.60">
 		<traducteur nom="gpl" lien="https://trad.spip.net/auteur/gpl" />
 	</langue>
 	<langue code="es" url="https://trad.spip.net/tradlang_module/svp?lang_cible=es" total="250" traduits="241" relire="0" modifs="3" nouveaux="6" pourcent="96.40">
