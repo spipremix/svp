@@ -55,6 +55,10 @@ function exec_admin_plugin_dist() {
 	if ($new and _request('actualise') < 2) {
 		$url = parametre_url(self(), 'actualise', _request('actualise') + 1, '&');
 		include_spip('inc/headers');
+		if (isset($GLOBALS['fichier_php_compile_recent'])) {
+			// attendre eventuellement l'invalidation du cache opcode
+			spip_attend_invalidation_opcode_cache($GLOBALS['fichier_php_compile_recent']);
+		}
 		echo redirige_formulaire($url);
 		exit;
 	}
