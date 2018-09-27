@@ -23,9 +23,9 @@ if (!defined("_ECRIRE_INC_VERSION")) {
  *     Déclaration des sauvegardes complétées
  **/
 function svp_ieconfig_metas($table) {
-	$table['svp']['titre'] = _T('svp:titre_page_configurer');
-	$table['svp']['icone'] = 'svp-16.png';
-	$table['svp']['metas_serialize'] = 'svp';
+	$table['svp_meta']['titre'] = _T('svp:titre_page_configurer');
+	$table['svp_meta']['icone'] = 'svp-16.png';
+	$table['svp_meta']['metas_serialize'] = 'svp';
 
 	return $table;
 }
