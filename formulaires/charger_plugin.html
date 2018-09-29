@@ -58,7 +58,7 @@
 				</div>
 			</fieldset>
 
-		<p class="boutons recherche"><input type="submit" name="rechercher" class="submit" value="<:info_rechercher:>" /></p>
+		<p class="boutons recherche"><input type="submit" name="rechercher" class="btn submit" value="<:info_rechercher:>" /></p>
 		</div>
 
 		[(#ENV{phrase}|ou{#ENV{depot}}|ou{#ENV{categorie}}|ou{#ENV{etat}|ou{#ENV{doublon}}}|oui)
@@ -68,8 +68,8 @@
 				<INCLURE{fond=formulaires/inc-plugins_trouves, plugins=#ENV*{message_ok}|table_valeur{plugins}, env} />
 			</fieldset>
 			<p class="boutons actions"[(#ENV{ids_paquet}|non) style="display:none"]>
-				<input type="submit" name="telecharger" class="submit" value="<:bouton_telecharger:>" />
-				<input type="submit" name="installer" class="submit" value="<:svp:bouton_installer:>" />
+				<input type="submit" name="telecharger" class="btn submit" value="<:bouton_telecharger:>" />
+				<input type="submit" name="installer" class="btn submit" value="<:svp:bouton_installer:>" />
 			</p>
 		</div>]
 	</form>

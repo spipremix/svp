@@ -64,31 +64,31 @@
 			[(#REM) on peut desactiver un plugin - qu'il soit obsolete ou pas ]
 			[(#GET{verrou}|non|et{#GET{incompatible}|non}|oui)
 				[(#GET{actif})
-					<input type="submit" name="[(#ID_PAQUET|svp_nom_action{off})]" class="submit" value="<:svp:bouton_desactiver:>" />
+					<input type="submit" name="[(#ID_PAQUET|svp_nom_action{off})]" class="btn submit" value="<:svp:bouton_desactiver:>" />
 					[(#INSTALLE|=={oui}|et{#GET{autoriser_webmestre}}|oui)
-						<input type="submit" name="[(#ID_PAQUET|svp_nom_action{stop})]" class="submit" value="<:svp:bouton_desinstaller:>" />
+						<input type="submit" name="[(#ID_PAQUET|svp_nom_action{stop})]" class="btn submit" value="<:svp:bouton_desinstaller:>" />
 					]
 				]
 			]
 			[(#GET{obsolete}|non|et{#GET{verrou}|non}|et{#GET{incompatible}|non}|oui)
 				[(#GET{actif}|non|ou{#GET{attente}})
 					[(#GET{actif}|non|ou{#GET{attente}|et{#GET{autoriser_plugins_ajouter}|oui}}|oui)
-					<input type="submit" name="[(#ID_PAQUET|svp_nom_action{on})]" class="submit" value="<:svp:bouton_activer:>" />]
+					<input type="submit" name="[(#ID_PAQUET|svp_nom_action{on})]" class="btn submit" value="<:svp:bouton_activer:>" />]
 				]
 			]
 			[(#GET{obsolete}|non|et{#GET{verrou}|non}|oui)
 				[(#MAJ_VERSION|oui|et{#GET{autoriser_plugins_ajouter}|oui}|oui)
-					<input type="submit" name="[(#ID_PAQUET|svp_nom_action{up})]" class="submit" value="<:svp:bouton_up:> &rarr; #MAJ_VERSION" />
+					<input type="submit" name="[(#ID_PAQUET|svp_nom_action{up})]" class="btn submit" value="<:svp:bouton_up:> &rarr; #MAJ_VERSION" />
 				]
 			]
 			[(#REM) si la configuration le permet, on peut activer un plugin obsolete ]
 			[(#GET{obsolete}|et{#GET{verrou}|non}|et{#GET{incompatible}|non}|oui)
 				[(#GET{actif}|non|et{#CONFIG{svp/autoriser_activer_paquets_obsoletes}|=={oui}})
-					<input type="submit" name="[(#ID_PAQUET|svp_nom_action{on})]" class="submit" value="<:svp:bouton_activer:>" />
+					<input type="submit" name="[(#ID_PAQUET|svp_nom_action{on})]" class="btn submit" value="<:svp:bouton_activer:>" />
 				]
 			]
 			[(#GET{actif}|non|et{[(#SRC_ARCHIVE|couper{5}|=={auto/})]})
-				<input type="submit" name="[(#ID_PAQUET|svp_nom_action{kill})]" class="submit" value="<:svp:bouton_supprimer:>" />
+				<input type="submit" name="[(#ID_PAQUET|svp_nom_action{kill})]" class="btn submit" value="<:svp:bouton_supprimer:>" />
 			]
 			[(#GET{verrou})
 				<span class="svp_message"><:svp:info_verrouille:></span>
