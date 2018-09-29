@@ -28,7 +28,8 @@ function plugins_preparer_sql_paquet($plugin) {
 	include_spip('inc/svp_outiller');
 
 	$champs = array();
-	if (!$plugin) {
+	// Se méfier des plugins en erreur
+	if (!$plugin or !empty($plugin[1]['erreur'])) {
 		return $champs;
 	}
 

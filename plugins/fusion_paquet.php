@@ -33,7 +33,8 @@ function plugins_fusion_paquet($plugins) {
 	global $balises_techniques;
 
 	$fusion = array();
-	if (!$plugins) {
+	// mefions nous des $plugins['erreur'] (mauvais xml du paquet.xml)
+	if (!$plugins or empty($plugins[0])) {
 		return $fusion;
 	}
 
