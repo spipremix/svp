@@ -750,7 +750,7 @@ class Actionneur {
 			$affiche .= boite_ouvrir(_T('svp:actions_realises'), ($oks ? 'success' : 'notice')) . $done . boite_fermer();
 		}
 
-		if (count($this->end)) {
+		if (isset($this->end) and count($this->end)) {
 			$todo = "<ul>";
 			foreach ($this->end as $i) {
 				$todo .= "\t<li>" . _T('svp:message_action_' . $i['todo'], array(
