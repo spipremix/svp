@@ -31,7 +31,7 @@ function action_actualiser_depot_dist() {
 	include_spip('inc/svp_depoter_distant');
 	if ($arg === 'tout') {
 		if ($ids_depots = sql_allfetsel('id_depot', 'spip_depots')) {
-			$ids_depots = array_map('reset', $ids_depots);
+			$ids_depots = array_column($ids_depots, 'id_depot');
 			foreach ($ids_depots as $_id_depot) {
 				svp_actualiser_depot($_id_depot);
 			}

@@ -115,7 +115,7 @@ function svp_rechercher_plugins_spip(
 		}
 	} else {
 		if ($ids_paquets = sql_allfetsel('id_paquet', 'spip_paquets')) {
-			$ids_paquets = array_map('reset', $ids_paquets);
+			$ids_paquets = array_column($ids_paquets, 'id_paquet');
 			foreach ($ids_paquets as $_id) {
 				$scores[$_id] = 0;
 			}
@@ -242,7 +242,7 @@ function svp_lister_plugins_installes() {
 	//   Il se peut que certains plugins ne soient pas trouves dans la bdd car aucun zip n'est disponible
 	//   (donc pas inclus dans archives.xml). C'est le cas des plugins_dist du core
 	$ids = sql_allfetsel('id_plugin', 'spip_plugins', sql_in('prefixe', array_keys($plugins)));
-	$ids = array_map('reset', $ids);
+	$ids = array_column($ids, 'id_plugin');
 	$ids = array_map('intval', $ids);
 
 	return $ids;

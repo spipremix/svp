@@ -454,7 +454,7 @@ function svp_compter($entite, $id_depot = 0, $categorie = '', $compatible_spip =
 	} elseif ($entite == 'paquet') {
 		if ($categorie) {
 			$ids = sql_allfetsel('id_plugin', 'spip_plugins', 'categorie=' . sql_quote($categorie));
-			$ids = array_map('reset', $ids);
+			$ids = array_column($ids, 'id_plugin');
 			$where[] = sql_in('t1.id_plugin', $ids);
 		}
 		if ($compatible_spip) {
@@ -476,7 +476,7 @@ function svp_compter($entite, $id_depot = 0, $categorie = '', $compatible_spip =
 		$where = array();
 		if ($id_depot) {
 			$ids = sql_allfetsel('id_plugin', 'spip_depots_plugins AS t1', $where_depot);
-			$ids = array_map('reset', $ids);
+			$ids = array_column($ids, 'id_plugin');
 			$where[] = sql_in('t2.id_plugin', $ids);
 		}
 		if ($compatible_spip) {

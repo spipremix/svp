@@ -153,12 +153,12 @@ function svp_base_modifier_paquets_locaux($paquets_locaux) {
 	// tous les paquets du depot qui ne font pas parti des signatures
 	$anciens_paquets = sql_allfetsel('id_paquet', 'spip_paquets',
 		array('id_depot=' . sql_quote(0), sql_in('signature', array_keys($signatures), 'NOT')));
-	$anciens_paquets = array_map('array_shift', $anciens_paquets);
+	$anciens_paquets = array_column($anciens_paquets, 'id_paquet');
 
 	// tous les plugins correspondants aux anciens paquets
 	$anciens_plugins = sql_allfetsel('p.id_plugin', array('spip_plugins AS p', 'spip_paquets AS pa'),
 		array('p.id_plugin=pa.id_plugin', sql_in('pa.id_paquet', $anciens_paquets)));
-	$anciens_plugins = array_map('array_shift', $anciens_plugins);
+	$anciens_plugins = array_column($anciens_plugins, 'id_plugin');
 
 	// suppression des anciens paquets
 	sql_delete('spip_paquets', sql_in('id_paquet', $anciens_paquets));
@@ -168,7 +168,7 @@ function svp_base_modifier_paquets_locaux($paquets_locaux) {
 
 	// on ne garde que les paquets qui ne sont pas presents dans la base
 	$signatures_base = sql_allfetsel('signature', 'spip_paquets', 'id_depot=' . sql_quote(0));
-	$signatures_base = array_map('array_shift', $signatures_base);
+	$signatures_base = array_column($signatures_base, 'signature');
 	$signatures = array_diff_key($signatures, array_flip($signatures_base));
 
 	// on recree la liste des paquets locaux a inserer
@@ -673,7 +673,7 @@ function svp_supprimer_plugins_orphelins($ids_plugin) {
 	if ($ids_plugin) {
 		$p = sql_allfetsel('DISTINCT(p.id_plugin)', array('spip_plugins AS p', 'spip_paquets AS pa'),
 			array(sql_in('p.id_plugin', $ids_plugin), 'p.id_plugin=pa.id_plugin'));
-		$p = array_map('array_shift', $p);
+		$p = array_column($p, 'id_plugin');
 		$diff = array_diff($ids_plugin, $p);
 		// pour chaque plugin non encore utilise, on les vire !
 		sql_delete('spip_plugins', sql_in('id_plugin', $diff));

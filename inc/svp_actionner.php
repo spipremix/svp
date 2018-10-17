@@ -352,11 +352,7 @@ class Actionneur {
 		// 1) déjà les préfixes directement nécessités
 		foreach ($infos as $i => $info) {
 			if (!empty($info['dn'])) {
-				# à remplacer par array_column($info['dn'], 'nom') un jour
-				$necessites[$info['p']] = array();
-				foreach ($info['dn'] as $n) { 
-					$necessites[$info['p']][] = $n['nom'];
-				}
+				$necessites[$info['p']] = array_column($info['dn'], 'nom');
 			}
 			// préparer la clé dp (dépendances préfixes) et 'dmp' (dépendent de moi) vide
 			$infos[$i]['dp'] = array();
@@ -1451,7 +1447,7 @@ class Actionneur {
 		}
 
 		$plugs = sql_allfetsel('src_archive', 'spip_paquets', 'actif=' . sql_quote('oui'));
-		$plugs = array_map('array_shift', $plugs);
+		$plugs = array_column($plugs, 'src_archive');
 		foreach ($plugs as $dossier) {
 			$dossiers[$dossier] = true;
 			$plugins_interessants[rtrim($dossier, '/')] = 30; // score initial
