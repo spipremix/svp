@@ -267,9 +267,9 @@ function compiler_branches_spip($intervalle) {
 		$bornes['max']['incluse'] = true;
 	}
 	// On les nettoie des suffixes d'etat
-	$borne_inf = strtolower(preg_replace(',([0-9])[\s-.]?(dev|alpha|a|beta|b|rc|pl|p),i', '\\1',
+	$borne_inf = strtolower(preg_replace(',([0-9])[\s.-]?(dev|alpha|a|beta|b|rc|pl|p),i', '\\1',
 		$bornes['min']['valeur']));
-	$borne_sup = strtolower(preg_replace(',([0-9])[\s-.]?(dev|alpha|a|beta|b|rc|pl|p),i', '\\1',
+	$borne_sup = strtolower(preg_replace(',([0-9])[\s.-]?(dev|alpha|a|beta|b|rc|pl|p),i', '\\1',
 		$bornes['max']['valeur']));
 
 	// On determine les branches inf et sup issues du phrasage de l'intervalle
@@ -488,7 +488,7 @@ function normaliser_version($version = '') {
 
 	$version_normalisee = '';
 
-	if (preg_match(',([0-9.]+)[\s-.]?(dev|alpha|a|beta|b|rc|pl|p)?,i', $version, $matches)) {
+	if (preg_match(',([0-9.]+)[\s.-]?(dev|alpha|a|beta|b|rc|pl|p)?,i', $version, $matches)) {
 		if (isset($matches[1]) and $matches[1]) {
 			$v = explode('.', $matches[1]);
 			$vn = array();
