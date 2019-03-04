@@ -1,7 +1,7 @@
 <paquet
 	prefix="svp"
 	categorie="maintenance"
-	version="1.5.0"
+	version="1.6.0"
 	etat="stable"
 	compatibilite="[3.3.0-dev;3.3.*]"
 	logo="svp-64.png"
@@ -20,6 +20,7 @@
 	<pipeline nom="declarer_tables_interfaces" inclure="base/svp_declarer.php" />
 	<pipeline nom="declarer_tables_objets_sql" inclure="base/svp_declarer.php" />
 	<pipeline nom="declarer_tables_auxiliaires" inclure="base/svp_declarer.php" />
+	<pipeline nom="lister_champs_selection_conditionnelle" inclure="svp_pipelines.php" />
 	<pipeline nom="taches_generales_cron" inclure="genie/svp_taches_generales_cron.php" />
 	<pipeline nom="autoriser" inclure="svp_pipelines.php" />
 	<pipeline nom="pre_boucle" inclure="svp_pipelines.php" />

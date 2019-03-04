@@ -136,3 +136,23 @@ function svp_pre_boucle($boucle) {
 	return $boucle;
 
 }
+
+/**
+ * Enlever les id_ des tables SVP du critère selections conditionnelles,
+ * ailleurs que sur les tables de SVP
+ *
+ * @param array $flux
+ * @return array
+ */
+function svp_lister_champs_selection_conditionnelle($flux) {
+	if (!in_array(
+		$flux['args']['table'],
+		array('spip_depots', 'spip_plugins', 'spip_paquets')
+	)) {
+		$flux['data'] = array_diff(
+			$flux['data'],
+			array('id_depot', 'id_paquet', 'id_plugin')
+		);
+	}
+	return $flux;
+}
