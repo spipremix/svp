@@ -432,7 +432,6 @@ function svp_compter_plugins($id_depot = 0, $categorie = '', $compatible_spip = 
 function svp_compter($entite, $id_depot = 0, $categorie = '', $compatible_spip = '') {
 	$compteurs = array();
 
-	$group_by = array();
 	$where = array();
 	if ($id_depot) {
 		$where[] = "t1.id_depot=" . sql_quote($id_depot);
@@ -441,7 +440,7 @@ function svp_compter($entite, $id_depot = 0, $categorie = '', $compatible_spip =
 	}
 
 	if ($entite == 'plugin') {
-		$from = 'spip_plugins AS t2, spip_depots_plugins AS t1';
+		$from = array('spip_plugins AS t2', 'spip_depots_plugins AS t1');
 		$where[] = "t1.id_plugin=t2.id_plugin";
 		if ($categorie) {
 			$where[] = "t2.categorie=" . sql_quote($categorie);
@@ -450,33 +449,34 @@ function svp_compter($entite, $id_depot = 0, $categorie = '', $compatible_spip =
 			$creer_where = charger_fonction('where_compatible_spip', 'inc');
 			$where[] = $creer_where($compatible_spip, 't2', '>');
 		}
-		$compteurs['plugin'] = sql_count(sql_select('t2.id_plugin', $from, $where));
+		$compteurs['plugin'] = sql_count(sql_select('DISTINCT t1.id_plugin', $from, $where));
 	} elseif ($entite == 'paquet') {
+		$from = array('spip_paquets AS t1');
 		if ($categorie) {
 			$ids = sql_allfetsel('id_plugin', 'spip_plugins', 'categorie=' . sql_quote($categorie));
-			$ids = array_map('reset', $ids);
+			$ids = array_column($ids, 'id_plugin');
 			$where[] = sql_in('t1.id_plugin', $ids);
 		}
 		if ($compatible_spip) {
 			$creer_where = charger_fonction('where_compatible_spip', 'inc');
 			$where[] = $creer_where($compatible_spip, 't1', '>');
 		}
-		$compteurs['paquet'] = sql_countsel('spip_paquets AS t1', $where);
+		$compteurs['paquet'] = sql_countsel($from, $where);
 	} elseif ($entite == 'depot') {
-		$champs = array(
+		$from = array('spip_depots AS t1');
+		$select = array(
 			'COUNT(t1.id_depot) AS depot',
 			'SUM(t1.nbr_plugins) AS plugin',
 			'SUM(t1.nbr_paquets) AS paquet',
 			'SUM(t1.nbr_autres) AS autre'
 		);
-		$compteurs = sql_fetsel($champs, 'spip_depots AS t1', $where);
+		$compteurs = sql_fetsel($select, $from, $where);
 	} elseif ($entite == 'categorie') {
-		$from = array('spip_plugins AS t2');
-		$where_depot = $where[0];
-		$where = array();
+		$from = array('spip_plugins AS t2', 'spip_depots_plugins AS t1');
+		$where[] = "t1.id_plugin=t2.id_plugin";
 		if ($id_depot) {
-			$ids = sql_allfetsel('id_plugin', 'spip_depots_plugins AS t1', $where_depot);
-			$ids = array_map('reset', $ids);
+			$ids = sql_allfetsel('id_plugin', 'spip_depots_plugins AS t1', $where);
+			$ids = array_column($ids, 'id_plugin');
 			$where[] = sql_in('t2.id_plugin', $ids);
 		}
 		if ($compatible_spip) {
@@ -485,10 +485,13 @@ function svp_compter($entite, $id_depot = 0, $categorie = '', $compatible_spip =
 		}
 		if ($categorie) {
 			$where[] = "t2.categorie=" . sql_quote($categorie);
+			$compteurs['categorie'] = sql_count(sql_select('DISTINCT t1.id_plugin', $from, $where));
 		} else {
+			$select = array('t2.categorie', 'count(DISTINCT t1.id_plugin) as nb');
 			$group_by = array('t2.categorie');
+			$plugins = sql_allfetsel($select, $from, $where, $group_by);
+			$compteurs['categorie'] = array_column($plugins, 'nb', 'categorie');
 		}
-		$compteurs['categorie'] = sql_countsel($from, $where, $group_by);
 	}
 
 	return $compteurs;
