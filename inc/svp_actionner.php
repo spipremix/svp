@@ -207,6 +207,7 @@ class Actionneur {
 	 *
 	 * @param string $nom Nom de la librairie
 	 * @param string $source URL pour obtenir la librairie
+	 * @return bool
 	 */
 	public function add_lib($nom, $source) {
 		if (!$this->decideur->est_presente_lib($nom)) {
@@ -887,13 +888,18 @@ class Actionneur {
 	 * @see Actionneur::sauver_actions()
 	 **/
 	public function get_actions() {
-		lire_fichier(_DIR_TMP . 'stp_actions.txt', $contenu);
-		$infos = unserialize($contenu);
-		$this->end = $infos['todo'];
-		$this->work = $infos['work'];
-		$this->done = $infos['done'];
-		$this->err = $infos['err'];
-		$this->lock = $infos['lock'];
+		if (
+			lire_fichier(_DIR_TMP . 'stp_actions.txt', $contenu)
+			and $contenu
+			and $infos = unserialize($contenu)
+			and is_array($infos)
+		) {
+			$this->end = $infos['todo'];
+			$this->work = $infos['work'];
+			$this->done = $infos['done'];
+			$this->err = $infos['err'];
+			$this->lock = $infos['lock'];
+		}
 	}
 
 	/**
@@ -902,7 +908,7 @@ class Actionneur {
 	 * Remet tout à zéro pour pouvoir repartir d'un bon pied.
 	 **/
 	public function nettoyer_actions() {
-		$this->todo = array();
+		$this->end = array();
 		$this->done = array();
 		$this->work = array();
 		$this->err = array();
