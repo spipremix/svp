@@ -432,7 +432,6 @@ function svp_compter_plugins($id_depot = 0, $categorie = '', $compatible_spip = 
 function svp_compter($entite, $id_depot = 0, $categorie = '', $compatible_spip = '') {
 	$compteurs = array();
 
-	$group_by = array();
 	$where = array();
 	if ($id_depot) {
 		$where[] = "t1.id_depot=" . sql_quote($id_depot);
@@ -441,7 +440,7 @@ function svp_compter($entite, $id_depot = 0, $categorie = '', $compatible_spip =
 	}
 
 	if ($entite == 'plugin') {
-		$from = 'spip_plugins AS t2, spip_depots_plugins AS t1';
+		$from = array('spip_plugins AS t2', 'spip_depots_plugins AS t1');
 		$where[] = "t1.id_plugin=t2.id_plugin";
 		if ($categorie) {
 			$where[] = "t2.categorie=" . sql_quote($categorie);
@@ -450,8 +449,9 @@ function svp_compter($entite, $id_depot = 0, $categorie = '', $compatible_spip =
 			$creer_where = charger_fonction('where_compatible_spip', 'inc');
 			$where[] = $creer_where($compatible_spip, 't2', '>');
 		}
-		$compteurs['plugin'] = sql_count(sql_select('t2.id_plugin', $from, $where));
+		$compteurs['plugin'] = sql_count(sql_select('DISTINCT t1.id_plugin', $from, $where));
 	} elseif ($entite == 'paquet') {
+		$from = array('spip_paquets AS t1');
 		if ($categorie) {
 			$ids = sql_allfetsel('id_plugin', 'spip_plugins', 'categorie=' . sql_quote($categorie));
 			$ids = array_column($ids, 'id_plugin');
@@ -461,21 +461,21 @@ function svp_compter($entite, $id_depot = 0, $categorie = '', $compatible_spip =
 			$creer_where = charger_fonction('where_compatible_spip', 'inc');
 			$where[] = $creer_where($compatible_spip, 't1', '>');
 		}
-		$compteurs['paquet'] = sql_countsel('spip_paquets AS t1', $where);
+		$compteurs['paquet'] = sql_countsel($from, $where);
 	} elseif ($entite == 'depot') {
-		$champs = array(
+		$from = array('spip_depots AS t1');
+		$select = array(
 			'COUNT(t1.id_depot) AS depot',
 			'SUM(t1.nbr_plugins) AS plugin',
 			'SUM(t1.nbr_paquets) AS paquet',
 			'SUM(t1.nbr_autres) AS autre'
 		);
-		$compteurs = sql_fetsel($champs, 'spip_depots AS t1', $where);
+		$compteurs = sql_fetsel($select, $from, $where);
 	} elseif ($entite == 'categorie') {
-		$from = array('spip_plugins AS t2');
-		$where_depot = $where[0];
-		$where = array();
+		$from = array('spip_plugins AS t2', 'spip_depots_plugins AS t1');
+		$where[] = "t1.id_plugin=t2.id_plugin";
 		if ($id_depot) {
-			$ids = sql_allfetsel('id_plugin', 'spip_depots_plugins AS t1', $where_depot);
+			$ids = sql_allfetsel('id_plugin', 'spip_depots_plugins AS t1', $where);
 			$ids = array_column($ids, 'id_plugin');
 			$where[] = sql_in('t2.id_plugin', $ids);
 		}
@@ -485,10 +485,13 @@ function svp_compter($entite, $id_depot = 0, $categorie = '', $compatible_spip =
 		}
 		if ($categorie) {
 			$where[] = "t2.categorie=" . sql_quote($categorie);
+			$compteurs['categorie'] = sql_count(sql_select('DISTINCT t1.id_plugin', $from, $where));
 		} else {
+			$select = array('t2.categorie', 'count(DISTINCT t1.id_plugin) as nb');
 			$group_by = array('t2.categorie');
+			$plugins = sql_allfetsel($select, $from, $where, $group_by);
+			$compteurs['categorie'] = array_column($plugins, 'nb', 'categorie');
 		}
-		$compteurs['categorie'] = sql_countsel($from, $where, $group_by);
 	}
 
 	return $compteurs;
@@ -707,14 +710,14 @@ function svp_calculer_url_demo($url_demo, $url_absolue = false) {
 }
 
 /**
- * Critère de compatibilité avec une version précise ou une branche de SPIP.
+ * Critère de compatibilité avec une version précise ou une branche de SPIP ou une liste de branches séparées par
+ * une virgule.
  *
- * Fonctionne sur les tables spip_paquets et spip_plugins
+ * Fonctionne sur les tables spip_paquets et spip_plugins.
+ * Si aucune valeur n'est explicité dans le critère on interroge le contexte pour trouver une variable
+ * compatible_spip et sinon tous les objets sont retournés.
  *
- * Si aucune valeur n'est explicité dans le critère, tous les enregistrements
- * sont retournés.
- *
- * Le ! (NOT) fonctionne sur le critère BRANCHE
+ * Le ! (NOT) ne fonctionne que sur une branche ou une liste de branches SPIP.
  *
  * @critere
  * @example
@@ -722,42 +725,62 @@ function svp_calculer_url_demo($url_demo, $url_absolue = false) {
  *   {compatible_spip 2.0.8} ou {compatible_spip 1.9}
  *   {compatible_spip #ENV{vers}} ou {compatible_spip #ENV{vers, 1.9.2}}
  *   {compatible_spip #GET{vers}} ou {compatible_spip #GET{vers, 2.1}}
+ *   {compatible_spip '2.0,2.1'}
+ *   {!compatible_spip 2.0}
+ *   {!compatible_spip '2.0,2.1'}
+ *   {!compatible_spip #ENV{vers}} ou {!compatible_spip #GET{vers}}
  *
  * @param string $idb Identifiant de la boucle
  * @param array $boucles AST du squelette
  * @param Critere $crit Paramètres du critère dans cette boucle
+ *
  * @return void
  */
 function critere_compatible_spip_dist($idb, &$boucles, $crit) {
 
+	// Initialisation de la table (spip_plugins ou spip_paquets)
 	$boucle = &$boucles[$idb];
 	$table = $boucle->id_table;
 
-	// Si on utilise ! la fonction LOCATE doit retourner 0.
-	// -> utilise uniquement avec le critere BRANCHE
+	// Initialisation du numéro de critère pour utiliser plusieurs fois le critère dans la même boucle
+	static $i = 1;
+
+	// La fonction LOCATE retourne soit 0 (pas trouvée) soit une valeur strictement supérieure à 0 (trouvée).
+	// Donc avec le modificateur not l'opérateur est un "=", sinon un ">".
+	// Le NOT s'utilise uniquement avec une branche SPIP (ex 2.0).
 	$op = ($crit->not == '!') ? '=' : '>';
 
+	// On calcule le code des critères.
+	// -- Initialisation avec le chargement de la fonction de calcul du critère.
 	$boucle->hash .= '
 	// COMPATIBILITE SPIP
 	$creer_where = charger_fonction(\'where_compatible_spip\', \'inc\');';
 
-	// version/branche explicite dans l'appel du critere
-	if (isset($crit->param[0][0])) {
-		$version = calculer_liste(array($crit->param[0][0]), array(), $boucles, $boucle->id_parent);
-		$boucle->hash .= '
-		$where = $creer_where(' . $version . ', \'' . $table . '\', \'' . $op . '\');
-		';
-	}
-	// pas de version/branche explicite dans l'appel du critere
-	// on regarde si elle est dans le contexte
-	else {
+	// On traite le critère suivant que la version ou la branche est explicitement fournie ou pas.
+	if (!empty($crit->param)) {
+		// La ou les versions/branches sont explicites dans l'appel du critere.
+		// - on boucle sur les paramètres sachant qu'il est possible de fournir une liste séparée par une virgule
+		//   (ex 3.2,3.1)
+		foreach ($crit->param as $_param) {
+			if (isset($_param[0])) {
+				$version = calculer_liste(array($_param[0]), array(), $boucles, $boucle->id_parent);
+				$boucle->hash .= '
+				$where' . $i . ' = $creer_where(' . $version . ', \'' . $table . '\', \'' . $op . '\');
+				';
+				$boucle->where[] = '$where' . $i;
+				$i++;
+			}
+		}
+	} else {
+		// Pas de version ou de branche explicite dans l'appel du critere.
+		// - on regarde si elle est dans le contexte
 		$boucle->hash .= '
 		$version = isset($Pile[0][\'compatible_spip\']) ? $Pile[0][\'compatible_spip\'] : \'\';
-		$where = $creer_where($version, \'' . $table . '\', \'' . $op . '\');
+		$where' . $i . '  = $creer_where($version, \'' . $table . '\', \'' . $op . '\');
 		';
+		$boucle->where[] = '$where' . $i;
+		$i++;
 	}
-
-	$boucle->where[] = '$where';
 }
 
 /**
