@@ -1,0 +1,19 @@
+{
+    "name": "spip/svp",
+    "type": "spip-plugin",
+    "description": "SerVeur d'information et de téléchargement des Plugins",
+    "license": "GPL-3.0-or-later",
+    "authors": [{
+        "name": "Collectif SPIP",
+        "email": "spip-dev@rezo.net"
+    }],
+    "require": {
+        "spip/archiviste": "dev-master"
+    },
+    "minimum-stability": "dev",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.6.x-dev"
+        }
+    }
+}
